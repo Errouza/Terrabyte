@@ -6,12 +6,12 @@
   html {
     scroll-behavior: smooth;
     color-scheme: dark;
-    background-color: #07253d;
+    background-color: #0b385e;
   }
 
   body {
     font-family: 'Montserrat', system-ui, sans-serif;
-    background-color: #07253d;
+    background-color: #0b385e;
     color: #ffffff;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
@@ -21,13 +21,13 @@
 
 /* ─── Dot Grid Background ───────────────────────────────────────────────── */
 .dot-grid {
-  background-image: radial-gradient(circle, rgba(0, 209, 178, 0.16) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(0, 209, 178, 0.22) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
 /* ─── Section Dividers ───────────────────────────────────────────────────── */
 .rule {
-  border-color: rgba(0, 209, 178, 0.15);
+  border-color: rgba(0, 209, 178, 0.25);
 }
 
 /* ─── Typography & Labels ───────────────────────────────────────────────── */
@@ -38,6 +38,7 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #00d1b2;
+  text-shadow: 0 0 12px rgba(0, 209, 178, 0.55);
 }
 
 .stat-num {
@@ -61,8 +62,8 @@
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #9db4c8;
-  transition: color 0.2s ease;
+  color: #c0d5e8;
+  transition: all 0.2s ease;
   position: relative;
   padding: 0.5rem 0;
 }
@@ -71,6 +72,7 @@
 .nav-link.active,
 .nav-link.router-link-exact-active {
   color: #ffffff;
+  text-shadow: 0 0 12px rgba(0, 209, 178, 0.8);
 }
 
 .nav-link.active::after,
@@ -82,7 +84,7 @@
   right: 0;
   height: 2px;
   background-color: #00d1b2;
-  box-shadow: 0 0 10px rgba(0, 209, 178, 0.6);
+  box-shadow: 0 0 12px #00d1b2, 0 0 24px rgba(0, 209, 178, 0.85);
 }
 
 /* ─── Buttons ───────────────────────────────────────────────────────────── */
@@ -99,18 +101,18 @@
   text-transform: uppercase;
   background-color: #00d1b2;
   color: #001f3f;
-  border: 1px solid #00d1b2;
-  border-radius: 0.75rem;
-  box-shadow: 0 0 16px rgba(0, 209, 178, 0.35);
-  transition: all 0.2s ease;
+  border: 1.5px solid #00d1b2;
+  border-radius: 0.85rem;
+  box-shadow: 0 0 20px rgba(0, 209, 178, 0.55), 0 0 40px rgba(0, 209, 178, 0.25);
+  transition: all 0.25s ease;
   cursor: pointer;
 }
 
 .btn-primary:hover {
-  background-color: #00b89d;
-  border-color: #00b89d;
-  box-shadow: 0 0 24px rgba(0, 209, 178, 0.55);
-  transform: translateY(-1px);
+  background-color: #12ebd0;
+  border-color: #12ebd0;
+  box-shadow: 0 0 32px rgba(0, 209, 178, 0.85), 0 0 65px rgba(0, 209, 178, 0.45);
+  transform: translateY(-2px);
 }
 
 .btn-outline {
@@ -124,71 +126,118 @@
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  background-color: transparent;
+  background-color: rgba(9, 44, 74, 0.5);
   color: #ffffff;
-  border: 1px solid rgba(0, 209, 178, 0.4);
-  border-radius: 0.75rem;
-  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.85rem;
+  box-shadow: 0 0 14px rgba(0, 209, 178, 0.25), inset 0 0 10px rgba(0, 209, 178, 0.15);
+  transition: all 0.25s ease;
   cursor: pointer;
 }
 
 .btn-outline:hover {
   border-color: #00d1b2;
-  background-color: rgba(0, 209, 178, 0.12);
-  color: #00d1b2;
-  box-shadow: 0 0 15px rgba(0, 209, 178, 0.25);
-  transform: translateY(-1px);
+  background-color: rgba(0, 209, 178, 0.2);
+  color: #ffffff;
+  box-shadow: 0 0 24px rgba(0, 209, 178, 0.55), inset 0 0 16px rgba(0, 209, 178, 0.25);
+  transform: translateY(-2px);
 }
 
 /* ─── Form Inputs ───────────────────────────────────────────────────────── */
 .pro-input {
   width: 100%;
-  background-color: rgba(9, 44, 74, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 0.75rem;
+  background-color: rgba(9, 48, 80, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 0.85rem;
   color: #ffffff;
   padding: 0.75rem 1rem;
   font-size: 0.875rem;
   font-family: 'Montserrat', sans-serif;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .pro-input::placeholder {
-  color: #6c889f;
+  color: #8daac2;
 }
 
 .pro-input:focus {
   outline: none;
   border-color: #00d1b2;
-  background-color: rgba(9, 44, 74, 0.9);
-  box-shadow: 0 0 12px rgba(0, 209, 178, 0.25);
+  background-color: rgba(9, 48, 80, 0.95);
+  box-shadow: 0 0 20px rgba(0, 209, 178, 0.5), inset 0 0 12px rgba(0, 209, 178, 0.18);
 }
 
-/* ─── Glassmorphism Panels ──────────────────────────────────────────────── */
-.figma-card {
-  background: rgba(9, 44, 74, 0.45);
+/* ─── NEON GLASS FRAME & CARD SYSTEM (Uniform Radiant Glow) ───────────────── */
+
+/* 1. Primary Highlight Neon Frame (Centerpiece Frame) */
+.neon-glass-frame {
+  background: rgba(9, 44, 76, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 2px solid #00d1b2;
+  border-radius: 1.5rem;
+  box-shadow: 
+    0 0 22px rgba(0, 209, 178, 0.5),
+    0 0 50px rgba(0, 209, 178, 0.2),
+    inset 0 0 20px rgba(0, 209, 178, 0.18);
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.neon-glass-frame:hover {
+  border-color: #5ce6d4;
+  box-shadow: 
+    0 0 35px rgba(0, 209, 178, 0.75),
+    0 0 75px rgba(0, 209, 178, 0.35),
+    inset 0 0 26px rgba(0, 209, 178, 0.25);
+  transform: translateY(-3px);
+}
+
+/* 2. Sleek Glass Cards (Clean, calm, neutral border by default - LIGHTS UP into neon ONLY when hovered or selected) */
+.neon-card {
+  background: rgba(11, 48, 82, 0.45);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 209, 178, 0.15);
-  border-radius: 1rem;
-  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.figma-card:hover {
-  background: rgba(9, 44, 74, 0.65);
-  border-color: rgba(0, 209, 178, 0.35);
+.neon-card:hover {
+  border-color: #00d1b2;
+  background: rgba(13, 56, 96, 0.75);
+  box-shadow: 
+    0 0 22px rgba(0, 209, 178, 0.55),
+    0 0 45px rgba(0, 209, 178, 0.2),
+    inset 0 0 16px rgba(0, 209, 178, 0.16);
+  transform: translateY(-3px);
 }
 
-/* ─── Scrollbar ─────────────────────────────────────────────────────────── */
+/* 3. Radiant Text Glow */
+.neon-text {
+  text-shadow: 
+    0 0 14px rgba(0, 209, 178, 0.8),
+    0 0 30px rgba(0, 209, 178, 0.45);
+}
+
+/* 4. Speed / Laser Radiant Light Beams */
+.neon-light-beam {
+  position: absolute;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(0, 209, 178, 0.55) 0%, rgba(0, 209, 178, 0.12) 60%, transparent 100%);
+  filter: blur(28px);
+  transform: rotate(-30deg);
+}
+
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #07253d;
+  background: #092c4a;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0c4363;
-}
-::-webkit-scrollbar-thumb:hover {
   background: #00d1b2;
+  box-shadow: 0 0 10px #00d1b2;
 }

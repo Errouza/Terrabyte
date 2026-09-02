@@ -21,7 +21,7 @@
 
         <!-- Left: High-Impact Inquiry Console (7 Cols) -->
         <div class="lg:col-span-7">
-          <div class="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#092c4a]/80 via-[#0a3556]/70 to-[#07253d]/90 backdrop-blur-md border border-[#00d1b2]/30 shadow-2xl">
+          <div class="p-8 sm:p-10 neon-glass-frame">
             <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
               <span class="font-mono text-xs text-[#00d1b2] uppercase tracking-wider font-semibold">
                 COMMUNICATION DISPATCH // ENCRYPTED
@@ -106,7 +106,7 @@
           <div
             v-for="off in officeList"
             :key="off.city"
-            class="p-6 rounded-2xl bg-[#092c4a]/40 hover:bg-[#0c375b]/60 backdrop-blur-md border border-white/10 hover:border-[#00d1b2]/40 transition-all duration-300 transform hover:-translate-y-1 shadow-lg"
+            class="p-6 neon-card"
           >
             <div class="flex items-center justify-between mb-3 border-b border-white/10 pb-3">
               <div>

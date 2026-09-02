@@ -6,6 +6,9 @@
       <div class="absolute inset-0 dot-grid opacity-35 pointer-events-none"></div>
       <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[750px] h-[500px] bg-[#00d1b2]/15 rounded-full blur-[140px] pointer-events-none"></div>
       <div class="absolute bottom-10 right-10 w-[400px] h-[300px] bg-[#3B82F6]/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <!-- Radiant Neon Light Beams (Speed/Laser Effect) -->
+      <div class="absolute -top-20 -right-20 w-[900px] h-[120px] neon-light-beam"></div>
+      <div class="absolute top-1/3 -left-32 w-[700px] h-[80px] neon-light-beam opacity-30"></div>
 
       <div class="max-w-7xl mx-auto px-6 lg:px-10 w-full relative z-10">
         <div class="max-w-3.5xl">
@@ -24,7 +27,7 @@
           <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl tracking-wide text-white leading-[1.1] mb-6">
             PRECISION POSITIONING &amp;<br />
             RADAR SURVEILLANCE FOR<br />
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00d1b2] via-[#5ce6d4] to-[#60A5FA]">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00d1b2] via-[#5ce6d4] to-[#60A5FA] neon-text">
               CRITICAL ENVIRONMENTS
             </span>
           </h1>
@@ -51,8 +54,8 @@
 
         <!-- 4-Stat Metric Grid -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-20 pt-10 border-t border-white/10">
-          <div v-for="stat in heroStats" :key="stat.label" class="p-4 rounded-xl bg-slate-900/30 border border-white/5 backdrop-blur-sm">
-            <div class="stat-num text-[#00d1b2]">{{ stat.value }}</div>
+          <div v-for="stat in heroStats" :key="stat.label" class="p-5 rounded-2xl neon-card group cursor-default">
+            <div class="stat-num text-[#00d1b2] group-hover:text-cyan-200 transition-colors" style="text-shadow: 0 0 16px rgba(0,209,178,0.5);">{{ stat.value }}</div>
             <div class="font-ui text-xs font-semibold tracking-wider uppercase text-white mt-1.5">{{ stat.label }}</div>
             <div class="font-body font-light text-[11px] text-[#6c889f] mt-0.5">{{ stat.sub }}</div>
           </div>
@@ -78,7 +81,7 @@
           <div
             v-for="pillar in pillars"
             :key="pillar.title"
-            class="relative group p-7 rounded-2xl bg-[#07243e]/50 hover:bg-[#0a3357]/70 backdrop-blur-md border border-white/10 hover:border-[#00d1b2]/50 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-[0_16px_36px_rgba(0,209,178,0.15)] flex flex-col justify-between overflow-hidden"
+            class="relative group p-7 neon-card flex flex-col justify-between overflow-hidden"
           >
             <!-- Glowing top accent gradient line -->
             <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#00d1b2]/0 group-hover:via-[#00d1b2] to-transparent transition-all duration-500"></div>
@@ -143,8 +146,8 @@
               @click="activeLayerIndex = idx"
               class="w-full text-left p-5 rounded-2xl transition-all duration-300 border flex items-center justify-between group cursor-pointer"
               :class="activeLayerIndex === idx
-                ? 'bg-[#093557]/90 border-[#00d1b2] shadow-[0_0_24px_rgba(0,209,178,0.2)] translate-x-1'
-                : 'bg-slate-900/30 border-white/10 hover:border-white/20 hover:bg-slate-900/60'"
+                ? 'neon-glass-frame translate-x-1'
+                : 'neon-card'"
             >
               <div class="space-y-1">
                 <div class="flex items-center space-x-2.5">
@@ -160,7 +163,7 @@
           </div>
 
           <!-- Right Telemetry Terminal (HUD Showcase) -->
-          <div class="lg:col-span-7 p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#092c4a]/90 via-[#0a3556]/80 to-[#07253d]/95 backdrop-blur-md border border-[#00d1b2]/30 shadow-[0_16px_40px_rgba(0,209,178,0.12)] relative overflow-hidden">
+          <div class="lg:col-span-7 p-8 sm:p-10 neon-glass-frame relative overflow-hidden">
             <!-- Corner Brackets HUD -->
             <div class="absolute top-4 left-4 text-[#00d1b2]/40 font-mono text-xs">+</div>
             <div class="absolute top-4 right-4 text-[#00d1b2]/40 font-mono text-xs">+</div>
@@ -208,7 +211,7 @@
           <div
             v-for="mission in missions"
             :key="mission.title"
-            class="group rounded-2xl bg-[#092c4a]/40 hover:bg-[#0c375b]/60 border border-white/10 hover:border-[#00d1b2]/40 overflow-hidden transition-all duration-300 transform hover:-translate-y-2 hover:shadow-[0_16px_36px_rgba(0,209,178,0.12)] flex flex-col justify-between"
+            class="group neon-card overflow-hidden flex flex-col justify-between"
           >
             <div class="relative h-52 overflow-hidden">
               <img :src="mission.image" :alt="mission.title" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
@@ -253,7 +256,7 @@
           <div
             v-for="item in testimonials"
             :key="item.author"
-            class="p-8 rounded-2xl bg-[#092c4a]/40 backdrop-blur-md border border-white/10 hover:border-[#00d1b2]/40 transition-all duration-300 flex flex-col justify-between relative shadow-lg"
+            class="p-8 neon-card flex flex-col justify-between relative"
           >
             <div class="text-[#00d1b2] text-3xl font-serif mb-4">“</div>
             <p class="font-body font-light text-sm leading-relaxed text-[#9db4c8] mb-8 flex-grow">
@@ -276,7 +279,7 @@
     <!-- ─── CALL TO ACTION BANNER ────────────────────────────────────── -->
     <section class="py-20 relative">
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
-        <div class="p-10 md:p-14 rounded-3xl bg-gradient-to-r from-[#07253d] via-[#0b3e64] to-[#07253d] border border-[#00d1b2]/30 shadow-[0_16px_50px_rgba(0,209,178,0.15)] flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="p-10 md:p-14 rounded-3xl bg-gradient-to-r from-[#07253d]/90 via-[#0b3e64]/80 to-[#07253d]/90 border border-white/15 hover:border-[#00d1b2]/50 hover:shadow-[0_0_30px_rgba(0,209,178,0.2)] transition-all duration-300 flex flex-col md:flex-row items-center justify-between gap-8">
           <div class="max-w-2xl space-y-2">
             <span class="font-ui text-xs font-bold tracking-widest text-[#00d1b2] uppercase">Direct Technical Consultation</span>
             <h3 class="font-display font-bold text-3xl text-white">Ready to Architect Your Mission System?</h3>

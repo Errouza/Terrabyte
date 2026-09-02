@@ -36,7 +36,7 @@
       <!-- Featured Product Hardware Showcase Card -->
       <div class="grid lg:grid-cols-12 gap-8 mb-20">
         <!-- Image & Chassis Viewer (7 Cols) -->
-        <div class="lg:col-span-7 relative overflow-hidden bg-gradient-to-br from-[#092c4a]/90 to-[#07253d]/90 backdrop-blur-md border border-[#00d1b2]/30 rounded-3xl p-4 shadow-2xl flex flex-col justify-between" style="min-height: 440px;">
+        <div class="lg:col-span-7 relative overflow-hidden neon-glass-frame p-4 flex flex-col justify-between" style="min-height: 440px;">
           <div class="relative w-full h-80 rounded-2xl overflow-hidden bg-black/40">
             <img
               :src="currentProduct.img"
@@ -75,7 +75,7 @@
         </div>
 
         <!-- Product Specs & Technical Datasheet (5 Cols) -->
-        <div class="lg:col-span-5 p-8 rounded-3xl bg-[#092c4a]/50 backdrop-blur-md border border-white/10 flex flex-col justify-between shadow-xl">
+        <div class="lg:col-span-5 p-8 neon-card flex flex-col justify-between">
           <div>
             <div class="flex items-center space-x-2 text-[#00d1b2] mb-2 font-mono text-xs font-bold uppercase tracking-widest">
               <span>{{ currentProduct.code }}</span>
@@ -113,7 +113,7 @@
           <div
             v-for="(prod, i) in productList"
             :key="prod.code"
-            class="p-7 rounded-2xl bg-[#092c4a]/40 hover:bg-[#0c375b]/60 backdrop-blur-md border border-white/10 hover:border-[#00d1b2]/40 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-[0_16px_36px_rgba(0,209,178,0.12)] flex flex-col justify-between group"
+            class="p-7 neon-card flex flex-col justify-between group"
           >
             <div>
               <div class="flex items-center justify-between mb-5">

@@ -31,15 +31,15 @@
 
           <!-- 3 Institutional Milestones -->
           <div class="grid grid-cols-3 gap-4 pt-4 border-t border-white/10">
-            <div class="p-4 rounded-2xl bg-[#092c4a]/50 border border-white/10 text-center">
+            <div class="p-4 neon-card text-center">
               <span class="font-display font-bold text-2xl text-[#00d1b2]">2010</span>
               <span class="font-ui text-[10px] text-[#6c889f] block uppercase mt-1">Founded in Jakarta</span>
             </div>
-            <div class="p-4 rounded-2xl bg-[#092c4a]/50 border border-white/10 text-center">
+            <div class="p-4 neon-card text-center">
               <span class="font-display font-bold text-2xl text-[#00d1b2]">1,200+</span>
               <span class="font-ui text-[10px] text-[#6c889f] block uppercase mt-1">Field Deployments</span>
             </div>
-            <div class="p-4 rounded-2xl bg-[#092c4a]/50 border border-white/10 text-center">
+            <div class="p-4 neon-card text-center">
               <span class="font-display font-bold text-2xl text-[#00d1b2]">100%</span>
               <span class="font-ui text-[10px] text-[#6c889f] block uppercase mt-1">Domestic IP</span>
             </div>
@@ -74,7 +74,7 @@
           <div
             v-for="val in coreValues"
             :key="val.num"
-            class="p-7 rounded-2xl bg-[#092c4a]/40 hover:bg-[#0c375b]/60 backdrop-blur-md border border-white/10 hover:border-[#00d1b2]/40 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-[0_16px_36px_rgba(0,209,178,0.12)] flex flex-col justify-between"
+            class="p-7 neon-card flex flex-col justify-between"
           >
             <div>
               <div class="flex items-center justify-between mb-5">
@@ -109,7 +109,7 @@
           <div
             v-for="leader in leaders"
             :key="leader.name"
-            class="p-6 bg-[#092c4a]/40 hover:bg-[#0c375b]/60 backdrop-blur-md border border-white/10 hover:border-[#00d1b2]/40 rounded-2xl transition-all duration-300 group transform hover:-translate-y-2 hover:shadow-[0_16px_36px_rgba(0,209,178,0.12)] flex flex-col justify-between"
+            class="p-6 neon-card group flex flex-col justify-between"
           >
             <div>
               <div class="relative overflow-hidden rounded-xl mb-5 h-56">
@@ -137,7 +137,7 @@
       </div>
 
       <!-- Global Accreditations & Standards Card -->
-      <div class="p-8 md:p-12 bg-gradient-to-r from-[#07253d]/90 via-[#0a3556]/80 to-[#07253d]/90 rounded-3xl border border-[#00d1b2]/25 backdrop-blur-md shadow-2xl">
+      <div class="p-8 md:p-12 rounded-3xl bg-gradient-to-r from-[#07253d]/90 via-[#0a3556]/80 to-[#07253d]/90 border border-white/15 hover:border-[#00d1b2]/50 hover:shadow-[0_0_30px_rgba(0,209,178,0.15)] transition-all duration-300">
         <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
           <div>
             <p class="section-label mb-2">Accredited Worldwide</p>

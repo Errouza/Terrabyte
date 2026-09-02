@@ -11,6 +11,9 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      htmlAttrs: {
+        lang: 'en', // Informs browser/Google Translate that the base language is English
+      },
       title: 'Terrabyte Geosystems — Enterprise Geodesy & Geospatial Systems',
       meta: [
         { charset: 'utf-8' },

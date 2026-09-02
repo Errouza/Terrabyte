@@ -22,7 +22,7 @@
         <div
           v-for="(sol, idx) in solutionsList"
           :key="sol.num"
-          class="relative group p-8 rounded-2xl bg-[#092c4a]/40 hover:bg-[#0c375b]/60 backdrop-blur-md border border-white/10 hover:border-[#00d1b2]/50 transition-all duration-300 transform hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(0,209,178,0.12)] flex flex-col justify-between overflow-hidden"
+          class="relative group p-8 neon-card flex flex-col justify-between overflow-hidden"
         >
           <!-- Subtle Top Right Ambient Glow -->
           <div class="absolute -top-10 -right-10 w-32 h-32 bg-[#00d1b2]/5 rounded-full blur-2xl group-hover:bg-[#00d1b2]/15 transition-all duration-500 pointer-events-none"></div>
@@ -62,7 +62,7 @@
       </div>
 
       <!-- Sector Capabilities Highlight Banner -->
-      <div class="mt-20 p-8 md:p-12 bg-gradient-to-r from-[#07253d]/90 via-[#0a3556]/80 to-[#07253d]/90 backdrop-blur-md border border-[#00d1b2]/25 rounded-3xl flex flex-col lg:flex-row items-center justify-between gap-8 shadow-[0_12px_40px_rgba(0,209,178,0.08)]">
+      <div class="mt-20 p-8 md:p-12 rounded-3xl bg-gradient-to-r from-[#07253d]/90 via-[#0a3556]/80 to-[#07253d]/90 border border-white/15 hover:border-[#00d1b2]/50 hover:shadow-[0_0_30px_rgba(0,209,178,0.15)] transition-all duration-300 flex flex-col lg:flex-row items-center justify-between gap-8">
         <div class="space-y-2 max-w-2xl">
           <div class="flex items-center space-x-2">
             <span class="px-2.5 py-0.5 rounded-full bg-[#00d1b2]/20 text-[#00d1b2] font-ui text-[11px] font-bold uppercase tracking-wider">Engineering SLA & Custom Integration</span>

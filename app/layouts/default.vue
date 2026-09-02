@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen text-white flex flex-col justify-between selection:bg-[#00d1b2]/30 selection:text-[#00d1b2] relative bg-[#07253d]">
+  <div class="min-h-screen text-white flex flex-col justify-between selection:bg-[#00d1b2]/30 selection:text-[#00d1b2] relative bg-[#0a3357]">
 
     <!-- ─── FIXED FADED BACKGROUND IMAGE & CINEMATIC GRADIENT ───────── -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
@@ -13,8 +13,9 @@
       <div
         class="absolute inset-0"
         style="background: 
-          radial-gradient(ellipse 90% 60% at 50% 15%, rgba(0, 209, 178, 0.14), transparent 70%),
-          linear-gradient(180deg, rgba(7, 37, 61, 0.60) 0%, rgba(9, 44, 74, 0.72) 40%, rgba(7, 37, 61, 0.85) 75%, #07253d 100%);"
+          radial-gradient(ellipse 90% 55% at 50% 10%, rgba(0, 209, 178, 0.28), transparent 75%),
+          radial-gradient(ellipse 70% 50% at 85% 60%, rgba(59, 130, 246, 0.25), transparent 70%),
+          linear-gradient(160deg, rgba(10, 48, 80, 0.78) 0%, rgba(14, 62, 102, 0.72) 30%, rgba(18, 76, 122, 0.68) 55%, rgba(13, 56, 94, 0.76) 80%, rgba(9, 42, 70, 0.84) 100%);"
       ></div>
       <!-- Subtle Tactical Dot Grid Overlay -->
       <div class="absolute inset-0 dot-grid opacity-20"></div>
@@ -24,7 +25,7 @@
       <!-- ─── FIXED GLASS HEADER / NAVBAR ─────────────────────────────── -->
       <nav
         class="fixed top-0 inset-x-0 z-50 transition-all duration-300"
-        :class="scrolled ? 'bg-[#07253d]/90 backdrop-blur-xl border-b border-[#00d1b2]/20 shadow-lg' : 'bg-transparent'"
+        :class="scrolled ? 'bg-[#09355a]/92 backdrop-blur-xl border-b border-[#00d1b2]/35 shadow-[0_4px_24px_rgba(0,209,178,0.2)]' : 'bg-transparent'"
       >
         <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-16">
 
@@ -32,8 +33,8 @@
           <NuxtLink to="/" class="flex items-center gap-5 group">
             <img src="/images/logoOnlyPutih.png" alt="Logo" class="h-[40px] w-auto object-contain -mr-3.5" />
             <div class="leading-none">
-              <div class="font-display font-bold text-base tracking-[0.2em] text-white uppercase group-hover:text-[#00d1b2] transition-colors">Terrabyte</div>
-              <div class="font-ui text-[9px] tracking-[0.22em] uppercase text-[#6c889f]">Geosystems Indonesia</div>
+              <div class="font-display font-bold text-base tracking-[0.2em] text-white uppercase group-hover:text-[#00d1b2] transition-colors notranslate" translate="no">Terrabyte</div>
+              <div class="font-ui text-[9px] tracking-[0.22em] uppercase text-[#6c889f] notranslate" translate="no">Geosystems Indonesia</div>
             </div>
           </NuxtLink>
 
@@ -98,7 +99,7 @@
       </main>
 
       <!-- ─── FOOTER ─────────────────────────────────────────────────── -->
-      <footer class="bg-[#051c2f]/80 backdrop-blur-md border-t border-[#00d1b2]/15">
+      <footer class="bg-[#082d4d]/85 backdrop-blur-md border-t border-[#00d1b2]/25">
         <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16">
           <div class="grid md:grid-cols-5 gap-12">
 
@@ -168,12 +169,12 @@ const navLinks = [
 
 const footerColumns = [
   {
-    group: 'Products',
+    group: 'Products & Services',
     items: [
-      { label: 'NX-700 GNSS Receiver', to: '/products' },
-      { label: 'NX-500 Radar', to: '/products' },
-      { label: 'NX-300 Platform', to: '/products' },
-      { label: 'Accessories & Antennas', to: '/products' },
+      { label: 'TerraPulse', to: '/products' },
+      { label: 'TerraGuard', to: '/products' },
+      { label: 'TerraWatch', to: '/products' },
+      { label: 'Geospatial Surveying', to: '/products' },
     ],
   },
   {
