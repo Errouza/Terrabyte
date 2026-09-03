@@ -7,7 +7,7 @@
       <img
         src="/images/hero-bg.jpg"
         alt="Terrabyte Background Texture"
-        class="w-full h-full object-cover opacity-45 filter contrast-110 brightness-90 scale-100"
+        class="w-full h-full object-cover opacity-35 filter contrast-115 brightness-95 scale-100"
       />
       <!-- Atmospheric Vignette & Deep Ocean-Teal Gradient Blend -->
       <div
@@ -22,45 +22,91 @@
     </div>
 
     <div class="relative z-10 flex flex-col min-h-screen justify-between">
-      <!-- ─── FIXED GLASS HEADER / NAVBAR ─────────────────────────────── -->
-      <nav
-        class="fixed top-0 inset-x-0 z-50 transition-all duration-300"
-        :class="scrolled ? 'bg-[#09355a]/92 backdrop-blur-xl border-b border-[#00d1b2]/35 shadow-[0_4px_24px_rgba(0,209,178,0.2)]' : 'bg-transparent'"
-      >
-        <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-16">
-
-          <!-- Logo -->
-          <NuxtLink to="/" class="flex items-center gap-5 group">
-            <img src="/images/logoOnlyPutih.png" alt="Logo" class="h-[40px] w-auto object-contain -mr-3.5" />
+      <!-- ─── CONTINUOUS SCROLL-DRIVEN DYNAMIC ISLAND NAVBAR ───────────── -->
+      <header class="fixed top-0 inset-x-0 z-50 pointer-events-none flex justify-center px-3 sm:px-6">
+        <nav
+          class="pointer-events-auto dynamic-island-nav w-full flex items-center justify-between relative border"
+          :style="{
+            transform: `translate3d(0, ${progress * 18}px, 0)`,
+            maxWidth: `${1280 - progress * (1280 - 940)}px`,
+            height: `${76 - progress * 20}px`,
+            borderRadius: `${progress * 50}px`,
+            backgroundColor: `rgba(${Math.round(10 - progress * 2)}, ${Math.round(48 - progress * 6)}, ${Math.round(80 - progress * 8)}, ${(0.25 + progress * 0.62).toFixed(2)})`,
+            borderColor: progress > 0.05 ? `rgba(0, 209, 178, ${(0.12 + progress * 0.36).toFixed(2)})` : 'rgba(255, 255, 255, 0.08)',
+            boxShadow: progress > 0.05
+              ? `0 ${Math.round(4 + progress * 12)}px ${Math.round(16 + progress * 24)}px rgba(0, 0, 0, ${(0.15 + progress * 0.35).toFixed(2)}), 0 0 ${Math.round(progress * 26)}px rgba(0, 209, 178, ${(progress * 0.24).toFixed(2)}), inset 0 0 ${Math.round(progress * 14)}px rgba(0, 209, 178, ${(progress * 0.12).toFixed(2)})`
+              : '0 4px 16px rgba(0, 0, 0, 0.1)',
+            padding: `0 ${(2.0 - progress * 0.5).toFixed(2)}rem`
+          }"
+        >
+          <!-- Brand Logo -->
+          <NuxtLink to="/" class="flex items-center gap-3 sm:gap-4 group flex-shrink-0">
+            <img
+              src="/images/logoOnlyPutih.png"
+              alt="Logo"
+              class="w-auto object-contain transition-all duration-300"
+              :style="{
+                height: `${Math.round(36 - progress * 8)}px`,
+                marginRight: `-${(12 - progress * 4)}px`
+              }"
+            />
             <div class="leading-none">
-              <div class="font-display font-bold text-base tracking-[0.2em] text-white uppercase group-hover:text-[#00d1b2] transition-colors notranslate" translate="no">Terrabyte</div>
-              <div class="font-ui text-[9px] tracking-[0.22em] uppercase text-[#6c889f] notranslate" translate="no">Geosystems Indonesia</div>
+              <div
+                class="font-display font-bold tracking-[0.2em] text-white uppercase group-hover:text-[#00d1b2] transition-all duration-300 notranslate"
+                :style="{ fontSize: `${(15 - progress * 2).toFixed(1)}px` }"
+                translate="no"
+              >
+                Terrabyte
+              </div>
+              <div
+                class="font-ui tracking-[0.22em] uppercase text-[#8daac2] notranslate transition-all duration-300"
+                :style="{ fontSize: `${(9 - progress * 1).toFixed(1)}px` }"
+                translate="no"
+              >
+                Geosystems Indonesia
+              </div>
             </div>
           </NuxtLink>
 
           <!-- Desktop Navigation Links -->
-          <div class="hidden md:flex items-center gap-8">
+          <div
+            class="hidden md:flex items-center transition-all duration-300"
+            :style="{ gap: `${(2.0 - progress * 0.5).toFixed(2)}rem` }"
+          >
             <NuxtLink
               v-for="link in navLinks"
               :key="link.to"
               :to="link.to"
-              class="nav-link"
+              class="nav-link transition-all duration-300"
               :class="$route.path === link.to ? 'active' : ''"
+              :style="{
+                fontSize: `${(13 - progress * 1).toFixed(1)}px`,
+                padding: `${(8 - progress * 3).toFixed(1)}px 0`
+              }"
             >
               {{ link.label }}
             </NuxtLink>
           </div>
 
-          <!-- Desktop CTA -->
-          <div class="hidden md:block">
-            <NuxtLink to="/contact" class="btn-primary">
-              Request Info
+          <!-- Desktop CTA Button -->
+          <div class="hidden md:block flex-shrink-0">
+            <NuxtLink
+              to="/contact"
+              class="btn-primary transition-all duration-300 flex items-center space-x-1.5"
+              :style="{
+                padding: `${(10 - progress * 4).toFixed(1)}px ${(24 - progress * 8).toFixed(1)}px`,
+                fontSize: `${(12 - progress * 1).toFixed(1)}px`,
+                borderRadius: `${Math.round(12 + progress * 88)}px`
+              }"
+            >
+              <span>Request Info</span>
+              <span v-if="progress > 0.6">&rarr;</span>
             </NuxtLink>
           </div>
 
           <!-- Mobile Toggle Button -->
           <button
-            class="md:hidden text-[#9db4c8] p-1.5 focus:outline-none hover:text-[#00d1b2]"
+            class="md:hidden text-[#9db4c8] p-1.5 focus:outline-none hover:text-[#00d1b2] transition-colors"
             @click="mobileOpen = !mobileOpen"
             aria-label="Toggle Navigation"
           >
@@ -69,29 +115,40 @@
               <path v-else stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
           </button>
+        </nav>
 
-        </div>
-
-        <!-- Mobile Dropdown -->
-        <div v-if="mobileOpen" class="md:hidden bg-[#001f3f]/95 backdrop-blur-xl border-t border-[#00d1b2]/20 px-6 py-5 flex flex-col gap-5">
-          <NuxtLink
-            v-for="link in navLinks"
-            :key="link.to"
-            :to="link.to"
-            class="nav-link text-sm"
-            @click="mobileOpen = false"
+        <!-- Mobile Dynamic Island Expansion Drawer -->
+        <Transition
+          enter-active-class="transition-all duration-300 ease-out"
+          enter-from-class="opacity-0 -translate-y-3 scale-95"
+          enter-to-class="opacity-100 translate-y-0 scale-100"
+          leave-active-class="transition-all duration-200 ease-in"
+          leave-from-class="opacity-100 translate-y-0 scale-100"
+          leave-to-class="opacity-0 -translate-y-3 scale-95"
+        >
+          <div
+            v-if="mobileOpen"
+            class="pointer-events-auto absolute top-full left-4 right-4 mt-2 max-w-md mx-auto p-5 rounded-3xl bg-[#082e4e]/95 backdrop-blur-2xl border border-[#00d1b2]/45 shadow-[0_20px_45px_rgba(0,0,0,0.6),0_0_24px_rgba(0,209,178,0.25)] flex flex-col gap-4 z-50 md:hidden"
           >
-            {{ link.label }}
-          </NuxtLink>
-          <NuxtLink
-            to="/contact"
-            class="btn-primary w-fit mt-2"
-            @click="mobileOpen = false"
-          >
-            Request Info
-          </NuxtLink>
-        </div>
-      </nav>
+            <NuxtLink
+              v-for="link in navLinks"
+              :key="link.to"
+              :to="link.to"
+              class="nav-link text-sm"
+              @click="mobileOpen = false"
+            >
+              {{ link.label }}
+            </NuxtLink>
+            <NuxtLink
+              to="/contact"
+              class="btn-primary w-full text-center mt-2 rounded-xl"
+              @click="mobileOpen = false"
+            >
+              Request Info
+            </NuxtLink>
+          </div>
+        </Transition>
+      </header>
 
       <!-- ─── MAIN CONTENT ─────────────────────────────────────────── -->
       <main class="flex-1">
@@ -108,8 +165,8 @@
               <NuxtLink to="/" class="flex items-center gap-5 mb-5 group inline-flex">
                 <img src="/images/logoOnlyPutih.png" alt="Logo" class="h-[40px] w-auto object-contain -mr-3.5" />
                 <div class="leading-none">
-                  <div class="font-display font-bold text-base tracking-[0.2em] text-white uppercase group-hover:text-[#00d1b2] transition-colors">Terrabyte</div>
-                  <div class="font-ui text-[9px] tracking-[0.22em] uppercase text-[#6c889f]">Geosystems Indonesia</div>
+                  <div class="font-display font-bold text-base tracking-[0.2em] text-white uppercase group-hover:text-[#00d1b2] transition-colors notranslate" translate="no">Terrabyte</div>
+                  <div class="font-ui text-[9px] tracking-[0.22em] uppercase text-[#6c889f] notranslate" translate="no">Geosystems Indonesia</div>
                 </div>
               </NuxtLink>
               <p class="font-body font-light text-xs leading-relaxed text-[#6c889f]">
@@ -154,10 +211,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 
-const scrolled = ref(false)
+const scrollY = ref(0)
 const mobileOpen = ref(false)
+
+// Smooth continuous interpolation between 0px and 85px scroll distance
+const progress = computed(() => {
+  return Math.min(1, Math.max(0, scrollY.value / 85))
+})
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -169,12 +231,12 @@ const navLinks = [
 
 const footerColumns = [
   {
-    group: 'Products & Services',
+    group: 'Products',
     items: [
-      { label: 'TerraPulse', to: '/products' },
-      { label: 'TerraGuard', to: '/products' },
-      { label: 'TerraWatch', to: '/products' },
-      { label: 'Geospatial Surveying', to: '/products' },
+      { label: 'NX-700 GNSS Receiver', to: '/products' },
+      { label: 'NX-500 Radar', to: '/products' },
+      { label: 'NX-300 Platform', to: '/products' },
+      { label: 'Accessories & Antennas', to: '/products' },
     ],
   },
   {
@@ -206,11 +268,19 @@ const footerColumns = [
   },
 ]
 
+let ticking = false
 const onScroll = () => {
-  scrolled.value = window.scrollY > 32
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      scrollY.value = window.scrollY
+      ticking = false
+    })
+    ticking = true
+  }
 }
 
 onMounted(() => {
+  scrollY.value = window.scrollY
   window.addEventListener('scroll', onScroll, { passive: true })
 })
 
