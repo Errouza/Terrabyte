@@ -3,6 +3,13 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
 
+  runtimeConfig: {
+    public: {
+      sanityProjectId: process.env.SANITY_PROJECT_ID || 'hzmtw7ck',
+      sanityDataset: process.env.SANITY_DATASET || 'production',
+    },
+  },
+
   modules: [
     '@nuxtjs/tailwindcss',
   ],

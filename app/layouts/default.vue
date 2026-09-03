@@ -225,6 +225,7 @@ const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/products', label: 'Products' },
   { to: '/solutions', label: 'Solutions' },
+  { to: '/articles', label: 'Articles' },
   { to: '/about', label: 'About' },
   { to: '/contact', label: 'Contact' },
 ]
@@ -254,6 +255,7 @@ const footerColumns = [
       { label: 'About Us', to: '/about' },
       { label: 'Leadership', to: '/about' },
       { label: 'Certifications', to: '/about' },
+      { label: 'Articles & Intel', to: '/articles' },
       { label: 'Careers', to: '/about' },
     ],
   },
