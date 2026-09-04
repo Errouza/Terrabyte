@@ -153,9 +153,12 @@ useHead({
   ]
 })
 
-const activeProductIndex = ref(0)
+const { getProducts } = useSanityContent()
+const { data: productsData } = await useAsyncData('products-catalog', () => getProducts())
+const productList = computed(() => productsData.value || [])
 
-const productList = [
+const activeProductIndex = ref(0)
+const _staticFallbackList = [
   {
     code: 'NX-700',
     tag: 'GNSS Receiver',
@@ -203,5 +206,5 @@ const productList = [
   },
 ]
 
-const currentProduct = computed(() => productList[activeProductIndex.value])
+const currentProduct = computed(() => productList.value[activeProductIndex.value] || _staticFallbackList[0])
 </script>

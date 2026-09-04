@@ -1,4 +1,7 @@
 import article from './article'
-import service from './service'
+import product from './product'
 
-export const schemaTypes = [article, service]
+export const schemaTypes = [
+  article,
+  product,
+]

@@ -13,51 +13,64 @@
       <div class="max-w-7xl mx-auto px-6 lg:px-10 w-full relative z-10">
         <div class="max-w-3.5xl">
           <!-- Live Telemetry Status Pill -->
-          <div class="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-[#00d1b2]/10 border border-[#00d1b2]/30 mb-6 backdrop-blur-md">
-            <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00d1b2] opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-[#00d1b2]"></span>
+          <div class="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-[#052840]/90 border border-[#00d1b2]/40 text-[#00d1b2] text-xs font-mono tracking-wider mb-8 backdrop-blur-md shadow-[0_0_20px_rgba(0,209,178,0.25)]">
+            <span class="w-2 h-2 rounded-full bg-[#00d1b2] animate-ping"></span>
+            <span class="w-2 h-2 rounded-full bg-[#00d1b2] -ml-4"></span>
+            <span class="text-xs font-mono tracking-widest text-[#00E5FF] uppercase font-bold">
+              ACTIVE // GEODESY &amp; RADAR DEFENSE DIVISION
             </span>
-            <span class="font-ui text-xs font-semibold tracking-widest uppercase text-[#00d1b2]">
-              Sovereign Geodesy &amp; Radar Integration
-            </span>
+            <span class="text-white/30">|</span>
+            <span class="text-white/70">TERRABYTE GEOSYSTEMS</span>
           </div>
 
-          <!-- Hero Headline -->
+          <!-- Hero Headline with Radiant High-Impact Neon Accents -->
           <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl tracking-wide text-white leading-[1.1] mb-6">
-            PRECISION POSITIONING &amp;<br />
-            RADAR SURVEILLANCE FOR<br />
+            PRECISION POSITIONING &amp;<br>
+            RADAR SURVEILLANCE FOR<br>
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00d1b2] via-[#5ce6d4] to-[#60A5FA] neon-text">
               CRITICAL ENVIRONMENTS
             </span>
           </h1>
 
           <!-- Subtitle -->
-          <p class="font-body font-light text-base sm:text-lg leading-relaxed text-[#9db4c8] max-w-2xl mb-10">
-            Terrabyte Geosystems designs and manufactures high-integrity GNSS receivers, solid-state phased-array radar, and autonomous sensor fusion engines engineered for zero-compromise sovereign missions.
+          <p class="font-body font-light text-base sm:text-lg text-[#9db4c8] leading-relaxed max-w-2xl mb-10">
+            Carrier-phase GNSS precision, solid-state radar telemetry, and autonomous sensor fusion hardware engineered for severe operational environments across Indonesia's strategic archipelagic domains.
           </p>
 
           <!-- CTAs -->
-          <div class="flex flex-wrap items-center gap-4">
-            <NuxtLink to="/products" class="btn-primary shadow-[0_0_25px_rgba(0,209,178,0.4)]">
-              <span>Explore Platforms</span>
-              <span>&rarr;</span>
+          <div class="flex flex-wrap gap-4 items-center mb-16">
+            <NuxtLink
+              to="/products"
+              class="btn-primary"
+            >
+              EXPLORE PLATFORMS
+              <span class="ml-1 font-bold">→</span>
             </NuxtLink>
-            <NuxtLink to="/solutions" class="btn-outline">
-              Domain Solutions
-            </NuxtLink>
-            <NuxtLink to="/contact" class="px-5 py-3 text-xs font-semibold tracking-wider text-[#9db4c8] hover:text-white uppercase transition-colors">
-              Speak With An Engineer &rarr;
+            <NuxtLink
+              to="/contact"
+              class="btn-secondary"
+            >
+              REQUEST BRIEFING
             </NuxtLink>
           </div>
-        </div>
 
-        <!-- 4-Stat Metric Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-20 pt-10 border-t border-white/10">
-          <div v-for="stat in heroStats" :key="stat.label" class="p-5 rounded-2xl neon-card group cursor-default">
-            <div class="stat-num text-[#00d1b2] group-hover:text-cyan-200 transition-colors" style="text-shadow: 0 0 16px rgba(0,209,178,0.5);">{{ stat.value }}</div>
-            <div class="font-ui text-xs font-semibold tracking-wider uppercase text-white mt-1.5">{{ stat.label }}</div>
-            <div class="font-body font-light text-[11px] text-[#6c889f] mt-0.5">{{ stat.sub }}</div>
+          <!-- 4-Stat Metric Grid -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-8 border-t border-white/10">
+            <div
+              v-for="stat in heroStats"
+              :key="stat.label"
+              class="space-y-1"
+            >
+              <div class="font-display font-extrabold text-2xl sm:text-3xl text-white tracking-tight">
+                {{ stat.value }}
+              </div>
+              <div class="font-ui text-xs text-[#00d1b2] uppercase tracking-widest font-semibold">
+                {{ stat.label }}
+              </div>
+              <div class="font-ui text-[11px] text-[#6c889f]">
+                {{ stat.sub }}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -72,52 +85,40 @@
             MISSION-CRITICAL HARDENING
           </h2>
           <p class="font-body font-light text-sm sm:text-base text-[#9db4c8] mt-3">
-            Every hardware subsystem and sensor algorithm is developed to eliminate common points of failure in congested or contested electromagnetic zones.
+            Engineered from fundamental physics to sovereign operational deployment with zero third-party cloud lock-in.
           </p>
         </div>
 
-        <!-- Distinctive Tactical Cards with Corner Accents -->
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div
             v-for="pillar in pillars"
             :key="pillar.title"
-            class="relative group p-7 neon-card flex flex-col justify-between overflow-hidden"
+            class="neon-card p-7 flex flex-col justify-between group cursor-default relative overflow-hidden"
           >
             <!-- Glowing top accent gradient line -->
-            <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#00d1b2]/0 group-hover:via-[#00d1b2] to-transparent transition-all duration-500"></div>
-
-            <!-- Ambient Glow Effect -->
-            <div class="absolute -top-12 -right-12 w-28 h-28 bg-[#00d1b2]/5 rounded-full blur-xl group-hover:bg-[#00d1b2]/15 transition-all duration-500 pointer-events-none"></div>
+            <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#00d1b2] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
             <div>
-              <!-- Icon Header + Tactical Tag -->
               <div class="flex items-center justify-between mb-6">
-                <div class="w-12 h-12 rounded-xl bg-[#00d1b2]/10 border border-[#00d1b2]/30 flex items-center justify-center text-[#00d1b2] group-hover:scale-110 group-hover:bg-[#00d1b2]/20 transition-all duration-300">
+                <div class="w-12 h-12 rounded-xl bg-[#00d1b2]/10 border border-[#00d1b2]/30 flex items-center justify-center text-[#00d1b2] group-hover:scale-110 group-hover:border-[#00d1b2] transition-all duration-300">
                   <component :is="pillar.icon" class="w-6 h-6" />
                 </div>
-                <span class="font-mono text-[10px] tracking-wider uppercase px-2.5 py-1 rounded bg-white/5 border border-white/10 text-cyan-300/80">
+                <span class="font-mono text-[10px] text-[#00d1b2] bg-[#00d1b2]/10 border border-[#00d1b2]/30 px-2 py-0.5 rounded tracking-widest uppercase">
                   {{ pillar.tag }}
                 </span>
               </div>
 
-              <!-- Title & Description -->
               <h3 class="font-display font-bold text-lg text-white mb-3 group-hover:text-cyan-100 transition-colors">
                 {{ pillar.title }}
               </h3>
-              <p class="font-body font-light text-xs sm:text-sm leading-relaxed text-[#9db4c8]">
+              <p class="font-body font-light text-sm leading-relaxed text-[#9db4c8]">
                 {{ pillar.description }}
               </p>
             </div>
 
-            <!-- Bottom Tactical Indicator -->
-            <div class="pt-5 mt-6 border-t border-white/10 flex items-center justify-between">
-              <span class="font-mono text-[10px] text-[#6c889f] uppercase tracking-widest flex items-center space-x-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#00d1b2]"></span>
-                <span>SEC-VERIFIED</span>
-              </span>
-              <span class="text-[#00d1b2] text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity">
-                &rarr;
-              </span>
+            <div class="mt-8 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-[#6c889f] font-mono">
+              <span>SECURITY TIER 1</span>
+              <span class="text-[#00d1b2] opacity-0 group-hover:opacity-100 transition-opacity">ENGAGE →</span>
             </div>
           </div>
         </div>
@@ -127,13 +128,13 @@
     <!-- ─── MULTI-LAYER ARCHITECTURE CONSOLE ──────────────────────────── -->
     <section class="py-24 bg-[#051d33]/50 relative border-t border-white/10">
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
-        <div class="max-w-2xl mb-14">
-          <p class="section-label mb-3">End-to-End System Architecture</p>
+        <div class="max-w-2xl mb-16">
+          <p class="section-label mb-3">System Blueprint</p>
           <h2 class="font-display font-bold text-3xl sm:text-4xl text-white tracking-wide">
-            THE TERRABYTE FUSION STACK
+            MISSION ARCHITECTURE LAYERS
           </h2>
           <p class="font-body font-light text-sm sm:text-base text-[#9db4c8] mt-3">
-            An integrated four-tier architecture connecting raw RF front-ends to zero-latency situational mission control.
+            From raw RF carrier phase capture to multi-sensor fusion and national C2 distribution.
           </p>
         </div>
 
@@ -144,47 +145,41 @@
               v-for="(layer, idx) in architectureLayers"
               :key="layer.id"
               @click="activeLayerIndex = idx"
-              class="w-full text-left p-5 rounded-2xl transition-all duration-300 border flex items-center justify-between group cursor-pointer"
-              :class="activeLayerIndex === idx
-                ? 'neon-glass-frame translate-x-1'
-                : 'neon-card'"
+              :class="[
+                'w-full text-left p-5 rounded-xl transition-all duration-300 border flex items-center justify-between',
+                activeLayerIndex === idx
+                  ? 'bg-[#00d1b2]/10 border-[#00d1b2] shadow-[0_0_20px_rgba(0,209,178,0.2)]'
+                  : 'bg-[#07253d]/50 border-white/10 hover:border-white/20 text-[#9db4c8] hover:text-white'
+              ]"
             >
-              <div class="space-y-1">
-                <div class="flex items-center space-x-2.5">
-                  <span class="w-2 h-2 rounded-full" :class="activeLayerIndex === idx ? 'bg-[#00d1b2] shadow-[0_0_8px_#00d1b2]' : 'bg-gray-600'"></span>
-                  <span class="font-mono text-xs font-semibold" :class="activeLayerIndex === idx ? 'text-[#00d1b2]' : 'text-[#6c889f]'">
-                    0{{ idx + 1 }} // {{ layer.badge }}
-                  </span>
+              <div class="flex items-center space-x-3.5">
+                <span class="font-mono text-xs text-[#00d1b2] font-bold">0{{ idx + 1 }}</span>
+                <div>
+                  <div class="font-display font-bold text-sm text-white">{{ layer.title }}</div>
+                  <div class="font-ui text-[11px] text-[#6c889f] uppercase tracking-wider">{{ layer.badge }}</div>
                 </div>
-                <h4 class="font-display font-bold text-base text-white group-hover:text-cyan-200 transition-colors">{{ layer.title }}</h4>
               </div>
-              <span class="text-sm font-bold" :class="activeLayerIndex === idx ? 'text-[#00d1b2]' : 'text-gray-600'">&rarr;</span>
+              <span class="font-mono text-xs text-[#00d1b2]">{{ activeLayerIndex === idx ? '● LIVE' : '○' }}</span>
             </button>
           </div>
 
           <!-- Right Telemetry Terminal (HUD Showcase) -->
-          <div class="lg:col-span-7 p-8 sm:p-10 neon-glass-frame relative overflow-hidden">
-            <!-- Corner Brackets HUD -->
-            <div class="absolute top-4 left-4 text-[#00d1b2]/40 font-mono text-xs">+</div>
-            <div class="absolute top-4 right-4 text-[#00d1b2]/40 font-mono text-xs">+</div>
-            <div class="absolute bottom-4 left-4 text-[#00d1b2]/40 font-mono text-xs">+</div>
-            <div class="absolute bottom-4 right-4 text-[#00d1b2]/40 font-mono text-xs">+</div>
-
-            <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
-              <span class="font-mono text-xs text-[#00d1b2] uppercase tracking-wider font-semibold">
-                {{ currentLayer.badge }} // TELEMETRY TERMINAL
+          <div class="lg:col-span-7 bg-[#07253d]/80 rounded-2xl p-8 border border-[#00d1b2]/30 shadow-[0_0_30px_rgba(0,209,178,0.15)] relative overflow-hidden backdrop-blur-md">
+            <div class="flex items-center justify-between pb-6 mb-6 border-b border-white/10 font-mono text-xs">
+              <span class="text-[#00d1b2] flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-[#00d1b2] animate-pulse"></span>
+                ACTIVE TELEMETRY HUD // {{ currentLayer.badge }}
               </span>
-              <span class="font-mono text-[11px] text-[#6c889f]">STATUS: LIVE 100% NOMINAL</span>
+              <span class="text-[#6c889f]">STATUS: OPTIMAL</span>
             </div>
 
             <h3 class="font-display font-bold text-2xl text-white mb-3">{{ currentLayer.heading }}</h3>
-            <p class="font-body font-light text-sm leading-relaxed text-[#9db4c8] mb-8">{{ currentLayer.description }}</p>
+            <p class="font-body font-light text-sm text-[#9db4c8] leading-relaxed mb-8">{{ currentLayer.description }}</p>
 
-            <!-- Spec Grid -->
             <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/10">
-              <div v-for="spec in currentLayer.specs" :key="spec.label" class="p-3.5 rounded-xl bg-black/30 border border-white/5">
-                <span class="font-mono text-[10px] text-[#6c889f] block uppercase tracking-wider">{{ spec.label }}</span>
-                <span class="font-mono font-bold text-sm text-white mt-1 block text-[#00d1b2]">{{ spec.value }}</span>
+              <div v-for="spec in currentLayer.specs" :key="spec.label" class="bg-[#051d33] p-4 rounded-lg border border-white/5">
+                <div class="font-mono text-[10px] text-[#6c889f] uppercase">{{ spec.label }}</div>
+                <div class="font-display font-bold text-sm text-[#00d1b2] mt-1">{{ spec.value }}</div>
               </div>
             </div>
           </div>
@@ -202,8 +197,8 @@
               PROVEN IN CRITICAL THEATRES
             </h2>
           </div>
-          <NuxtLink to="/solutions" class="btn-outline self-start md:self-auto">
-            View All Sectors &rarr;
+          <NuxtLink to="/solutions" class="text-sm font-ui font-semibold text-[#00d1b2] hover:underline inline-flex items-center gap-1.5">
+            ALL STRATEGIC MISSIONS →
           </NuxtLink>
         </div>
 
@@ -211,30 +206,25 @@
           <div
             v-for="mission in missions"
             :key="mission.title"
-            class="group neon-card overflow-hidden flex flex-col justify-between"
+            class="neon-card rounded-2xl overflow-hidden group flex flex-col justify-between"
           >
-            <div class="relative h-52 overflow-hidden">
-              <img :src="mission.image" :alt="mission.title" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-              <div class="absolute inset-0 bg-gradient-to-t from-[#092c4a] via-transparent to-transparent opacity-90"></div>
-              <div class="absolute top-3 left-3">
-                <span class="font-ui text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-slate-900/80 text-[#00d1b2] border border-[#00d1b2]/30 backdrop-blur-md">
-                  {{ mission.sector }}
-                </span>
-              </div>
+            <div class="h-48 overflow-hidden relative">
+              <img :src="mission.image" :alt="mission.title" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#07253d] via-transparent to-transparent"></div>
+              <span class="absolute top-4 left-4 bg-[#07253d]/90 backdrop-blur-md border border-[#00d1b2]/40 text-[#00d1b2] font-mono text-[10px] uppercase px-2.5 py-1 rounded">
+                {{ mission.sector }}
+              </span>
             </div>
 
-            <div class="p-6 space-y-4 flex-grow flex flex-col justify-between">
+            <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <h3 class="font-display font-bold text-lg text-white group-hover:text-cyan-200 transition-colors">{{ mission.title }}</h3>
-                <p class="font-body font-light text-xs leading-relaxed text-[#9db4c8] mt-2">{{ mission.summary }}</p>
+                <p class="font-body font-light text-xs sm:text-sm text-[#9db4c8] mt-2.5 leading-relaxed">{{ mission.summary }}</p>
               </div>
 
-              <div class="pt-4 border-t border-white/10 flex items-center justify-between">
-                <div>
-                  <span class="font-mono text-[10px] text-[#6c889f] block uppercase">{{ mission.metricLabel }}</span>
-                  <span class="font-mono font-bold text-xs text-white">{{ mission.metricValue }}</span>
-                </div>
-                <span class="text-[#00d1b2] text-xs font-bold">&rarr;</span>
+              <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between font-mono text-[11px]">
+                <span class="text-[#6c889f]">{{ mission.metricLabel }}</span>
+                <span class="text-[#00d1b2] font-bold">{{ mission.metricValue }}</span>
               </div>
             </div>
           </div>
@@ -248,7 +238,7 @@
         <div class="max-w-2xl mb-16">
           <p class="section-label mb-3">Partner Endorsements</p>
           <h2 class="font-display font-bold text-3xl sm:text-4xl text-white tracking-wide">
-            TRUSTED BY NATIONAL AUTHORITIES
+            TRUSTED BY STRATEGIC PARTNERS
           </h2>
         </div>
 
@@ -280,15 +270,14 @@
     <section class="py-20 relative">
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
         <div class="p-10 md:p-14 rounded-3xl bg-gradient-to-r from-[#07253d]/90 via-[#0b3e64]/80 to-[#07253d]/90 border border-white/15 hover:border-[#00d1b2]/50 hover:shadow-[0_0_30px_rgba(0,209,178,0.2)] transition-all duration-300 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div class="max-w-2xl space-y-2">
-            <span class="font-ui text-xs font-bold tracking-widest text-[#00d1b2] uppercase">Direct Technical Consultation</span>
+          <div class="max-w-2xl space-y-3">
             <h3 class="font-display font-bold text-3xl text-white">Ready to Architect Your Mission System?</h3>
-            <p class="font-body font-light text-sm text-[#9db4c8]">
-              Connect with our senior RF and geodetic engineers to review datasheets, run simulation modeling, or schedule an on-site demonstration.
+            <p class="text-[#9db4c8] text-base leading-relaxed">
+              Consult directly with our defense systems engineers for technical datasheets, site evaluation, and integration protocols.
             </p>
           </div>
-          <NuxtLink to="/contact" class="btn-primary shadow-xl whitespace-nowrap">
-            Schedule Engineering Briefing &rarr;
+          <NuxtLink to="/contact" class="btn-primary whitespace-nowrap px-8 py-4 text-sm font-bold tracking-wider">
+            CONTACT ENGINEERING TEAM →
           </NuxtLink>
         </div>
       </div>
@@ -300,11 +289,11 @@
 import { ref, computed, h } from 'vue'
 
 useHead({
-  title: 'TERRABYTE Geosystems Indonesia — Sovereign Geodesy & Radar Systems',
+  title: 'Terrabyte Geosystems — Sovereign GNSS, Radar & Defense Technologies',
   meta: [
     {
       name: 'description',
-      content: 'High-integrity GNSS positioning receivers, solid-state phased-array radar, and autonomous sensor fusion engines engineered for critical operations across Indonesia and Southeast Asia.',
+      content: 'High-precision GNSS receivers, solid-state surveillance radar, and autonomous sensor fusion hardware designed for Indonesia sovereign defense and critical infrastructure.',
     },
   ],
 })
@@ -453,21 +442,21 @@ const missions = [
   },
 ]
 
-// 5. Enterprise Testimonials
+// 5. Strategic Testimonials & Partner Endorsements (Includes BSS Example)
 const testimonials = [
+  {
+    quote: 'Hasil dari pengerjaan yang dilakukan adalah hasil terbaik yang kami dapatkan hingga saat ini, perkembangan teknologi yang terus membantu dunia pertambangan ini lah yang sangat di butuhkan kedepannya.',
+    author: 'Fulan Alfulan',
+    role: 'Head Direction',
+    organization: 'BSS Mining & Energy Services',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face&auto=format',
+  },
   {
     quote: 'Integrasi receiver GNSS multi-frekuensi Terrabyte pada stasiun CORS nasional memberikan stabilitas baseline sub-sentimeter tanpa degradasi sinyal saat terjadi badai ionosfer tropis.',
     author: 'Dr. Ir. Hendra Prasetyo, M.Sc.',
     role: 'Senior Geodetic Director',
     organization: 'National Survey Authority',
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&h=300&fit=crop&crop=face&auto=format',
-  },
-  {
-    quote: 'Radar solid-state dan engine sensor fusion Terrabyte berhasil mengotomatisasi pemantauan lebih dari 300 pergerakan kapal per hari dengan zero-downtime selama 3 tahun berturut-turut di perairan tersibuk.',
-    author: 'Capt. Michael R. Sitorus',
-    role: 'Head of Vessel Traffic Services (VTS)',
-    organization: 'Port Operations Command',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face&auto=format',
   },
   {
     quote: 'Untuk konstruksi skala masif di IKN, kecepatan akuisisi RTK Terrabyte di bawah 2 detik sangat menghemat waktu survei topografi dan pemancangan struktur kritis di medan yang menantang.',
