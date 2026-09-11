@@ -1,14 +1,24 @@
 <template>
-  <div class="min-h-screen text-white flex flex-col justify-between selection:bg-[#00d1b2]/30 selection:text-[#00d1b2] relative bg-[#001224]">
+  <div class="min-h-screen text-white flex flex-col justify-between selection:bg-[#00d1b2]/30 selection:text-[#00d1b2] relative bg-[#0a3357]">
 
-    <!-- ─── SOLID SUBTERRANEAN BASE BACKGROUND ─────────────────────── -->
-    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#001224]">
-      <!-- Subtle Ambient Atmospheric Glows (Gives Mica surfaces rich refractive depth) -->
-      <div class="absolute -top-32 left-1/4 w-[750px] h-[450px] bg-[#00d1b2]/[0.035] rounded-full blur-[150px]"></div>
-      <div class="absolute top-1/2 -right-24 w-[650px] h-[550px] bg-[#3B82F6]/[0.03] rounded-full blur-[170px]"></div>
-      <div class="absolute -bottom-32 left-1/3 w-[700px] h-[450px] bg-[#00d1b2]/[0.03] rounded-full blur-[150px]"></div>
-      <!-- Faint Tactical Dot Grid Overlay -->
-      <div class="absolute inset-0 dot-grid opacity-10"></div>
+    <!-- ─── FIXED FADED BACKGROUND IMAGE & CINEMATIC GRADIENT ───────── -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      <!-- High-Resolution Faded Background Image -->
+      <img
+        src="/images/hero-bg.jpg"
+        alt="Terrabyte Background Texture"
+        class="w-full h-full object-cover opacity-35 filter contrast-115 brightness-95 scale-100"
+      />
+      <!-- Atmospheric Vignette & Deep Ocean-Teal Gradient Blend -->
+      <div
+        class="absolute inset-0"
+        style="background: 
+          radial-gradient(ellipse 90% 55% at 50% 10%, rgba(0, 209, 178, 0.28), transparent 75%),
+          radial-gradient(ellipse 70% 50% at 85% 60%, rgba(59, 130, 246, 0.25), transparent 70%),
+          linear-gradient(160deg, rgba(10, 48, 80, 0.78) 0%, rgba(14, 62, 102, 0.72) 30%, rgba(18, 76, 122, 0.68) 55%, rgba(13, 56, 94, 0.76) 80%, rgba(9, 42, 70, 0.84) 100%);"
+      ></div>
+      <!-- Subtle Tactical Dot Grid Overlay -->
+      <div class="absolute inset-0 dot-grid opacity-20"></div>
     </div>
 
     <div class="relative z-10 flex flex-col min-h-screen justify-between">
@@ -21,11 +31,11 @@
             maxWidth: `${1280 - progress * (1280 - 940)}px`,
             height: `${76 - progress * 20}px`,
             borderRadius: `${progress * 50}px`,
-            backgroundColor: `rgba(0, ${Math.round(31 - progress * 5)}, ${Math.round(63 - progress * 10)}, ${(0.78 + progress * 0.16).toFixed(2)})`,
+            backgroundColor: `rgba(${Math.round(10 - progress * 2)}, ${Math.round(48 - progress * 6)}, ${Math.round(80 - progress * 8)}, ${(0.25 + progress * 0.62).toFixed(2)})`,
             borderColor: progress > 0.05 ? `rgba(0, 209, 178, ${(0.12 + progress * 0.36).toFixed(2)})` : 'rgba(255, 255, 255, 0.08)',
             boxShadow: progress > 0.05
-              ? `0 ${Math.round(6 + progress * 10)}px ${Math.round(20 + progress * 20)}px rgba(0, 0, 0, 0.4), 0 0 ${Math.round(progress * 22)}px rgba(0, 209, 178, ${(progress * 0.22).toFixed(2)}), inset 0 1px 0 rgba(255, 255, 255, ${(0.12 + progress * 0.1).toFixed(2)})`
-              : '0 6px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+              ? `0 ${Math.round(4 + progress * 12)}px ${Math.round(16 + progress * 24)}px rgba(0, 0, 0, ${(0.15 + progress * 0.35).toFixed(2)}), 0 0 ${Math.round(progress * 26)}px rgba(0, 209, 178, ${(progress * 0.24).toFixed(2)}), inset 0 0 ${Math.round(progress * 14)}px rgba(0, 209, 178, ${(progress * 0.12).toFixed(2)})`
+              : '0 4px 16px rgba(0, 0, 0, 0.1)',
             padding: `0 ${(2.0 - progress * 0.5).toFixed(2)}rem`
           }"
         >
@@ -49,7 +59,7 @@
                 Terrabyte
               </div>
               <div
-                class="font-ui tracking-[0.22em] uppercase text-[#9db4c8] notranslate transition-all duration-300"
+                class="font-ui tracking-[0.22em] uppercase text-[#8daac2] notranslate transition-all duration-300"
                 :style="{ fontSize: `${(9 - progress * 1).toFixed(1)}px` }"
                 translate="no"
               >
@@ -78,7 +88,7 @@
             </NuxtLink>
           </div>
 
-                    <!-- Desktop CTA Button -->
+          <!-- Desktop CTA Button -->
           <div class="hidden md:block flex-shrink-0">
             <NuxtLink
               to="/contact"
@@ -146,7 +156,7 @@
       </main>
 
       <!-- ─── FOOTER ─────────────────────────────────────────────────── -->
-      <footer class="bg-[#001428]/95 backdrop-blur-md border-t border-[#00d1b2]/25">
+      <footer class="bg-[#082d4d]/85 backdrop-blur-md border-t border-[#00d1b2]/25">
         <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16">
           <div class="grid md:grid-cols-5 gap-12">
 
@@ -160,7 +170,8 @@
                 </div>
               </NuxtLink>
               <p class="font-body font-light text-xs leading-relaxed text-[#6c889f]">
-                [Ini untuk Tagline Singkat Perusahaan: misal Solusi Navigasi Satelit GNSS &amp; Radar Pengawas Presisi Tinggi untuk Kebutuhan Operasional Kritis di Indonesia].
+                GNSS &amp; Radar Systems<br>
+                Precision navigation for critical operations worldwide.
               </p>
             </div>
 
@@ -184,7 +195,7 @@
           <!-- Bottom Bar -->
           <div class="flex flex-col md:flex-row justify-between items-center gap-4">
             <p class="font-ui text-xs text-[#6c889f]">
-              &copy; 2025 PT Terrabyte Geosystems Indonesia. All rights reserved.
+              &copy; 2025 PT Terrabyte Systems Indonesia. All rights reserved.
             </p>
             <div class="flex gap-6">
               <a href="#" class="font-ui text-xs transition-colors duration-200 text-[#6c889f] hover:text-[#9db4c8]">Privacy Policy</a>

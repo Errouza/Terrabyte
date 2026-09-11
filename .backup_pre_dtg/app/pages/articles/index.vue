@@ -8,7 +8,7 @@
           Technical Intel & Insights
         </div>
         <h1 class="text-4xl md:text-5xl font-bold font-display tracking-tight text-white mb-6">
-          [INI UNTUK JUDUL: ARTIKEL TEKNIS &] <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">[DOKUMENTASI RISET]</span>
+          Mission Debriefs & <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Defense Research</span>
         </h1>
         <p class="text-lg text-[#9db4c8] leading-relaxed">
           Official whitepapers, tactical engineering reports, and field intelligence from Terrabyte's navigation & radar systems laboratory. Connected directly with Sanity.io CMS.
@@ -89,7 +89,7 @@
                 :to="'/articles/' + art.slug"
                 class="text-xs font-semibold text-cyan-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1"
               >
-                [Baca Artikel →]
+                Read Intel →
               </NuxtLink>
             </div>
           </div>
@@ -98,7 +98,7 @@
 
       <!-- Empty State -->
       <div v-else class="text-center py-20 bg-white/[0.02] border border-white/5 rounded-2xl">
-        <p class="text-[#9db4c8] text-base">[Belum ada artikel dalam kategori ini].</p>
+        <p class="text-[#9db4c8] text-base">No articles found in this category.</p>
       </div>
     </div>
   </div>
@@ -108,47 +108,11 @@
 import { ref, computed } from 'vue'
 
 const selectedCategory = ref('All')
-const categories = ['[Semua Kategori]', '[Riset GNSS]', '[Teknologi Radar]', '[Sensor Fusion]', '[Studi Kasus]']
+const categories = ['All', 'Electronic Defense', 'Radar Systems', 'Geodesy & LiDAR']
 
 const { getArticles } = useSanityContent()
 const { data: articlesData, pending } = await useAsyncData('articles-catalog', () => getArticles())
-const _fallbackArticles = [
-  {
-    _id: 'art-1',
-    slug: 'testing',
-    title: '[Ini untuk Judul Publikasi 1: Pengujian Lapangan Sensor GNSS Multi-Band di Lingkungan Tropis]',
-    excerpt: '[Ini bisa diisi ringkasan 2 kalimat tentang latar belakang riset, metodologi pengujian di lapangan, dan hasil akurasi RTK yang didapatkan].',
-    category: '[Riset GNSS]',
-    publishedAt: '01 Sep 2026',
-    readTime: '5',
-    mainImage: '/images/hero-surveyor.jpg',
-    author: { name: '[Nama Penulis / Tim Riset]', role: '[Divisi R&D]' },
-  },
-  {
-    _id: 'art-2',
-    slug: 'testing',
-    title: '[Ini untuk Judul Publikasi 2: Implementasi Radar Solid-State AESA untuk Pengawasan Selat Strategis]',
-    excerpt: '[Ini bisa diisi ringkasan tentang integrasi stasiun pantai, pelacakan target laut 360 derajat, dan data keselamatan navigasi maritim].',
-    category: '[Teknologi Radar]',
-    publishedAt: '25 Agu 2026',
-    readTime: '7',
-    mainImage: '/images/solutions-marine.jpg',
-    author: { name: '[Nama Penulis / Engineer]', role: '[Spesialis Radar]' },
-  },
-  {
-    _id: 'art-3',
-    slug: 'testing',
-    title: '[Ini untuk Judul Publikasi 3: Pemantauan Deformasi Tanah & Struktur Jembatan dengan Sub-Milimeter RTK]',
-    excerpt: '[Ini bisa diisi ringkasan hasil pemantauan pergeseran sub-milimeter secara kontinu untuk keamanan infrastruktur vital nasional].',
-    category: '[Studi Kasus]',
-    publishedAt: '18 Agu 2026',
-    readTime: '6',
-    mainImage: '/images/solutions-cadastre.jpg',
-    author: { name: '[Nama Penulis / Geodesist]', role: '[Lead Geodesist]' },
-  },
-]
-
-const articles = computed(() => (Array.isArray(articlesData.value) && articlesData.value.length > 0) ? articlesData.value : _fallbackArticles)
+const articles = computed(() => (Array.isArray(articlesData.value) ? articlesData.value : []))
 
 const filteredArticles = computed(() => {
   if (selectedCategory.value === 'All') return articles.value

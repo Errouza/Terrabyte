@@ -2,55 +2,85 @@
   <div>
     <!-- ─── HERO SECTION ──────────────────────────────────────────────── -->
     <section class="relative min-h-[92vh] flex items-center justify-center overflow-hidden pt-24 pb-16">
-      <!-- Background Radar Overlay & Ambient Glows -->
-      <div class="absolute inset-0 dot-grid opacity-35 pointer-events-none"></div>
-      <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[750px] h-[500px] bg-[#00d1b2]/15 rounded-full blur-[140px] pointer-events-none"></div>
-      <div class="absolute bottom-10 right-10 w-[400px] h-[300px] bg-[#3B82F6]/10 rounded-full blur-[120px] pointer-events-none"></div>
-      <!-- Radiant Neon Light Beams (Speed/Laser Effect) -->
-      <div class="absolute -top-20 -right-20 w-[900px] h-[120px] neon-light-beam"></div>
-      <div class="absolute top-1/3 -left-32 w-[700px] h-[80px] neon-light-beam opacity-30"></div>
+      <!-- ─── DYNAMIC ROTATING HERO BACKGROUND (Cross-fades every 5s) ─── -->
+      <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div
+          v-for="(slide, idx) in heroSlides"
+          :key="slide.image"
+          class="absolute inset-0 transition-all duration-1000 ease-in-out"
+          :class="idx === currentSlide ? 'opacity-40 scale-100' : 'opacity-0 scale-105 pointer-events-none'"
+        >
+          <img
+            :src="slide.image"
+            :alt="slide.alt"
+            class="w-full h-full object-cover object-center filter contrast-115 brightness-90"
+          />
+        </div>
+
+        <!-- Solid Palette Overlays: Seamless blend into #061219 solid base -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#001224] via-[#001224]/85 to-[#001224]/45"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-[#001224] via-[#001224]/88 to-transparent"></div>
+        <div class="absolute inset-0 dot-grid opacity-20"></div>
+
+        <!-- Ambient Glow Elements -->
+        <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[750px] h-[500px] bg-[#00d1b2]/15 rounded-full blur-[140px]"></div>
+        <div class="absolute bottom-10 right-10 w-[400px] h-[300px] bg-[#3B82F6]/10 rounded-full blur-[120px]"></div>
+      </div>
 
       <div class="max-w-7xl mx-auto px-6 lg:px-10 w-full relative z-10">
         <div class="max-w-3.5xl">
-          <!-- Live Telemetry Status Pill -->
-          <div class="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-[#052840]/90 border border-[#00d1b2]/40 text-[#00d1b2] text-xs font-mono tracking-wider mb-8 backdrop-blur-md shadow-[0_0_20px_rgba(0,209,178,0.25)]">
-            <span class="w-2 h-2 rounded-full bg-[#00d1b2] animate-ping"></span>
-            <span class="w-2 h-2 rounded-full bg-[#00d1b2] -ml-4"></span>
-            <span class="text-xs font-mono tracking-widest text-[#00E5FF] uppercase font-bold">
-              ACTIVE // GEODESY &amp; RADAR DEFENSE DIVISION
-            </span>
-            <span class="text-white/30">|</span>
-            <span class="text-white/70">TERRABYTE GEOSYSTEMS</span>
+          <!-- Live Telemetry Status Pill & Slide Indicator -->
+          <div class="flex flex-wrap items-center gap-3 mb-8">
+            <div class="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full mica-pill px-3.5 py-1.5 rounded-full border border-[#00d1b2]/40 text-[#00d1b2] text-xs font-mono tracking-wider shadow-[0_0_20px_rgba(0,209,178,0.18)]">
+              <span class="w-2 h-2 rounded-full bg-[#00d1b2] animate-ping"></span>
+              <span class="w-2 h-2 rounded-full bg-[#00d1b2] -ml-4"></span>
+              <span class="text-xs font-mono tracking-widest text-[#00E5FF] uppercase font-bold">
+                [STATUS SISTEM // Live Telemetry / Nama Sektor]
+              </span>
+            </div>
+
+            <!-- Slide Switcher Dots -->
+            <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full mica-pill border border-white/12">
+              <button
+                v-for="(s, idx) in heroSlides"
+                :key="s.image"
+                @click="currentSlide = idx"
+                class="w-2 h-2 rounded-full transition-all duration-300"
+                :class="idx === currentSlide ? 'w-6 bg-[#00d1b2] shadow-[0_0_8px_rgba(0,209,178,0.8)]' : 'bg-white/25 hover:bg-white/50'"
+                :aria-label="'Switch to slide ' + (idx + 1)"
+              ></button>
+            </div>
           </div>
 
           <!-- Hero Headline with Radiant High-Impact Neon Accents -->
           <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl tracking-wide text-white leading-[1.1] mb-6">
-            PRECISION POSITIONING &amp;<br>
-            RADAR SURVEILLANCE FOR<br>
+            [INI UNTUK JUDUL UTAMA // VALUE PROPOSITION]<br>
+            [DAN SPESIALISASI TEKNOLOGI]<br>
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00d1b2] via-[#5ce6d4] to-[#60A5FA] neon-text">
-              CRITICAL ENVIRONMENTS
+              [SOLUSI OPERASIONAL KRITIS]
             </span>
           </h1>
 
           <!-- Subtitle -->
           <p class="font-body font-light text-base sm:text-lg text-[#9db4c8] leading-relaxed max-w-2xl mb-10">
-            Carrier-phase GNSS precision, solid-state radar telemetry, and autonomous sensor fusion hardware engineered for severe operational environments across Indonesia's strategic archipelagic domains.
+            [Ini bisa diisi ringkasan positioning perusahaan: fokus teknologi navigasi satelit GNSS, radar pengawas solid-state, dan ketahanan perangkat di medan operasional kepulauan Indonesia].
           </p>
 
           <!-- CTAs -->
           <div class="flex flex-wrap gap-4 items-center mb-16">
             <NuxtLink
               to="/products"
-              class="btn-primary"
+              class="btn-primary flex items-center gap-2 group"
             >
-              EXPLORE PLATFORMS
-              <span class="ml-1 font-bold">→</span>
+              <span>[Ini Tombol: Katalog Produk]</span>
+              <span class="text-base group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-200">↗</span>
             </NuxtLink>
             <NuxtLink
-              to="/contact"
-              class="btn-secondary"
+              to="/solutions"
+              class="btn-secondary flex items-center gap-2 group"
             >
-              REQUEST BRIEFING
+              <span>[Ini Tombol: Konsultasi Solusi]</span>
+              <span class="text-base group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-200 text-[#00d1b2]">↗</span>
             </NuxtLink>
           </div>
 
@@ -76,13 +106,124 @@
       </div>
     </section>
 
+    <!-- ─── THE TACTICAL SURVEILLANCE CHALLENGE (DTG mc-rail pattern) ─────── -->
+    <section class="py-24 relative overflow-hidden border-t border-white/10 bg-[#001224] border-t border-white/10">
+      <!-- Subtle background radar rings & ambient glow -->
+      <div class="absolute inset-0 dot-grid opacity-20 pointer-events-none"></div>
+      <div class="absolute -top-24 right-1/4 w-[500px] h-[350px] bg-[#00d1b2]/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+        <!-- Header Section with Eyebrow Rule -->
+        <div class="max-w-3xl mb-14">
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="w-8 h-[2px] bg-[#00d1b2]"></div>
+            <span class="font-mono text-xs font-bold tracking-[0.2em] uppercase text-[#00d1b2]">
+              The Tactical Surveillance Challenge
+            </span>
+          </div>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-[42px] text-white tracking-tight leading-[1.2] mb-5">
+            [INI UNTUK JUDUL: TANTANGAN MEDAN & INTEGRASI SENSOR]
+          </h2>
+          <p class="font-body font-light text-base sm:text-lg text-[#9db4c8] leading-relaxed">
+            Modern operational theatres are saturated with disparate feeds. What is missing is the sovereign neural layer that unifies fragmented sensors into one verifiable truth state — defended, auditable, and actionable in milliseconds.
+          </p>
+        </div>
+
+        <!-- 4-Step Progressive Rail -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Step 01 -->
+          <div class="p-7 rounded-2xl mica-card flex flex-col justify-between group">
+            <div>
+              <span class="font-mono text-xs font-bold tracking-widest text-[#6c889f] block mb-4 group-hover:text-white transition-colors">
+                // 01
+              </span>
+              <h3 class="font-display font-bold text-lg text-white mb-2">
+                [Tahap 01: Banyak Perangkat]
+              </h3>
+              <p class="font-body font-light text-sm text-[#9db4c8] leading-relaxed mb-4">
+                [Ini bisa diisi kondisi lapangan saat ini: radar, GNSS RTK, sensor optik, dan instrumen dari beragam vendor yang belum terintegrasi].
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-1 pt-3 border-t border-white/5">
+              <span class="text-[9px] font-mono tracking-wider px-1.5 py-0.5 rounded bg-white/5 text-[#7c95a8]">RADAR</span>
+              <span class="text-[9px] font-mono tracking-wider px-1.5 py-0.5 rounded bg-white/5 text-[#7c95a8]">GNSS</span>
+              <span class="text-[9px] font-mono tracking-wider px-1.5 py-0.5 rounded bg-white/5 text-[#7c95a8]">EO/IR</span>
+            </div>
+          </div>
+
+          <!-- Step 02 -->
+          <div class="p-7 rounded-2xl mica-card flex flex-col justify-between group">
+            <div>
+              <span class="font-mono text-xs font-bold tracking-widest text-[#6c889f] block mb-4 group-hover:text-white transition-colors">
+                // 02
+              </span>
+              <h3 class="font-display font-bold text-lg text-white mb-2">
+                [Tahap 02: Data Terfragmentasi]
+              </h3>
+              <p class="font-body font-light text-sm text-[#9db4c8] leading-relaxed mb-4">
+                [Ini bisa diisi masalah yang timbul: delay transmisi, format data tidak seragam, dan kesulitan validasi saat insiden kritis].
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-1 pt-3 border-t border-white/5">
+              <span class="text-[9px] font-mono tracking-wider px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-300">TELEMETRY LAG</span>
+              <span class="text-[9px] font-mono tracking-wider px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-300">SILOED DATA</span>
+            </div>
+          </div>
+
+          <!-- Step 03 (Highlighted DTG-style core step) -->
+          <div class="p-7 rounded-2xl bg-gradient-to-b from-[#001f3f]/90 to-[#001428]/95 border border-[#00d1b2]/70 shadow-[0_0_30px_rgba(0,209,178,0.25)] flex flex-col justify-between relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-[#00d1b2]/20 rounded-full blur-xl pointer-events-none"></div>
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-mono text-xs font-bold tracking-widest text-[#00d1b2]">
+                  // 03 [SOVEREIGN]
+                </span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-[#00d1b2] text-[#001f3f]">
+                  Terrabyte
+                </span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-white mb-2">
+                [Tahap 03: Integrasi Solusi Terrabyte]
+              </h3>
+              <p class="font-body font-light text-sm text-[#d4f3ed] leading-relaxed mb-4">
+                [Ini bisa diisi keunggulan modul Terrabyte: menyatukan seluruh sinyal sensor secara real-time ke dalam satu dashboard operasional].
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-1 pt-3 border-t border-[#00d1b2]/30">
+              <span class="text-[9px] font-mono tracking-wider px-1.5 py-0.5 rounded bg-[#00d1b2]/20 text-[#00d1b2] font-semibold">AIR-GAPPED C2</span>
+              <span class="text-[9px] font-mono tracking-wider px-1.5 py-0.5 rounded bg-[#00d1b2]/20 text-[#00d1b2] font-semibold">&lt; 5MS LATENCY</span>
+            </div>
+          </div>
+
+          <!-- Step 04 -->
+          <div class="p-7 rounded-2xl mica-card flex flex-col justify-between group">
+            <div>
+              <span class="font-mono text-xs font-bold tracking-widest text-[#6c889f] block mb-4 group-hover:text-white transition-colors">
+                // 04
+              </span>
+              <h3 class="font-display font-bold text-lg text-white mb-2">
+                [Tahap 04: Keputusan Cepat & Tepat]
+              </h3>
+              <p class="font-body font-light text-sm text-[#9db4c8] leading-relaxed mb-4">
+                [Ini bisa diisi hasil akhir untuk pengguna: pemantauan terpadu, peringatan dini instan, dan data terverifikasi untuk audit].
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-1 pt-3 border-t border-white/5">
+              <span class="text-[9px] font-mono tracking-wider px-1.5 py-0.5 rounded bg-[#00d1b2]/10 text-[#00d1b2]">VERIFIED RECORD</span>
+              <span class="text-[9px] font-mono tracking-wider px-1.5 py-0.5 rounded bg-[#00d1b2]/10 text-[#00d1b2]">DECISIVE C2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ─── 4 CORE PILLARS (Tactical Glass Cards) ───────────────────────── -->
     <section class="py-24 relative z-10 border-t border-white/10">
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
         <div class="max-w-2xl mb-16">
-          <p class="section-label mb-3">Core Engineering Tenets</p>
+          <p class="section-label mb-3">[NILAI UTAMA // Prinsip Rekayasa]</p>
           <h2 class="font-display font-bold text-3xl sm:text-4xl text-white tracking-wide">
-            MISSION-CRITICAL HARDENING
+            [INI UNTUK JUDUL: 4 PILAR KEUNGGULAN SISTEM TERRABYTE]
           </h2>
           <p class="font-body font-light text-sm sm:text-base text-[#9db4c8] mt-3">
             Engineered from fundamental physics to sovereign operational deployment with zero third-party cloud lock-in.
@@ -126,12 +267,12 @@
     </section>
 
     <!-- ─── MULTI-LAYER ARCHITECTURE CONSOLE ──────────────────────────── -->
-    <section class="py-24 bg-[#051d33]/50 relative border-t border-white/10">
+    <section class="py-24 bg-[#00172e] border-t border-white/10 relative border-t border-white/10">
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
         <div class="max-w-2xl mb-16">
           <p class="section-label mb-3">System Blueprint</p>
           <h2 class="font-display font-bold text-3xl sm:text-4xl text-white tracking-wide">
-            MISSION ARCHITECTURE LAYERS
+            [INI UNTUK JUDUL: INTEGRASI ARSITEKTUR MULTI-LAYER]
           </h2>
           <p class="font-body font-light text-sm sm:text-base text-[#9db4c8] mt-3">
             From raw RF carrier phase capture to multi-sensor fusion and national C2 distribution.
@@ -192,13 +333,13 @@
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div>
-            <p class="section-label mb-3">Field Deployments</p>
+            <p class="section-label mb-3">[STUDI KASUS // Implementasi Nyata]</p>
             <h2 class="font-display font-bold text-3xl sm:text-4xl text-white tracking-wide">
-              PROVEN IN CRITICAL THEATRES
+              [INI UNTUK JUDUL: IMPLEMENTASI PADA SEKTOR KRITIS]
             </h2>
           </div>
           <NuxtLink to="/solutions" class="text-sm font-ui font-semibold text-[#00d1b2] hover:underline inline-flex items-center gap-1.5">
-            ALL STRATEGIC MISSIONS →
+            [Ini Link: Lihat Semua Solusi →]
           </NuxtLink>
         </div>
 
@@ -233,12 +374,12 @@
     </section>
 
     <!-- ─── ENTERPRISE TESTIMONIALS ──────────────────────────────────── -->
-    <section class="py-24 bg-[#051d33]/60 border-t border-white/10">
+    <section class="py-24 bg-[#00172e] border-t border-white/10 border-t border-white/10">
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
         <div class="max-w-2xl mb-16">
-          <p class="section-label mb-3">Partner Endorsements</p>
+          <p class="section-label mb-3">[TESTIMONI // Evaluasi Klien]</p>
           <h2 class="font-display font-bold text-3xl sm:text-4xl text-white tracking-wide">
-            TRUSTED BY STRATEGIC PARTNERS
+            [INI UNTUK JUDUL: ULASAN & EVALUASI MITRA STRATEGIS]
           </h2>
         </div>
 
@@ -269,15 +410,15 @@
     <!-- ─── CALL TO ACTION BANNER ────────────────────────────────────── -->
     <section class="py-20 relative">
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
-        <div class="p-10 md:p-14 rounded-3xl bg-gradient-to-r from-[#07253d]/90 via-[#0b3e64]/80 to-[#07253d]/90 border border-white/15 hover:border-[#00d1b2]/50 hover:shadow-[0_0_30px_rgba(0,209,178,0.2)] transition-all duration-300 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="p-10 md:p-14 rounded-3xl mica-panel p-10 md:p-14 rounded-3xl hover:border-[#00d1b2]/50 hover:shadow-[0_0_30px_rgba(0,209,178,0.2)] transition-all duration-300 flex flex-col md:flex-row items-center justify-between gap-8">
           <div class="max-w-2xl space-y-3">
-            <h3 class="font-display font-bold text-3xl text-white">Ready to Architect Your Mission System?</h3>
+            <h3 class="font-display font-bold text-3xl text-white">[INI UNTUK JUDUL AJAKAN: KONSULTASIKAN KEBUTUHAN SISTEM ANDA]</h3>
             <p class="text-[#9db4c8] text-base leading-relaxed">
-              Consult directly with our defense systems engineers for technical datasheets, site evaluation, and integration protocols.
+              [Ini bisa diisi ajakan diskusi langsung dengan tim engineering kami untuk jadwal demonstrasi unit, uji coba medan, atau permintaan dokumen spesifikasi teknis].
             </p>
           </div>
           <NuxtLink to="/contact" class="btn-primary whitespace-nowrap px-8 py-4 text-sm font-bold tracking-wider">
-            CONTACT ENGINEERING TEAM →
+            [Ini Tombol: Hubungi Tim Engineer →]
           </NuxtLink>
         </div>
       </div>
@@ -286,6 +427,54 @@
 </template>
 
 <script setup lang="ts">
+
+// ─── HERO DYNAMIC ROTATING BACKGROUND SLIDES (Every 5 Seconds) ───
+const heroSlides = [
+  {
+    image: '/images/hero-bg.jpg',
+    alt: 'Geospatial Radar & GNSS Constellation Network',
+    title: 'Orbital & Ground Radar Net',
+    tag: 'RADAR ORBITAL NET'
+  },
+  {
+    image: '/images/hero-surveyor.jpg',
+    alt: 'Field RTK Precision Geodesy Deployment',
+    title: 'Sub-Millimeter Geodetic Infrastructure',
+    tag: 'PRECISION GEODESY'
+  },
+  {
+    image: '/images/solutions-defense.jpg',
+    alt: 'Airspace Surveillance & Defense Radar',
+    title: 'Air Defense & AESA Tracking',
+    tag: 'AIRSPACE DEFENSE'
+  },
+  {
+    image: '/images/solutions-marine.jpg',
+    alt: 'Maritime Corridor & Strait Surveillance',
+    title: 'Archipelagic Strait Monitoring',
+    tag: 'MARITIME VTS NET'
+  },
+  {
+    image: '/images/solutions-autonomous.jpg',
+    alt: 'Autonomous UAV Sensor Fusion Operations',
+    title: 'Autonomous Reconnaissance & Swarm C2',
+    tag: 'AUTONOMOUS SENSORS'
+  }
+]
+
+const currentSlide = ref(0)
+let heroSlideTimer: any = null
+
+onMounted(() => {
+  heroSlideTimer = setInterval(() => {
+    currentSlide.value = (currentSlide.value + 1) % heroSlides.length
+  }, 5000)
+})
+
+onUnmounted(() => {
+  if (heroSlideTimer) clearInterval(heroSlideTimer)
+})
+
 import { ref, computed, h } from 'vue'
 
 useHead({
@@ -300,10 +489,10 @@ useHead({
 
 // 1. Hero Stats
 const heroStats = [
-  { value: '< 1 mm', label: 'Network RTK Sensitivity', sub: 'Sub-millimeter baseline stability' },
-  { value: '250 km', label: 'Radar Coverage Radius', sub: 'Solid-state phased-array range' },
-  { value: '100%', label: 'Sovereign Domestic IP', sub: 'Zero mandatory external cloud dependencies' },
-  { value: '15+ Yrs', label: 'Field-Proven Track Record', sub: 'Deployed across critical archipelagic straits' },
+  { value: '[0.8 cm]', label: '[Metrik 1: Akurasi]', sub: '[Ini diisi stabilitas posisi RTK]' },
+  { value: '[250 km]', label: '[Metrik 2: Jangkauan]', sub: '[Ini diisi radius deteksi radar]' },
+  { value: '[100%]', label: '[Metrik 3: Mandiri]', sub: '[Ini diisi kepemilikan IP domestik]' },
+  { value: '[15+ Thn]', label: '[Metrik 4: Pengalaman]', sub: '[Ini diisi rekam jejak implementasi]' },
 ]
 
 // 2. Multi-Layer Architecture
@@ -312,50 +501,54 @@ const activeLayerIndex = ref(0)
 const architectureLayers = [
   {
     id: 'sensor',
-    title: 'Multi-Constellation GNSS Receivers',
-    badge: 'Layer 01 // Hardware Subsystems',
-    heading: 'High-Integrity Multi-Band RF Receivers',
-    description: 'Triple-frequency tracking across GPS, GLONASS, Galileo, and BeiDou with embedded anti-jamming spatial filters and ionospheric equatorial scintillation mitigation.',
+    title: '[Layer 1: Sensor & Receiver GNSS]',
+    badge: 'Layer 01 // Hardware Lapangan',
+    heading: '[Ini untuk Judul Modul Receiver & Sensor Lapangan]',
+    description: '[Ini bisa diisi pelacakan multi-konstelasi satelit (GPS, GLONASS, Galileo, BeiDou), kestabilan sinyal, dan toleransi cuaca tropis ekstrim].',
+    chips: ['[GPS L1/L2/L5]', '[GLONASS]', '[BEIDOU]', '[GALILEO]'],
     specs: [
-      { label: 'Tracking Channels', value: '1,408 Channels' },
-      { label: 'RTK Baseline', value: 'Sub-Millimeter' },
-      { label: 'Jamming Protection', value: 'Spatial Nulling' },
+      { label: '[Parameter 1]', value: '[1.408 Saluran]' },
+      { label: '[Parameter 2]', value: '[Sub-Milimeter]' },
+      { label: '[Parameter 3]', value: '[Filter Noise]' },
     ],
   },
   {
     id: 'radar',
-    title: 'Solid-State Phased-Array Radar',
-    badge: 'Layer 02 // Surveillance Radar',
-    heading: 'Digital Beamforming & Microsecond Target Tracking',
-    description: 'S-band solid-state active electronically steered array (AESA) radar providing 360° situational tracking for maritime traffic, coastal borders, and low-altitude uncrewed aerial systems.',
+    title: '[Layer 2: Radar Pengawas Solid-State]',
+    badge: 'Layer 02 // Radar Permukaan & Udara',
+    heading: '[Ini untuk Judul Radar Pengawas Permukaan & Udara]',
+    description: '[Ini bisa diisi teknologi radar solid-state AESA 360°, pendeteksian target cepat, dan cakupan luas di perbatasan atau perairan maritim].',
+    chips: ['[AESA S-BAND]', '[360° AZIMUTH]', '[BEAMFORMING]', '[ASTERIX]'],
     specs: [
-      { label: 'Coverage', value: '250 km Radius' },
-      { label: 'Resolution', value: '0.3° Azimuth' },
-      { label: 'Scan Rate', value: '6 - 12 RPM Agility' },
+      { label: '[Jangkauan]', value: '[Radius 250 km]' },
+      { label: '[Resolusi]', value: '[0.3° Azimuth]' },
+      { label: '[Kecepatan Scan]', value: '[6-12 RPM]' },
     ],
   },
   {
     id: 'fusion',
-    title: 'Autonomous Sensor Fusion',
-    badge: 'Layer 03 // Edge Compute Core',
-    heading: 'FPGA-Accelerated Real-Time Kalman Filtering',
-    description: 'Tight integration of raw inertial measurement unit (IMU) acceleration, GNSS carrier phase, AIS vessel telemetry, and radar plots into a single uninterrupted position-velocity-time (PVT) truth state.',
+    title: '[Layer 3: Komputasi & Penyelarasan]',
+    badge: 'Layer 03 // Modul Pemrosesan Data',
+    heading: '[Ini untuk Judul Pemrosesan & Sinkronisasi Sinyal]',
+    description: '[Ini bisa diisi penggabungan data akselerasi IMU, koordinat satelit, dan plot radar menjadi satu jalur data operasional akurat].',
+    chips: ['[FPGA REALTIME]', '[KALMAN FILTER]', '[IMU SENSOR]', '[PVT RECON]'],
     specs: [
-      { label: 'Compute Latency', value: '< 5 ms End-to-End' },
-      { label: 'Outage Holdover', value: '< 0.05% Drift/hr' },
-      { label: 'Redundancy', value: 'Dual Fail-Safe Nodes' },
+      { label: '[Latensi Komputasi]', value: '[< 5 milidetik]' },
+      { label: '[Drift Sinyal]', value: '[Sangat Rendah]' },
+      { label: '[Redundansi]', value: '[Dual Fail-Safe]' },
     ],
   },
   {
     id: 'command',
-    title: 'Sovereign C2 Tactical Platform',
-    badge: 'Layer 04 // Operational Picture',
-    heading: 'Zero-Latency Sovereign Mission Control Software',
-    description: 'Web-based tactical situational map displaying fused tracks, automatic collision prediction vectors, and geofenced alert triggers with zero cloud dependencies and air-gapped readiness.',
+    title: '[Layer 4: Platform Taktis C2]',
+    badge: 'Layer 04 // Software Kendali & Dashboard',
+    heading: '[Ini untuk Judul Software Kendali & Dashboard Monitoring]',
+    description: '[Ini bisa diisi visualisasi peta real-time, penentuan zona aman (geofencing), dan peringatan tabrakan otomatis tanpa ketergantungan cloud luar].',
+    chips: ['[AIR-GAPPED C2]', '[PETA TAKTIS]', '[GEOFENCING]', '[DATA ENKRIPSI]'],
     specs: [
-      { label: 'Simultaneous Tracks', value: '> 10,000 Targets' },
-      { label: 'Architecture', value: 'Air-Gapped Sovereign' },
-      { label: 'Compliance', value: 'IEC 62443 Security' },
+      { label: '[Kapasitas Target]', value: '[> 10.000 Objek]' },
+      { label: '[Tipe Sistem]', value: '[On-Premise / Web]' },
+      { label: '[Standar Keamanan]', value: '[Terkunci & Aman]' },
     ],
   },
 ]
@@ -390,79 +583,79 @@ const LockIcon = () =>
 const pillars = [
   {
     icon: ShieldIcon,
-    title: 'Anti-Jamming & EW Hardening',
-    description: 'Multi-nulling spatial adaptive array antenna filters and digital signal sanitization to defeat spoofing and hostile RF interference.',
-    tag: 'EW Protection',
+    title: '[Pilar 1: Proteksi Anti-Jamming]',
+    description: '[Ini bisa diisi proteksi sinyal dari gangguan frekuensi, cuaca ekstrem tropis, dan interferensi gelombang liar].',
+    tag: '[Proteksi Sinyal]',
   },
   {
     icon: OrbitIcon,
-    title: 'Sub-Millimeter Geodetic Baseline',
-    description: 'Continuous tectonic and infrastructure deformation monitoring with sub-millimeter precision for bridges, dams, and seismic fault lines.',
-    tag: 'Millimeter RTK',
+    title: '[Pilar 2: Presisi Sub-Milimeter]',
+    description: '[Ini bisa diisi keakuratan posisi ultra-tinggi untuk pemantauan pergeseran tanah, jembatan, dan infrastruktur strategis].',
+    tag: '[Akurasi RTK]',
   },
   {
     icon: CpuIcon,
-    title: 'Edge-First Air-Gapped Autonomy',
-    description: 'Zero external cloud dependency. Dedicated FPGA signal processors process all sensor telemetry directly on-premise in real time.',
-    tag: 'Zero Cloud Lock-in',
+    title: '[Pilar 3: Sistem Mandiri / On-Premise]',
+    description: '[Ini bisa diisi arsitektur pemrosesan lokal mandiri tanpa wajib ketergantungan koneksi server asing].',
+    tag: '[Mandiri / Aman]',
   },
   {
     icon: LockIcon,
-    title: '100% Sovereign Domestic IP',
-    description: 'Designed and manufactured in Indonesia with open, non-proprietary standards ensuring sovereign technology autonomy and NATO interoperability.',
-    tag: 'Sovereign Integrity',
+    title: '[Pilar 4: 100% Dukungan Domestik]',
+    description: '[Ini bisa diisi jaminan layanan teknis lokal langsung dari tim engineer di Indonesia, suku cadang cepat, dan kustomisasi].',
+    tag: '[Dukungan Lokal]',
   },
 ]
 
 // 4. Strategic Mission Profiles
 const missions = [
   {
-    title: 'Archipelagic Maritime Corridor',
-    sector: 'Maritime Defense & Safety',
+    title: '[Implementasi 1: Sektor Maritim & Selat Strategis]',
+    sector: '[Sektor Maritim]',
     image: '/images/solutions-marine.jpg',
-    summary: '24/7 radar and AIS sensor fusion tracking over 120,000 critical vessel transits annually across the Malacca & Sunda Straits with integrated tsunami sensor telemetry.',
-    metricLabel: 'Coverage Realm',
-    metricValue: 'Sunda & Malacca Straits',
+    summary: '[Ini bisa diisi contoh implementasi pemantauan kapal laut 24/7 di alur selat pelayaran padat dan integrasi stasiun pantai].',
+    metricLabel: '[Cakupan Area]',
+    metricValue: '[Alur Selat Strategis]',
   },
   {
-    title: 'Smart Capital Geodetic Grid',
-    sector: 'IKN Nusantara Infrastructure',
+    title: '[Implementasi 2: Infrastruktur IKN & Geodesi]',
+    sector: '[Sektor Infrastruktur]',
     image: '/images/solutions-cadastre.jpg',
-    summary: 'Multi-station continuous RTK GNSS network providing real-time millimeter-level reference baselines for autonomous construction fleets and UAV aerial surveys.',
-    metricLabel: 'Positioning Sensitivity',
-    metricValue: '< 5 mm Baseline Vector',
+    summary: '[Ini bisa diisi contoh pemasangan stasiun referensi CORS untuk pemetaan elevasi tanah, konstruksi presisi, dan armada survei].',
+    metricLabel: '[Tingkat Presisi]',
+    metricValue: '[< 5 mm Baseline]',
   },
   {
-    title: 'Airspace Secondary Radar Net',
-    sector: 'Airspace Surveillance',
+    title: '[Implementasi 3: Pengawasan Ruang Udara]',
+    sector: '[Sektor Keamanan]',
     image: '/images/solutions-defense.jpg',
-    summary: 'Phased-array secondary surveillance radar deployed across outer island chains, feeding ASTERIX CAT 48/62 track plots directly into national air traffic management.',
-    metricLabel: 'Radar Detection Reach',
-    metricValue: '250 km Radius / Node',
+    summary: '[Ini bisa diisi contoh penempatan radar pengawas di pulau terluar atau perbatasan untuk memantau pergerakan udara rendah].',
+    metricLabel: '[Jangkauan Radar]',
+    metricValue: '[Radius 250 km]',
   },
 ]
 
 // 5. Strategic Testimonials & Partner Endorsements (Includes BSS Example)
 const testimonials = [
   {
-    quote: 'Hasil dari pengerjaan yang dilakukan adalah hasil terbaik yang kami dapatkan hingga saat ini, perkembangan teknologi yang terus membantu dunia pertambangan ini lah yang sangat di butuhkan kedepannya.',
-    author: 'Fulan Alfulan',
-    role: 'Head Direction',
-    organization: 'BSS Mining & Energy Services',
+    quote: '[Ini bisa diisi kutipan ulasan dari mitra industri terkait peningkatan efisiensi operasional dan hasil nyata penerapan teknologi Terrabyte di lapangan].',
+    author: '[Nama Pimpinan / Klien 1]',
+    role: '[Jabatan Klien]',
+    organization: '[Nama Perusahaan / Instansi 1]',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face&auto=format',
   },
   {
-    quote: 'Integrasi receiver GNSS multi-frekuensi Terrabyte pada stasiun CORS nasional memberikan stabilitas baseline sub-sentimeter tanpa degradasi sinyal saat terjadi badai ionosfer tropis.',
-    author: 'Dr. Ir. Hendra Prasetyo, M.Sc.',
-    role: 'Senior Geodetic Director',
-    organization: 'National Survey Authority',
+    quote: '[Ini bisa diisi ulasan mengenai keandalan alat dalam menghadapi cuaca tropis ekstrem serta akurasi data yang konsisten saat pengujian].',
+    author: '[Nama Pejabat / Peneliti 2]',
+    role: '[Kepala Bidang / Direktur]',
+    organization: '[Nama Lembaga / Dinas Terkait 2]',
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&h=300&fit=crop&crop=face&auto=format',
   },
   {
-    quote: 'Untuk konstruksi skala masif di IKN, kecepatan akuisisi RTK Terrabyte di bawah 2 detik sangat menghemat waktu survei topografi dan pemancangan struktur kritis di medan yang menantang.',
-    author: 'Ir. Dian Anggraini, IPU',
-    role: 'Lead Infrastructure Geodesist',
-    organization: 'IKN Strategic Projects',
+    quote: '[Ini bisa diisi ulasan tentang kecepatan dukungan teknis lokal, ketersediaan suku cadang, dan kemudahan pelatihan operator].',
+    author: '[Nama Project Manager 3]',
+    role: '[Lead Geodesist / Site Manager]',
+    organization: '[Nama Kontraktor Proyek 3]',
     avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop&crop=face&auto=format',
   },
 ]

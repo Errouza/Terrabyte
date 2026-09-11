@@ -6,13 +6,14 @@
       <div class="mb-14">
         <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#00d1b2]/10 border border-[#00d1b2]/30 mb-4">
           <span class="w-2 h-2 rounded-full bg-[#00d1b2] animate-ping"></span>
-          <span class="font-ui text-xs font-semibold tracking-widest uppercase text-[#00d1b2]">[SALURAN RESMI // Konsultasi &amp; Layanan]</span>
+          <span class="font-ui text-xs font-semibold tracking-widest uppercase text-[#00d1b2]">Secure Direct Channel</span>
         </div>
         <h1 class="font-display font-bold text-4xl lg:text-5xl tracking-wide text-white leading-tight">
-          [INI UNTUK JUDUL: HUBUNGI KAMI &amp;]<br />[KONSULTASI SPESIFIKASI SISTEM]
+          SPEAK WITH AN<br />
+          APPLICATION ENGINEER
         </h1>
         <p class="font-body font-light text-base leading-relaxed text-[#9db4c8] mt-4 max-w-2xl">
-          [Ini bisa diisi panduan menghubungi tim engineer kami: dapatkan informasi teknis, estimasi anggaran proyek, dan jadwal demonstrasi produk dalam 1 hari kerja].
+          Direct access to our senior hardware and field deployment engineering team. We provide simulation validation, link-budget calculations, and commercial quotation within one business day.
         </p>
       </div>
 
@@ -23,9 +24,9 @@
           <div class="p-8 sm:p-10 neon-glass-frame">
             <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
               <span class="font-mono text-xs text-[#00d1b2] uppercase tracking-wider font-semibold">
-                [FORMULIR PERMINTAAN KONSULTASI]
+                COMMUNICATION DISPATCH // ENCRYPTED
               </span>
-              <span class="font-mono text-[10px] text-[#6c889f]">[SLA: RESPON &lt; 24 JAM]</span>
+              <span class="font-mono text-[10px] text-[#6c889f]">SLA: &lt; 24H RESPONSE</span>
             </div>
 
             <!-- Success State -->
@@ -38,12 +39,12 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>
               </div>
-              <h3 class="font-display font-bold text-2xl text-white mb-2">[Permintaan Konsultasi Berhasil Terkirim]</h3>
+              <h3 class="font-display font-bold text-2xl text-white mb-2">Inquiry Successfully Transmitted</h3>
               <p class="font-body font-light text-sm text-[#9db4c8] max-w-md">
-                [Tim engineer kami telah menerima detail kebutuhan Anda dan akan segera menghubungi Anda melalui email atau telepon].
+                Our application engineering team in Jakarta has received your requirements and will reach out with technical documentation shortly.
               </p>
               <button @click="formSubmitted = false" class="btn-outline text-xs mt-6">
-                [Kirim Permintaan Lain]
+                Submit Another Request
               </button>
             </div>
 
@@ -51,7 +52,7 @@
             <form v-else @submit.prevent="formSubmitted = true" class="space-y-5">
               <div class="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label class="font-mono text-xs uppercase tracking-wider block mb-2 text-[#9db4c8]">[Nama Lengkap / PIC] <span class="text-[#00d1b2]">*</span></label>
+                  <label class="font-mono text-xs uppercase tracking-wider block mb-2 text-[#9db4c8]">Full Name <span class="text-[#00d1b2]">*</span></label>
                   <input class="pro-input" placeholder="e.g. Dr. Andriani Kusuma" v-model="form.name" required />
                 </div>
                 <div>

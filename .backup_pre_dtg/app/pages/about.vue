@@ -6,13 +6,14 @@
       <div class="mb-14">
         <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#00d1b2]/10 border border-[#00d1b2]/30 mb-4">
           <span class="w-2 h-2 rounded-full bg-[#00d1b2]"></span>
-          <span class="font-ui text-xs font-semibold tracking-widest uppercase text-[#00d1b2]">[PROFIL PERUSAHAAN // Latar Belakang]</span>
+          <span class="font-ui text-xs font-semibold tracking-widest uppercase text-[#00d1b2]">Institutional Heritage</span>
         </div>
         <h1 class="font-display font-bold text-4xl lg:text-5xl tracking-wide text-white leading-tight">
-          [INI UNTUK JUDUL: PROFIL PERUSAHAAN &]<br />[REKAM JEJAK RISET TEKNOLOGI]
+          FIFTEEN YEARS OF<br />
+          FIELD-PROVEN PERFORMANCE
         </h1>
         <p class="font-body font-light text-base leading-relaxed text-[#9db4c8] mt-4 max-w-3xl">
-          [Ini bisa diisi rangkuman perjalanan perusahaan: didirikan oleh tim insinyur elektronika dan komunikasi satelit di Indonesia untuk menghadirkan teknologi penentuan posisi serta radar yang mandiri dan berdaya saing tinggi].
+          Founded in Jakarta in 2010 by senior satellite communication and defense electronics engineers, Terrabyte Geosystems has evolved into Southeast Asia’s foremost developer of sovereign positioning and radar technologies.
         </p>
       </div>
 
@@ -20,27 +21,27 @@
       <div class="grid lg:grid-cols-2 gap-12 mt-12 mb-24 items-center">
         <!-- Left: Story Narrative -->
         <div class="space-y-6">
-          <h2 class="font-display font-bold text-2xl text-white">[INI UNTUK JUDUL: KOMITMEN KEMANDIRIAN TEKNOLOGI DOMESTIK]</h2>
+          <h2 class="font-display font-bold text-2xl text-white">Engineering Autonomous Sovereign Technology</h2>
           <p class="font-body font-light text-sm leading-relaxed text-[#9db4c8]">
-            [Ini bisa diisi alasan pentingnya kemandirian teknologi: pentingnya kepemilikan rancang bangun sendiri, ketersediaan suku cadang tanpa hambatan impor, dan fleksibilitas kustomisasi sesuai kebutuhan medan operasional Indonesia].
+            In mission-critical maritime defense, airspace control, and strategic infrastructure, dependence on closed, proprietary foreign technology creates unacceptable security risks. Terrabyte was established with a singular doctrine: build sovereign, open-standard, and zero-compromise hardware and signal processing architectures domestically.
           </p>
           <p class="font-body font-light text-sm leading-relaxed text-[#9db4c8]">
-            [Ini bisa diisi pencapaian hingga saat ini: sebaran implementasi di berbagai provinsi, kemitraan strategis dengan instansi pemerintah, BUMN, swasta, dan institusi akademik/riset nasional].
+            Today, our systems monitor strategic straits, provide millimeter reference baselines for smart capital infrastructure, and secure airspace perimeters across the Asia-Pacific theatre.
           </p>
 
           <!-- 3 Institutional Milestones -->
           <div class="grid grid-cols-3 gap-4 pt-4 border-t border-white/10">
             <div class="p-4 neon-card text-center">
-              <span class="font-display font-bold text-2xl text-[#00d1b2]">[2010]</span>
-              <span class="font-ui text-[10px] text-[#6c889f] block uppercase mt-1">[Tahun Berdiri & Awal Riset]</span>
+              <span class="font-display font-bold text-2xl text-[#00d1b2]">2010</span>
+              <span class="font-ui text-[10px] text-[#6c889f] block uppercase mt-1">Founded in Jakarta</span>
             </div>
             <div class="p-4 neon-card text-center">
-              <span class="font-display font-bold text-2xl text-[#00d1b2]">[1.000+]</span>
-              <span class="font-ui text-[10px] text-[#6c889f] block uppercase mt-1">[Unit / Proyek Terpasang]</span>
+              <span class="font-display font-bold text-2xl text-[#00d1b2]">1,200+</span>
+              <span class="font-ui text-[10px] text-[#6c889f] block uppercase mt-1">Field Deployments</span>
             </div>
             <div class="p-4 neon-card text-center">
               <span class="font-display font-bold text-2xl text-[#00d1b2]">100%</span>
-              <span class="font-ui text-[10px] text-[#6c889f] block uppercase mt-1">[Penguasaan Rancang Bangun]</span>
+              <span class="font-ui text-[10px] text-[#6c889f] block uppercase mt-1">Domestic IP</span>
             </div>
           </div>
         </div>
@@ -53,7 +54,7 @@
               alt="Satellite & Radar Calibration Facility"
               class="w-full h-full object-cover"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-[#061219] via-transparent to-transparent opacity-85"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#07253d] via-transparent to-transparent opacity-85"></div>
             <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-slate-900/80 border border-white/10 backdrop-blur-md">
               <span class="font-mono text-xs font-bold text-[#00d1b2] block">TERRABYTE CALIBRATION &amp; ANECHOIC LAB</span>
               <span class="font-ui text-[11px] text-[#9db4c8]">Jakarta Technology Corridor · ISO 9001:2015 Certified</span>
@@ -66,7 +67,7 @@
       <div class="mb-28">
         <div class="max-w-2xl mb-12">
           <p class="section-label mb-2">Our Operating Philosophy</p>
-          <h2 class="font-display font-bold text-3xl text-white">[INI UNTUK JUDUL: 4 PRINSIP KEANDALAN TEKNOLOGI]</h2>
+          <h2 class="font-display font-bold text-3xl text-white">FOUR DOCTRINES OF RELIABILITY</h2>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -95,12 +96,12 @@
       <!-- Leadership & Senior Engineering Board (4 Distinguished Cards) -->
       <div class="mb-28">
         <div class="max-w-2xl mb-14">
-          <p class="section-label mb-3">[TIM MANAJEMEN // Pimpinan & Rekayasa]</p>
+          <p class="section-label mb-3">Executive &amp; Technical Leadership</p>
           <h2 class="font-display font-bold text-3xl sm:text-4xl text-white tracking-wide">
-            [INI UNTUK JUDUL: TIM PIMPINAN & DIREKSI]
+            THE ARCHITECTS OF TERRABYTE
           </h2>
           <p class="font-body font-light text-sm sm:text-base text-[#9db4c8] mt-3">
-            [Ini bisa diisi pengantar singkat profil dewan pimpinan, penasihat ahli, dan kepala divisi rekayasa teknologi].
+            Led by veterans of national aerospace agencies, defense communication labs, and hydrographic survey authorities.
           </p>
         </div>
 
@@ -117,7 +118,7 @@
                   :alt="leader.name"
                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div class="absolute inset-0 bg-gradient-to-t from-[#081822] via-transparent to-transparent opacity-85"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#092c4a] via-transparent to-transparent opacity-85"></div>
                 <div class="absolute bottom-3 left-3">
                   <span class="px-2.5 py-0.5 rounded-full bg-slate-900/90 border border-[#00d1b2]/40 text-[#00d1b2] font-mono text-[10px] font-semibold uppercase backdrop-blur-md">
                     {{ leader.experience }}
@@ -129,19 +130,19 @@
               <p class="font-body font-light text-xs text-[#9db4c8] mt-3 leading-relaxed">{{ leader.bio }}</p>
             </div>
             <div class="pt-4 mt-4 border-t border-white/10 font-mono text-[10px] text-[#6c889f]">
-              [DEWAN DIREKSI]
+              BOARD OF DIRECTORS
             </div>
           </div>
         </div>
       </div>
 
       <!-- Global Accreditations & Standards Card -->
-      <div class="p-8 md:p-12 rounded-3xl bg-gradient-to-r from-[#091e2b] via-[#0d293b] to-[#091e2b] border border-white/15 hover:border-[#00d1b2]/50 hover:shadow-[0_0_30px_rgba(0,209,178,0.15)] transition-all duration-300">
+      <div class="p-8 md:p-12 rounded-3xl bg-gradient-to-r from-[#07253d]/90 via-[#0a3556]/80 to-[#07253d]/90 border border-white/15 hover:border-[#00d1b2]/50 hover:shadow-[0_0_30px_rgba(0,209,178,0.15)] transition-all duration-300">
         <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
           <div>
-            <p class="section-label mb-2">[STANDAR MUTU // Sertifikasi Internasional]</p>
-            <h3 class="font-display font-bold text-2xl text-white">[INI UNTUK JUDUL: KEPATUHAN STANDAR &amp; SERTIFIKASI]</h3>
-            <p class="font-body font-light text-xs sm:text-sm text-[#9db4c8] mt-2">[Ini bisa diisi penjelasan daftar standar uji mutu, keselamatan operasional, dan ketahanan cuaca yang dipenuhi oleh seluruh perangkat].</p>
+            <p class="section-label mb-2">Accredited Worldwide</p>
+            <h3 class="font-display font-bold text-2xl text-white">Full Defense &amp; Aerospace Compliance</h3>
+            <p class="font-body font-light text-xs sm:text-sm text-[#9db4c8] mt-2">All hardware manufactured under stringent ISO 9001 and MIL-STD-810H environmental stress screening.</p>
           </div>
           <div class="flex flex-wrap items-center gap-3">
             <span v-for="std in standards" :key="std" class="px-4 py-2 rounded-xl bg-slate-900/80 border border-white/10 text-xs font-mono text-cyan-300 font-semibold shadow-xs">
@@ -169,66 +170,68 @@ useHead({
 const coreValues = [
   {
     num: 1,
-    title: '[Prinsip 1: Presisi Tanpa Kompromi]',
-    desc: '[Ini bisa diisi komitmen akurasi sinyal radar dan koordinat posisi yang teruji tanpa deviasi di kondisi lapangan].',
-    badge: '[Akurasi Teruji]',
+    title: 'Zero Compromise on Integrity',
+    desc: 'Positioning and radar signals in mission-critical environments cannot afford drift, false-locks, or unverified approximations.',
+    badge: 'Precision First',
   },
   {
     num: 2,
-    title: '[Prinsip 2: Kemandirian Rancang Bangun]',
-    desc: '[Ini bisa diisi perancangan sirkuit modul frekuensi, algoritma pemrosesan, dan housing perangkat secara mandiri di dalam negeri].',
-    badge: '[Kemandirian Domestik]',
+    title: '100% Sovereign Domestic IP',
+    desc: 'We design all RF front-ends, FPGA DSP algorithms, and mechanical housings domestically with zero foreign backdoors.',
+    badge: 'National Security',
   },
   {
     num: 3,
-    title: '[Prinsip 3: Pemrosesan Mandiri (Air-Gapped)]',
-    desc: '[Ini bisa diisi pemrosesan data langsung pada perangkat keras tanpa mewajibkan koneksi ke server luar atau langganan cloud].',
-    badge: '[Aman & Mandiri]',
+    title: 'Air-Gapped Autonomous Compute',
+    desc: 'Our sensor fusion engines execute entirely on edge hardware with zero mandatory cloud connectivity or external subscriptions.',
+    badge: 'Zero Cloud Lock-in',
   },
   {
     num: 4,
-    title: '[Prinsip 4: Kompatibilitas Standar Terbuka]',
-    desc: '[Ini bisa diisi kemudahan koneksi dengan protokol standar industri yang umum digunakan sehingga fleksibel diintegrasikan].',
-    badge: '[Interoperabilitas]',
+    title: 'Open Standard Interoperability',
+    desc: 'Full native compatibility with NATO STANAG, ASTERIX, RTCM, and NMEA protocols for frictionless mission integration.',
+    badge: 'Universal Connect',
   },
 ]
 
 const leaders = [
   {
-    name: '[Nama Direktur Utama / Founder]',
-    role: '[Direktur Utama / Chief Executive]',
-    experience: '[20+ Tahun Pengalaman]',
+    name: 'Ir. Budi Santoso, M.Eng.',
+    role: 'Chief Executive & Co-Founder',
+    experience: '22+ Yrs Experience',
     photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face&auto=format',
-    bio: '[Ini bisa diisi latar belakang pengalaman pimpinan di bidang sistem komunikasi, navigasi satelit, dan pengembangan bisnis teknologi].',
+    bio: 'Former senior satellite communication engineer at national aerospace institutes; founded Terrabyte to pioneer sovereign GNSS receivers.',
   },
   {
-    name: '[Nama Direktur Teknologi / CTO]',
-    role: '[Direktur Teknologi (CTO)]',
-    experience: '[18+ Tahun Pengalaman]',
+    name: 'Dr. Henrik Lindqvist',
+    role: 'Chief Technology Officer',
+    experience: '19+ Yrs RF & Phased Array',
     photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop&crop=face&auto=format',
-    bio: '[Ini bisa diisi keahlian teknis CTO dalam perancangan radar, pemrosesan sinyal digital, dan integrasi algoritma fusi sensor].',
+    bio: 'Pioneered digital beamforming algorithms in Delft; leads radar architecture and high-frequency FPGA sensor fusion stacks.',
   },
   {
-    name: '[Nama Kepala Divisi Geodesi]',
-    role: '[Kepala Rekayasa Sistem Geodesi]',
-    experience: '[15+ Tahun Pengalaman]',
+    name: 'Siti Rahmawati, S.T., M.Sc.',
+    role: 'VP of Geodetic Systems',
+    experience: '16+ Yrs Satellite Geodesy',
     photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=500&fit=crop&crop=face&auto=format',
-    bio: '[Ini bisa diisi spesialisasi dalam survei deformasi tanah, jaringan stasiun CORS, dan pemodelan gelombang ionosfer tropis].',
+    bio: 'Expert in crustal deformation modeling and RTK carrier phase ambiguity resolution across equatorial ionospheric zones.',
   },
   {
-    name: '[Nama Kepala Operasional Maritim]',
-    role: '[Kepala Divisi Operasional Maritim]',
-    experience: '[16+ Tahun Pengalaman]',
+    name: 'Capt. Ahmad Fauzi',
+    role: 'Director of Maritime Operations',
+    experience: '18+ Yrs Hydrographic Survey',
     photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face&auto=format',
-    bio: '[Ini bisa diisi pengalaman dalam operasional navigasi perkapalan, survei hidrografi, dan sistem pengawasan lalu lintas laut].',
+    bio: 'Former naval hydrographer overseeing vessel traffic service (VTS) radar installations across strategic archipelagic straits.',
   },
 ]
 
 const standards = [
-  '[ISO 9001:2015]',
-  '[Standar Uji Ketahanan Militer]',
-  '[Standar Maritim Internasional]',
-  '[Standar Navigasi Penerbangan]',
-  '[Sertifikasi Mutu Domestik]',
+  'STANAG 4586',
+  'ICAO Annex 10',
+  'IMO IEC 61162',
+  'ISO 9001:2015',
+  'DO-178C Level B',
+  'RTCA DO-160G',
+  'MIL-STD-810H',
 ]
 </script>

@@ -6,13 +6,14 @@
       <div class="mb-16">
         <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#00d1b2]/10 border border-[#00d1b2]/30 mb-4">
           <span class="w-2 h-2 rounded-full bg-[#00d1b2] animate-pulse"></span>
-          <span class="font-ui text-xs font-semibold tracking-widest uppercase text-[#00d1b2]">[SEKTOR INDUSTRI // Solusi Penerapan]</span>
+          <span class="font-ui text-xs font-semibold tracking-widest uppercase text-[#00d1b2]">Domain Solutions</span>
         </div>
         <h1 class="font-display font-bold text-4xl lg:text-5xl tracking-wide text-white leading-tight">
-          [INI UNTUK JUDUL: ARSITEKTUR SOLUSI]<br />[UNTUK SEKTOR INDUSTRI STRATEGIS]
+          MISSION-CRITICAL ARCHITECTURES<br />
+          ACROSS STRATEGIC SECTORS
         </h1>
         <p class="font-body font-light text-base leading-relaxed text-[#9db4c8] mt-4 max-w-3xl">
-          [Ini bisa diisi penjelasan bagaimana teknologi navigasi, radar, dan integrasi sensor diaplikasikan untuk menjawab kebutuhan spesifik setiap sektor industri di Indonesia].
+          High-integrity positioning, phased-array radar, and autonomous sensor fusion platforms engineered to operate reliably in contested RF environments and mission-critical operations.
         </p>
       </div>
 
@@ -41,20 +42,9 @@
             <h2 class="font-display font-bold text-xl tracking-wide text-white mb-3 group-hover:text-cyan-100 transition-colors">
               {{ sol.title }}
             </h2>
-                        <p class="font-body font-light text-sm leading-relaxed text-[#9db4c8] mb-5">
+            <p class="font-body font-light text-sm leading-relaxed text-[#9db4c8] mb-6">
               {{ sol.desc }}
             </p>
-
-            <!-- DTG-Style Sensor & Telemetry Chips -->
-            <div class="flex flex-wrap gap-1.5 mb-6">
-              <span
-                v-for="tag in sol.tags"
-                :key="tag"
-                class="px-2 py-0.5 rounded text-[10px] font-mono tracking-wider uppercase bg-[#001f3f]/80 text-[#00d1b2] border border-[#00d1b2]/30 group-hover:border-[#00d1b2]/50 transition-colors"
-              >
-                {{ tag }}
-              </span>
-            </div>
           </div>
 
           <!-- Bottom Footer: Compliance Standard -->
@@ -64,7 +54,7 @@
               <span>{{ sol.compliance }}</span>
             </span>
             <NuxtLink to="/contact" class="text-xs font-semibold text-[#00d1b2] hover:text-white flex items-center space-x-1 opacity-0 group-hover:opacity-100 transition-opacity">
-              <span>[Konsultasi]</span>
+              <span>Inquire</span>
               <span>&rarr;</span>
             </NuxtLink>
           </div>
@@ -72,18 +62,18 @@
       </div>
 
       <!-- Sector Capabilities Highlight Banner -->
-      <div class="mt-20 p-8 md:p-12 rounded-3xl mica-panel p-8 md:p-12 rounded-3xl hover:border-[#00d1b2]/50 hover:shadow-[0_0_30px_rgba(0,209,178,0.15)] transition-all duration-300 flex flex-col lg:flex-row items-center justify-between gap-8">
+      <div class="mt-20 p-8 md:p-12 rounded-3xl bg-gradient-to-r from-[#07253d]/90 via-[#0a3556]/80 to-[#07253d]/90 border border-white/15 hover:border-[#00d1b2]/50 hover:shadow-[0_0_30px_rgba(0,209,178,0.15)] transition-all duration-300 flex flex-col lg:flex-row items-center justify-between gap-8">
         <div class="space-y-2 max-w-2xl">
           <div class="flex items-center space-x-2">
             <span class="px-2.5 py-0.5 rounded-full bg-[#00d1b2]/20 text-[#00d1b2] font-ui text-[11px] font-bold uppercase tracking-wider">Engineering SLA & Custom Integration</span>
           </div>
-          <h3 class="font-display font-bold text-2xl text-white">[INI UNTUK JUDUL: BUTUH ARSITEKTUR SISTEM KHUSUS?]</h3>
+          <h3 class="font-display font-bold text-2xl text-white">Need a Specialized Custom Architecture?</h3>
           <p class="font-body font-light text-sm leading-relaxed text-[#9db4c8]">
-            [Ini bisa diisi penjelasan layanan tim engineer kami: kalibrasi alat di lokasi, pembuatan protokol komunikasi khusus, dan pendampingan implementasi langsung].
+            Our field applications engineering team provides on-site geodetic calibration, custom protocol translation, and 24/7 mission support across Southeast Asia.
           </p>
         </div>
         <NuxtLink to="/contact" class="btn-primary flex-shrink-0 whitespace-nowrap shadow-lg">
-          [Ini Tombol: Konsultasi Dengan Engineer →]
+          Speak With An Engineer &rarr;
         </NuxtLink>
       </div>
 
@@ -139,50 +129,44 @@ const solutionsList = [
   {
     num: '01',
     icon: MaritimeIcon,
-    title: '[Solusi 1: Navigasi Maritim & VTS]',
-    desc: '[Ini bisa diisi penjelasan solusi pemantauan alur laut, keselamatan pelayaran pelabuhan, pemantauan kapal, dan integrasi stasiun pantai].',
-    tags: ['[RADAR]', '[AIS]', '[GNSS RTK]', '[SONAR]'],
-    compliance: '[Standar Maritim Internasional / Kemenhub]',
+    title: 'Maritime Navigation & VTS',
+    desc: 'High-integrity positioning and radar integration for port traffic services, vessel tracking, and offshore operations. Compliant with IMO and IEC 61162 standards.',
+    compliance: 'IMO · IEC 61162 · IHO S-44',
   },
   {
     num: '02',
     icon: AirspaceIcon,
-    title: '[Solusi 2: Pengawasan Ruang Udara]',
-    desc: '[Ini bisa diisi penjelasan solusi pengawasan pergerakan udara rendah, integrasi radar bandara, dan deteksi dini objek tanpa awak].',
-    tags: ['[AESA RADAR]', '[ADS-B]', '[ASTERIX]', '[DETEKSI DRONE]'],
-    compliance: '[Standar Navigasi Udara / ICAO]',
+    title: 'Airspace Surveillance',
+    desc: 'Multi-sensor fusion for approach, terminal, and en-route radar. ASTERIX CAT 48/62 output integrates directly with ATM platforms.',
+    compliance: 'ASTERIX Cat. 48/62 · DO-178C',
   },
   {
     num: '03',
     icon: InfrastructureIcon,
-    title: '[Solusi 3: Pemantauan Struktur Kritis]',
-    desc: '[Ini bisa diisi solusi deteksi pergeseran tanah sub-milimeter, pemantauan kesehatan jembatan bentang panjang, bendungan, dan lereng tambang].',
-    tags: ['[CORS RTK]', '[TILTMETER]', '[SUB-MM GNSS]', '[EARLY WARNING]'],
-    compliance: '[Akurasi Sub-Milimeter Terverifikasi]',
+    title: 'Critical Infrastructure',
+    desc: 'Continuous structural deformation monitoring for bridges, dams, and tunnels using network RTK with sub-millimeter sensitivity.',
+    compliance: 'Network RTK · < 1mm Precision',
   },
   {
     num: '04',
     icon: DefenseIcon,
-    title: '[Solusi 4: Keamanan Teritorial & Perbatasan]',
-    desc: '[Ini bisa diisi solusi pengawasan pos perbatasan terluar, integrasi kamera thermal, dan pengiriman data taktis terenkripsi].',
-    tags: ['[KAMERA OPTIK]', '[SENSOR GERAK]', '[JARINGAN MESH]', '[C2 MANDIRI]'],
-    compliance: '[Standar Uji Ketahanan Militer]',
+    title: 'Defense & Border Security',
+    desc: 'Classification-grade sensor fusion for perimeter surveillance, drone detection, and tactical positioning in congested RF environments.',
+    compliance: 'STANAG 4586 · MIL-STD-810H',
   },
   {
     num: '05',
     icon: AgricultureIcon,
-    title: '[Solusi 5: Pertanian Presisi & Perkebunan]',
-    desc: '[Ini bisa diisi panduan kemudi otomatis traktor/alat berat perkebunan berbasis RTK dan pemetaan batas lahan kontur presisi].',
-    tags: ['[AUTO STEERING]', '[KEMUDI RTK]', '[PEMETAAN KONTUR]', '[EFISIENSI LAHAN]'],
-    compliance: '[Panduan Presisi Sub-Sentimeter]',
+    title: 'Precision Agriculture',
+    desc: 'Sub-centimeter RTK GNSS guidance for autonomous machinery, variable-rate application mapping, and field boundary management.',
+    compliance: 'ISOBUS · Dual Frequency RTK',
   },
   {
     num: '06',
     icon: TransportIcon,
-    title: '[Solusi 6: Transportasi Cerdas & Wahana Otonom]',
-    desc: '[Ini bisa diisi integrasi penentuan posisi kendaraan otonom, sinkronisasi waktu jaringan, dan telemetri pemantauan armada logistik].',
-    tags: ['[KENDARAAN OTONOM]', '[TELEMETRI ARMADA]', '[SENSOR IMU]', '[SINKRONISASI]'],
-    compliance: '[Sinkronisasi Presisi Waktu & Lokasi]',
+    title: 'Intelligent Transport & V2X',
+    desc: 'Vehicle-to-infrastructure positioning, cooperative awareness, and traffic management backed by GNSS-grade timing references.',
+    compliance: 'IEEE 1588 PTP · V2X Standards',
   },
 ]
 </script>
