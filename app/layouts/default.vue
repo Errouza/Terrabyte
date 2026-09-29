@@ -257,7 +257,7 @@ function handleSecretAdminClick() {
 
   if (secretClicks.value >= 3) {
     secretClicks.value = 0
-    navigateTo('/admin')
+    navigateTo('/ops-system')
     return
   }
 

@@ -5,6 +5,7 @@ export default defineNuxtConfig({
 
   routeRules: {
     '/about': { redirect: { to: '/company', statusCode: 301 } },
+    '/admin': { redirect: { to: '/', statusCode: 302 } },
   },
 
   runtimeConfig: {
