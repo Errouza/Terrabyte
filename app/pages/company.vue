@@ -1,526 +1,236 @@
 <template>
-  <div class="py-24 lg:py-28">
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+  <div class="min-h-screen text-white relative bg-[#030d17]">
 
-      <!-- ─── HEADER ────────────────────────────────────────────────── -->
-      <div class="mb-14">
-        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#00d1b2]/10 border border-[#00d1b2]/30 mb-4">
-          <span class="w-2 h-2 rounded-full bg-[#00d1b2] animate-pulse"></span>
-          <span class="font-ui text-xs font-semibold tracking-widest uppercase text-[#00d1b2]">
-            COMPANY PROFILE // Otoritas Sistem &amp; Rekayasa Radar
-          </span>
-        </div>
-        <h1 class="font-display font-bold text-4xl lg:text-5xl tracking-wide text-white leading-tight">
-          PT TERRABYTE GEOSYSTEMS INDONESIA<br />
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00d1b2] via-[#5ce6d4] to-[#60A5FA]">
-            SISTEM TERRAPULSE &amp; REKAYASA RADAR PRESISI
-          </span>
+    <!-- ─── HERO SECTION (PAGE 2 HI-FI) ──────────────────────────────── -->
+    <section class="relative pt-32 pb-16 lg:pt-44 lg:pb-24 overflow-hidden">
+      <!-- Ambient Radial Glows -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[650px] h-[350px] bg-[#18b8ea]/10 rounded-full blur-[150px] pointer-events-none"></div>
+
+      <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center relative z-10">
+        <!-- Tag -->
+        <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-4">
+          COMPANY &middot; ABOUT US
+        </p>
+
+        <!-- Headline -->
+        <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-[58px] leading-tight text-white mb-6">
+          Built in the field. <span class="text-[#18b8ea] drop-shadow-[0_0_30px_rgba(24,184,234,0.35)]">Driven by data.</span>
         </h1>
-        <p class="font-body font-light text-base leading-relaxed text-[#9db4c8] mt-4 max-w-3xl">
-          PT Terrabyte Geosystems Indonesia memegang peranan vital di rantai nilai geospasial sebagai pengembang platform monitoring berteknologi tinggi (TerraPulse) dan pusat keahlian rekayasa radar presisi, menjamin keselamatan operasional tambang, maritim, dan infrastruktur strategis nasional.
+
+        <!-- Subtitle -->
+        <p class="font-body text-[#94a3b8] text-base sm:text-lg leading-relaxed max-w-2xl mx-auto font-light">
+          We are a geospatial technology company helping Indonesian industries understand, monitor and respond to the ground they work on.
         </p>
       </div>
+    </section>
 
-      <!-- ─── HIERARKI & HUBUNGAN STRATEGIS ─────────────────────────── -->
-      <div class="mb-24">
-        <div class="max-w-3xl mb-10">
-          <p class="section-label mb-2">Hierarki &amp; Hubungan Ekosistem</p>
-          <h2 class="font-display font-bold text-2xl sm:text-3xl text-white">Posisi Terrabyte dalam Ekosistem Teknologi</h2>
-          <p class="font-body font-light text-sm text-[#9db4c8] mt-2">
-            Terrabyte bertindak sebagai entitas teknologi sistem utama, menaungi riset software mandiri dan tim engineer radar berkeahlian tinggi yang memperkuat operasional mitra di lapangan.
-          </p>
+    <!-- ─── SECTION 01: OUR STORY (PAGE 2 HI-FI) ─────────────────────── -->
+    <section class="py-16 lg:py-24 border-t border-white/5 bg-[#020b14] relative">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-12 gap-12 items-center mb-16">
+
+          <!-- Left Column: Photo [TEAM ON SITE] -->
+          <div class="lg:col-span-5">
+            <div class="rounded-3xl overflow-hidden geo-card shadow-2xl relative aspect-[4/3] group">
+              <img
+                src="/images/hero-surveyor.jpg"
+                alt="Terrabyte Geosystem team on site"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#030d17]/80 via-transparent to-transparent"></div>
+              <span class="absolute bottom-4 left-4 font-mono text-[10px] tracking-widest uppercase text-white/90 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+                FIELD OPERATIONS &middot; INDONESIA
+              </span>
+            </div>
+          </div>
+
+          <!-- Right Column: 01 - OUR STORY -->
+          <div class="lg:col-span-7 space-y-5">
+            <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold">01 &mdash; OUR STORY</p>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl text-white leading-tight">
+              Collecting data is only half<br class="hidden sm:block" />
+              the job.
+            </h2>
+            <div class="space-y-4 font-body text-sm sm:text-base text-[#94a3b8] leading-relaxed font-light">
+              <p>
+                Terrabyte Geosystem Indonesia grew out of real field work. Working alongside PT Lextera Survey Indonesia on radar slope monitoring projects, we saw that the hardest part isn’t gathering data, it’s turning it into clear, timely decisions.
+              </p>
+              <p>
+                So we built TerraPulse-AI, an analytics platform for monitoring data, and TerraWatch, a monitoring center that keeps continuous watch over site conditions. Together with proven instruments, they form one integrated solution.
+              </p>
+            </div>
+          </div>
+
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6 items-stretch">
-          <!-- Pillar 1: Terrabyte (Top Hierarchy / Centerpiece) -->
-          <div class="p-8 rounded-2xl bg-gradient-to-b from-[#001f3f]/90 to-[#001428]/95 border border-[#00d1b2]/80 shadow-[0_0_30px_rgba(0,209,178,0.25)] flex flex-col justify-between relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-[#00d1b2]/20 rounded-full blur-2xl pointer-events-none"></div>
+        <!-- Vision & Mission Cards -->
+        <div class="grid md:grid-cols-2 gap-6">
+
+          <!-- VISION Card -->
+          <div class="p-8 sm:p-10 rounded-3xl geo-card flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between mb-5">
-                <span class="font-mono text-xs font-bold text-[#001f3f] bg-[#00d1b2] px-2.5 py-1 rounded uppercase tracking-wider font-extrabold">
-                  OTORITAS SISTEM &amp; REKAYASA
-                </span>
-                <span class="w-2 h-2 rounded-full bg-[#00d1b2] animate-ping"></span>
-              </div>
-              <h3 class="font-display font-bold text-2xl text-white mb-2 group-hover:text-cyan-100 transition-colors">
-                PT Terrabyte Geosystems Indonesia
-              </h3>
-              <p class="font-body font-light text-xs sm:text-sm text-[#d4f3ed] leading-relaxed mb-6">
-                Pemilik hak cipta &amp; pengembang platform <strong>TerraPulse</strong> serta sentra teknisi/engineer spesialis radar yang mengoperasikan, mengkalibrasi, dan me-maintain Radar ComNav MS-SAR5000 di lokasi operasional klien.
+              <span class="block font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-5">VISION</span>
+              <p class="font-display text-xl sm:text-2xl text-white font-medium leading-relaxed">
+                To be Indonesia’s trusted partner in geospatial intelligence, helping industries work safer and smarter with the earth.
               </p>
-            </div>
-            <div class="pt-4 border-t border-[#00d1b2]/30 font-mono text-[11px] text-[#00d1b2] flex items-center justify-between">
-              <span>FOKUS:</span>
-              <span class="text-white font-bold">Platform TerraPulse &amp; Radar Services</span>
             </div>
           </div>
 
-          <!-- Pillar 2: Lextera (Mitra Integrasi Lapangan & Survei) -->
-          <div class="p-8 neon-card flex flex-col justify-between relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-28 h-28 bg-[#F59E0B]/10 rounded-full blur-2xl pointer-events-none"></div>
-            <div>
-              <div class="flex items-center justify-between mb-5">
-                <span class="font-mono text-xs font-bold text-[#FBBF24] bg-[#F59E0B]/10 border border-[#F59E0B]/30 px-2.5 py-1 rounded uppercase tracking-wider">
-                  MITRA INTEGRASI SURVEI
-                </span>
-                <span class="w-2 h-2 rounded-full bg-[#FBBF24]"></span>
-              </div>
-              <h3 class="font-display font-bold text-xl text-white mb-2 group-hover:text-cyan-200 transition-colors">
-                PT Lextera Survey Indonesia
-              </h3>
-              <p class="font-body font-light text-xs sm:text-sm text-[#9db4c8] leading-relaxed mb-6">
-                Mitra strategis pelaksanaan survei lapangan, distribusi peralatan geospasial presisi (Total Station, Laser RTK, GNSS, Echo Sounder), dan perpanjangan tangan komersial yang disokong penuh oleh Terrabyte.
-              </p>
-            </div>
-            <div class="pt-4 border-t border-white/10 font-mono text-[11px] text-[#6c889f] flex items-center justify-between">
-              <span>FOKUS:</span>
-              <span class="text-white font-semibold">Integrasi Lapangan &amp; Alat Survei</span>
-            </div>
+          <!-- MISSION Card -->
+          <div class="p-8 sm:p-10 rounded-3xl geo-card">
+            <span class="block font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-5">MISSION</span>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3.5 text-sm text-[#94a3b8]">
+                <span class="font-mono text-sm text-[#18b8ea] font-bold mt-0.5">01</span>
+                <span class="text-white font-light">Deliver reliable survey and monitoring technology with strong local support.</span>
+              </li>
+              <li class="flex items-start gap-3.5 text-sm text-[#94a3b8]">
+                <span class="font-mono text-sm text-[#18b8ea] font-bold mt-0.5">02</span>
+                <span class="text-white font-light">Turn field data into decisions through analytics and AI.</span>
+              </li>
+              <li class="flex items-start gap-3.5 text-sm text-[#94a3b8]">
+                <span class="font-mono text-sm text-[#18b8ea] font-bold mt-0.5">03</span>
+                <span class="text-white font-light">Put safety first in every operation we support.</span>
+              </li>
+              <li class="flex items-start gap-3.5 text-sm text-[#94a3b8]">
+                <span class="font-mono text-sm text-[#18b8ea] font-bold mt-0.5">04</span>
+                <span class="text-white font-light">Keep building new solutions for Indonesian industries.</span>
+              </li>
+            </ul>
           </div>
 
-          <!-- Pillar 3: ComNav (Principal Hardware Mitra Lextera) -->
-          <div class="p-8 neon-card flex flex-col justify-between relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-28 h-28 bg-[#3B82F6]/10 rounded-full blur-2xl pointer-events-none"></div>
-            <div>
-              <div class="flex items-center justify-between mb-5">
-                <span class="font-mono text-xs font-bold text-[#60A5FA] bg-[#3B82F6]/10 border border-[#3B82F6]/30 px-2.5 py-1 rounded uppercase tracking-wider">
-                  PRINCIPAL HARDWARE (VIA LEXTERA)
-                </span>
-                <span class="w-2 h-2 rounded-full bg-[#60A5FA]"></span>
-              </div>
-              <h3 class="font-display font-bold text-xl text-white mb-2 group-hover:text-cyan-200 transition-colors">
-                ComNav Technology Ltd.
-              </h3>
-              <p class="font-body font-light text-xs sm:text-sm text-[#9db4c8] leading-relaxed mb-6">
-                Principal produsen perangkat keras radar canggih (khususnya <strong>MS-SAR5000</strong>) dan modul GNSS RTK presisi tinggi dunia yang disediakan melalui Lextera dan dioperasikan oleh tim teknisi Terrabyte.
-              </p>
-            </div>
-            <div class="pt-4 border-t border-white/10 font-mono text-[11px] text-[#6c889f] flex items-center justify-between">
-              <span>FOKUS:</span>
-              <span class="text-white font-semibold">Manufaktur Radar MS-SAR5000 &amp; GNSS</span>
-            </div>
-          </div>
         </div>
       </div>
+    </section>
 
-      <!-- ─── VISI & MISI RESMI TERRABYTE ────────────────────────────── -->
-      <div class="mb-28 p-8 md:p-14 rounded-3xl bg-gradient-to-r from-[#00172e] via-[#002447] to-[#00172e] border border-[#00d1b2]/40 shadow-2xl relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-[#00d1b2]/10 rounded-full blur-3xl pointer-events-none"></div>
+    <!-- ─── SECTION 02: OUR VALUES (PAGE 2 HI-FI) ─────────────────────── -->
+    <section class="py-20 lg:py-24 border-t border-white/5 relative bg-[#030d17]">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
 
-        <div class="max-w-3xl mb-12">
-          <p class="section-label mb-2 text-[#00d1b2]">KOMITMEN &amp; HALUAN PERUSAHAAN</p>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl text-white">Visi &amp; Misi Resmi Terrabyte</h2>
-          <p class="font-body font-light text-sm text-[#9db4c8] mt-2">
-            Pedoman strategis yang mengarahkan pengembangan inovasi perangkat lunak dan keunggulan eksekusi teknis di lapangan.
-          </p>
-        </div>
-
-        <!-- Vision Banner -->
-        <div class="p-8 rounded-2xl bg-black/40 border border-[#00d1b2]/30 mb-12 backdrop-blur-md">
-          <div class="flex items-center space-x-3 mb-3">
-            <span class="w-2.5 h-2.5 rounded-full bg-[#00d1b2] shadow-[0_0_8px_#00d1b2]"></span>
-            <span class="font-mono text-xs text-[#00d1b2] uppercase tracking-widest font-bold">Visi Perusahaan (Our Vision)</span>
-          </div>
-          <p class="font-display font-bold text-xl sm:text-2xl text-white leading-relaxed italic">
-            "Menjadi pionir penyedia sistem intelijen pemantauan geospasial dan otoritas rekayasa radar terdepan di Indonesia, yang menjamin keandalan data presisi tinggi serta keselamatan operasional industri kritis secara berkelanjutan."
-          </p>
-        </div>
-
-        <!-- Mission Grid (4 Pillars) -->
-        <div>
-          <div class="flex items-center space-x-3 mb-6">
-            <span class="w-2.5 h-2.5 rounded-full bg-[#00d1b2]"></span>
-            <span class="font-mono text-xs text-[#00d1b2] uppercase tracking-widest font-bold">Misi Perusahaan (Our Mission)</span>
-          </div>
-
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="p-6 rounded-xl bg-black/25 border border-white/10 space-y-2">
-              <span class="font-mono text-xs font-bold text-[#00d1b2]">01 // INOVASI SISTEM TERRAPULSE</span>
-              <h4 class="font-display font-bold text-base text-white">Pengembangan Platform Digital Berkelanjutan</h4>
-              <p class="font-body font-light text-xs sm:text-sm text-[#9db4c8] leading-relaxed">
-                Mengembangkan platform <strong>TerraPulse</strong> sebagai sistem pemantauan digital yang adaptif, berlatensi rendah (&lt; 5ms), dan mampu mengolah telemetri radar serta multi-sensor menjadi keputusan taktis real-time.
-              </p>
-            </div>
-
-            <div class="p-6 rounded-xl bg-black/25 border border-white/10 space-y-2">
-              <span class="font-mono text-xs font-bold text-[#00d1b2]">02 // REKAYASA &amp; TEKNISI RADAR</span>
-              <h4 class="font-display font-bold text-base text-white">Keunggulan Layanan Teknis Lapangan</h4>
-              <p class="font-body font-light text-xs sm:text-sm text-[#9db4c8] leading-relaxed">
-                Menyediakan tim teknisi dan engineer bersertifikasi yang mengawal penuh siklus instrumen radar canggih (khususnya <strong>ComNav MS-SAR5000</strong>) mulai dari instalasi, kalibrasi berkala, hingga mitigasi kendala di lapangan dengan SLA tinggi.
-              </p>
-            </div>
-
-            <div class="p-6 rounded-xl bg-black/25 border border-white/10 space-y-2">
-              <span class="font-mono text-xs font-bold text-[#00d1b2]">03 // SINERGI SISTEM UTAMA</span>
-              <h4 class="font-display font-bold text-base text-white">Tulang Punggung Teknologi Ekosistem</h4>
-              <p class="font-body font-light text-xs sm:text-sm text-[#9db4c8] leading-relaxed">
-                Menjadi pilar teknologi utama yang memperkuat operasi mitra strategis (<strong>Lextera</strong>) dan keandalan instrumen (<strong>ComNav</strong>), memastikan seluruh alat yang beroperasi di lapangan terintegrasi tanpa hambatan.
-              </p>
-            </div>
-
-            <div class="p-6 rounded-xl bg-black/25 border border-white/10 space-y-2">
-              <span class="font-mono text-xs font-bold text-[#00d1b2]">04 // KEDAULATAN DATA OPERASI</span>
-              <h4 class="font-display font-bold text-base text-white">Keamanan &amp; Kepatuhan Standar Industri</h4>
-              <p class="font-body font-light text-xs sm:text-sm text-[#9db4c8] leading-relaxed">
-                Menjamin perlindungan data aset dan pemantauan kritis melalui arsitektur sistem mandiri (on-premise air-gapped maupun hybrid cloud) yang patuh pada standar keselamatan kerja (K3) dan regulasi nasional.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ─── 4 OPERATING PHILOSOPHIES (Axioms) ────────────────────────── -->
-      <div class="mb-28">
-        <div class="max-w-2xl mb-12">
-          <p class="section-label mb-2">Filosofi Keandalan</p>
-          <h2 class="font-display font-bold text-3xl text-white">4 Prinsip Operasional Terrabyte</h2>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div
-            v-for="val in coreValues"
-            :key="val.num"
-            class="p-7 neon-card flex flex-col justify-between"
-          >
-            <div>
-              <div class="flex items-center justify-between mb-5">
-                <span class="font-mono text-2xl font-bold text-[#00d1b2]">0{{ val.num }}</span>
-                <span class="font-mono text-[10px] tracking-wider uppercase px-2.5 py-0.5 rounded bg-[#00d1b2]/10 border border-[#00d1b2]/30 text-[#00d1b2]">
-                  {{ val.badge }}
-                </span>
-              </div>
-              <h3 class="font-display font-bold text-lg text-white mb-2">{{ val.title }}</h3>
-              <p class="font-body font-light text-xs leading-relaxed text-[#9db4c8]">{{ val.desc }}</p>
-            </div>
-            <div class="pt-4 mt-6 border-t border-white/10 font-mono text-[10px] text-[#6c889f]">
-              PLATFORM AXIOM // 0{{ val.num }}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ─── STRUKTUR ORGANISASI: TATANAN PIRAMIDA ───────────────────── -->
-      <div class="mb-28">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#00d1b2]/10 border border-[#00d1b2]/30 mb-4">
-            <span class="w-2 h-2 rounded-full bg-[#00d1b2] animate-pulse"></span>
-            <span class="font-ui text-xs font-semibold tracking-widest uppercase text-[#00d1b2]">
-              STRUKTUR ORGANISASI // Tatanan Piramida Kepemimpinan &amp; Rekayasa
-            </span>
-          </div>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl text-white tracking-wide">
-            Tatanan Piramida Kepemimpinan &amp; Tim Rekayasa
+        <div class="mb-14">
+          <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-2">02 &mdash; OUR VALUES</p>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-white">
+            What guides our work.
           </h2>
-          <p class="font-body font-light text-sm sm:text-base text-[#9db4c8] mt-3">
-            Tata kelola berjenjang dari pucuk pimpinan eksekutif (CEO &amp; COO), turun ke jajaran manajerial operasional, hingga tim arsitek sistem software dan engineer spesialis di lapangan.
-          </p>
         </div>
 
-        <!-- ─── LEVEL 1: PUNCAK PIRAMIDA (CEO & COO) ─── -->
-        <div class="relative max-w-4xl mx-auto mb-4">
-          <div class="flex items-center justify-center gap-3 mb-6">
-            <div class="h-[1px] w-12 sm:w-20 bg-gradient-to-r from-transparent to-[#00d1b2]"></div>
-            <span class="font-mono text-xs text-[#00d1b2] tracking-[0.2em] uppercase font-bold px-4 py-1.5 rounded-full bg-[#00d1b2]/15 border border-[#00d1b2]/50 shadow-[0_0_15px_rgba(0,209,178,0.2)]">
-              LEVEL 1 // DEWAN EKSEKUTIF (CEO &amp; COO)
-            </span>
-            <div class="h-[1px] w-12 sm:w-20 bg-gradient-to-l from-transparent to-[#00d1b2]"></div>
-          </div>
+        <!-- 4 Values Grid -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-          <!-- 2 Cards (Apex) -->
-          <div class="grid sm:grid-cols-2 gap-6 sm:gap-8">
-            <div
-              v-for="exec in executiveLeaders"
-              :key="exec.name"
-              class="p-7 rounded-2xl bg-gradient-to-b from-[#001f3f] to-[#001428] border-2 border-[#00d1b2] shadow-[0_0_30px_rgba(0,209,178,0.25)] flex flex-col justify-between group relative overflow-hidden"
-            >
-              <div class="absolute top-0 right-0 w-32 h-32 bg-[#00d1b2]/15 rounded-full blur-2xl pointer-events-none"></div>
-              <div>
-                <div class="relative overflow-hidden rounded-xl mb-5 h-64">
-                  <img
-                    :src="exec.photo"
-                    :alt="exec.name"
-                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div class="absolute inset-0 bg-gradient-to-t from-[#081822] via-transparent to-transparent opacity-80"></div>
-                  <div class="absolute bottom-3 left-3 flex gap-2">
-                    <span class="px-2.5 py-0.5 rounded-full bg-slate-900/90 border border-[#00d1b2]/50 text-[#00d1b2] font-mono text-[10px] font-semibold uppercase backdrop-blur-md">
-                      {{ exec.experience }}
-                    </span>
-                    <span class="px-2.5 py-0.5 rounded-full bg-[#00d1b2] text-[#001f3f] font-mono text-[10px] font-bold uppercase">
-                      {{ exec.tierBadge }}
-                    </span>
-                  </div>
-                </div>
-                <h3 class="font-display font-bold text-xl text-white group-hover:text-[#00d1b2] transition-colors">{{ exec.name }}</h3>
-                <p class="font-ui text-sm text-[#00d1b2] mt-0.5 font-bold tracking-wide">{{ exec.role }}</p>
-                <p class="font-body font-light text-xs sm:text-sm text-[#d4f3ed] mt-3 leading-relaxed">{{ exec.bio }}</p>
-              </div>
-              <div class="pt-4 mt-5 border-t border-[#00d1b2]/30 font-mono text-[11px] text-[#00d1b2] font-semibold flex items-center justify-between">
-                <span>{{ exec.division }}</span>
-                <span>★ TIER 1</span>
-              </div>
+          <!-- Value 1: Precision -->
+          <div class="p-7 rounded-3xl geo-card group">
+            <div class="w-11 h-11 rounded-xl bg-[#18b8ea]/10 border border-[#18b8ea]/25 flex items-center justify-center text-[#18b8ea] mb-5 group-hover:scale-110 group-hover:bg-[#18b8ea]/20 transition-all duration-300">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="6" />
+                <circle cx="12" cy="12" r="2" />
+              </svg>
             </div>
-          </div>
-
-          <!-- Flow Arrow Beam to Level 2 -->
-          <div class="flex flex-col items-center justify-center my-8">
-            <div class="w-[2px] h-10 bg-gradient-to-b from-[#00d1b2] via-[#00d1b2] to-[#00d1b2]/30"></div>
-            <div class="w-3 h-3 rounded-full bg-[#00d1b2] shadow-[0_0_12px_#00d1b2] ring-4 ring-[#00d1b2]/20"></div>
-          </div>
-        </div>
-
-        <!-- ─── LEVEL 2: TENGAH (MANAGERS & HEAD OF DIVISIONS) ─── -->
-        <div class="relative max-w-6xl mx-auto mb-4">
-          <div class="flex items-center justify-center gap-3 mb-6">
-            <div class="h-[1px] w-12 sm:w-20 bg-gradient-to-r from-transparent to-[#FBBF24]"></div>
-            <span class="font-mono text-xs text-[#FBBF24] tracking-[0.2em] uppercase font-bold px-4 py-1.5 rounded-full bg-[#F59E0B]/10 border border-[#F59E0B]/40 shadow-[0_0_15px_rgba(245,158,11,0.15)]">
-              LEVEL 2 // LEVEL MANAJER &amp; KEPALA DIVISI OPERASIONAL
-            </span>
-            <div class="h-[1px] w-12 sm:w-20 bg-gradient-to-l from-transparent to-[#FBBF24]"></div>
-          </div>
-
-          <!-- 3 Cards (Mid Level) -->
-          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div
-              v-for="mgr in managerialLeaders"
-              :key="mgr.name"
-              class="p-6 neon-card group flex flex-col justify-between hover:border-[#FBBF24]/60 transition-all duration-300"
-            >
-              <div>
-                <div class="relative overflow-hidden rounded-xl mb-4 h-52">
-                  <img
-                    :src="mgr.photo"
-                    :alt="mgr.name"
-                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div class="absolute inset-0 bg-gradient-to-t from-[#081822] via-transparent to-transparent opacity-85"></div>
-                  <div class="absolute bottom-3 left-3 flex gap-1.5">
-                    <span class="px-2 py-0.5 rounded-full bg-slate-900/90 border border-white/20 text-white font-mono text-[10px] font-semibold uppercase backdrop-blur-md">
-                      {{ mgr.experience }}
-                    </span>
-                    <span class="px-2 py-0.5 rounded-full bg-[#F59E0B]/20 border border-[#F59E0B]/50 text-[#FBBF24] font-mono text-[10px] font-semibold uppercase">
-                      {{ mgr.tierBadge }}
-                    </span>
-                  </div>
-                </div>
-                <h4 class="font-display font-bold text-base text-white group-hover:text-[#FBBF24] transition-colors">{{ mgr.name }}</h4>
-                <p class="font-ui text-xs text-[#00d1b2] mt-0.5 font-semibold">{{ mgr.role }}</p>
-                <p class="font-body font-light text-xs text-[#9db4c8] mt-2.5 leading-relaxed">{{ mgr.bio }}</p>
-              </div>
-              <div class="pt-4 mt-4 border-t border-white/10 font-mono text-[10px] text-[#6c889f] flex items-center justify-between">
-                <span>{{ mgr.division }}</span>
-                <span class="text-[#FBBF24]">TIER 2</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Flow Arrow Beam to Level 3 -->
-          <div class="flex flex-col items-center justify-center my-8">
-            <div class="w-[2px] h-10 bg-gradient-to-b from-[#FBBF24]/80 via-[#00d1b2] to-[#00d1b2]/30"></div>
-            <div class="w-3 h-3 rounded-full bg-[#00d1b2] shadow-[0_0_12px_#00d1b2] ring-4 ring-[#00d1b2]/20"></div>
-          </div>
-        </div>
-
-        <!-- ─── LEVEL 3: BAWAH (TIM ARSITEK SISTEM & SPESIALIS REKAYASA) ─── -->
-        <div class="relative max-w-7xl mx-auto">
-          <div class="flex items-center justify-center gap-3 mb-6">
-            <div class="h-[1px] w-12 sm:w-20 bg-gradient-to-r from-transparent to-[#00d1b2]"></div>
-            <span class="font-mono text-xs text-white tracking-[0.2em] uppercase font-bold px-4 py-1.5 rounded-full bg-cyan-950/60 border border-[#00d1b2]/40 shadow-[0_0_15px_rgba(0,209,178,0.15)]">
-              LEVEL 3 // TIM ARSITEK SISTEM TERRAPULSE &amp; SPESIALIS TEKNIS
-            </span>
-            <div class="h-[1px] w-12 sm:w-20 bg-gradient-to-l from-transparent to-[#00d1b2]"></div>
-          </div>
-
-          <!-- 4 Cards (Base of Pyramid) -->
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div
-              v-for="spec in specialistTeam"
-              :key="spec.name"
-              class="p-5 neon-card group flex flex-col justify-between hover:border-[#00d1b2]/70 transition-all duration-300"
-            >
-              <div>
-                <div class="relative overflow-hidden rounded-xl mb-4 h-48">
-                  <img
-                    :src="spec.photo"
-                    :alt="spec.name"
-                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div class="absolute inset-0 bg-gradient-to-t from-[#081822] via-transparent to-transparent opacity-85"></div>
-                  <div class="absolute bottom-2.5 left-2.5">
-                    <span class="px-2 py-0.5 rounded-full bg-slate-900/90 border border-[#00d1b2]/40 text-[#00d1b2] font-mono text-[9px] font-semibold uppercase backdrop-blur-md">
-                      {{ spec.experience }}
-                    </span>
-                  </div>
-                </div>
-                <h4 class="font-display font-bold text-sm text-white group-hover:text-[#00d1b2] transition-colors">{{ spec.name }}</h4>
-                <p class="font-ui text-[11px] text-[#00d1b2] mt-0.5 font-semibold">{{ spec.role }}</p>
-                <p class="font-body font-light text-xs text-[#9db4c8] mt-2 leading-relaxed">{{ spec.bio }}</p>
-              </div>
-              <div class="pt-3 mt-3 border-t border-white/10 font-mono text-[9px] text-[#6c889f] flex items-center justify-between">
-                <span>{{ spec.division }}</span>
-                <span class="text-cyan-400">TIER 3</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ─── STANDARDS & ACCREDITATIONS ─────────────────────────────── -->
-      <div class="p-8 md:p-12 rounded-3xl bg-gradient-to-r from-[#091e2b] via-[#0d293b] to-[#091e2b] border border-white/15 hover:border-[#00d1b2]/50 hover:shadow-[0_0_30px_rgba(0,209,178,0.15)] transition-all duration-300">
-        <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
-          <div>
-            <p class="section-label mb-2">STANDAR KUALITAS // Keandalan Industri</p>
-            <h3 class="font-display font-bold text-2xl text-white">Kepatuhan Standar Teknis &amp; Sertifikasi</h3>
-            <p class="font-body font-light text-xs sm:text-sm text-[#9db4c8] mt-2 max-w-2xl">
-              Sistem software TerraPulse dan prosedur operasional radar ComNav MS-SAR5000 dipandu oleh standar industri global dan kepatuhan keselamatan kerja (K3).
+            <h3 class="font-display font-bold text-lg text-white mb-2 group-hover:text-[#18b8ea] transition-colors">Precision</h3>
+            <p class="font-body text-xs text-[#94a3b8] leading-relaxed font-light">
+              Accurate data and careful work, every time.
             </p>
           </div>
-          <div class="flex flex-wrap items-center gap-3">
-            <span v-for="std in standards" :key="std" class="px-4 py-2 rounded-xl bg-slate-900/80 border border-white/10 text-xs font-mono text-cyan-300 font-semibold shadow-xs">
-              {{ std }}
-            </span>
+
+          <!-- Value 2: Safety -->
+          <div class="p-7 rounded-3xl geo-card group">
+            <div class="w-11 h-11 rounded-xl bg-[#18b8ea]/10 border border-[#18b8ea]/25 flex items-center justify-center text-[#18b8ea] mb-5 group-hover:scale-110 group-hover:bg-[#18b8ea]/20 transition-all duration-300">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white mb-2 group-hover:text-[#18b8ea] transition-colors">Safety</h3>
+            <p class="font-body text-xs text-[#94a3b8] leading-relaxed font-light">
+              Early warning that protects people and operations.
+            </p>
+          </div>
+
+          <!-- Value 3: Innovation -->
+          <div class="p-7 rounded-3xl geo-card group">
+            <div class="w-11 h-11 rounded-xl bg-[#18b8ea]/10 border border-[#18b8ea]/25 flex items-center justify-center text-[#18b8ea] mb-5 group-hover:scale-110 group-hover:bg-[#18b8ea]/20 transition-all duration-300">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white mb-2 group-hover:text-[#18b8ea] transition-colors">Innovation</h3>
+            <p class="font-body text-xs text-[#94a3b8] leading-relaxed font-light">
+              Using AI and new technology to solve real field problems.
+            </p>
+          </div>
+
+          <!-- Value 4: Partnership -->
+          <div class="p-7 rounded-3xl geo-card group">
+            <div class="w-11 h-11 rounded-xl bg-[#18b8ea]/10 border border-[#18b8ea]/25 flex items-center justify-center text-[#18b8ea] mb-5 group-hover:scale-110 group-hover:bg-[#18b8ea]/20 transition-all duration-300">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white mb-2 group-hover:text-[#18b8ea] transition-colors">Partnership</h3>
+            <p class="font-body text-xs text-[#94a3b8] leading-relaxed font-light">
+              Working closely with clients and partners for the long term.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── SECTION: OUR PARTNER (PAGE 2 HI-FI) ───────────────────────── -->
+    <section class="py-16 bg-[#020b14] border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="p-8 sm:p-10 rounded-3xl geo-card flex flex-col md:flex-row items-center gap-8">
+          <!-- Lextera Logo / Brand Emblem -->
+          <div class="w-36 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center p-4 flex-shrink-0">
+            <span class="font-display font-extrabold text-lg tracking-widest text-white">LEXTERA</span>
+          </div>
+          <!-- Partner Text -->
+          <div class="space-y-2 text-center md:text-left">
+            <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold">OUR PARTNER</p>
+            <h3 class="font-display font-bold text-xl sm:text-2xl text-white">
+              Authorized partner of PT Lextera Survey Indonesia
+            </h3>
+            <p class="font-body text-xs sm:text-sm text-[#94a3b8] leading-relaxed font-light max-w-2xl">
+              We supply Lextera’s survey and monitoring instruments and pair them with our own analytics, so clients get hardware and intelligence from one team.
+            </p>
           </div>
         </div>
       </div>
+    </section>
 
-    </div>
+    <!-- ─── PRE-FOOTER BANNER (PAGE 2 HI-FI) ───────────────────────────── -->
+    <section class="py-16 bg-[#030d17]">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="p-8 sm:p-12 rounded-3xl geo-banner flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="space-y-2 text-center md:text-left">
+            <h3 class="font-display font-bold text-2xl sm:text-3xl text-white">
+              Let&rsquo;s build something together.
+            </h3>
+            <p class="font-body text-[#94a3b8] text-sm sm:text-base font-light">
+              Partner with us on your next monitoring or survey project.
+            </p>
+          </div>
+          <NuxtLink
+            to="/contact"
+            class="flex-shrink-0 btn-geo-white"
+          >
+            Contact us
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+
   </div>
 </template>
 
 <script setup lang="ts">
 useHead({
-  title: 'Company — Visi, Misi & Tim Manajemen PT Terrabyte Geosystems Indonesia',
+  title: 'Company — Built in the field. Driven by data | Terrabyte',
   meta: [
     {
       name: 'description',
-      content: 'Profil perusahaan, visi, misi, dan susunan dewan manajemen PT Terrabyte Geosystems Indonesia sebagai pengembang sistem TerraPulse dan otoritas rekayasa radar presisi.'
+      content: 'We are a geospatial technology company helping Indonesian industries understand, monitor and respond to the ground they work on.'
     }
   ]
 })
-
-const coreValues = [
-  {
-    num: 1,
-    title: 'Kepemilikan Sistem Mandiri',
-    badge: 'TerraPulse IP',
-    desc: 'Pengembangan penuh platform TerraPulse secara mandiri memastikan fleksibilitas integrasi ke instrumen apa pun dan kedaulatan data tanpa ketergantungan asing.'
-  },
-  {
-    num: 2,
-    title: 'Keahlian Radar Spesialis',
-    badge: 'Radar Expertise',
-    desc: 'Tim teknisi terlatih khusus untuk menangani kalibrasi, pengujian medan, dan perbaikan preventif radar ComNav MS-SAR5000 secara langsung di lokasi proyek.'
-  },
-  {
-    num: 3,
-    title: 'Keandalan 24/7 di Lapangan',
-    badge: 'Mission-Critical',
-    desc: 'Menjamin ketersediaan sistem pemantauan tanpa jeda pada lingkungan tambang ekstrem, pelabuhan, dan infrastruktur berisiko tinggi.'
-  },
-  {
-    num: 4,
-    title: 'Sinergi Ekosistem Terpadu',
-    badge: 'Turnkey Support',
-    desc: 'Kolaborasi mulus dengan Lextera untuk menghadirkan solusi menyeluruh: dari pengadaan alat, integrasi sistem, hingga pengoperasian oleh teknisi ahli.'
-  }
-]
-
-// ─── HIERARCHICAL LEADERSHIP PYRAMID DATA ────────────────────
-// Tier 1: Puncak Piramida (C-Suite: CEO & COO)
-const executiveLeaders = [
-  {
-    name: 'Ir. Haryo Prasetyo, M.T.',
-    role: 'Chief Executive Officer (CEO)',
-    photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face&auto=format',
-    experience: '20+ Thn Industri',
-    bio: 'Memimpin visi strategis korporasi Terrabyte sebagai otoritas sistem pemantauan geospasial dan pengembang solusi radar presisi terdepan di Indonesia.',
-    division: 'EXECUTIVE BOARD // PIMPINAN PUNCAK',
-    tierBadge: 'Apex Executive'
-  },
-  {
-    name: 'Ir. Dimas Ardianto, M.Eng.',
-    role: 'Chief Operating Officer (COO)',
-    photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face&auto=format',
-    experience: '18+ Thn Operasional',
-    bio: 'Mengorkestrasi kelancaran operasional bisnis, penempatan teknisi on-site, standarisasi mutu layanan K3, dan kepatuhan SLA proyek industri kritis.',
-    division: 'EXECUTIVE BOARD // PIMPINAN PUNCAK',
-    tierBadge: 'Apex Executive'
-  }
-]
-
-// Tier 2: Tingkat Manajerial (Managers & Department Heads)
-const managerialLeaders = [
-  {
-    name: 'Raden Mahendra, S.T.',
-    role: 'Head of Radar Engineering Services',
-    photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face&auto=format',
-    experience: '15+ Thn Radar & RTK',
-    bio: 'Kepala divisi teknisi radar lapangan, memimpin pengoperasian, perawatan rutin berkala, dan kalibrasi presisi Radar ComNav MS-SAR5000.',
-    division: 'RADAR OPERATIONS DIVISION',
-    tierBadge: 'Engineering Lead'
-  },
-  {
-    name: 'Clara Siregar, M.Sc.',
-    role: 'Head of Strategic Ecosystem (Lextera Liaison)',
-    photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face&auto=format',
-    experience: 'Geodetic Engineering',
-    bio: 'Menyelaraskan integrasi kebutuhan survei Lextera dengan sistem TerraPulse dan memastikan sinergi rantai pasok manufaktur ComNav.',
-    division: 'ECOSYSTEM ALLIANCES DIVISION',
-    tierBadge: 'Strategic Alliance'
-  },
-  {
-    name: 'Fajar Nugroho, S.T.',
-    role: 'Operations & Site Deployment Manager',
-    photo: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face&auto=format',
-    experience: '12+ Thn Site Project',
-    bio: 'Mengelola penugasan tim lapangan, logistik peralatan survei di site tambang/konstruksi, serta koordinasi tanggap darurat keselamatan kerja.',
-    division: 'SITE DEPLOYMENT & LOGISTICS',
-    tierBadge: 'Operations Manager'
-  }
-]
-
-// Tier 3: Tim Arsitek Sistem & Karyawan Spesialis (Foundation / Base)
-const specialistTeam = [
-  {
-    name: 'Satria Pratama, M.Kom.',
-    role: 'Lead Systems & Software Architect',
-    photo: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face&auto=format',
-    experience: 'AI & Real-Time Engine',
-    bio: 'Arsitek utama engine platform TerraPulse, memimpin rekayasa pipeline pemrosesan telemetri radar berlatensi rendah (< 5ms) dan analitik deformasi 3D.',
-    division: 'TERRAPULSE LABS // SOFTWARE'
-  },
-  {
-    name: 'Dyah Laksmi, S.T.',
-    role: 'Lead Geodesist & Sensor Fusion Specialist',
-    photo: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face&auto=format',
-    experience: 'GNSS CORS & Geodesy',
-    bio: 'Bertanggung jawab atas kalkulasi pergeseran koordinat baseline geodesi, integrasi stasiun CORS, dan validasi data vektor deformasi sub-milimeter.',
-    division: 'GEODETIC SYSTEMS'
-  },
-  {
-    name: 'Ilham Wahyudi, S.T.',
-    role: 'Senior Field Radar & Calibration Engineer',
-    photo: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=400&h=400&fit=crop&crop=face&auto=format',
-    experience: 'GB-SAR Certified',
-    bio: 'Insinyur teknis spesialis instalasi fisik, tuning frekuensi microwave radar, dan preventive maintenance 24/7 di lokasi tambang.',
-    division: 'RADAR FIELD ENGINEERING'
-  },
-  {
-    name: 'Rizky Maulana, A.Md.',
-    role: 'Telemetry Network & QA Specialist',
-    photo: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&h=400&fit=crop&crop=face&auto=format',
-    experience: 'Industrial IoT & LoRa',
-    bio: 'Mengawal keandalan transmisi data nirkabel (LoRa, 4G, Radio UHF) dan pengujian kualitas feed telemetri sensor menuju sistem Terrawatch.',
-    division: 'TELEMETRY QA & INTEGRATION'
-  }
-]
-
-const standards = [
-  'ISO 9001:2015 Quality Management',
-  'IP67 / IP68 Ingress Protection',
-  'MIL-STD-810H Vibration & Shock',
-  'CE & FCC Verified',
-  'ASTERIX CAT 048/062 Surveillance',
-  'Sertifikasi Keselamatan Tambang (K3)'
-]
 </script>

@@ -17,21 +17,21 @@ module.exports = {
       },
       colors: {
         brand: {
-          cyan: '#00d1b2',       // Cyan Pulse
-          'cyan-hover': '#00b89d',
-          'cyan-glow': 'rgba(0, 209, 178, 0.35)',
-          midnight: '#001f3f',   // Midnight Grid
-          'midnight-dark': '#001428',
-          'midnight-deep': '#000f1f',
+          cyan: '#18b8ea',       // Electric Cyan-Blue
+          'cyan-hover': '#38cbf8',
+          'cyan-glow': 'rgba(24, 184, 234, 0.35)',
+          midnight: '#071d2e',   // Deep Geospatial Navy
+          'midnight-dark': '#030d17',
+          'midnight-deep': '#020911',
           signal: '#ffffff',     // Pure Signal
-          carbon: '#2e2e2e',     // Carbon Core
-          'carbon-surface': 'rgba(46, 46, 46, 0.65)',
-          'carbon-border': 'rgba(46, 46, 46, 0.9)',
+          carbon: '#1a2936',     // Deep Slate Core
+          'carbon-surface': 'rgba(7, 29, 46, 0.75)',
+          'carbon-border': 'rgba(24, 184, 234, 0.25)',
           text: '#ffffff',
-          subtext: '#9db4c8',
-          muted: '#6c889f',
-          blue: '#00d1b2',       // mapped to Cyan Pulse for compatibility
-          dark: '#001f3f',
+          subtext: '#94a3b8',
+          muted: '#64748b',
+          blue: '#18b8ea',       // Electric Sky Blue
+          dark: '#030d17',
         },
       },
     },

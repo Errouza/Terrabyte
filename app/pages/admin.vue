@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-[#001224] text-white font-sans selection:bg-[#00d1b2] selection:text-black">
+  <div class="min-h-screen bg-[#001224] text-white font-sans selection:bg-[#18b8ea] selection:text-black">
     <!-- ─── 1. LOGIN GATE ─────────────────────────────────────────────── -->
     <div
       v-if="!isAuthenticated"
@@ -7,20 +7,20 @@
     >
       <!-- Background Cyber Atmosphere -->
       <div class="absolute inset-0 dot-grid opacity-20 pointer-events-none"></div>
-      <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#00d1b2]/10 rounded-full blur-[140px] pointer-events-none"></div>
+      <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#18b8ea]/10 rounded-full blur-[140px] pointer-events-none"></div>
 
       <div class="w-full max-w-md p-8 sm:p-10 rounded-3xl mica-panel border border-white/15 shadow-2xl relative z-10">
         <!-- Header -->
         <div class="text-center mb-8">
           <NuxtLink to="/" class="inline-flex items-center gap-3 mb-4 group">
             <img src="/images/logoOnlyPutih.png" alt="Logo" class="h-10 w-auto object-contain" />
-            <span class="font-display font-bold text-xl tracking-[0.2em] text-white uppercase group-hover:text-[#00d1b2] transition-colors">
+            <span class="font-display font-bold text-xl tracking-[0.2em] text-white uppercase group-hover:text-[#18b8ea] transition-colors">
               Terrabyte
             </span>
           </NuxtLink>
-          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#00d1b2]/10 border border-[#00d1b2]/30 mb-2">
-            <span class="w-2 h-2 rounded-full bg-[#00d1b2] animate-pulse"></span>
-            <span class="font-mono text-[11px] font-semibold tracking-widest uppercase text-[#00d1b2]">
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#18b8ea]/10 border border-[#18b8ea]/30 mb-2">
+            <span class="w-2 h-2 rounded-full bg-[#18b8ea] animate-pulse"></span>
+            <span class="font-mono text-[11px] font-semibold tracking-widest uppercase text-[#18b8ea]">
               ADMIN CONSOLE // SOVEREIGN C2
             </span>
           </div>
@@ -32,7 +32,7 @@
         <!-- Login Form -->
         <form @submit.prevent="handleLogin" class="space-y-5">
           <div>
-            <label class="block font-mono text-xs text-[#00d1b2] uppercase tracking-wider mb-2">
+            <label class="block font-mono text-xs text-[#18b8ea] uppercase tracking-wider mb-2">
               Sandi Administrator
             </label>
             <div class="relative">
@@ -40,7 +40,7 @@
                 :type="showPassword ? 'text' : 'password'"
                 v-model="passwordInput"
                 placeholder="Masukkan kata sandi admin..."
-                class="w-full px-4 py-3.5 rounded-xl bg-black/40 border border-white/15 focus:border-[#00d1b2] focus:ring-1 focus:ring-[#00d1b2] text-sm text-white placeholder-white/30 font-mono transition-all outline-none"
+                class="w-full px-4 py-3.5 rounded-xl bg-black/40 border border-white/15 focus:border-[#18b8ea] focus:ring-1 focus:ring-[#18b8ea] text-sm text-white placeholder-white/30 font-mono transition-all outline-none"
                 required
                 autofocus
               />
@@ -74,7 +74,7 @@
         </form>
 
         <div class="mt-8 pt-6 border-t border-white/10 text-center">
-          <NuxtLink to="/" class="text-xs font-mono text-[#6c889f] hover:text-[#00d1b2] transition-colors">
+          <NuxtLink to="/" class="text-xs font-mono text-[#6c889f] hover:text-[#18b8ea] transition-colors">
             &larr; Kembali ke Website Publik
           </NuxtLink>
         </div>
@@ -94,7 +94,7 @@
                 <span class="font-display font-bold text-sm tracking-wider text-white uppercase block">
                   TERRABYTE
                 </span>
-                <span class="font-mono text-[9px] text-[#00d1b2] uppercase tracking-widest">
+                <span class="font-mono text-[9px] text-[#18b8ea] uppercase tracking-widest">
                   ADMIN CONSOLE
                 </span>
               </div>
@@ -102,8 +102,8 @@
 
             <span class="text-white/20">|</span>
 
-            <div class="hidden sm:inline-flex items-center space-x-2 px-2.5 py-0.5 rounded-full bg-[#00d1b2]/10 border border-[#00d1b2]/30 text-[10px] font-mono text-[#00d1b2]">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#00d1b2] animate-pulse"></span>
+            <div class="hidden sm:inline-flex items-center space-x-2 px-2.5 py-0.5 rounded-full bg-[#18b8ea]/10 border border-[#18b8ea]/30 text-[10px] font-mono text-[#18b8ea]">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#18b8ea] animate-pulse"></span>
               <span>SESI AKTIF</span>
             </div>
           </div>
@@ -113,7 +113,7 @@
             <NuxtLink
               to="/"
               target="_blank"
-              class="px-3 py-1.5 rounded-lg border border-white/15 hover:border-[#00d1b2] text-xs font-mono text-[#9db4c8] hover:text-white transition-all flex items-center gap-1.5"
+              class="px-3 py-1.5 rounded-lg border border-white/15 hover:border-[#18b8ea] text-xs font-mono text-[#9db4c8] hover:text-white transition-all flex items-center gap-1.5"
             >
               <span>Lihat Web</span>
               <span>↗</span>
@@ -136,7 +136,7 @@
             @click="activeTab = tab.id"
             class="px-4 py-2 rounded-xl font-ui text-xs font-bold tracking-wider uppercase transition-all duration-200 flex items-center gap-2 whitespace-nowrap cursor-pointer"
             :class="activeTab === tab.id
-              ? 'bg-[#00d1b2] text-[#001428] shadow-[0_0_15px_rgba(0,209,178,0.4)]'
+              ? 'bg-[#18b8ea] text-[#001428] shadow-[0_0_15px_rgba(0,209,178,0.4)]'
               : 'text-[#9db4c8] hover:text-white hover:bg-white/5'"
           >
             <span>{{ tab.icon }}</span>
@@ -144,7 +144,7 @@
             <span
               v-if="tab.id === 'inquiries' && unreadInquiriesCount > 0"
               class="px-1.5 py-0.2 rounded-full text-[10px] font-mono"
-              :class="activeTab === 'inquiries' ? 'bg-black text-[#00d1b2]' : 'bg-[#00d1b2] text-black font-bold'"
+              :class="activeTab === 'inquiries' ? 'bg-black text-[#18b8ea]' : 'bg-[#18b8ea] text-black font-bold'"
             >
               {{ unreadInquiriesCount }}
             </span>
@@ -161,7 +161,7 @@
             <div class="p-6 rounded-2xl mica-card border border-white/10">
               <span class="font-mono text-xs text-[#6c889f] uppercase block mb-1">Total Produk</span>
               <div class="font-display font-bold text-3xl text-white">{{ products.length }}</div>
-              <span class="font-ui text-[11px] text-[#00d1b2] mt-2 block">Aktif di Katalog Publik</span>
+              <span class="font-ui text-[11px] text-[#18b8ea] mt-2 block">Aktif di Katalog Publik</span>
             </div>
 
             <div class="p-6 rounded-2xl mica-card border border-white/10">
@@ -172,7 +172,7 @@
 
             <div class="p-6 rounded-2xl mica-card border border-white/10">
               <span class="font-mono text-xs text-[#6c889f] uppercase block mb-1">Pesan Masuk</span>
-              <div class="font-display font-bold text-3xl text-[#00d1b2]">{{ inquiries.length }}</div>
+              <div class="font-display font-bold text-3xl text-[#18b8ea]">{{ inquiries.length }}</div>
               <span class="font-ui text-[11px] text-amber-300 mt-2 block">{{ unreadInquiriesCount }} Belum Dihubungi</span>
             </div>
 
@@ -190,24 +190,24 @@
               <h3 class="font-display font-bold text-lg text-white mb-2">Aksi Cepat</h3>
               <button
                 @click="openProductModal()"
-                class="w-full py-3 px-4 rounded-xl bg-white/5 hover:bg-[#00d1b2]/20 border border-white/10 hover:border-[#00d1b2] text-xs font-mono text-left flex items-center justify-between transition-all cursor-pointer"
+                class="w-full py-3 px-4 rounded-xl bg-white/5 hover:bg-[#18b8ea]/20 border border-white/10 hover:border-[#18b8ea] text-xs font-mono text-left flex items-center justify-between transition-all cursor-pointer"
               >
                 <span>➕ Tambah Produk Baru</span>
-                <span class="text-[#00d1b2]">&rarr;</span>
+                <span class="text-[#18b8ea]">&rarr;</span>
               </button>
               <button
                 @click="openArticleModal()"
-                class="w-full py-3 px-4 rounded-xl bg-white/5 hover:bg-[#00d1b2]/20 border border-white/10 hover:border-[#00d1b2] text-xs font-mono text-left flex items-center justify-between transition-all cursor-pointer"
+                class="w-full py-3 px-4 rounded-xl bg-white/5 hover:bg-[#18b8ea]/20 border border-white/10 hover:border-[#18b8ea] text-xs font-mono text-left flex items-center justify-between transition-all cursor-pointer"
               >
                 <span>📝 Tulis Artikel Baru</span>
-                <span class="text-[#00d1b2]">&rarr;</span>
+                <span class="text-[#18b8ea]">&rarr;</span>
               </button>
               <button
                 @click="activeTab = 'settings'"
-                class="w-full py-3 px-4 rounded-xl bg-white/5 hover:bg-[#00d1b2]/20 border border-white/10 hover:border-[#00d1b2] text-xs font-mono text-left flex items-center justify-between transition-all cursor-pointer"
+                class="w-full py-3 px-4 rounded-xl bg-white/5 hover:bg-[#18b8ea]/20 border border-white/10 hover:border-[#18b8ea] text-xs font-mono text-left flex items-center justify-between transition-all cursor-pointer"
               >
                 <span>⚙️ Ubah Pengaturan Kontak</span>
-                <span class="text-[#00d1b2]">&rarr;</span>
+                <span class="text-[#18b8ea]">&rarr;</span>
               </button>
             </div>
 
@@ -217,7 +217,7 @@
                 <h3 class="font-display font-bold text-lg text-white">Inquiry Terbaru Dari /contact</h3>
                 <button
                   @click="activeTab = 'inquiries'"
-                  class="font-mono text-xs text-[#00d1b2] hover:underline"
+                  class="font-mono text-xs text-[#18b8ea] hover:underline"
                 >
                   Lihat Semua ({{ inquiries.length }}) &rarr;
                 </button>
@@ -285,7 +285,7 @@
               <div>
                 <!-- Top Badge & Code -->
                 <div class="flex items-center justify-between mb-4">
-                  <span class="font-mono text-xs font-bold text-[#00d1b2] px-2.5 py-1 rounded bg-[#00d1b2]/10 border border-[#00d1b2]/30">
+                  <span class="font-mono text-xs font-bold text-[#18b8ea] px-2.5 py-1 rounded bg-[#18b8ea]/10 border border-[#18b8ea]/30">
                     {{ prod.code }}
                   </span>
                   <span class="font-ui text-[10px] text-[#6c889f] px-2.5 py-0.5 rounded-full border border-white/10">
@@ -318,7 +318,7 @@
                       class="flex justify-between text-[11px] font-mono"
                     >
                       <span class="text-[#9db4c8]">{{ spec[0] }}</span>
-                      <span class="text-[#00d1b2] font-semibold">{{ spec[1] }}</span>
+                      <span class="text-[#18b8ea] font-semibold">{{ spec[1] }}</span>
                     </div>
                   </div>
                 </div>
@@ -328,7 +328,7 @@
               <div class="flex items-center gap-2 pt-4 border-t border-white/10">
                 <button
                   @click="openProductModal(prod)"
-                  class="flex-1 py-2 rounded-lg bg-white/10 hover:bg-[#00d1b2] hover:text-[#001428] text-xs font-mono font-bold transition-all text-center cursor-pointer"
+                  class="flex-1 py-2 rounded-lg bg-white/10 hover:bg-[#18b8ea] hover:text-[#001428] text-xs font-mono font-bold transition-all text-center cursor-pointer"
                 >
                   Edit Produk
                 </button>
@@ -372,13 +372,13 @@
                 <img :src="art.mainImage" :alt="art.title" class="w-20 h-20 rounded-xl object-cover flex-shrink-0" />
                 <div>
                   <div class="flex items-center gap-2 mb-1.5">
-                    <span class="px-2 py-0.5 rounded text-[10px] font-mono uppercase bg-[#00d1b2]/20 text-[#00d1b2]">
+                    <span class="px-2 py-0.5 rounded text-[10px] font-mono uppercase bg-[#18b8ea]/20 text-[#18b8ea]">
                       {{ art.category }}
                     </span>
                     <span class="text-xs text-[#6c889f] font-mono">• {{ art.publishedAt }}</span>
                     <span class="text-xs text-[#6c889f] font-mono">• {{ art.readTime }} min read</span>
                   </div>
-                  <h3 class="font-display font-bold text-base text-white hover:text-[#00d1b2] transition-colors">
+                  <h3 class="font-display font-bold text-base text-white hover:text-[#18b8ea] transition-colors">
                     {{ art.title }}
                   </h3>
                   <p class="font-body font-light text-xs text-[#9db4c8] line-clamp-1 mt-1 max-w-2xl">
@@ -397,7 +397,7 @@
                 </NuxtLink>
                 <button
                   @click="openArticleModal(art)"
-                  class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-[#00d1b2] hover:text-[#001428] text-xs font-mono font-bold transition-all cursor-pointer"
+                  class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-[#18b8ea] hover:text-[#001428] text-xs font-mono font-bold transition-all cursor-pointer"
                 >
                   Edit
                 </button>
@@ -439,7 +439,7 @@
                 <div>
                   <div class="flex items-center gap-2">
                     <span class="font-display font-bold text-base text-white">{{ inq.name }}</span>
-                    <span class="font-mono text-xs text-[#00d1b2]">[{{ inq.organization }}]</span>
+                    <span class="font-mono text-xs text-[#18b8ea]">[{{ inq.organization }}]</span>
                     <span
                       class="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase"
                       :class="inq.status === 'new' ? 'bg-amber-400 text-black' : inq.status === 'contacted' ? 'bg-cyan-500/20 text-cyan-300' : 'bg-emerald-500/20 text-emerald-300'"
@@ -448,7 +448,7 @@
                     </span>
                   </div>
                   <div class="font-mono text-xs text-[#9db4c8] mt-1">
-                    Email: <a :href="'mailto:' + inq.email" class="text-[#00d1b2] underline">{{ inq.email }}</a> | Sektor: {{ inq.domain }} | Waktu: {{ formatDateTime(inq.createdAt) }}
+                    Email: <a :href="'mailto:' + inq.email" class="text-[#18b8ea] underline">{{ inq.email }}</a> | Sektor: {{ inq.domain }} | Waktu: {{ formatDateTime(inq.createdAt) }}
                   </div>
                 </div>
 
@@ -510,7 +510,7 @@
               class="p-6 rounded-2xl mica-panel border border-white/10 space-y-4"
             >
               <div class="flex items-center justify-between border-b border-white/10 pb-2">
-                <span class="font-mono text-xs text-[#00d1b2] font-bold">TESTIMONI #{{ tIdx + 1 }}</span>
+                <span class="font-mono text-xs text-[#18b8ea] font-bold">TESTIMONI #{{ tIdx + 1 }}</span>
                 <button
                   @click="removeTestimonialRow(tIdx)"
                   class="text-rose-400 hover:text-rose-300 text-xs font-mono cursor-pointer"
@@ -576,7 +576,7 @@
 
           <form @submit.prevent="saveSettings" class="p-8 rounded-2xl mica-panel border border-white/10 space-y-6">
             <div>
-              <label class="block font-mono text-xs text-[#00d1b2] uppercase mb-1">Nama Perusahaan</label>
+              <label class="block font-mono text-xs text-[#18b8ea] uppercase mb-1">Nama Perusahaan</label>
               <input
                 v-model="settings.companyName"
                 type="text"
@@ -585,7 +585,7 @@
             </div>
 
             <div>
-              <label class="block font-mono text-xs text-[#00d1b2] uppercase mb-1">Judul Hero Beranda</label>
+              <label class="block font-mono text-xs text-[#18b8ea] uppercase mb-1">Judul Hero Beranda</label>
               <input
                 v-model="settings.heroHeadline"
                 type="text"
@@ -594,7 +594,7 @@
             </div>
 
             <div>
-              <label class="block font-mono text-xs text-[#00d1b2] uppercase mb-1">Subtitle Hero Beranda</label>
+              <label class="block font-mono text-xs text-[#18b8ea] uppercase mb-1">Subtitle Hero Beranda</label>
               <textarea
                 v-model="settings.heroSubtitle"
                 rows="2"
@@ -604,7 +604,7 @@
 
             <div class="grid sm:grid-cols-2 gap-5">
               <div>
-                <label class="block font-mono text-xs text-[#00d1b2] uppercase mb-1">Nomor Telepon Kantor</label>
+                <label class="block font-mono text-xs text-[#18b8ea] uppercase mb-1">Nomor Telepon Kantor</label>
                 <input
                   v-model="settings.phone"
                   type="text"
@@ -612,7 +612,7 @@
                 />
               </div>
               <div>
-                <label class="block font-mono text-xs text-[#00d1b2] uppercase mb-1">Nomor WhatsApp Resmi</label>
+                <label class="block font-mono text-xs text-[#18b8ea] uppercase mb-1">Nomor WhatsApp Resmi</label>
                 <input
                   v-model="settings.whatsapp"
                   type="text"
@@ -622,7 +622,7 @@
             </div>
 
             <div>
-              <label class="block font-mono text-xs text-[#00d1b2] uppercase mb-1">Alamat Email Resmi</label>
+              <label class="block font-mono text-xs text-[#18b8ea] uppercase mb-1">Alamat Email Resmi</label>
               <input
                 v-model="settings.email"
                 type="email"
@@ -631,7 +631,7 @@
             </div>
 
             <div>
-              <label class="block font-mono text-xs text-[#00d1b2] uppercase mb-1">Alamat Gedung Kantor & Lab</label>
+              <label class="block font-mono text-xs text-[#18b8ea] uppercase mb-1">Alamat Gedung Kantor & Lab</label>
               <textarea
                 v-model="settings.address"
                 rows="2"
@@ -711,7 +711,7 @@
 
           <div class="grid sm:grid-cols-2 gap-4">
             <div class="space-y-2">
-              <label class="block font-mono text-xs text-[#00d1b2] mb-1 font-semibold">Foto Produk</label>
+              <label class="block font-mono text-xs text-[#18b8ea] mb-1 font-semibold">Foto Produk</label>
               <div class="flex items-center gap-3">
                 <!-- Preview Thumbnail -->
                 <div class="w-16 h-16 rounded-xl bg-black/40 border border-white/15 overflow-hidden flex-shrink-0 relative">
@@ -739,7 +739,7 @@
                     type="button"
                     @click="triggerProductUpload"
                     :disabled="isUploadingProductImg"
-                    class="w-full py-2 px-3 rounded-lg bg-[#00d1b2]/10 hover:bg-[#00d1b2]/25 border border-[#00d1b2]/40 text-[#00d1b2] text-xs font-mono font-bold flex items-center justify-center gap-2 cursor-pointer transition-all disabled:opacity-50"
+                    class="w-full py-2 px-3 rounded-lg bg-[#18b8ea]/10 hover:bg-[#18b8ea]/25 border border-[#18b8ea]/40 text-[#18b8ea] text-xs font-mono font-bold flex items-center justify-center gap-2 cursor-pointer transition-all disabled:opacity-50"
                   >
                     <span v-if="isUploadingProductImg">⏳ Mengunggah foto ke server...</span>
                     <span v-else>📁 Upload Foto Baru dari Laptop (JPG, PNG, WebP)</span>
@@ -776,11 +776,11 @@
           <!-- Dynamic Specs Editor -->
           <div class="border-t border-white/10 pt-4">
             <div class="flex items-center justify-between mb-2">
-              <span class="font-mono text-xs text-[#00d1b2] font-semibold">Tabel Spesifikasi Teknis</span>
+              <span class="font-mono text-xs text-[#18b8ea] font-semibold">Tabel Spesifikasi Teknis</span>
               <button
                 type="button"
                 @click="addSpecRow"
-                class="text-[11px] font-mono text-[#00d1b2] hover:underline"
+                class="text-[11px] font-mono text-[#18b8ea] hover:underline"
               >
                 + Tambah Baris
               </button>
@@ -801,7 +801,7 @@
                   v-model="spec[1]"
                   type="text"
                   placeholder="Nilai (misal: 1.408 Channels)"
-                  class="flex-1 px-2.5 py-1.5 rounded bg-black/40 border border-white/10 text-xs text-[#00d1b2]"
+                  class="flex-1 px-2.5 py-1.5 rounded bg-black/40 border border-white/10 text-xs text-[#18b8ea]"
                 />
                 <button
                   type="button"
@@ -905,7 +905,7 @@
 
           <div class="grid sm:grid-cols-2 gap-4">
             <div class="space-y-2">
-              <label class="block font-mono text-xs text-[#00d1b2] mb-1 font-semibold">Gambar Cover Artikel</label>
+              <label class="block font-mono text-xs text-[#18b8ea] mb-1 font-semibold">Gambar Cover Artikel</label>
               <div class="flex items-center gap-3">
                 <!-- Preview Thumbnail -->
                 <div class="w-16 h-16 rounded-xl bg-black/40 border border-white/15 overflow-hidden flex-shrink-0 relative">
@@ -933,7 +933,7 @@
                     type="button"
                     @click="triggerArticleUpload"
                     :disabled="isUploadingArticleImg"
-                    class="w-full py-2 px-3 rounded-lg bg-[#00d1b2]/10 hover:bg-[#00d1b2]/25 border border-[#00d1b2]/40 text-[#00d1b2] text-xs font-mono font-bold flex items-center justify-center gap-2 cursor-pointer transition-all disabled:opacity-50"
+                    class="w-full py-2 px-3 rounded-lg bg-[#18b8ea]/10 hover:bg-[#18b8ea]/25 border border-[#18b8ea]/40 text-[#18b8ea] text-xs font-mono font-bold flex items-center justify-center gap-2 cursor-pointer transition-all disabled:opacity-50"
                   >
                     <span v-if="isUploadingArticleImg">⏳ Mengunggah cover ke server...</span>
                     <span v-else>📁 Upload Cover Baru dari Laptop (JPG, PNG, WebP)</span>

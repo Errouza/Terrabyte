@@ -1,132 +1,193 @@
 <template>
-  <div class="pt-32 pb-24 min-h-screen">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <!-- Header -->
-      <div class="max-w-3xl mb-12">
-        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold tracking-wider uppercase mb-4">
-          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-          Warta &amp; Publikasi Geospasial
+  <div class="min-h-screen text-white relative bg-[#030d17]">
+
+    <!-- ─── HERO SECTION (PAGE 5 HI-FI) ──────────────────────────────── -->
+    <section class="relative pt-32 pb-12 lg:pt-44 lg:pb-16 overflow-hidden">
+      <!-- Ambient Radial Glows -->
+      <div class="absolute top-1/4 left-1/3 w-[600px] h-[350px] bg-[#18b8ea]/10 rounded-full blur-[150px] pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+        <div class="max-w-3xl space-y-4">
+          <!-- Tag -->
+          <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold">
+            NEWS &amp; ARTICLES
+          </p>
+
+          <!-- Headline -->
+          <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-[58px] leading-tight text-white">
+            Insights from the <span class="text-[#18b8ea] drop-shadow-[0_0_30px_rgba(24,184,234,0.35)]">ground up.</span>
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="font-body text-[#94a3b8] text-base sm:text-lg leading-relaxed font-light">
+            Company news, project stories and practical knowledge on monitoring and geospatial technology.
+          </p>
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold font-display tracking-tight text-white mb-6">
-          BERITA, PENGUMUMAN &amp; <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">DOKUMENTASI TEKNOLOGI</span>
-        </h1>
-        <p class="text-lg text-[#9db4c8] leading-relaxed">
-          Pembaruan resmi, laporan pengujian lapangan, pengumuman operasional Terrawatch, dan wawasan rekayasa sistem pemantauan dari PT Terrabyte Geosystems Indonesia.
-        </p>
+
+        <!-- ─── FILTER TABS (PAGE 5 HI-FI) ───────────────────────────── -->
+        <div class="flex flex-wrap items-center gap-2.5 pt-8">
+          <button
+            v-for="cat in filterCategories"
+            :key="cat"
+            @click="activeCategory = cat"
+            class="px-5 py-2 rounded-full font-ui text-xs font-bold tracking-wide uppercase transition-all duration-300 cursor-pointer"
+            :class="activeCategory === cat
+              ? 'bg-[#18b8ea] text-[#030d17] shadow-[0_0_20px_rgba(24,184,234,0.4)]'
+              : 'bg-[#071d2e] text-[#94a3b8] hover:text-white border border-white/10 hover:border-white/20'"
+          >
+            {{ cat }}
+          </button>
+        </div>
       </div>
+    </section>
 
-      <!-- Categories Filter -->
-      <div class="flex flex-wrap gap-3 mb-12">
-        <button
-          v-for="cat in categories"
-          :key="cat"
-          @click="selectedCategory = cat"
-          :class="[
-            'px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer',
-            selectedCategory === cat
-              ? 'bg-cyan-500 text-black font-semibold shadow-lg shadow-cyan-500/25'
-              : 'bg-white/[0.04] text-[#9db4c8] hover:text-white hover:bg-white/[0.08] border border-white/5'
-          ]"
-        >
-          {{ cat }}
-        </button>
-      </div>
+    <!-- ─── ARTICLES CONTAINER ───────────────────────────────────────── -->
+    <section class="pb-28 relative z-10">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 space-y-10">
 
-      <!-- Loading State -->
-      <div v-if="pending && filteredArticles.length === 0" class="py-20 text-center">
-        <div class="inline-block w-8 h-8 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin mb-4"></div>
-        <p class="text-[#9db4c8]">Memuat artikel dan pengumuman terbaru...</p>
-      </div>
+        <!-- FEATURED ARTICLE (PAGE 5 HI-FI) -->
+        <div v-if="featuredArticle" class="rounded-3xl geo-card-highlight overflow-hidden group">
+          <div class="grid lg:grid-cols-12 gap-8 items-center">
+            <!-- Featured Image -->
+            <div class="lg:col-span-6 relative aspect-[16/10] overflow-hidden bg-[#020b14]">
+              <img
+                :src="featuredArticle.mainImage || '/images/hero-bg.jpg'"
+                :alt="featuredArticle.title"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#030d17] via-transparent to-transparent lg:hidden"></div>
+            </div>
 
-      <!-- Articles Grid -->
-      <div v-else-if="filteredArticles.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <article
-          v-for="art in filteredArticles"
-          :key="art.id || art._id"
-          class="group rounded-2xl bg-[#092b47]/60 backdrop-blur-md border border-white/10 hover:border-cyan-400/50 transition-all duration-300 flex flex-col overflow-hidden hover:shadow-xl hover:shadow-cyan-500/10 hover:-translate-y-1"
-        >
-          <!-- Thumbnail -->
-          <div class="relative h-52 overflow-hidden bg-black/40">
-            <img
-              :src="art.mainImage"
-              :alt="art.title"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-[#092b47] via-transparent to-transparent"></div>
-            <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/90 text-black tracking-wide">
-              {{ art.category }}
-            </span>
-          </div>
-
-          <!-- Content Body -->
-          <div class="p-6 flex-1 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center gap-3 text-xs text-[#9db4c8] mb-3">
-                <span>{{ art.publishedAt }}</span>
-                <span>•</span>
-                <span>{{ art.readTime }} min read</span>
+            <!-- Featured Content -->
+            <div class="lg:col-span-6 p-8 lg:p-12 space-y-4">
+              <div class="flex items-center gap-3">
+                <span class="font-mono text-[11px] uppercase tracking-wider px-3 py-0.5 rounded-full bg-[#18b8ea]/15 text-[#18b8ea] font-semibold border border-[#18b8ea]/30">
+                  {{ featuredArticle.category || 'COMPANY NEWS' }}
+                </span>
+                <span class="font-mono text-xs text-[#64748b]">
+                  {{ featuredArticle.publishedAt }}
+                </span>
               </div>
-              <h2 class="text-xl font-bold font-display text-white mb-3 group-hover:text-cyan-400 transition-colors leading-snug">
-                {{ art.title }}
+
+              <h2 class="font-display font-bold text-2xl sm:text-3xl text-white group-hover:text-[#18b8ea] transition-colors leading-tight">
+                <NuxtLink :to="`/articles/${featuredArticle.slug}`">
+                  {{ featuredArticle.title }}
+                </NuxtLink>
               </h2>
-              <p class="text-sm text-[#9db4c8] line-clamp-3 mb-6 leading-relaxed">
-                {{ art.excerpt }}
-              </p>
-            </div>
 
-            <!-- Footer -->
-            <div class="pt-4 border-t border-white/5 flex items-center justify-between">
-              <div class="flex items-center gap-2.5">
-                <div class="w-7 h-7 rounded-full bg-cyan-500/20 border border-cyan-400/30 flex items-center justify-center text-xs font-bold text-cyan-400">
-                  {{ art.author?.name ? art.author.name.charAt(0).toUpperCase() : 'T' }}
-                </div>
-                <div>
-                  <p class="text-xs font-semibold text-white">{{ art.author?.name || 'Tim Terrabyte' }}</p>
-                  <p class="text-[10px] text-[#9db4c8]">{{ art.author?.role || 'Sistem Monitoring' }}</p>
-                </div>
+              <p class="font-body text-sm sm:text-base text-[#94a3b8] leading-relaxed font-light">
+                {{ featuredArticle.excerpt }}
+              </p>
+
+              <div class="pt-2">
+                <NuxtLink
+                  :to="`/articles/${featuredArticle.slug}`"
+                  class="inline-flex items-center gap-2 font-ui font-bold text-xs tracking-wider uppercase text-[#18b8ea] hover:text-[#38cbf8]"
+                >
+                  <span>Read article</span>
+                  <span>&rarr;</span>
+                </NuxtLink>
               </div>
-              <NuxtLink
-                :to="'/articles/' + art.slug"
-                class="text-xs font-semibold text-cyan-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1"
-              >
-                Baca Artikel &rarr;
-              </NuxtLink>
             </div>
           </div>
-        </article>
-      </div>
+        </div>
 
-      <!-- Empty State -->
-      <div v-else class="text-center py-20 bg-white/[0.02] border border-white/5 rounded-2xl">
-        <p class="text-[#9db4c8] text-base">Belum ada artikel dalam kategori ini.</p>
+        <!-- ─── 3 ARTICLES GRID (PAGE 5 HI-FI) ────────────────────────── -->
+        <div class="grid md:grid-cols-3 gap-6 pt-4">
+          <article
+            v-for="art in remainingArticles"
+            :key="art.id"
+            class="rounded-3xl geo-card overflow-hidden flex flex-col group"
+          >
+            <!-- Image Thumbnail -->
+            <div class="h-52 bg-[#020b14] relative overflow-hidden">
+              <img
+                :src="art.mainImage || '/images/hero-surveyor.jpg'"
+                :alt="art.title"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#030d17]/60 via-transparent to-transparent"></div>
+            </div>
+
+            <!-- Card Body -->
+            <div class="p-7 flex-1 flex flex-col justify-between space-y-4">
+              <div class="space-y-2.5">
+                <div class="flex items-center gap-2.5 text-[11px] font-mono">
+                  <span class="text-[#18b8ea] uppercase font-semibold">{{ art.category }}</span>
+                  <span class="text-[#64748b]">&middot;</span>
+                  <span class="text-[#64748b]">{{ art.publishedAt }}</span>
+                </div>
+                <h3 class="font-display font-bold text-lg text-white group-hover:text-[#18b8ea] transition-colors leading-snug">
+                  <NuxtLink :to="`/articles/${art.slug}`">
+                    {{ art.title }}
+                  </NuxtLink>
+                </h3>
+                <p class="font-body text-xs text-[#94a3b8] leading-relaxed font-light line-clamp-3">
+                  {{ art.excerpt }}
+                </p>
+              </div>
+
+              <div class="pt-2 border-t border-white/5">
+                <NuxtLink
+                  :to="`/articles/${art.slug}`"
+                  class="inline-flex items-center gap-1.5 text-xs font-ui font-bold text-[#18b8ea] hover:text-[#38cbf8] uppercase tracking-wider"
+                >
+                  <span>Read article</span>
+                  <span>&rarr;</span>
+                </NuxtLink>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- ─── LOAD MORE BUTTON (PAGE 5 HI-FI) ───────────────────────── -->
+        <div class="text-center pt-8">
+          <button
+            class="btn-geo-outline"
+          >
+            Load more
+          </button>
+        </div>
+
       </div>
-    </div>
+    </section>
+
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 
-const selectedCategory = ref('Semua')
-const categories = ['Semua', 'Pengumuman Resmi', 'Teknologi Radar', 'Studi Kasus']
+const { data: articlesData } = await useAsyncData('articles-hifi', () => $fetch('/api/articles').catch(() => []))
 
-const { data: articlesData, pending } = await useAsyncData('articles-catalog', () => $fetch('/api/articles').catch(() => []))
+const filterCategories = ['All', 'Company News', 'Articles', 'Projects', 'Events']
+const activeCategory = ref('All')
 
-const articles = computed(() => {
+const allArticles = computed(() => {
   return Array.isArray(articlesData.value) ? articlesData.value : []
 })
 
 const filteredArticles = computed(() => {
-  if (selectedCategory.value === 'Semua') return articles.value
-  return articles.value.filter((a: any) => a.category === selectedCategory.value)
+  if (activeCategory.value === 'All') return allArticles.value
+  return allArticles.value.filter(a =>
+    a.category?.toLowerCase() === activeCategory.value.toLowerCase()
+  )
+})
+
+const featuredArticle = computed(() => {
+  return filteredArticles.value[0] || null
+})
+
+const remainingArticles = computed(() => {
+  return filteredArticles.value.slice(1)
 })
 
 useHead({
-  title: 'Berita, Pengumuman & Publikasi — PT Terrabyte Geosystems Indonesia',
+  title: 'News & Articles — Insights from the ground up | Terrabyte',
   meta: [
     {
       name: 'description',
-      content: 'Akses siaran pers resmi, pengumuman operasional Terrawatch, dan dokumentasi teknologi radar presisi dari PT Terrabyte Geosystems Indonesia.'
+      content: 'Company news, project stories and practical knowledge on monitoring and geospatial technology.'
     }
   ]
 })
