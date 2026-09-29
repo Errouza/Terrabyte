@@ -168,12 +168,6 @@
                     Contact
                   </NuxtLink>
                 </li>
-                <li>
-                  <NuxtLink to="/admin" class="font-ui text-xs text-[#64748b] hover:text-[#18b8ea] transition-colors flex items-center gap-1.5">
-                    <span>Admin CMS</span>
-                    <span class="text-[10px]">🔐</span>
-                  </NuxtLink>
-                </li>
               </ul>
             </div>
 
@@ -224,15 +218,17 @@
           <!-- Bottom Bar Divider -->
           <div class="w-full border-t border-white/5 my-8"></div>
 
-          <!-- Bottom Bar -->
+          <!-- Bottom Bar with Stealth Secret Admin Trigger -->
           <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-[#60778c]">
             <p class="flex flex-wrap items-center gap-2">
-              <span>&copy; 2026 Terrabyte Geosystem Indonesia. All rights reserved.</span>
-              <span class="text-[#334155]">&bull;</span>
-              <NuxtLink to="/admin" class="hover:text-[#18b8ea] transition-colors flex items-center gap-1">
-                <span>Admin Portal</span>
-                <span class="text-[10px]">🔐</span>
-              </NuxtLink>
+              <span>
+                <span
+                  @click="handleSecretAdminClick"
+                  class="cursor-default select-none transition-colors duration-200"
+                  :class="{ 'text-[#18b8ea]': secretClicks > 0 }"
+                >&copy;</span>
+                2026 Terrabyte Geosystem Indonesia. All rights reserved.
+              </span>
             </p>
             <p class="font-mono tracking-[0.25em] uppercase text-[10px] text-[#718b9f]">
               WHERE EARTH MEETS INTELLIGENCE
@@ -250,6 +246,25 @@ import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 const scrollY = ref(0)
 const mobileOpen = ref(false)
+
+// ─── STEALTH SECRET ADMIN TRIGGER (TRIPLE CLICK COPYRIGHT) ─────────
+const secretClicks = ref(0)
+let secretTimer: any = null
+
+function handleSecretAdminClick() {
+  secretClicks.value++
+  clearTimeout(secretTimer)
+
+  if (secretClicks.value >= 3) {
+    secretClicks.value = 0
+    navigateTo('/admin')
+    return
+  }
+
+  secretTimer = setTimeout(() => {
+    secretClicks.value = 0
+  }, 1200)
+}
 
 const progress = computed(() => {
   return Math.min(1, Math.max(0, scrollY.value / 85))

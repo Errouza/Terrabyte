@@ -54,6 +54,18 @@
             </div>
           </div>
 
+          <!-- AFK Auto-Logout Notice -->
+          <div
+            v-if="afkNotice"
+            class="p-3.5 rounded-xl bg-sky-500/10 border border-sky-500/30 text-sky-200 text-xs font-mono flex items-start gap-2.5"
+          >
+            <span class="text-base">⏱️</span>
+            <div>
+              <strong class="block font-bold text-white mb-0.5">Sesi Berakhir Otomatis</strong>
+              <p class="text-[#94a3b8] text-[11px] leading-relaxed">{{ afkNotice }}</p>
+            </div>
+          </div>
+
           <!-- Error Alert -->
           <div
             v-if="loginError"
@@ -63,7 +75,44 @@
             <span>{{ loginError }}</span>
           </div>
 
+          <!-- Active Session Conflict Warning -->
+          <div
+            v-if="detectedSession"
+            class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-200 text-xs font-mono space-y-3"
+          >
+            <div class="flex items-center gap-2 font-bold text-amber-400">
+              <span class="text-base">🔒</span>
+              <span>SESI AKTIF DI PERANGKAT LAIN</span>
+            </div>
+            <p class="text-white/80 leading-relaxed text-[11px]">
+              Ada sesi admin yang sedang aktif:
+              <strong class="text-white block mt-1 font-semibold">💻 {{ detectedSession.device }}</strong>
+              <span class="text-white/60 text-[10px] block mt-0.5">IP: {{ detectedSession.ip }} &bull; Aktif: {{ detectedSession.lastActive }}</span>
+            </p>
+            <p class="text-amber-300/80 text-[10px] leading-relaxed">
+              Terrabyte menerapkan aturan <strong>Single Session</strong> (hanya 1 login aktif). Apakah Anda ingin mengambil alih sesi dan mengeluarkan perangkat lama?
+            </p>
+            <div class="flex items-center gap-2 pt-1">
+              <button
+                type="button"
+                @click="handleForceLogin"
+                :disabled="isLoggingIn"
+                class="flex-1 py-2 px-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold text-[11px] tracking-wider uppercase transition-colors cursor-pointer disabled:opacity-50"
+              >
+                Ambil Alih Sesi
+              </button>
+              <button
+                type="button"
+                @click="detectedSession = null"
+                class="py-2 px-3 rounded-xl bg-white/10 hover:bg-white/20 text-white/80 text-[11px] transition-colors cursor-pointer"
+              >
+                Batal
+              </button>
+            </div>
+          </div>
+
           <button
+            v-if="!detectedSession"
             type="submit"
             :disabled="isLoggingIn"
             class="btn-primary w-full py-3.5 text-center justify-center font-bold tracking-wider uppercase text-xs flex items-center gap-2 cursor-pointer shadow-[0_0_20px_rgba(0,209,178,0.3)] disabled:opacity-50"
@@ -987,7 +1036,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 useHead({
   title: 'Admin Command Console — TERRABYTE Geosystems',
@@ -996,19 +1045,63 @@ useHead({
   ]
 })
 
-// ─── AUTHENTICATION STATE ───
+// ─── AUTHENTICATION & SINGLE SESSION STATE ───
 const isAuthenticated = ref(false)
 const passwordInput = ref('')
 const showPassword = ref(false)
 const isLoggingIn = ref(false)
 const loginError = ref('')
+const detectedSession = ref<any>(null)
+const afkNotice = ref('')
+const lastActivityTime = ref(Date.now())
+let afkCheckInterval: any = null
 
-// Check existing session
+const AFK_TIMEOUT_MS = 30 * 60 * 1000 // 30 Menit
+
+function onUserActivity() {
+  lastActivityTime.value = Date.now()
+}
+
+function startAfkWatcher() {
+  stopAfkWatcher()
+  if (typeof window === 'undefined') return
+
+  const events = ['mousemove', 'mousedown', 'keydown', 'scroll', 'touchstart']
+  events.forEach(ev => window.addEventListener(ev, onUserActivity, { passive: true }))
+
+  afkCheckInterval = setInterval(() => {
+    if (isAuthenticated.value && Date.now() - lastActivityTime.value >= AFK_TIMEOUT_MS) {
+      handleAfkLogout()
+    }
+  }, 30000) // Evaluasi setiap 30 detik
+}
+
+function stopAfkWatcher() {
+  if (typeof window === 'undefined') return
+  const events = ['mousemove', 'mousedown', 'keydown', 'scroll', 'touchstart']
+  events.forEach(ev => window.removeEventListener(ev, onUserActivity))
+  if (afkCheckInterval) {
+    clearInterval(afkCheckInterval)
+    afkCheckInterval = null
+  }
+}
+
+async function handleAfkLogout() {
+  stopAfkWatcher()
+  await $fetch('/api/admin/logout', { method: 'POST' }).catch(() => {})
+  isAuthenticated.value = false
+  detectedSession.value = null
+  afkNotice.value = 'Sesi Anda telah otomatis ditutup karena tidak ada aktivitas selama 30 menit (AFK).'
+}
+
+// Check existing session on load
 async function checkAuth() {
   try {
     const res = await $fetch<{ authenticated: boolean }>('/api/admin/check-auth')
     isAuthenticated.value = res.authenticated
     if (res.authenticated) {
+      lastActivityTime.value = Date.now()
+      startAfkWatcher()
       loadAllData()
     }
   } catch {
@@ -1016,17 +1109,36 @@ async function checkAuth() {
   }
 }
 
-async function handleLogin() {
+async function handleLogin(force = false) {
   isLoggingIn.value = true
   loginError.value = ''
+  afkNotice.value = ''
+
   try {
-    const res = await $fetch<{ success: boolean }>('/api/admin/auth', {
+    const res = await $fetch<{
+      success: boolean
+      activeSessionDetected?: boolean
+      sessionInfo?: any
+      message?: string
+    }>('/api/admin/auth', {
       method: 'POST',
-      body: { password: passwordInput.value }
+      body: {
+        password: passwordInput.value,
+        force
+      }
     })
+
+    if (res.activeSessionDetected) {
+      detectedSession.value = res.sessionInfo
+      return
+    }
+
     if (res.success) {
+      detectedSession.value = null
       isAuthenticated.value = true
       passwordInput.value = ''
+      lastActivityTime.value = Date.now()
+      startAfkWatcher()
       loadAllData()
     }
   } catch (err: any) {
@@ -1036,10 +1148,24 @@ async function handleLogin() {
   }
 }
 
-async function handleLogout() {
-  await $fetch('/api/admin/logout', { method: 'POST' })
-  isAuthenticated.value = false
+function handleForceLogin() {
+  handleLogin(true)
 }
+
+async function handleLogout() {
+  stopAfkWatcher()
+  await $fetch('/api/admin/logout', { method: 'POST' }).catch(() => {})
+  isAuthenticated.value = false
+  detectedSession.value = null
+}
+
+onMounted(() => {
+  checkAuth()
+})
+
+onUnmounted(() => {
+  stopAfkWatcher()
+})
 
 // ─── TABS MANAGEMENT ───
 const activeTab = ref('overview')

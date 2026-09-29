@@ -1,5 +1,5 @@
-export default defineEventHandler((event) => {
-  if (!isValidAdminSession(event)) {
+export default defineEventHandler(async (event) => {
+  if (!await isValidAdminSession(event)) {
     throw createError({ statusCode: 401, statusMessage: 'Unauthorized' })
   }
 

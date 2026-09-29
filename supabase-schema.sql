@@ -234,3 +234,19 @@ Collecting massive volumes of sensor telemetry is only the first step. TerraPuls
     NOW()
   )
 ON CONFLICT (id) DO NOTHING;
+
+-- 4. TABEL: ADMIN_SESSIONS (SINGLE ACTIVE SESSION & 30-MIN AFK TIMEOUT)
+CREATE TABLE IF NOT EXISTS public.admin_sessions (
+  id TEXT PRIMARY KEY,
+  session_token TEXT NOT NULL,
+  device_info TEXT,
+  ip_address TEXT,
+  last_active_at TIMESTAMPTZ DEFAULT NOW(),
+  is_active BOOLEAN DEFAULT TRUE,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE public.admin_sessions ENABLE ROW LEVEL SECURITY;
+DROP POLICY IF EXISTS "Service role all admin_sessions" ON public.admin_sessions;
+CREATE POLICY "Service role all admin_sessions" ON public.admin_sessions FOR ALL USING (true);
+

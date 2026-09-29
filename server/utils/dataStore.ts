@@ -35,7 +35,14 @@ export function getAdminPassword(): string {
   return process.env.ADMIN_PASSWORD || 'terrabyte2026'
 }
 
-export function isValidAdminSession(event: any): boolean {
+export async function isValidAdminSession(event: any): Promise<boolean> {
+  const sessionToken = getCookie(event, 'tb_admin_session')
+  if (sessionToken) {
+    const isAlive = await touchSession(sessionToken)
+    if (isAlive) return true
+  }
+
+  // Legacy fallback support for older token format
   const cookie = getCookie(event, 'tb_admin_token')
   const authHeader = getHeader(event, 'authorization')
   const validToken = Buffer.from(getAdminPassword()).toString('base64')

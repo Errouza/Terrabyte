@@ -1,4 +1,4 @@
-export default defineEventHandler((event) => {
-  const authenticated = isValidAdminSession(event)
+export default defineEventHandler(async (event) => {
+  const authenticated = await isValidAdminSession(event)
   return { authenticated }
 })

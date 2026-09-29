@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 export default defineEventHandler(async (event) => {
-  if (!isValidAdminSession(event)) {
+  if (!await isValidAdminSession(event)) {
     throw createError({ statusCode: 401, statusMessage: 'Sesi admin tidak valid. Harap login kembali.' })
   }
 
