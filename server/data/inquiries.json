@@ -1,47 +1,5 @@
 [
   {
-    "id": "inq-1790658467259",
-    "bssTicketId": "BSS-TGI-967979",
-    "name": "Testing BSS",
-    "email": "test@bss.com",
-    "organization": "PT Test BSS",
-    "domain": "Platform TerraPulse (Demo & Lisensi BSS)",
-    "message": "Testing inquiry submission",
-    "source": "BSS Enterprise Gateway",
-    "status": "new",
-    "createdAt": "2026-09-29T05:07:47.259Z"
-  },
-  {
-    "id": "inq-1790306812635",
-    "name": "Audit Bot Test",
-    "email": "audit@terrabyte.test",
-    "organization": "PT Audit Indonesia",
-    "domain": "Survei Geodesi & CORS",
-    "message": "Testing contact submission directly into admin inquiries.",
-    "status": "new",
-    "createdAt": "2026-09-25T03:26:52.635Z"
-  },
-  {
-    "id": "inq-1790306418800",
-    "name": "Audit Bot Test",
-    "email": "audit@terrabyte.test",
-    "organization": "PT Audit Indonesia",
-    "domain": "Survei Geodesi & CORS",
-    "message": "Testing contact submission directly into admin inquiries.",
-    "status": "new",
-    "createdAt": "2026-09-25T03:20:18.800Z"
-  },
-  {
-    "id": "inq-1790305509628",
-    "name": "Audit Bot Test",
-    "email": "audit@terrabyte.test",
-    "organization": "PT Audit Indonesia",
-    "domain": "Survei Geodesi & CORS",
-    "message": "Testing contact submission directly into admin inquiries.",
-    "status": "new",
-    "createdAt": "2026-09-25T03:05:09.628Z"
-  },
-  {
     "id": "inq-welcome",
     "name": "Bpk. Hendra Gunawan",
     "email": "hendra.gunawan@maritim.go.id",

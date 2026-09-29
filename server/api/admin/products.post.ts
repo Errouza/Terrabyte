@@ -4,26 +4,32 @@ export default defineEventHandler(async (event) => {
   }
 
   const item = await readBody(event)
-  const list = getStore('products.json', [])
+  const fromDb = await getProductsFromSupabase()
+  const list = fromDb && fromDb.length > 0 ? fromDb : getStore('products.json', [])
 
+  let targetItem = { ...item }
   if (item.id) {
-    // Update existing
     const idx = list.findIndex((p: any) => p.id === item.id)
     if (idx !== -1) {
       list[idx] = { ...list[idx], ...item, updatedAt: new Date().toISOString() }
+      targetItem = list[idx]
     } else {
-      list.unshift({ ...item, updatedAt: new Date().toISOString() })
+      targetItem = { ...item, updatedAt: new Date().toISOString() }
+      list.unshift(targetItem)
     }
   } else {
-    // Create new
-    const newId = 'prod-' + Date.now()
-    list.unshift({
+    targetItem = {
       ...item,
-      id: newId,
+      id: 'prod-' + Date.now(),
       updatedAt: new Date().toISOString()
-    })
+    }
+    list.unshift(targetItem)
   }
 
+  // Save to Supabase Cloud
+  await saveProductsToSupabase([targetItem])
+  // Backup to local store if writable
   setStore('products.json', list)
+
   return { success: true, products: list }
 })

@@ -1,22 +1,36 @@
 [
   {
-    "id": "prod-terrapulse",
-    "code": "TERRAPULSE-CORE",
-    "tag": "Platform Software // Sistem Unggulan Terrabyte",
-    "category": "software",
-    "name": "TerraPulse Monitoring & Analytics Platform",
-    "summary": "Brand sistem software pemantauan digital milik Terrabyte yang dirancang untuk mengolah telemetri radar MS-SAR5000 dan multi-sensor fisik menjadi analisis deformasi, deteksi anomali, dan peringatan dini real-time.",
-    "img": "/images/hero-bg.jpg",
-    "status": "Active Platform IP",
+    "id": "prod-t20-gnss",
+    "code": "COMNAV-T20-GNSS",
+    "tag": "GNSS Receiver // High Precision",
+    "category": "gnss",
+    "name": "ComNav T20 Multi-Constellation GNSS Receiver",
+    "summary": "Receiver GNSS cerdas generasi baru dengan teknologi tracking satelit generasi mutakhir, radio UHF internal multi-protokol, dan IMU generasi ke-3 untuk efisiensi survei topografi dan geodetik lapangan.",
+    "img": "https://xbadzroazjblacumvnpq.supabase.co/storage/v1/object/public/uploads/t20.png",
+    "status": "In Active Production",
     "specs": [
-      ["Pengembang & Pemilik IP", "PT Terrabyte Geosystems Indonesia"],
-      ["Arsitektur Sistem", "Cloud-Native Hybrid & Air-Gapped On-Premise"],
-      ["Latensi Pemrosesan", "< 5 milidetik (Real-Time Ingestion)"],
-      ["Dukungan Instrumen", "Radar ComNav MS-SAR5000, GNSS RTK, Tiltmeter, IoT"],
-      ["Analisis Deformasi", "Pemetaan Vektor Pergeseran Tanah Sub-Milimeter"],
-      ["Protokol Komunikasi", "MQTT, WebSocket, REST API, Kafka, ASTERIX"]
+      [
+        "Channels",
+        "1.408 Saluran Pelacakan Semua Konstelasi"
+      ],
+      [
+        "RTK Accuracy",
+        "Horizontal: 8 mm + 1 ppm, Vertikal: 15 mm + 1 ppm"
+      ],
+      [
+        "Tilt Survey",
+        "IMU 60° bebas kalibrasi tanpa terganggu medan magnet"
+      ],
+      [
+        "Konektivitas",
+        "Internal UHF 2W, Bluetooth, WiFi & 4G LTE Modem"
+      ],
+      [
+        "Daya Tahan",
+        "Baterai ganda hot-swappable tahan kerja hingga 16 jam"
+      ]
     ],
-    "updatedAt": "2026-09-29T12:00:00.000Z"
+    "updatedAt": "2026-09-30T00:00:00.000Z"
   },
   {
     "id": "prod-radar-sar5000",
@@ -28,12 +42,30 @@
     "img": "/images/uploads/1790323048828-sar5000.png",
     "status": "In Field Deployment",
     "specs": [
-      ["Tipe Radar", "Ground-Based Synthetic Aperture Radar (GB-SAR)"],
-      ["Akurasi Pengukuran", "Sub-milimeter (Hingga 0.1 mm deteksi pergeseran)"],
-      ["Jangkauan Pantau", "Radius hingga 5.000 meter (5 km coverage)"],
-      ["Siklus Pemindaian", "< 2 menit per siklus pemindaian penuh"],
-      ["Ketahanan Lingkungan", "IP67 All-Weather (Kondisi Hujan, Kabut, Debu Tambang)"],
-      ["Integrasi Perangkat", "Didukung langsung oleh platform TerraPulse"]
+      [
+        "Tipe Radar",
+        "Ground-Based Synthetic Aperture Radar (GB-SAR)"
+      ],
+      [
+        "Akurasi Pengukuran",
+        "Sub-milimeter (Hingga 0.1 mm deteksi pergeseran)"
+      ],
+      [
+        "Jangkauan Pantau",
+        "Radius hingga 5.000 meter (5 km coverage)"
+      ],
+      [
+        "Siklus Pemindaian",
+        "< 2 menit per siklus pemindaian penuh"
+      ],
+      [
+        "Ketahanan Lingkungan",
+        "IP67 All-Weather (Kondisi Hujan, Kabut, Debu Tambang)"
+      ],
+      [
+        "Integrasi Perangkat",
+        "Didukung langsung oleh platform TerraPulse"
+      ]
     ],
     "updatedAt": "2026-09-29T12:00:00.000Z"
   },
@@ -47,126 +79,59 @@
     "img": "/images/uploads/1790317569779-n2.png",
     "status": "Available in Stock",
     "specs": [
-      ["Kanal Pelacakan", "1.408 Kanal Multi-Konstelasi (GPS, BDS, GLO, GAL)"],
-      ["Modul Laser EDM", "Pengukuran Jarak Laser Presisi Sub-Sentimeter Tanpa Pole"],
-      ["Kompensasi Kemiringan", "IMU Bebas Kalibrasi hingga Kemiringan 60°"],
-      ["Visual AR Stakeout", "Kamera Visual HD untuk Panduan Stakeout Real-Time"],
-      ["Bobot & Portabilitas", "Hanya 170g — Ukuran Saku Ultra-Ringan"],
-      ["Proteksi Lapangan", "IP68 Alloy Tahan Air & Jatuh 2 Meter"]
+      [
+        "Kanal Pelacakan",
+        "1.408 Kanal Multi-Konstelasi (GPS, BDS, GLO, GAL)"
+      ],
+      [
+        "Modul Laser EDM",
+        "Pengukuran Jarak Laser Presisi Sub-Sentimeter Tanpa Pole"
+      ],
+      [
+        "Kompensasi Kemiringan",
+        "IMU Bebas Kalibrasi hingga Kemiringan 60°"
+      ],
+      [
+        "Visual AR Stakeout",
+        "Kamera Visual HD untuk Panduan Stakeout Real-Time"
+      ],
+      [
+        "Bobot & Portabilitas",
+        "Hanya 170g — Ukuran Saku Ultra-Ringan"
+      ],
+      [
+        "Proteksi Lapangan",
+        "IP68 Alloy Tahan Air & Jatuh 2 Meter"
+      ]
     ],
     "updatedAt": "2026-09-29T12:00:00.000Z"
   },
   {
-    "id": "prod-laser-rtk-venus",
-    "code": "COMNAV-VENUS-RTK",
-    "tag": "Laser RTK // Principal ComNav (via Lextera)",
-    "category": "laser-rtk",
-    "name": "ComNav Venus Laser RTK High-Precision Survey Receiver",
-    "summary": "Flagship Laser GNSS RTK dengan laser merah berdaya jangkau hingga 15 meter untuk mengukur titik-titik sulit di bawah atap kanopi gedung, tebing curam, atau parit saluran air secara aman dan akurat.",
-    "img": "/images/products-nx700.jpg",
-    "status": "Flagship Deployment",
-    "specs": [
-      ["Jarak Tembak Laser", "Hingga 15 Meter Tanpa Reflektor"],
-      ["Kanal Pelacakan", "1.408 Kanal Quantum-RTK Algorithm"],
-      ["Akurasi Laser RTK", "Horizontal: 8 mm + 1 ppm, Vertikal: 15 mm + 1 ppm"],
-      ["Daya Tahan Baterai", "Hingga 20 Jam Kerja Kontinu Tanpa Jeda"],
-      ["Radio UHF Internal", "Modem Transmit/Receive 2 Watt 410-470 MHz"],
-      ["Konektivitas", "Bluetooth 5.0, WiFi, NFC, 4G LTE Terintegrasi"]
-    ],
-    "updatedAt": "2026-09-29T12:00:00.000Z"
-  },
-  {
-    "id": "prod-comnav-k8",
-    "code": "COMNAV-K803",
-    "tag": "Hardware GNSS // Principal ComNav (via Lextera)",
-    "category": "gnss",
-    "name": "ComNav K8-Series High-Precision Multi-Band GNSS Receiver",
-    "summary": "Modul receiver GNSS RTK multi-frekuensi dari ComNav yang diintegrasikan ke sistem Terrabyte untuk pemetaan batas kadastral, telemetri armada alat berat tambang, dan stasiun referensi CORS kontinu.",
-    "img": "/images/products-nx500.jpg",
-    "status": "In Active Production",
-    "specs": [
-      ["Kanal Pelacakan", "1.408 Multi-Band Channels (GPS, BDS, GLO, GAL)"],
-      ["Akurasi RTK", "Horizontal: 8mm + 1ppm, Vertikal: 15mm + 1ppm"],
-      ["Mitigasi Sinyal", "Quantum-RTK™ & Anti-Jamming Filter"],
-      ["Material Casing", "IP68 Alloy Tahan Benturan & Medan Kasar"],
-      ["Transmisi Data", "4G LTE, Radio UHF Terintegrasi, Bluetooth, WiFi"],
-      ["Sinergi Sistem", "Feed data dapat diintegrasikan ke TerraPulse"]
-    ],
-    "updatedAt": "2026-09-29T12:00:00.000Z"
-  },
-  {
-    "id": "prod-total-station-cts",
-    "code": "LEXTERA-CTS112R",
-    "tag": "Total Station // Portofolio Survei Lextera",
-    "category": "total-station",
-    "name": "Lextera CTS-112R Reflectorless High-Precision Total Station",
-    "summary": "Total Station presisi tinggi dengan kemampuan pengukuran jarak tanpa prisma (reflectorless) hingga 1.000 meter, akurasi sudut 2 detik, serta kompensator sumbu ganda untuk survei batas tanah, konstruksi sipil, dan deformasi.",
-    "img": "/images/products-nx300.jpg",
-    "status": "Available in Stock",
-    "specs": [
-      ["Jarak Reflectorless", "Hingga 1.000 meter tanpa prisma"],
-      ["Jarak dengan Prisma", "Hingga 5.000 meter (Single Prism)"],
-      ["Akurasi Sudut", "2 Detik (2\" Angular Accuracy)"],
-      ["Kompensator", "Dual-Axis Liquid-Electric Compensator"],
-      ["Tampilan & Keyboard", "Layar Ganda LCD Grafis Alfanumerik"],
-      ["Transfer Data", "USB Flash Drive, Bluetooth, RS-232C"]
-    ],
-    "updatedAt": "2026-09-29T12:00:00.000Z"
-  },
-  {
-    "id": "prod-auto-level-dsz",
-    "code": "LEXTERA-DSZ2-LEVEL",
-    "tag": "Optical Level // Portofolio Survei Lextera",
-    "category": "total-station",
-    "name": "Lextera DSZ-2 Automatic Geodetic Level & Micrometer",
-    "summary": "Waterpass optik geodetik dengan perbesaran teleskop 32x dan kompensator udara otomatis teredam magnetik untuk leveling presisi tinggi, pemantauan penurunan tanah (subsidence), dan rekayasa sipil.",
-    "img": "/images/solutions-cadastre.jpg",
-    "status": "Available in Stock",
-    "specs": [
-      ["Perbesaran Teleskop", "32x Optical Magnification"],
-      ["Deviasi Standar", "1.0 mm per 1 km Double Run Leveling (0.5 mm dengan Mikrometer)"],
-      ["Apertur Objektif", "40 mm Clear Aperture"],
-      ["Kompensator", "Magnetic-Damped Automatic Leveling System"],
-      ["Sensitivitas Nivo", "10' / 2mm Circular Bubble"],
-      ["Standar Ketahanan", "IP55 All-Weather Construction"]
-    ],
-    "updatedAt": "2026-09-29T12:00:00.000Z"
-  },
-  {
-    "id": "prod-echo-sounder-hs",
-    "code": "LEXTERA-HYDRO-ECHO",
-    "tag": "Bathymetry // Portofolio Survei Hidrografi Lextera",
+    "id": "prod-usv-sv600",
+    "code": "SV600-USV",
+    "tag": "UNMANNED SURFACE VESSEL // Hydrographic Mapping",
     "category": "bathymetry",
-    "name": "Lextera HydroScan Precision Bathymetric Echo Sounder",
-    "summary": "Perangkat pemeruman kedalaman air (bathymetric echo sounder) terintegrasi GNSS untuk pemetaan batimetri sungai, perairan dangkal pelabuhan, pengerukan alur kapal, dan keselamatan navigasi maritim.",
+    "name": "SV600 USV Autonomous Survey Vessel",
+    "summary": "Kapal survei tanpa awak (USV) untuk pemetaan batimetri dan hidrografi perairan pelabuhan, sungai, dan danau tambang, dilengkapi single-beam/multibeam echosounder dengan auto-return fail-safe.",
     "img": "/images/solutions-marine.jpg",
-    "status": "Special Order",
+    "status": "Available / Ready Stock",
     "specs": [
-      ["Frekuensi Transduser", "200 kHz (High) / 24 kHz (Dual-Frequency Option)"],
-      ["Jangkauan Kedalaman", "0.2 m hingga 300 meter"],
-      ["Akurasi Kedalaman", "± 1 cm + 0.1% kedalaman air"],
-      ["Integrasi Navigasi", "Input Langsung GNSS NMEA-0183 & RTK Heave"],
-      ["Tampilan Layar", "12.1\" High-Brightness Sunlight-Readable Screen"],
-      ["Output Data", "Format Standar Hidrografi (HYPACK Compatible)"]
-    ],
-    "updatedAt": "2026-09-29T12:00:00.000Z"
-  },
-  {
-    "id": "prod-radar-services",
-    "code": "SVC-RADAR-ENG",
-    "tag": "Layanan Teknis // Engineering & Field Operations",
-    "category": "service",
-    "name": "Terrabyte Radar Maintenance & Operational Engineering",
-    "summary": "Layanan spesialis dari tim engineer dan teknisi Terrabyte yang bertugas mengoperasikan, mengkalibrasi, memelihara berkala, dan menangani kendala teknis pada Radar ComNav MS-SAR5000 di lokasi operasional klien.",
-    "img": "/images/hero-surveyor.jpg",
-    "status": "Active Engineering Service",
-    "specs": [
-      ["Kualifikasi Tim", "Insinyur & Teknisi Spesialis Radar Bersertifikasi"],
-      ["Cakupan Penugasan", "Instalasi, Kalibrasi Geometris, & Penyetelan Medan"],
-      ["SLA Respon Operasi", "Dukungan Teknis Siaga & Penempatan Engineer On-Site"],
-      ["Manajemen Perawatan", "Preventive & Corrective Maintenance Terjadwal"],
-      ["Verifikasi Akurasi", "Uji Validasi Deformasi Lapangan Rutin"],
-      ["Dukungan Lisensi", "Penyelarasan Pembaruan Sistem TerraPulse"]
+      [
+        "Depth Reach",
+        "0.15m – 300m Acoustic Sounder"
+      ],
+      [
+        "Cruising Speed",
+        "6 m/s (12 knots) Dual Jet Propulsion"
+      ],
+      [
+        "Mission Endurance",
+        "6 Hours Onboard Li-Ion Battery"
+      ],
+      [
+        "Telemetry Link",
+        "Up to 5 km RF + 4G LTE Auto-Failover"
+      ]
     ],
     "updatedAt": "2026-09-29T12:00:00.000Z"
   }

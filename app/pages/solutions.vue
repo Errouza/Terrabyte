@@ -48,7 +48,7 @@
               <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
               <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
               <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
-              <span class="font-mono text-xs text-[#94a3b8] ml-3 hidden sm:inline">TerraPulse-AI Operations Center &mdash; Project: Pit Wall 04 East</span>
+              <span class="font-mono text-xs text-[#94a3b8] ml-3 hidden sm:inline">TerraPulse-AI Platform &mdash; Monitoring Map Visualization</span>
             </div>
             <div class="flex items-center gap-3">
               <span class="w-2 h-2 rounded-full bg-[#18b8ea] animate-pulse"></span>
@@ -56,93 +56,13 @@
             </div>
           </div>
 
-          <!-- Dashboard Content -->
-          <div class="p-6 sm:p-10 space-y-6">
-            <!-- Top Metric Strips -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
-                <span class="block font-mono text-[10px] uppercase tracking-widest text-[#64748b] font-semibold mb-1">SYSTEM STATUS</span>
-                <span class="font-display font-bold text-lg text-emerald-400">100% Operational</span>
-              </div>
-              <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
-                <span class="block font-mono text-[10px] uppercase tracking-widest text-[#64748b] font-semibold mb-1">ACTIVE INSTRUMENTS</span>
-                <span class="font-display font-bold text-lg text-white">1 Radar, 8 GNSS</span>
-              </div>
-              <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
-                <span class="block font-mono text-[10px] uppercase tracking-widest text-[#64748b] font-semibold mb-1">MAX VELOCITY</span>
-                <span class="font-display font-bold text-lg text-[#18b8ea]">+0.48 mm/day</span>
-              </div>
-              <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
-                <span class="block font-mono text-[10px] uppercase tracking-widest text-[#64748b] font-semibold mb-1">RISK PREDICTION (AI)</span>
-                <span class="font-display font-bold text-lg text-sky-300">LOW THREAT (99.4%)</span>
-              </div>
-            </div>
-
-            <!-- Visualization Canvas -->
-            <div class="grid lg:grid-cols-12 gap-6">
-              <!-- Radar Map Simulation -->
-              <div class="lg:col-span-8 rounded-2xl bg-[#020810] border border-white/5 p-6 relative h-80 flex flex-col justify-between overflow-hidden">
-                <div class="absolute inset-0 bg-[radial-gradient(#18b8ea_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-20"></div>
-                <div class="absolute top-1/4 left-1/3 w-48 h-48 bg-[#18b8ea]/15 rounded-full blur-2xl"></div>
-                <div class="absolute bottom-1/4 right-1/4 w-32 h-32 bg-sky-500/15 rounded-full blur-xl"></div>
-
-                <div class="relative z-10 flex justify-between items-center text-xs font-mono text-[#94a3b8]">
-                  <span>INTERACTIVE 3D POINT CLOUD &middot; SECTOR D</span>
-                  <span class="text-[#18b8ea]">AZ: 218.4&deg; | RANGE: 2,450 m</span>
-                </div>
-
-                <div class="relative z-10 flex items-center justify-center my-auto">
-                  <div class="w-48 h-48 rounded-full border border-[#18b8ea]/30 flex items-center justify-center relative">
-                    <div class="w-32 h-32 rounded-full border border-dashed border-[#18b8ea]/40 animate-spin" style="animation-duration: 20s;"></div>
-                    <div class="w-16 h-16 rounded-full bg-[#18b8ea]/10 border border-[#18b8ea] flex items-center justify-center">
-                      <span class="w-3 h-3 rounded-full bg-[#18b8ea] animate-ping"></span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="relative z-10 flex justify-between items-center text-[11px] font-mono text-[#64748b]">
-                  <span>REFRESH INTERVAL: 15s</span>
-                  <span class="text-white">COORDINATES: -6.5583, 106.7582</span>
-                </div>
-              </div>
-
-              <!-- Anomaly Log / Alerts Stream -->
-              <div class="lg:col-span-4 rounded-2xl bg-[#020b14] border border-white/5 p-5 flex flex-col justify-between">
-                <div>
-                  <div class="flex items-center justify-between pb-3 border-b border-white/5 mb-3">
-                    <span class="font-mono text-xs uppercase tracking-wider text-white font-semibold">Active Trend Feed</span>
-                    <span class="text-[10px] font-mono text-[#18b8ea]">UPDATED NOW</span>
-                  </div>
-                  <div class="space-y-2.5">
-                    <div class="p-2.5 rounded-xl bg-white/5 border border-white/5 text-xs">
-                      <div class="flex items-center justify-between text-[10px] font-mono text-[#64748b] mb-1">
-                        <span>PR-01 &middot; CREST NORTH</span>
-                        <span class="text-emerald-400">STABLE</span>
-                      </div>
-                      <p class="text-white text-[11px]">Cumulative vector: 0.12 mm</p>
-                    </div>
-                    <div class="p-2.5 rounded-xl bg-white/5 border border-white/5 text-xs">
-                      <div class="flex items-center justify-between text-[10px] font-mono text-[#64748b] mb-1">
-                        <span>PR-02 &middot; BENCH 4</span>
-                        <span class="text-[#18b8ea]">WATCH</span>
-                      </div>
-                      <p class="text-white text-[11px]">Minor acceleration detected: +0.03 mm/h</p>
-                    </div>
-                    <div class="p-2.5 rounded-xl bg-white/5 border border-white/5 text-xs">
-                      <div class="flex items-center justify-between text-[10px] font-mono text-[#64748b] mb-1">
-                        <span>GNSS-03 &middot; TOE SOUTH</span>
-                        <span class="text-emerald-400">STABLE</span>
-                      </div>
-                      <p class="text-white text-[11px]">3D error residual: 1.2 mm</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="pt-4 border-t border-white/5 text-center">
-                  <span class="text-[11px] font-mono text-[#18b8ea]">TERRAWATCH AGENTS VERIFIED</span>
-                </div>
-              </div>
-            </div>
-
+          <!-- Real Dashboard Image Showcase -->
+          <div class="relative bg-[#020b14] overflow-hidden group">
+            <img
+              src="/images/contohTerrapulseAI.png"
+              alt="TerraPulse-AI Operations Center - Monitoring Map"
+              class="w-full h-auto object-contain block transition-transform duration-700 group-hover:scale-[1.01]"
+            />
           </div>
         </div>
       </div>

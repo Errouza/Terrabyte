@@ -1,6 +1,7 @@
-export default defineEventHandler((event) => {
+export default defineEventHandler(async (event) => {
   const slug = getRouterParam(event, 'slug')
-  const list = getStore('articles.json', [])
+  const fromDb = await getArticlesFromSupabase()
+  const list = fromDb && fromDb.length > 0 ? fromDb : getStore('articles.json', [])
   const article = list.find((a: any) => a.slug === slug || a.id === slug)
   if (!article) {
     throw createError({ statusCode: 404, statusMessage: 'Article not found' })

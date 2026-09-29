@@ -34,7 +34,7 @@
   {
     "id": "art-what-is-terrapulse",
     "slug": "what-is-terrapulse-ai",
-    "title": "What is TerraPulse-AI?",
+    "title": "Apakah TerraPulse AI itu sama dengan TerraDrone?",
     "excerpt": "How our platform turns monitoring data into decisions.",
     "content": "## Turning Earth Data into Actionable Decisions\n\nCollecting massive volumes of sensor telemetry is only the first step. TerraPulse-AI is an end-to-end data platform engineered specifically for geotechnical, structural, and environmental monitoring.\n\n### Core Capabilities\n\n- **Multi-Sensor Fusion**: Unify slope radar, GNSS RTK positioning, piezometers, and weather stations into a single 3D interactive view.\n- **Trend Analysis**: Move beyond static thresholds. Machine learning models analyze deformation velocity trends to differentiate between thermal dilation and true structural movement.\n- **Fast Response**: Latency of under 5 milliseconds from sensor ingestion to dashboard visualization, backed by TerraWatch operators.",
     "category": "Articles",
@@ -43,9 +43,9 @@
     "mainImage": "/images/solutions-autonomous.jpg",
     "author": {
       "name": "TerraPulse Software Lab",
-      "role": "Platform Systems Architect"
+      "role": "Divisi R&D Terrabyte"
     },
-    "updatedAt": "2026-09-29T14:55:00.000Z"
+    "updatedAt": "2026-09-29T16:31:28.006Z"
   },
   {
     "id": "art-project-lextera",

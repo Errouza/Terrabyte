@@ -27,70 +27,69 @@
       </div>
     </section>
 
-    <!-- ─── FEATURED PRODUCT: MS-SAR5000 (PAGE 3 HI-FI) ──────────────── -->
-    <section class="pb-20 relative z-10">
+    <!-- ─── FEATURED PRODUCT: RADAR / PRIMARY (PAGE 3 HI-FI) ─────── -->
+    <section v-if="featuredProduct" class="pb-20 relative z-10">
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
         <div class="rounded-3xl geo-card-highlight overflow-hidden">
           <div class="grid lg:grid-cols-12 gap-8 items-center p-8 sm:p-12">
 
-            <!-- Left: Product Photo & Featured Badge -->
-            <div class="lg:col-span-6 relative">
-              <div class="rounded-2xl bg-[#020b14] border border-white/10 h-72 sm:h-96 flex items-center justify-center p-8 relative overflow-hidden group">
+            <!-- Left: Product Photo & Featured Badge (Fitted edge-to-edge to border) -->
+            <div class="lg:col-span-5 relative">
+              <div class="w-full aspect-[825/903] rounded-2xl bg-[#020b14] border border-white/10 overflow-hidden relative group/feat shadow-2xl">
                 <img
-                  src="/images/uploads/1790323048828-sar5000.png"
-                  alt="MS-SAR5000 Slope Stability Monitoring Radar"
-                  class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                  :src="featuredProduct.img || '/images/uploads/1790323048828-sar5000.png'"
+                  :alt="featuredProduct.name"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover/feat:scale-105"
                 />
-                <span class="absolute top-4 left-4 font-mono text-[10px] tracking-widest uppercase font-bold px-3 py-1 rounded-full bg-[#18b8ea] text-[#030d17] shadow-[0_0_15px_rgba(24,184,234,0.4)]">
+                <span class="absolute top-4 left-4 z-20 font-mono text-[10px] tracking-widest uppercase font-bold px-3 py-1 rounded-full bg-[#18b8ea] text-[#030d17] shadow-[0_0_15px_rgba(24,184,234,0.4)]">
                   FEATURED
                 </span>
               </div>
             </div>
 
             <!-- Right: Product Details & CTAs -->
-            <div class="lg:col-span-6 space-y-6">
+            <div class="lg:col-span-7 space-y-6">
               <div>
                 <span class="block font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-2">
-                  SLOPE STABILITY MONITORING RADAR
+                  {{ featuredProduct.tag || (featuredProduct.category?.toUpperCase() || 'SLOPE STABILITY MONITORING RADAR') }}
                 </span>
                 <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mb-4">
-                  MS-SAR5000
+                  {{ featuredProduct.name }}
                 </h2>
                 <p class="font-body text-sm sm:text-base text-[#94a3b8] leading-relaxed font-light">
-                  A slope monitoring radar that tracks displacement in real time and gives early warning of potential slope failures in mining and construction.
+                  {{ featuredProduct.summary }}
                 </p>
               </div>
 
-              <!-- Bullet Points -->
-              <ul class="space-y-3.5 pt-1">
-                <li class="flex items-center gap-3 text-sm text-white font-medium">
-                  <span class="w-5 h-5 rounded-full bg-[#18b8ea]/20 text-[#18b8ea] flex items-center justify-center text-xs font-bold shadow-[0_0_10px_rgba(24,184,234,0.3)]">&check;</span>
-                  <span>Real-time slope displacement monitoring</span>
-                </li>
-                <li class="flex items-center gap-3 text-sm text-white font-medium">
-                  <span class="w-5 h-5 rounded-full bg-[#18b8ea]/20 text-[#18b8ea] flex items-center justify-center text-xs font-bold shadow-[0_0_10px_rgba(24,184,234,0.3)]">&check;</span>
-                  <span>Early warning for potential slope failure</span>
-                </li>
-                <li class="flex items-center gap-3 text-sm text-white font-medium">
-                  <span class="w-5 h-5 rounded-full bg-[#18b8ea]/20 text-[#18b8ea] flex items-center justify-center text-xs font-bold shadow-[0_0_10px_rgba(24,184,234,0.3)]">&check;</span>
-                  <span>Data ready for analysis in TerraPulse-AI</span>
+              <!-- Bullet Points / Key Specs -->
+              <ul v-if="featuredProduct.specs && featuredProduct.specs.length > 0" class="space-y-3 pt-1">
+                <li
+                  v-for="(spec, sIdx) in featuredProduct.specs.slice(0, 4)"
+                  :key="sIdx"
+                  class="flex items-start gap-3 text-sm text-white font-medium"
+                >
+                  <span class="w-5 h-5 rounded-full bg-[#18b8ea]/20 text-[#18b8ea] flex items-center justify-center text-xs font-bold shadow-[0_0_10px_rgba(24,184,234,0.3)] mt-0.5 flex-shrink-0">&check;</span>
+                  <span>
+                    <strong class="text-white font-semibold">{{ spec[0] }}:</strong>
+                    <span class="text-[#cbd5e1] font-light ml-1.5">{{ spec[1] }}</span>
+                  </span>
                 </li>
               </ul>
 
               <!-- Action Buttons -->
               <div class="flex flex-wrap items-center gap-4 pt-4">
                 <NuxtLink
-                  to="/contact?product=MS-SAR5000"
+                  :to="`/contact?product=${encodeURIComponent(featuredProduct.name)}`"
                   class="btn-geo-primary"
                 >
                   Request a quote
                 </NuxtLink>
-                <a
-                  href="/contact?type=brochure"
+                <NuxtLink
+                  :to="`/contact?type=brochure&product=${encodeURIComponent(featuredProduct.name)}`"
                   class="btn-geo-outline"
                 >
                   Download brochure
-                </a>
+                </NuxtLink>
               </div>
             </div>
 
@@ -99,77 +98,83 @@
       </div>
     </section>
 
-    <!-- ─── SECTION: MORE INSTRUMENTS (PAGE 3 HI-FI) ───────────────────── -->
-    <section class="py-20 lg:py-24 border-t border-white/5 bg-[#020b14] relative">
+    <!-- ─── SECTION: OUR PRODUCTS (CATALOG GRID LIKE USER'S REFERENCE) ──── -->
+    <section v-if="allProducts.length > 0" class="py-20 lg:py-24 border-t border-white/5 bg-[#020b14] relative">
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
 
-        <div class="mb-14">
-          <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-2">MORE INSTRUMENTS</p>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl text-white">
-            Positioning and hydrographic survey.
+        <!-- Header: Centered "OUR PRODUCTS" -->
+        <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+          <p class="font-mono text-xs uppercase tracking-[0.25em] text-[#18b8ea] font-semibold">PRECISION HARDWARE CATALOG</p>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight uppercase">
+            OUR PRODUCTS
           </h2>
+          <p class="font-body text-[#94a3b8] text-sm sm:text-base font-light">
+            Engineered positioning, radar, and hydrographic solutions backed by authorized local support and calibration.
+          </p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
+        <!-- Product Cards Grid: Equal proportions, square photo frames, clear typography -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-7">
+          <div
+            v-for="item in allProducts"
+            :key="item.id || item.code"
+            class="rounded-3xl geo-card border border-white/10 p-4 sm:p-5 flex flex-col justify-between group hover:border-[#18b8ea]/60 transition-all duration-300 hover:shadow-[0_12px_35px_rgba(24,184,234,0.12)] hover:-translate-y-1"
+          >
+            <!-- Card Top: Framed Square Image (fits frame cleanly, no blur) -->
+            <div>
+              <div class="w-full aspect-square rounded-2xl bg-[#030d17] border border-white/10 overflow-hidden relative mb-5 flex items-center justify-center group-hover:border-[#18b8ea]/40 transition-colors">
+                <img
+                  :src="item.img || '/images/hero-bg.jpg'"
+                  :alt="item.name"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <span
+                  v-if="item.status"
+                  class="absolute top-2.5 right-2.5 font-mono text-[9px] tracking-wider uppercase font-semibold px-2 py-0.5 rounded-full bg-[#030d17]/85 backdrop-blur-md border border-white/10 text-[#18b8ea]"
+                >
+                  {{ item.status }}
+                </span>
+              </div>
 
-          <!-- Instrument 1: ComNav GNSS Receivers -->
-          <div class="rounded-3xl geo-card overflow-hidden flex flex-col justify-between group">
-            <div class="h-64 bg-[#020b14] flex items-center justify-center p-6 border-b border-white/5">
-              <img
-                src="/images/uploads/1790317569779-n2.png"
-                alt="ComNav GNSS Receivers"
-                class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-            <div class="p-8 flex-1 flex flex-col justify-between">
-              <div>
-                <span class="block font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-2">GNSS POSITIONING</span>
-                <h3 class="font-display font-bold text-2xl text-white mb-3 group-hover:text-[#18b8ea] transition-colors">
-                  ComNav GNSS Receivers
+              <!-- Product Info: Centered matching user reference -->
+              <div class="text-center px-1">
+                <span class="block font-mono text-[10px] uppercase tracking-[0.15em] text-[#18b8ea] font-semibold mb-1.5 truncate">
+                  {{ item.tag || (item.category?.toUpperCase() || 'SURVEY INSTRUMENT') }}
+                </span>
+                <h3 class="font-display font-bold text-base sm:text-lg text-white mb-2 leading-snug group-hover:text-[#18b8ea] transition-colors line-clamp-2">
+                  {{ item.name }}
                 </h3>
-                <p class="font-body text-sm text-[#94a3b8] leading-relaxed font-light mb-6">
-                  Satellite-based receivers for accurate positioning in mapping, construction, plantations, mining and infrastructure.
+                <p class="font-body text-xs sm:text-sm text-[#94a3b8] leading-relaxed font-light line-clamp-3">
+                  {{ item.summary }}
                 </p>
               </div>
+            </div>
+
+            <!-- Card Bottom Action Link -->
+            <div class="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-xs">
+              <span class="font-mono text-[10px] text-white/40 uppercase tracking-wider truncate max-w-[130px]">
+                {{ item.code || 'TERRABYTE' }}
+              </span>
               <NuxtLink
-                to="/contact?product=ComNav-GNSS"
-                class="inline-flex items-center gap-2 text-xs sm:text-sm font-ui font-bold text-[#18b8ea] hover:text-[#38cbf8] tracking-wider uppercase"
+                :to="`/contact?product=${encodeURIComponent(item.name)}`"
+                class="inline-flex items-center gap-1.5 font-ui font-bold text-[#18b8ea] hover:text-white transition-colors"
               >
-                <span>Ask about models</span>
-                <span>&rarr;</span>
+                <span>Details</span>
+                <span class="text-sm">&rarr;</span>
               </NuxtLink>
             </div>
           </div>
+        </div>
 
-          <!-- Instrument 2: SV600 USV -->
-          <div class="rounded-3xl geo-card overflow-hidden flex flex-col justify-between group">
-            <div class="h-64 bg-[#020b14] flex items-center justify-center overflow-hidden border-b border-white/5 relative">
-              <img
-                src="/images/solutions-marine.jpg"
-                alt="SV600 USV Unmanned Surface Vessel"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-85"
-              />
-            </div>
-            <div class="p-8 flex-1 flex flex-col justify-between">
-              <div>
-                <span class="block font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-2">UNMANNED SURFACE VESSEL</span>
-                <h3 class="font-display font-bold text-2xl text-white mb-3 group-hover:text-[#18b8ea] transition-colors">
-                  SV600 USV
-                </h3>
-                <p class="font-body text-sm text-[#94a3b8] leading-relaxed font-light mb-6">
-                  A survey vessel for hydrographic mapping of ports, rivers and water bodies, including sediment and deposit surveys.
-                </p>
-              </div>
-              <NuxtLink
-                to="/contact?product=SV600-USV"
-                class="inline-flex items-center gap-2 text-xs sm:text-sm font-ui font-bold text-[#18b8ea] hover:text-[#38cbf8] tracking-wider uppercase"
-              >
-                <span>Request a quote</span>
-                <span>&rarr;</span>
-              </NuxtLink>
-            </div>
-          </div>
-
+        <!-- Centered Pill Button (matches reference screenshot) -->
+        <div class="mt-14 text-center">
+          <NuxtLink
+            to="/contact"
+            class="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-[#18b8ea] text-[#030d17] font-ui font-extrabold text-xs sm:text-sm tracking-widest uppercase shadow-[0_0_25px_rgba(24,184,234,0.35)] hover:bg-[#38cbf8] hover:shadow-[0_0_35px_rgba(24,184,234,0.5)] transition-all hover:scale-105"
+          >
+            <span>MORE PRODUCTS</span>
+            <span class="text-base">&rarr;</span>
+          </NuxtLink>
         </div>
 
       </div>
@@ -260,6 +265,30 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+
+const { data: productsData } = await useAsyncData('products-catalog', () => $fetch('/api/products').catch(() => []))
+
+const allProducts = computed(() => {
+  return Array.isArray(productsData.value) && productsData.value.length > 0
+    ? productsData.value
+    : []
+})
+
+const featuredProduct = computed(() => {
+  if (allProducts.value.length === 0) return null
+  return allProducts.value.find((p: any) =>
+    p.category?.toLowerCase() === 'radar' ||
+    p.code?.toLowerCase().includes('sar5000') ||
+    p.name?.toLowerCase().includes('sar5000')
+  ) || allProducts.value[0]
+})
+
+const otherProducts = computed(() => {
+  if (!featuredProduct.value) return allProducts.value
+  return allProducts.value.filter((p: any) => p.id !== featuredProduct.value.id)
+})
+
 useHead({
   title: 'Products — Precision instruments for every ground | Terrabyte',
   meta: [

@@ -27,22 +27,40 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const targetUploadDir = path.resolve(process.cwd(), 'public', 'images', 'uploads')
-  if (!fs.existsSync(targetUploadDir)) {
-    fs.mkdirSync(targetUploadDir, { recursive: true })
-  }
-
   const cleanBaseName = path.basename(originalName, ext).replace(/[^a-z0-9_-]/gi, '-').toLowerCase()
   const newFilename = Date.now() + '-' + cleanBaseName + ext
-  const targetPath = path.join(targetUploadDir, newFilename)
 
-  fs.writeFileSync(targetPath, file.data)
+  // 1. Prioritaskan Upload ke Supabase Cloud Storage (CDN Permanen)
+  const mimeType = file.type || (ext === '.png' ? 'image/png' : ext === '.webp' ? 'image/webp' : 'image/jpeg')
+  const supabaseUrl = await uploadImageToSupabaseStorage(newFilename, file.data, mimeType)
 
-  const publicUrl = '/images/uploads/' + newFilename
+  if (supabaseUrl) {
+    return {
+      success: true,
+      url: supabaseUrl,
+      filename: newFilename
+    }
+  }
 
-  return {
-    success: true,
-    url: publicUrl,
-    filename: newFilename
+  // 2. Fallback Lokal (Jika Supabase offline / dev tanpa koneksi)
+  try {
+    const targetUploadDir = path.resolve(process.cwd(), 'public', 'images', 'uploads')
+    if (!fs.existsSync(targetUploadDir)) {
+      fs.mkdirSync(targetUploadDir, { recursive: true })
+    }
+    const targetPath = path.join(targetUploadDir, newFilename)
+    fs.writeFileSync(targetPath, file.data)
+
+    return {
+      success: true,
+      url: '/images/uploads/' + newFilename,
+      filename: newFilename
+    }
+  } catch (err: any) {
+    console.warn('[Upload] Local fallback write skipped on read-only system:', err.message)
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'Gagal mengunggah gambar ke cloud storage.'
+    })
   }
 })
