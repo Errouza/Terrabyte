@@ -3,6 +3,10 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
 
+  routeRules: {
+    '/about': { redirect: { to: '/company', statusCode: 301 } },
+  },
+
   runtimeConfig: {
     public: {
       sanityProjectId: process.env.SANITY_PROJECT_ID || 'hzmtw7ck',

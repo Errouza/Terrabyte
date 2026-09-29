@@ -1,3 +1,3 @@
 export default defineEventHandler(() => {
-  return getStore('articles.json', [])
+  return getStore('testimonials.json', [])
 })

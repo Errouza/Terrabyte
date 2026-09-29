@@ -1,0 +1,29 @@
+[
+  {
+    "id": "test-1",
+    "quote": "[Ini bisa diisi kutipan ulasan dari mitra industri terkait peningkatan efisiensi operasional dan hasil nyata penerapan teknologi Terrabyte di lapangan].",
+    "author": "[Nama Pimpinan / Klien 1]",
+    "role": "[Jabatan Klien]",
+    "organization": "[Nama Perusahaan / Instansi 1]",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face&auto=format",
+    "updatedAt": "2026-09-25T03:01:08.806Z"
+  },
+  {
+    "id": "test-2",
+    "quote": "[Ini bisa diisi ulasan mengenai keandalan alat dalam menghadapi cuaca tropis ekstrem serta akurasi data yang konsisten saat pengujian].",
+    "author": "[Nama Pejabat / Peneliti 2]",
+    "role": "[Kepala Bidang / Direktur]",
+    "organization": "[Nama Lembaga / Dinas Terkait 2]",
+    "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&h=300&fit=crop&crop=face&auto=format",
+    "updatedAt": "2026-09-25T03:01:08.806Z"
+  },
+  {
+    "id": "test-3",
+    "quote": "[Ini bisa diisi ulasan tentang kecepatan dukungan teknis lokal, ketersediaan suku cadang, dan kemudahan pelatihan operator].",
+    "author": "[Nama Project Manager 3]",
+    "role": "[Lead Geodesist / Site Manager]",
+    "organization": "[Nama Kontraktor Proyek 3]",
+    "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop&crop=face&auto=format",
+    "updatedAt": "2026-09-25T03:01:08.806Z"
+  }
+]

@@ -102,7 +102,13 @@ const slug = computed(() => route.params.slug as string)
 const { getArticleBySlug } = useSanityContent()
 const { data: article, pending } = await useAsyncData(
   () => 'article-detail-' + slug.value,
-  () => getArticleBySlug(slug.value)
+  async () => {
+    try {
+      const res = await $fetch('/api/articles/' + slug.value)
+      if (res) return res
+    } catch {}
+    return getArticleBySlug(slug.value).catch(() => null)
+  }
 )
 
 const formattedContent = computed(() => {
