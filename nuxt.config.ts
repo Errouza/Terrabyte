@@ -17,6 +17,7 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxtjs/tailwindcss',
+    '@vercel/speed-insights/nuxt',
   ],
 
   css: ['~/assets/css/main.css'],
