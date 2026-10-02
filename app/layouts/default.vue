@@ -64,31 +64,37 @@
             </NuxtLink>
           </div>
 
-          <!-- Desktop CTA Button: Get in touch -->
-          <div class="hidden lg:block flex-shrink-0">
-            <NuxtLink
-              to="/contact"
-              class="inline-flex items-center justify-center font-ui font-bold text-xs tracking-wider uppercase px-5 py-2.5 rounded-full bg-[#18b8ea] text-[#030d17] hover:bg-[#38cbf8] hover:shadow-[0_0_20px_rgba(24,184,234,0.45)] transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
-              :style="{
-                padding: `${(9 - progress * 2).toFixed(1)}px ${(20 - progress * 4).toFixed(1)}px`,
-                fontSize: `${(11.5 - progress * 0.5).toFixed(1)}px`
-              }"
-            >
-              Get in touch
-            </NuxtLink>
-          </div>
+          <!-- Right side items: Language switcher + CTA button + Mobile toggle -->
+          <div class="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
+            <!-- Language Switcher (Always accessible) -->
+            <LanguageSwitcher />
 
-          <!-- Mobile Toggle Button -->
-          <button
-            class="lg:hidden text-[#94a3b8] p-1.5 focus:outline-none hover:text-[#18b8ea] transition-colors"
-            @click="mobileOpen = !mobileOpen"
-            aria-label="Toggle Navigation"
-          >
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-              <path v-if="mobileOpen" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-              <path v-else stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-          </button>
+            <!-- Desktop CTA Button: Get in touch -->
+            <div class="hidden lg:block flex-shrink-0">
+              <NuxtLink
+                to="/contact"
+                class="inline-flex items-center justify-center font-ui font-bold text-xs tracking-wider uppercase px-5 py-2.5 rounded-full bg-[#18b8ea] text-[#030d17] hover:bg-[#38cbf8] hover:shadow-[0_0_20px_rgba(24,184,234,0.45)] transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
+                :style="{
+                  padding: `${(9 - progress * 2).toFixed(1)}px ${(20 - progress * 4).toFixed(1)}px`,
+                  fontSize: `${(11.5 - progress * 0.5).toFixed(1)}px`
+                }"
+              >
+                {{ t('nav.getInTouch') }}
+              </NuxtLink>
+            </div>
+
+            <!-- Mobile Toggle Button -->
+            <button
+              class="lg:hidden text-[#94a3b8] p-1.5 focus:outline-none hover:text-[#18b8ea] transition-colors"
+              @click="mobileOpen = !mobileOpen"
+              aria-label="Toggle Navigation"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path v-if="mobileOpen" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                <path v-else stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </button>
+          </div>
         </nav>
 
         <!-- Mobile Drawer -->
@@ -119,7 +125,7 @@
               class="w-full text-center py-2.5 rounded-full bg-[#18b8ea] text-[#030d17] font-ui font-bold text-xs tracking-wider uppercase mt-2 shadow-[0_0_15px_rgba(24,184,234,0.35)]"
               @click="mobileOpen = false"
             >
-              Get in touch
+              {{ t('nav.getInTouch') }}
             </NuxtLink>
           </div>
         </Transition>
@@ -145,27 +151,27 @@
                 </div>
               </NuxtLink>
               <p class="font-body font-light text-xs sm:text-[13px] leading-relaxed text-[#8da2b5] max-w-sm">
-                Geospatial technology, monitoring and AI analytics. Turning earth data into smarter decisions.
+                {{ t('footer.tagline') }}
               </p>
             </div>
 
             <!-- Column 1: PAGES -->
             <div class="space-y-3.5">
-              <p class="font-mono text-[11px] tracking-[0.2em] uppercase text-[#64748b] font-semibold">PAGES</p>
+              <p class="font-mono text-[11px] tracking-[0.2em] uppercase text-[#64748b] font-semibold">{{ t('footer.pages') }}</p>
               <ul class="space-y-2.5">
                 <li>
                   <NuxtLink to="/company" class="font-ui text-xs text-[#94a3b8] hover:text-[#18b8ea] transition-colors">
-                    Company
+                    {{ t('nav.company') }}
                   </NuxtLink>
                 </li>
                 <li>
                   <NuxtLink to="/articles" class="font-ui text-xs text-[#94a3b8] hover:text-[#18b8ea] transition-colors">
-                    News &amp; Articles
+                    {{ t('nav.news') }}
                   </NuxtLink>
                 </li>
                 <li>
                   <NuxtLink to="/contact" class="font-ui text-xs text-[#94a3b8] hover:text-[#18b8ea] transition-colors">
-                    Contact
+                    {{ t('nav.contact') }}
                   </NuxtLink>
                 </li>
               </ul>
@@ -173,11 +179,11 @@
 
             <!-- Column 2: OFFERING -->
             <div class="space-y-3.5">
-              <p class="font-mono text-[11px] tracking-[0.2em] uppercase text-[#64748b] font-semibold">OFFERING</p>
+              <p class="font-mono text-[11px] tracking-[0.2em] uppercase text-[#64748b] font-semibold">{{ t('footer.offering') }}</p>
               <ul class="space-y-2.5">
                 <li>
                   <NuxtLink to="/products" class="font-ui text-xs text-[#94a3b8] hover:text-[#18b8ea] transition-colors">
-                    Products
+                    {{ t('nav.products') }}
                   </NuxtLink>
                 </li>
                 <li>
@@ -195,10 +201,10 @@
 
             <!-- Column 3: CONTACT -->
             <div class="space-y-3.5">
-              <p class="font-mono text-[11px] tracking-[0.2em] uppercase text-[#64748b] font-semibold">CONTACT</p>
+              <p class="font-mono text-[11px] tracking-[0.2em] uppercase text-[#64748b] font-semibold">{{ t('footer.contact') }}</p>
               <div class="space-y-2 text-xs text-[#94a3b8]">
                 <p class="leading-relaxed">
-                  Jl. Raya Semplak No.52, Semplak, Bogor, Indonesia
+                  {{ t('footer.address') }}
                 </p>
                 <p>
                   <a href="tel:08139840986" class="hover:text-[#18b8ea] transition-colors font-mono">
@@ -227,11 +233,11 @@
                   class="cursor-default select-none transition-colors duration-200"
                   :class="{ 'text-[#18b8ea]': secretClicks > 0 }"
                 >&copy;</span>
-                2026 Terrabyte Geosystem Indonesia. All rights reserved.
+                {{ t('footer.rights') }}
               </span>
             </p>
             <p class="font-mono tracking-[0.25em] uppercase text-[10px] text-[#718b9f]">
-              WHERE EARTH MEETS INTELLIGENCE
+              {{ t('footer.motto') }}
             </p>
           </div>
         </div>
@@ -270,14 +276,16 @@ const progress = computed(() => {
   return Math.min(1, Math.max(0, scrollY.value / 85))
 })
 
-const navLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/company', label: 'Company' },
-  { to: '/products', label: 'Product' },
-  { to: '/solutions', label: 'Solutions' },
-  { to: '/articles', label: 'News' },
-  { to: '/contact', label: 'Contact' },
-]
+const { t } = useLanguage()
+
+const navLinks = computed(() => [
+  { to: '/', label: t('nav.home') },
+  { to: '/company', label: t('nav.company') },
+  { to: '/products', label: t('nav.products') },
+  { to: '/solutions', label: t('nav.solutions') },
+  { to: '/articles', label: t('nav.news') },
+  { to: '/contact', label: t('nav.contact') },
+])
 
 let ticking = false
 const onScroll = () => {

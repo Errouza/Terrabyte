@@ -10,17 +10,17 @@
         <div class="max-w-3xl space-y-4">
           <!-- Tag -->
           <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold">
-            NEWS &amp; ARTICLES
+            {{ locale === 'id' ? 'DOKUMENTASI LAPANGAN · BERITA INDUSTRI' : 'NEWS & ARTICLES' }}
           </p>
 
           <!-- Headline -->
           <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-[58px] leading-tight text-white">
-            Insights from the <span class="text-[#18b8ea] drop-shadow-[0_0_30px_rgba(24,184,234,0.35)]">ground up.</span>
+            {{ locale === 'id' ? 'Wawasan Terpercaya dari' : 'Insights from the' }} <span class="text-[#18b8ea] drop-shadow-[0_0_30px_rgba(24,184,234,0.35)]">{{ locale === 'id' ? 'Dunia Lapangan.' : 'ground up.' }}</span>
           </h1>
 
           <!-- Subtitle -->
           <p class="font-body text-[#94a3b8] text-base sm:text-lg leading-relaxed font-light">
-            Company news, project stories and practical knowledge on monitoring and geospatial technology.
+            {{ locale === 'id' ? 'Kilas berita operasional, studi kasus lapangan, dan wawasan teknologi geospasial terkini.' : 'Company news, project stories and practical knowledge on monitoring and geospatial technology.' }}
           </p>
         </div>
 
@@ -157,6 +157,9 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { useLanguage } from '~/composables/useLanguage'
+
+const { t, locale } = useLanguage()
 
 const { data: articlesData } = await useAsyncData('articles-hifi', () => $fetch('/api/articles').catch(() => []))
 

@@ -9,17 +9,17 @@
       <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center relative z-10">
         <!-- Tag -->
         <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-4">
-          SOLUTIONS &middot; TERRAPULSE-AI
+          {{ t('solutions.tag') }}
         </p>
 
         <!-- Headline -->
         <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-[60px] leading-tight text-white mb-6">
-          Feel the <span class="text-[#18b8ea] drop-shadow-[0_0_30px_rgba(24,184,234,0.4)]">pulse</span> of your<br />ground.
+          {{ t('solutions.title1') }} <span class="text-[#18b8ea] drop-shadow-[0_0_30px_rgba(24,184,234,0.4)]">{{ t('solutions.titlePulse') }}</span> {{ t('solutions.title2') }}
         </h1>
 
         <!-- Subtitle -->
         <p class="font-body text-[#94a3b8] text-base sm:text-lg leading-relaxed max-w-2xl mx-auto font-light mb-8">
-          TerraPulse-AI is our analytics platform for monitoring data. It brings your sensors into one view, finds the patterns that matter and flags risk before it becomes a problem.
+          {{ t('solutions.subtitle') }}
         </p>
 
         <!-- CTAs -->
@@ -28,13 +28,13 @@
             to="/contact?type=demo"
             class="btn-geo-primary"
           >
-            Request a demo
+            {{ t('solutions.requestDemo') }}
           </NuxtLink>
           <a
             href="#how-it-works"
             class="btn-geo-outline"
           >
-            How it works
+            {{ t('solutions.howItWorks') }}
           </a>
         </div>
       </div>
@@ -275,7 +275,7 @@
             to="/contact?type=demo"
             class="flex-shrink-0 btn-geo-white"
           >
-            Request a demo
+            {{ t('solutions.requestDemo') }}
           </NuxtLink>
         </div>
       </div>
@@ -285,6 +285,10 @@
 </template>
 
 <script setup lang="ts">
+import { useLanguage } from '~/composables/useLanguage'
+
+const { t } = useLanguage()
+
 useHead({
   title: 'Solutions — Feel the pulse of your ground | TerraPulse-AI',
   meta: [

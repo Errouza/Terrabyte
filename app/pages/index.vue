@@ -33,19 +33,18 @@
             <!-- Pill / Category -->
             <div class="inline-flex items-center gap-2.5 px-3 py-1 rounded-full text-[#18b8ea] font-mono text-[11px] tracking-[0.2em] uppercase font-semibold">
               <span class="w-1.5 h-1.5 rounded-full bg-[#18b8ea] shadow-[0_0_8px_#18b8ea]"></span>
-              <span>GEOSPATIAL TECHNOLOGY &middot; INDONESIA</span>
+              <span>{{ t('home.tag') }}</span>
             </div>
 
             <!-- Hero Headline -->
             <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-[68px] leading-[1.05] text-white tracking-tight">
-              Where Earth<br />
-              Meets<br />
-              <span class="text-[#18b8ea] drop-shadow-[0_0_40px_rgba(24,184,234,0.45)]">Intelligence.</span>
+              {{ t('home.heroTitle1') }}<br />
+              <span class="text-[#18b8ea] drop-shadow-[0_0_40px_rgba(24,184,234,0.45)]">{{ t('home.heroTitle2') }}</span>
             </h1>
 
             <!-- Subtitle -->
             <p class="font-body text-[#94a3b8] text-base sm:text-lg leading-relaxed max-w-xl font-light">
-              Terrabyte Geosystem Indonesia combines precision survey and monitoring technology with AI analytics, turning earth data into clear, timely decisions.
+              {{ t('home.heroDesc') }}
             </p>
 
             <!-- CTA Actions -->
@@ -54,13 +53,13 @@
                 to="/solutions"
                 class="btn-geo-primary"
               >
-                Explore Solutions
+                {{ t('home.exploreSolutions') }}
               </NuxtLink>
               <NuxtLink
                 to="/products"
                 class="btn-geo-outline"
               >
-                View Products
+                {{ t('home.viewProducts') }}
               </NuxtLink>
             </div>
           </div>
@@ -70,16 +69,16 @@
             <div class="rounded-3xl p-6 sm:p-8 bg-[#061c2c]/85 border border-[#18b8ea]/30 shadow-[0_24px_60px_rgba(0,0,0,0.8),0_0_35px_rgba(24,184,234,0.15)] relative overflow-hidden backdrop-blur-xl">
               <!-- Top Header -->
               <div class="flex items-center justify-between pb-4">
-                <span class="font-mono text-xs font-semibold text-[#8da2b5] tracking-[0.2em] uppercase">TERRAPULSE-AI</span>
+                <span class="font-mono text-xs font-semibold text-[#8da2b5] tracking-[0.2em] uppercase">{{ t('home.telemetryTag') }}</span>
                 <div class="flex items-center gap-1.5 text-[#cbd5e1] text-xs font-mono font-medium">
                   <span class="w-2 h-2 rounded-full bg-[#18b8ea] shadow-[0_0_8px_#18b8ea] animate-pulse"></span>
-                  <span>LIVE</span>
+                  <span>{{ t('home.telemetryStatus') }}</span>
                 </div>
               </div>
 
               <!-- Widget Title -->
               <h3 class="font-display font-bold text-xl sm:text-2xl text-white mb-6">
-                Slope displacement trend
+                {{ t('home.telemetryTitle') }}
               </h3>
 
               <!-- Dynamic Chart Canvas / Vector Graphic -->
@@ -124,14 +123,14 @@
               <!-- Bottom Status Indicators -->
               <div class="grid grid-cols-2 gap-4 mt-6 pt-4">
                 <div class="p-3.5 rounded-2xl bg-[#041422]/70 border border-white/10">
-                  <span class="block text-[10px] uppercase font-mono tracking-widest text-[#64748b] font-semibold mb-1">SENSOR</span>
-                  <span class="text-sm font-semibold text-white">Slope radar</span>
+                  <span class="block text-[10px] uppercase font-mono tracking-widest text-[#64748b] font-semibold mb-1">{{ t('home.sensorLabel') }}</span>
+                  <span class="text-sm font-semibold text-white">{{ t('home.sensorVal') }}</span>
                 </div>
                 <div class="p-3.5 rounded-2xl bg-[#041422]/70 border border-white/10">
-                  <span class="block text-[10px] uppercase font-mono tracking-widest text-[#64748b] font-semibold mb-1">STATUS</span>
+                  <span class="block text-[10px] uppercase font-mono tracking-widest text-[#64748b] font-semibold mb-1">{{ t('home.statusLabel') }}</span>
                   <span class="text-sm font-semibold text-[#18b8ea] flex items-center gap-1.5">
                     <span class="w-1.5 h-1.5 rounded-full bg-[#18b8ea]"></span>
-                    <span>Monitoring active</span>
+                    <span>{{ t('home.statusVal') }}</span>
                   </span>
                 </div>
               </div>
@@ -149,15 +148,14 @@
         <!-- Section Header Row -->
         <div class="grid lg:grid-cols-12 gap-6 items-end mb-16">
           <div class="lg:col-span-7 space-y-3">
-            <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold">01 &mdash; WHAT WE DO</p>
+            <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold">{{ t('home.section1Tag') }}</p>
             <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-[44px] leading-tight text-white">
-              From the ground, to the data,<br class="hidden sm:block" />
-              to the decision.
+              {{ t('home.section1Title') }}
             </h2>
           </div>
           <div class="lg:col-span-5">
             <p class="font-body text-[#94a3b8] text-sm sm:text-base leading-relaxed font-light">
-              One integrated flow: reliable instruments in the field, analytics that make sense of their data, and a team watching over it.
+              {{ t('home.section1Desc') }}
             </p>
           </div>
         </div>
@@ -175,12 +173,12 @@
                   <line x1="2" y1="12" x2="22" y2="12" />
                 </svg>
               </div>
-              <span class="block font-mono text-[11px] uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-2">MONITOR</span>
+              <span class="block font-mono text-[11px] uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-2">{{ t('home.monitorTag') }}</span>
               <h3 class="font-display font-bold text-xl text-white mb-3 group-hover:text-[#18b8ea] transition-colors">
-                Precision instruments
+                {{ t('home.monitorTitle') }}
               </h3>
               <p class="font-body text-xs sm:text-sm text-[#94a3b8] leading-relaxed font-light">
-                Slope radar, GNSS receivers and hydrographic survey vessels, supplied and supported as an authorized Lextera partner.
+                {{ t('home.monitorDesc') }}
               </p>
             </div>
           </div>
@@ -193,12 +191,12 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <span class="block font-mono text-[11px] uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-2">ANALYZE</span>
+              <span class="block font-mono text-[11px] uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-2">{{ t('home.analyzeTag') }}</span>
               <h3 class="font-display font-bold text-xl text-white mb-3 group-hover:text-[#18b8ea] transition-colors">
-                TerraPulse-AI
+                {{ t('home.analyzeTitle') }}
               </h3>
               <p class="font-body text-xs sm:text-sm text-[#94a3b8] leading-relaxed font-light">
-                Our analytics platform turns monitoring data into trends, insights and early warnings your team can act on.
+                {{ t('home.analyzeDesc') }}
               </p>
             </div>
           </div>
@@ -211,12 +209,12 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <span class="block font-mono text-[11px] uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-2">RESPOND</span>
+              <span class="block font-mono text-[11px] uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-2">{{ t('home.respondTag') }}</span>
               <h3 class="font-display font-bold text-xl text-white mb-3 group-hover:text-[#18b8ea] transition-colors">
-                TerraWatch center
+                {{ t('home.respondTitle') }}
               </h3>
               <p class="font-body text-xs sm:text-sm text-[#94a3b8] leading-relaxed font-light">
-                A monitoring center that keeps continuous watch over site conditions and supports fast response.
+                {{ t('home.respondDesc') }}
               </p>
             </div>
           </div>
@@ -233,16 +231,16 @@
         <!-- Header Row -->
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
           <div>
-            <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-2">02 &mdash; PRODUCTS</p>
+            <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-2">{{ t('home.section2Tag') }}</p>
             <h2 class="font-display font-bold text-3xl sm:text-4xl text-white">
-              Instruments built for precision.
+              {{ t('home.section2Title') }}
             </h2>
           </div>
           <NuxtLink
             to="/products"
             class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-ui font-bold text-[#18b8ea] hover:text-[#38cbf8] transition-colors tracking-wide"
           >
-            <span>All products</span>
+            <span>{{ t('home.allProducts') }}</span>
             <span>&rarr;</span>
           </NuxtLink>
         </div>
@@ -262,12 +260,12 @@
             </div>
             <div class="p-7 flex-1 flex flex-col justify-between">
               <div>
-                <span class="block font-mono text-[10px] uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-1.5">SLOPE MONITORING RADAR</span>
+                <span class="block font-mono text-[10px] uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-1.5">{{ t('home.radarTag') }}</span>
                 <h3 class="font-display font-bold text-lg text-white mb-2 group-hover:text-[#18b8ea] transition-colors">
-                  MS-SAR5000
+                  {{ t('home.radarTitle') }}
                 </h3>
                 <p class="font-body text-xs text-[#94a3b8] leading-relaxed font-light">
-                  Real-time slope displacement monitoring with early warning of potential failures.
+                  {{ t('home.radarDesc') }}
                 </p>
               </div>
             </div>
@@ -285,12 +283,12 @@
             </div>
             <div class="p-7 flex-1 flex flex-col justify-between">
               <div>
-                <span class="block font-mono text-[10px] uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-1.5">POSITIONING</span>
+                <span class="block font-mono text-[10px] uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-1.5">{{ t('home.gnssTag') }}</span>
                 <h3 class="font-display font-bold text-lg text-white mb-2 group-hover:text-[#18b8ea] transition-colors">
-                  ComNav GNSS Receivers
+                  {{ t('home.gnssTitle') }}
                 </h3>
                 <p class="font-body text-xs text-[#94a3b8] leading-relaxed font-light">
-                  Satellite positioning for accurate survey, mapping and construction work.
+                  {{ t('home.gnssDesc') }}
                 </p>
               </div>
             </div>
@@ -308,12 +306,12 @@
             </div>
             <div class="p-7 flex-1 flex flex-col justify-between">
               <div>
-                <span class="block font-mono text-[10px] uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-1.5">HYDROGRAPHIC SURVEY</span>
+                <span class="block font-mono text-[10px] uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-1.5">{{ t('home.marineTag') }}</span>
                 <h3 class="font-display font-bold text-lg text-white mb-2 group-hover:text-[#18b8ea] transition-colors">
-                  SV600 USV
+                  {{ t('home.marineTitle') }}
                 </h3>
                 <p class="font-body text-xs text-[#94a3b8] leading-relaxed font-light">
-                  Unmanned surface vessel for mapping ports, rivers and water bodies.
+                  {{ t('home.marineDesc') }}
                 </p>
               </div>
             </div>
@@ -331,26 +329,27 @@
 
           <!-- Left Column: Copy & Checklist -->
           <div class="lg:col-span-6 space-y-6">
-            <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold">03 &mdash; SOLUTION</p>
+            <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold">{{ t('home.section3Tag') }}</p>
             <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-[44px] leading-tight text-white">
-              Feel the <span class="text-[#18b8ea]">pulse</span> of your<br />ground.
+              {{ t('home.section3Title1') }} <span class="text-[#18b8ea]">{{ t('home.section3TitlePulse') }}</span><br />
+              {{ t('home.section3Title2') }}
             </h2>
             <p class="font-body text-[#94a3b8] text-sm sm:text-base leading-relaxed font-light">
-              TerraPulse-AI brings your monitoring data into one platform, finds the patterns that matter and flags risk early, so decisions happen before problems do.
+              {{ t('home.section3Desc') }}
             </p>
 
             <ul class="space-y-3.5 pt-2">
               <li class="flex items-center gap-3 text-sm text-white font-medium">
                 <span class="w-5 h-5 rounded-full bg-[#18b8ea]/20 text-[#18b8ea] flex items-center justify-center text-xs font-bold shadow-[0_0_10px_rgba(24,184,234,0.3)]">&check;</span>
-                <span>Unified view of sensor data</span>
+                <span>{{ t('home.feature1') }}</span>
               </li>
               <li class="flex items-center gap-3 text-sm text-white font-medium">
                 <span class="w-5 h-5 rounded-full bg-[#18b8ea]/20 text-[#18b8ea] flex items-center justify-center text-xs font-bold shadow-[0_0_10px_rgba(24,184,234,0.3)]">&check;</span>
-                <span>Trend analysis and early warnings</span>
+                <span>{{ t('home.feature2') }}</span>
               </li>
               <li class="flex items-center gap-3 text-sm text-white font-medium">
                 <span class="w-5 h-5 rounded-full bg-[#18b8ea]/20 text-[#18b8ea] flex items-center justify-center text-xs font-bold shadow-[0_0_10px_rgba(24,184,234,0.3)]">&check;</span>
-                <span>Backed by the TerraWatch monitoring center</span>
+                <span>{{ t('home.feature3') }}</span>
               </li>
             </ul>
 
@@ -359,7 +358,7 @@
                 to="/solutions"
                 class="btn-geo-primary"
               >
-                Discover TerraPulse-AI
+                {{ t('home.discoverCta') }}
               </NuxtLink>
             </div>
           </div>
@@ -432,17 +431,17 @@
         <div class="p-8 sm:p-12 rounded-3xl geo-banner flex flex-col md:flex-row items-center justify-between gap-6">
           <div class="space-y-2 text-center md:text-left">
             <h3 class="font-display font-bold text-2xl sm:text-3xl text-white">
-              Let&rsquo;s read the ground together.
+              {{ t('home.bannerTitle') }}
             </h3>
             <p class="font-body text-[#94a3b8] text-sm sm:text-base font-light">
-              Talk to our team about monitoring, instruments or TerraPulse-AI.
+              {{ t('home.bannerDesc') }}
             </p>
           </div>
           <NuxtLink
             to="/contact"
             class="flex-shrink-0 btn-geo-white"
           >
-            Contact us
+            {{ t('home.bannerCta') }}
           </NuxtLink>
         </div>
       </div>
@@ -452,6 +451,10 @@
 </template>
 
 <script setup lang="ts">
+import { useLanguage } from '~/composables/useLanguage'
+
+const { t } = useLanguage()
+
 useHead({
   title: 'Terrabyte Geosystem Indonesia — Where Earth Meets Intelligence',
   meta: [

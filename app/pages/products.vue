@@ -10,18 +10,18 @@
         <div class="max-w-3xl space-y-4">
           <!-- Tag -->
           <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold">
-            PRODUCTS &middot; AUTHORIZED LEXTERA PARTNER
+            {{ t('products.tag') }}
           </p>
 
           <!-- Headline -->
           <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-[58px] leading-tight text-white">
-            Precision instruments<br />
-            <span class="text-[#18b8ea] drop-shadow-[0_0_30px_rgba(24,184,234,0.35)]">for every ground.</span>
+            {{ t('products.title1') }}<br />
+            <span class="text-[#18b8ea] drop-shadow-[0_0_30px_rgba(24,184,234,0.35)]">{{ t('products.title2') }}</span>
           </h1>
 
           <!-- Subtitle -->
           <p class="font-body text-[#94a3b8] text-base sm:text-lg leading-relaxed font-light">
-            Survey and monitoring technology supplied through PT Lextera Survey Indonesia, with local support from our team.
+            {{ t('products.subtitle') }}
           </p>
         </div>
       </div>
@@ -82,13 +82,13 @@
                   :to="`/contact?product=${encodeURIComponent(featuredProduct.name)}`"
                   class="btn-geo-primary"
                 >
-                  Request a quote
+                  {{ locale === 'id' ? 'Minta Penawaran' : 'Request a quote' }}
                 </NuxtLink>
                 <NuxtLink
                   :to="`/contact?type=brochure&product=${encodeURIComponent(featuredProduct.name)}`"
                   class="btn-geo-outline"
                 >
-                  Download brochure
+                  {{ locale === 'id' ? 'Unduh Brosur' : 'Download brochure' }}
                 </NuxtLink>
               </div>
             </div>
@@ -104,12 +104,12 @@
 
         <!-- Header: Centered "OUR PRODUCTS" -->
         <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <p class="font-mono text-xs uppercase tracking-[0.25em] text-[#18b8ea] font-semibold">PRECISION HARDWARE CATALOG</p>
+          <p class="font-mono text-xs uppercase tracking-[0.25em] text-[#18b8ea] font-semibold">{{ locale === 'id' ? 'KATALOG HARDWARE PRESISI' : 'PRECISION HARDWARE CATALOG' }}</p>
           <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight uppercase">
-            OUR PRODUCTS
+            {{ locale === 'id' ? 'KATALOG PRODUK' : 'OUR PRODUCTS' }}
           </h2>
           <p class="font-body text-[#94a3b8] text-sm sm:text-base font-light">
-            Engineered positioning, radar, and hydrographic solutions backed by authorized local support and calibration.
+            {{ locale === 'id' ? 'Solusi penentuan posisi satelit, radar lereng, dan survei hidrografi teruji dengan kalibrasi dan dukungan teknis lokal.' : 'Engineered positioning, radar, and hydrographic solutions backed by authorized local support and calibration.' }}
           </p>
         </div>
 
@@ -187,14 +187,14 @@
         <!-- Header Row -->
         <div class="grid lg:grid-cols-12 gap-6 items-end mb-14">
           <div class="lg:col-span-7 space-y-2">
-            <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold">AFTER-SALES</p>
+            <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold">{{ locale === 'id' ? 'LAYANAN PURNA JUAL' : 'AFTER-SALES' }}</p>
             <h2 class="font-display font-bold text-3xl sm:text-4xl text-white">
-              Support that stays with you.
+              {{ locale === 'id' ? 'Dukungan teknis yang selalu mendampingi Anda.' : 'Support that stays with you.' }}
             </h2>
           </div>
           <div class="lg:col-span-5">
             <p class="font-body text-[#94a3b8] text-sm sm:text-base leading-relaxed font-light">
-              Every instrument comes with local service, so your team keeps working with confidence.
+              {{ locale === 'id' ? 'Setiap instrumen didukung oleh layanan teknis dan kalibrasi lokal, memastikan operasional tim Anda tetap berjalan lancar.' : 'Every instrument comes with local service, so your team keeps working with confidence.' }}
             </p>
           </div>
         </div>
@@ -266,6 +266,9 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useLanguage } from '~/composables/useLanguage'
+
+const { t, locale } = useLanguage()
 
 const { data: productsData } = await useAsyncData('products-catalog', () => $fetch('/api/products').catch(() => []))
 

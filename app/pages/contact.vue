@@ -10,17 +10,17 @@
         <div class="max-w-3xl space-y-4">
           <!-- Tag -->
           <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold">
-            CONTACT US
+            {{ t('contact.tag') }}
           </p>
 
           <!-- Headline -->
           <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-[58px] leading-tight text-white">
-            Let&rsquo;s read the ground <span class="text-[#18b8ea] drop-shadow-[0_0_30px_rgba(24,184,234,0.35)]">together.</span>
+            {{ t('contact.title1') }} <span class="text-[#18b8ea] drop-shadow-[0_0_30px_rgba(24,184,234,0.35)]">{{ t('contact.title2') }}</span>
           </h1>
 
           <!-- Subtitle -->
           <p class="font-body text-[#94a3b8] text-base sm:text-lg leading-relaxed font-light">
-            Questions about products, TerraPulse-AI or a project? Send us a message and our team will get back to you.
+            {{ t('contact.subtitle') }}
           </p>
         </div>
       </div>
@@ -35,7 +35,7 @@
           <div class="lg:col-span-7">
             <div class="rounded-3xl geo-card p-8 sm:p-10 shadow-2xl">
               <h2 class="font-display font-bold text-2xl text-white mb-6">
-                Send us a message
+                {{ t('contact.formTitle') }}
               </h2>
 
               <!-- Success Alert -->
@@ -43,15 +43,15 @@
                 <div class="w-12 h-12 rounded-full bg-[#18b8ea]/20 text-[#18b8ea] mx-auto flex items-center justify-center font-bold text-lg shadow-[0_0_15px_rgba(24,184,234,0.3)]">
                   &check;
                 </div>
-                <h3 class="font-display font-bold text-lg text-white">Thank you! Message Sent</h3>
+                <h3 class="font-display font-bold text-lg text-white">{{ t('contact.successTitle') }}</h3>
                 <p class="text-xs text-[#94a3b8]">
-                  Your inquiry has been received. Our team will contact you shortly via email or phone.
+                  {{ t('contact.successDesc') }}
                 </p>
                 <button
                   @click="submitted = false"
                   class="font-ui text-xs font-semibold text-[#18b8ea] underline cursor-pointer mt-2"
                 >
-                  Send another message
+                  {{ t('contact.sendAnother') }}
                 </button>
               </div>
 
@@ -60,21 +60,21 @@
                 <!-- Row 1: Full name & Company -->
                 <div class="grid sm:grid-cols-2 gap-4">
                   <div class="space-y-1.5">
-                    <label class="block font-ui text-xs text-[#94a3b8]">Full name</label>
+                    <label class="block font-ui text-xs text-[#94a3b8]">{{ t('contact.fullNameLabel') }}</label>
                     <input
                       v-model="form.name"
                       type="text"
                       required
-                      placeholder="Your name"
+                      :placeholder="t('contact.fullNamePlaceholder')"
                       class="w-full px-4 py-3 rounded-2xl bg-[#020b14] border border-white/10 text-white placeholder-[#50677c] text-sm focus:outline-none focus:border-[#18b8ea] focus:shadow-[0_0_15px_rgba(24,184,234,0.25)] transition-all"
                     />
                   </div>
                   <div class="space-y-1.5">
-                    <label class="block font-ui text-xs text-[#94a3b8]">Company</label>
+                    <label class="block font-ui text-xs text-[#94a3b8]">{{ t('contact.companyLabel') }}</label>
                     <input
                       v-model="form.company"
                       type="text"
-                      placeholder="Company name"
+                      :placeholder="t('contact.companyPlaceholder')"
                       class="w-full px-4 py-3 rounded-2xl bg-[#020b14] border border-white/10 text-white placeholder-[#50677c] text-sm focus:outline-none focus:border-[#18b8ea] focus:shadow-[0_0_15px_rgba(24,184,234,0.25)] transition-all"
                     />
                   </div>
@@ -83,22 +83,22 @@
                 <!-- Row 2: Email & Phone -->
                 <div class="grid sm:grid-cols-2 gap-4">
                   <div class="space-y-1.5">
-                    <label class="block font-ui text-xs text-[#94a3b8]">Email</label>
+                    <label class="block font-ui text-xs text-[#94a3b8]">{{ t('contact.emailLabel') }}</label>
                     <input
                       v-model="form.email"
                       type="email"
                       required
-                      placeholder="name@company.com"
+                      :placeholder="t('contact.emailPlaceholder')"
                       class="w-full px-4 py-3 rounded-2xl bg-[#020b14] border border-white/10 text-white placeholder-[#50677c] text-sm focus:outline-none focus:border-[#18b8ea] focus:shadow-[0_0_15px_rgba(24,184,234,0.25)] transition-all"
                     />
                   </div>
                   <div class="space-y-1.5">
-                    <label class="block font-ui text-xs text-[#94a3b8]">Phone</label>
+                    <label class="block font-ui text-xs text-[#94a3b8]">{{ t('contact.phoneLabel') }}</label>
                     <input
                       v-model="form.phone"
                       type="tel"
                       required
-                      placeholder="08xx xxxx xxxx"
+                      :placeholder="t('contact.phonePlaceholder')"
                       class="w-full px-4 py-3 rounded-2xl bg-[#020b14] border border-white/10 text-white placeholder-[#50677c] text-sm focus:outline-none focus:border-[#18b8ea] focus:shadow-[0_0_15px_rgba(24,184,234,0.25)] transition-all font-mono"
                     />
                   </div>
@@ -106,7 +106,7 @@
 
                 <!-- Row 3: I’m interested in -->
                 <div class="space-y-1.5">
-                  <label class="block font-ui text-xs text-[#94a3b8]">I&rsquo;m interested in</label>
+                  <label class="block font-ui text-xs text-[#94a3b8]">{{ t('contact.interestLabel') }}</label>
                   <select
                     v-model="form.interestedIn"
                     class="w-full px-4 py-3 rounded-2xl bg-[#020b14] border border-white/10 text-white text-sm focus:outline-none focus:border-[#18b8ea] focus:shadow-[0_0_15px_rgba(24,184,234,0.25)] transition-all cursor-pointer"
@@ -120,12 +120,12 @@
 
                 <!-- Row 4: Message -->
                 <div class="space-y-1.5">
-                  <label class="block font-ui text-xs text-[#94a3b8]">Message</label>
+                  <label class="block font-ui text-xs text-[#94a3b8]">{{ t('contact.messageLabel') }}</label>
                   <textarea
                     v-model="form.message"
                     rows="4"
                     required
-                    placeholder="Tell us about your project or question"
+                    :placeholder="t('contact.messagePlaceholder')"
                     class="w-full px-4 py-3 rounded-2xl bg-[#020b14] border border-white/10 text-white placeholder-[#50677c] text-sm focus:outline-none focus:border-[#18b8ea] focus:shadow-[0_0_15px_rgba(24,184,234,0.25)] transition-all"
                   ></textarea>
                 </div>
@@ -137,8 +137,8 @@
                     :disabled="loading"
                     class="btn-geo-primary cursor-pointer disabled:opacity-50"
                   >
-                    <span v-if="loading">Sending...</span>
-                    <span v-else>Send message</span>
+                    <span v-if="loading">{{ t('contact.submittingBtn') }}</span>
+                    <span v-else>{{ t('contact.submitBtn') }}</span>
                   </button>
                 </div>
               </form>
@@ -218,6 +218,9 @@
 
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
+import { useLanguage } from '~/composables/useLanguage'
+
+const { t } = useLanguage()
 
 const loading = ref(false)
 const submitted = ref(false)
