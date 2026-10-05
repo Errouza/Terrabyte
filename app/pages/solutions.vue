@@ -39,24 +39,105 @@
         </div>
       </div>
 
-      <!-- ─── BIG SCREENSHOT / DASHBOARD SHOWCASE ───────────────────── -->
-      <div class="max-w-6xl mx-auto px-6 lg:px-10 mt-14 relative z-10">
-        <div class="rounded-3xl geo-card-highlight overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.8),0_0_40px_rgba(24,184,234,0.18)]">
+      <!-- ─── BAGIAN ATAS: DIAGRAM INTERAKTIF + PENJELASAN DI SAMPINGNYA ──── -->
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 mt-14 sm:mt-16 relative z-10">
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+          <!-- Kiri: Interactive HeroTelemetryWidget Component -->
+          <div class="lg:col-span-7">
+            <HeroTelemetryWidget />
+          </div>
+
+          <!-- Kanan: Penjelasan di Sampingnya -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="space-y-2.5">
+              <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold">
+                {{ t('solutions.telemetrySectionTag') }}
+              </p>
+              <h2 class="font-display font-bold text-3xl sm:text-4xl text-white leading-tight">
+                {{ t('solutions.telemetrySectionTitle') }}
+              </h2>
+            </div>
+
+            <div class="space-y-4 font-body text-sm sm:text-base text-[#94a3b8] leading-relaxed font-light">
+              <p>
+                {{ t('solutions.telemetryP1') }}
+              </p>
+              <p>
+                {{ t('solutions.telemetryP2') }}
+              </p>
+            </div>
+
+            <!-- Feature Highlights Checklist -->
+            <ul class="space-y-3.5 pt-1">
+              <li class="flex items-start gap-3 text-xs sm:text-sm text-white">
+                <span class="w-5 h-5 rounded-full bg-[#18b8ea]/20 text-[#18b8ea] flex items-center justify-center text-xs font-bold shadow-[0_0_10px_rgba(24,184,234,0.3)] mt-0.5 flex-shrink-0">&check;</span>
+                <span class="font-light">{{ t('solutions.telemetryFeat1') }}</span>
+              </li>
+              <li class="flex items-start gap-3 text-xs sm:text-sm text-white">
+                <span class="w-5 h-5 rounded-full bg-[#18b8ea]/20 text-[#18b8ea] flex items-center justify-center text-xs font-bold shadow-[0_0_10px_rgba(24,184,234,0.3)] mt-0.5 flex-shrink-0">&check;</span>
+                <span class="font-light">{{ t('solutions.telemetryFeat2') }}</span>
+              </li>
+              <li class="flex items-start gap-3 text-xs sm:text-sm text-white">
+                <span class="w-5 h-5 rounded-full bg-[#18b8ea]/20 text-[#18b8ea] flex items-center justify-center text-xs font-bold shadow-[0_0_10px_rgba(24,184,234,0.3)] mt-0.5 flex-shrink-0">&check;</span>
+                <span class="font-light">{{ t('solutions.telemetryFeat3') }}</span>
+              </li>
+            </ul>
+
+            <div class="pt-2 flex flex-wrap items-center gap-4">
+              <NuxtLink
+                to="/contact?type=demo"
+                class="btn-geo-primary"
+              >
+                {{ t('solutions.requestDemo') }}
+              </NuxtLink>
+              <a
+                href="#gis-map"
+                class="btn-geo-outline"
+              >
+                Lihat Peta Radar &darr;
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── BAGIAN BAWAH: MAP GIS LENGKAP + PENJELASAN DI BAWAHNYA ──────── -->
+    <section id="gis-map" class="py-20 lg:py-28 border-t border-white/5 bg-[#020b14] relative">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+        <!-- Header Penjelas Section Map -->
+        <div class="max-w-3xl mb-12 space-y-3">
+          <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold">
+            {{ t('solutions.mapSectionTag') }}
+          </p>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-[42px] text-white leading-tight">
+            {{ t('solutions.mapSectionTitle') }}
+          </h2>
+          <p class="font-body text-[#94a3b8] text-sm sm:text-base leading-relaxed font-light">
+            {{ t('solutions.mapSectionDesc') }}
+          </p>
+        </div>
+
+        <!-- Full Map Showcase Card -->
+        <div class="rounded-3xl geo-card-highlight overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.85),0_0_40px_rgba(24,184,234,0.18)] mb-14">
           <!-- Window Header Bar -->
-          <div class="px-6 py-4 bg-[#020b14] border-b border-white/10 flex items-center justify-between">
+          <div class="px-5 sm:px-6 py-4 bg-[#020b14] border-b border-white/10 flex items-center justify-between">
             <div class="flex items-center gap-2">
               <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
               <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
               <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
-              <span class="font-mono text-xs text-[#94a3b8] ml-3 hidden sm:inline">TerraPulse-AI Platform &mdash; Monitoring Map Visualization</span>
+              <span class="font-mono text-xs text-[#94a3b8] ml-3 hidden sm:inline">{{ t('solutions.mapWindowBadge') }}</span>
             </div>
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2.5">
               <span class="w-2 h-2 rounded-full bg-[#18b8ea] animate-pulse"></span>
-              <span class="font-mono text-[11px] text-[#18b8ea] tracking-wider uppercase font-semibold">Live Telemetry Ingest</span>
+              <span class="font-mono text-[11px] text-[#18b8ea] tracking-wider uppercase font-semibold">{{ t('solutions.mapLiveBadge') }}</span>
             </div>
           </div>
 
-          <!-- Real Dashboard Image Showcase -->
+          <!-- Real Full Map Image -->
           <div class="relative bg-[#020b14] overflow-hidden group">
             <img
               src="/images/contohTerrapulseAI.png"
@@ -65,6 +146,72 @@
             />
           </div>
         </div>
+
+        <!-- Penjelasan di Bawah Map (4 Kolom Grid Fitur) -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <!-- Feature 1: Heatmap Kontur Deformasi -->
+          <div class="p-7 rounded-3xl geo-card group hover:border-[#18b8ea]/50 transition-all duration-300">
+            <div class="w-10 h-10 rounded-xl bg-[#18b8ea]/10 border border-[#18b8ea]/25 flex items-center justify-center text-[#18b8ea] mb-4 group-hover:scale-110 transition-transform">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white mb-2 group-hover:text-[#18b8ea] transition-colors">
+              {{ t('solutions.mapCol1Title') }}
+            </h3>
+            <p class="font-body text-xs text-[#94a3b8] leading-relaxed font-light">
+              {{ t('solutions.mapCol1Desc') }}
+            </p>
+          </div>
+
+          <!-- Feature 2: Georeferensi DTM/DEM Presisi -->
+          <div class="p-7 rounded-3xl geo-card group hover:border-[#18b8ea]/50 transition-all duration-300">
+            <div class="w-10 h-10 rounded-xl bg-[#18b8ea]/10 border border-[#18b8ea]/25 flex items-center justify-center text-[#18b8ea] mb-4 group-hover:scale-110 transition-transform">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white mb-2 group-hover:text-[#18b8ea] transition-colors">
+              {{ t('solutions.mapCol2Title') }}
+            </h3>
+            <p class="font-body text-xs text-[#94a3b8] leading-relaxed font-light">
+              {{ t('solutions.mapCol2Desc') }}
+            </p>
+          </div>
+
+          <!-- Feature 3: Zonasi Bahaya Dinamis -->
+          <div class="p-7 rounded-3xl geo-card group hover:border-[#18b8ea]/50 transition-all duration-300">
+            <div class="w-10 h-10 rounded-xl bg-[#18b8ea]/10 border border-[#18b8ea]/25 flex items-center justify-center text-[#18b8ea] mb-4 group-hover:scale-110 transition-transform">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white mb-2 group-hover:text-[#18b8ea] transition-colors">
+              {{ t('solutions.mapCol3Title') }}
+            </h3>
+            <p class="font-body text-xs text-[#94a3b8] leading-relaxed font-light">
+              {{ t('solutions.mapCol3Desc') }}
+            </p>
+          </div>
+
+          <!-- Feature 4: Integrasi Komando TerraWatch -->
+          <div class="p-7 rounded-3xl geo-card group hover:border-[#18b8ea]/50 transition-all duration-300">
+            <div class="w-10 h-10 rounded-xl bg-[#18b8ea]/10 border border-[#18b8ea]/25 flex items-center justify-center text-[#18b8ea] mb-4 group-hover:scale-110 transition-transform">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white mb-2 group-hover:text-[#18b8ea] transition-colors">
+              {{ t('solutions.mapCol4Title') }}
+            </h3>
+            <p class="font-body text-xs text-[#94a3b8] leading-relaxed font-light">
+              {{ t('solutions.mapCol4Desc') }}
+            </p>
+          </div>
+
+        </div>
+
       </div>
     </section>
 

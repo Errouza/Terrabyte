@@ -64,77 +64,9 @@
             </div>
           </div>
 
-          <!-- Right Column: Live Telemetry Widget Card -->
+          <!-- Right Column: Live Telemetry Interactive Widget Card -->
           <div class="lg:col-span-5">
-            <div class="rounded-3xl p-6 sm:p-8 bg-[#061c2c]/85 border border-[#18b8ea]/30 shadow-[0_24px_60px_rgba(0,0,0,0.8),0_0_35px_rgba(24,184,234,0.15)] relative overflow-hidden backdrop-blur-xl">
-              <!-- Top Header -->
-              <div class="flex items-center justify-between pb-4">
-                <span class="font-mono text-xs font-semibold text-[#8da2b5] tracking-[0.2em] uppercase">{{ t('home.telemetryTag') }}</span>
-                <div class="flex items-center gap-1.5 text-[#cbd5e1] text-xs font-mono font-medium">
-                  <span class="w-2 h-2 rounded-full bg-[#18b8ea] shadow-[0_0_8px_#18b8ea] animate-pulse"></span>
-                  <span>{{ t('home.telemetryStatus') }}</span>
-                </div>
-              </div>
-
-              <!-- Widget Title -->
-              <h3 class="font-display font-bold text-xl sm:text-2xl text-white mb-6">
-                {{ t('home.telemetryTitle') }}
-              </h3>
-
-              <!-- Dynamic Chart Canvas / Vector Graphic -->
-              <div class="relative h-44 w-full rounded-xl p-2 overflow-hidden flex flex-col justify-end">
-                <!-- Background Grid Lines -->
-                <div class="absolute inset-0 flex flex-col justify-between py-4 opacity-20 pointer-events-none">
-                  <div class="w-full border-b border-[#18b8ea]/40"></div>
-                  <div class="w-full border-b border-[#18b8ea]/40"></div>
-                  <div class="w-full border-b border-[#18b8ea]/40"></div>
-                </div>
-
-                <!-- SVG Exponential Curve matching Figma screenshot -->
-                <svg class="w-full h-full overflow-visible" viewBox="0 0 300 120" preserveAspectRatio="none">
-                  <defs>
-                    <linearGradient id="blueCurveGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#18b8ea" stop-opacity="0.35" />
-                      <stop offset="100%" stop-color="#18b8ea" stop-opacity="0.0" />
-                    </linearGradient>
-                    <filter id="blueGlow" x="-20%" y="-20%" width="140%" height="140%">
-                      <feGaussianBlur stdDeviation="3.5" result="blur" />
-                      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                    </filter>
-                  </defs>
-                  <path
-                    d="M0,90 Q90,88 160,80 T240,55 T300,18 L300,120 L0,120 Z"
-                    fill="url(#blueCurveGradient)"
-                  />
-                  <path
-                    d="M0,90 Q90,88 160,80 T240,55 T300,18"
-                    fill="none"
-                    stroke="#18b8ea"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    filter="url(#blueGlow)"
-                  />
-                  <!-- Animated endpoint beacon -->
-                  <circle cx="300" cy="18" r="4.5" fill="#18b8ea" />
-                  <circle cx="300" cy="18" r="10" fill="#18b8ea" opacity="0.3" class="animate-ping" />
-                </svg>
-              </div>
-
-              <!-- Bottom Status Indicators -->
-              <div class="grid grid-cols-2 gap-4 mt-6 pt-4">
-                <div class="p-3.5 rounded-2xl bg-[#041422]/70 border border-white/10">
-                  <span class="block text-[10px] uppercase font-mono tracking-widest text-[#64748b] font-semibold mb-1">{{ t('home.sensorLabel') }}</span>
-                  <span class="text-sm font-semibold text-white">{{ t('home.sensorVal') }}</span>
-                </div>
-                <div class="p-3.5 rounded-2xl bg-[#041422]/70 border border-white/10">
-                  <span class="block text-[10px] uppercase font-mono tracking-widest text-[#64748b] font-semibold mb-1">{{ t('home.statusLabel') }}</span>
-                  <span class="text-sm font-semibold text-[#18b8ea] flex items-center gap-1.5">
-                    <span class="w-1.5 h-1.5 rounded-full bg-[#18b8ea]"></span>
-                    <span>{{ t('home.statusVal') }}</span>
-                  </span>
-                </div>
-              </div>
-            </div>
+            <HeroTelemetryWidget />
           </div>
 
         </div>
