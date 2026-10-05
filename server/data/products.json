@@ -6,31 +6,41 @@
     "category": "gnss",
     "name": "ComNav T20 Multi-Constellation GNSS Receiver",
     "summary": "Receiver GNSS cerdas generasi baru dengan teknologi tracking satelit generasi mutakhir, radio UHF internal multi-protokol, dan IMU generasi ke-3 untuk efisiensi survei topografi dan geodetik lapangan.",
-    "img": "https://xbadzroazjblacumvnpq.supabase.co/storage/v1/object/public/uploads/t20.png",
+    "img": "https://xbadzroazjblacumvnpq.supabase.co/storage/v1/object/public/uploads/1790699839502-t20.png",
     "status": "In Active Production",
     "specs": [
-      [
-        "Channels",
-        "1.408 Saluran Pelacakan Semua Konstelasi"
-      ],
-      [
-        "RTK Accuracy",
-        "Horizontal: 8 mm + 1 ppm, Vertikal: 15 mm + 1 ppm"
-      ],
-      [
-        "Tilt Survey",
-        "IMU 60° bebas kalibrasi tanpa terganggu medan magnet"
-      ],
-      [
-        "Konektivitas",
-        "Internal UHF 2W, Bluetooth, WiFi & 4G LTE Modem"
-      ],
-      [
-        "Daya Tahan",
-        "Baterai ganda hot-swappable tahan kerja hingga 16 jam"
-      ]
+      ["Weight", "670g"],
+      ["RTK Accuracy", "8mm+1ppm H / 15mm+1ppm V"],
+      ["Tilt Compensation", "Up to 60° (2.5cm accuracy)"],
+      ["Battery", "10,000mAh, up to 20 hours"],
+      ["RTK Initialization", "<10 seconds"],
+      ["IP Rating", "IP67"],
+      ["Channel", "1590 Tracking Channels"],
+      ["Konektivitas", "Internal UHF 2W, Bluetooth, WiFi, 4G LTE & NFC"]
     ],
-    "updatedAt": "2026-09-30T00:00:00.000Z"
+    "advantages": [
+      {
+        "title": "10,000mAh Battery",
+        "desc": "Up to 20 hours of continuous work, 5 hours of fast charging via USB-PD.",
+        "icon": "battery"
+      },
+      {
+        "title": "1590 Tracking Channels",
+        "desc": "Full constellation tracking (GPS, BDS, GLONASS, Galileo, QZSS) for a rock-solid fix.",
+        "icon": "satellite"
+      },
+      {
+        "title": "3rd Generation IMU",
+        "desc": "60° tilt compensation with auto-calibration and immunity to magnetic disturbance.",
+        "icon": "compass"
+      },
+      {
+        "title": "NFC Fast Connection",
+        "desc": "Automatic pairing with data collector or Android smartphone with just a touch.",
+        "icon": "wifi"
+      }
+    ],
+    "updatedAt": "2026-10-02T03:30:00.000Z"
   },
   {
     "id": "prod-radar-sar5000",
@@ -39,35 +49,41 @@
     "category": "radar",
     "name": "ComNav MS-SAR5000 Ground-Based Slope Stability Radar",
     "summary": "Radar berpresisi tinggi tipe Ground-Based Synthetic Aperture Radar (GB-SAR) dari principal ComNav yang dihadirkan melalui Lextera untuk monitoring stabilitas lereng tambang dan deformasi dinding batuan secara kontinu hingga radius 5 km.",
-    "img": "/images/uploads/1790323048828-sar5000.png",
+    "img": "https://xbadzroazjblacumvnpq.supabase.co/storage/v1/object/public/uploads/sar5000.png",
     "status": "In Field Deployment",
     "specs": [
-      [
-        "Tipe Radar",
-        "Ground-Based Synthetic Aperture Radar (GB-SAR)"
-      ],
-      [
-        "Akurasi Pengukuran",
-        "Sub-milimeter (Hingga 0.1 mm deteksi pergeseran)"
-      ],
-      [
-        "Jangkauan Pantau",
-        "Radius hingga 5.000 meter (5 km coverage)"
-      ],
-      [
-        "Siklus Pemindaian",
-        "< 2 menit per siklus pemindaian penuh"
-      ],
-      [
-        "Ketahanan Lingkungan",
-        "IP67 All-Weather (Kondisi Hujan, Kabut, Debu Tambang)"
-      ],
-      [
-        "Integrasi Perangkat",
-        "Didukung langsung oleh platform TerraPulse"
-      ]
+      ["Tipe Radar", "Ground-Based Synthetic Aperture Radar (GB-SAR)"],
+      ["Akurasi Pengukuran", "Sub-milimeter (Hingga 0.1 mm deteksi pergeseran)"],
+      ["Jangkauan Pantau", "Radius hingga 5.000 meter (5 km coverage)"],
+      ["Siklus Pemindaian", "< 2 menit per siklus pemindaian penuh"],
+      ["Ketahanan Lingkungan", "IP67 All-Weather (Kondisi Hujan, Kabut, Debu Tambang)"],
+      ["Resolusi Spasial", "Jarak 0.5m x Azimuth 4.3 mrad"],
+      ["Sumber Daya", "Panel Surya Hibrida + Baterai Industri Kontinu"],
+      ["Integrasi Perangkat", "Didukung langsung oleh platform TerraPulse-AI"]
     ],
-    "updatedAt": "2026-09-29T12:00:00.000Z"
+    "advantages": [
+      {
+        "title": "0.1 mm Sub-Milimeter Detection",
+        "desc": "Deteksi dini pergeseran mikroskopis lereng tambang sebelum retakan memicu longsoran fatal.",
+        "icon": "target"
+      },
+      {
+        "title": "5.000m Continuous Range",
+        "desc": "Cakupan area dinding batuan terbuka hingga 5 km dalam satu unit tanpa reflektor fisik.",
+        "icon": "radar"
+      },
+      {
+        "title": "< 2 Menit Rapid Scan Cycle",
+        "desc": "Interferometri radar cepat memberikan pembaruan data deformasi mendekati real-time.",
+        "icon": "zap"
+      },
+      {
+        "title": "Integrasi Langsung TerraPulse-AI",
+        "desc": "Sinkronisasi otomatis dengan monitoring center TerraWatch 24/7 dan sistem sirine peringatan dini.",
+        "icon": "cloud"
+      }
+    ],
+    "updatedAt": "2026-10-02T03:30:00.000Z"
   },
   {
     "id": "prod-laser-rtk-n2",
@@ -76,35 +92,40 @@
     "category": "laser-rtk",
     "name": "ComNav N2 Palm GNSS / Laser RTK Receiver",
     "summary": "Receiver GNSS saku ultra-ringan dengan modul laser EDM terintegrasi untuk pengukuran titik tersembunyi/berbahaya tanpa jangkauan jalon pole, dilengkapi kamera AR visual stakeout dan kompensasi tilt IMU hingga 60°.",
-    "img": "/images/uploads/1790317569779-n2.png",
+    "img": "https://xbadzroazjblacumvnpq.supabase.co/storage/v1/object/public/uploads/n2.png",
     "status": "Available in Stock",
     "specs": [
-      [
-        "Kanal Pelacakan",
-        "1.408 Kanal Multi-Konstelasi (GPS, BDS, GLO, GAL)"
-      ],
-      [
-        "Modul Laser EDM",
-        "Pengukuran Jarak Laser Presisi Sub-Sentimeter Tanpa Pole"
-      ],
-      [
-        "Kompensasi Kemiringan",
-        "IMU Bebas Kalibrasi hingga Kemiringan 60°"
-      ],
-      [
-        "Visual AR Stakeout",
-        "Kamera Visual HD untuk Panduan Stakeout Real-Time"
-      ],
-      [
-        "Bobot & Portabilitas",
-        "Hanya 170g — Ukuran Saku Ultra-Ringan"
-      ],
-      [
-        "Proteksi Lapangan",
-        "IP68 Alloy Tahan Air & Jatuh 2 Meter"
-      ]
+      ["Kanal Pelacakan", "1.408 Kanal Multi-Konstelasi (GPS, BDS, GLO, GAL)"],
+      ["Modul Laser EDM", "Pengukuran Jarak Laser Presisi Sub-Sentimeter Tanpa Pole"],
+      ["Kompensasi Kemiringan", "IMU Bebas Kalibrasi hingga Kemiringan 60°"],
+      ["Visual AR Stakeout", "Kamera Visual HD untuk Panduan Stakeout Real-Time"],
+      ["Bobot & Portabilitas", "Hanya 170g — Ukuran Saku Ultra-Ringan"],
+      ["Proteksi Lapangan", "IP68 Alloy Tahan Air & Jatuh 2 Meter"],
+      ["Daya Tahan Baterai", "Hingga 15 jam pengoperasian aktif terus-menerus"]
     ],
-    "updatedAt": "2026-09-29T12:00:00.000Z"
+    "advantages": [
+      {
+        "title": "Modul Laser EDM Terintegrasi",
+        "desc": "Ukur titik berbahaya, tebing curam, atau area terhalang tanpa harus menempatkan pole jalon.",
+        "icon": "laser"
+      },
+      {
+        "title": "Augmented Reality (AR) Stakeout",
+        "desc": "Kamera HD menampilkan arah dan posisi titik target langsung di layar controller secara visual.",
+        "icon": "eye"
+      },
+      {
+        "title": "Ukuran Ultra Ringan 170 Gram",
+        "desc": "Desain seukuran telapak tangan, sangat nyaman dibawa ke medan berat dan survei seharian.",
+        "icon": "feather"
+      },
+      {
+        "title": "IMU 60° Bebas Kalibrasi",
+        "desc": "Pengukuran tetap akurat presisi tanpa perlu memegang jalon tegak lurus sempurna.",
+        "icon": "compass"
+      }
+    ],
+    "updatedAt": "2026-10-02T03:30:00.000Z"
   },
   {
     "id": "prod-usv-sv600",
@@ -116,23 +137,35 @@
     "img": "/images/solutions-marine.jpg",
     "status": "Available / Ready Stock",
     "specs": [
-      [
-        "Depth Reach",
-        "0.15m – 300m Acoustic Sounder"
-      ],
-      [
-        "Cruising Speed",
-        "6 m/s (12 knots) Dual Jet Propulsion"
-      ],
-      [
-        "Mission Endurance",
-        "6 Hours Onboard Li-Ion Battery"
-      ],
-      [
-        "Telemetry Link",
-        "Up to 5 km RF + 4G LTE Auto-Failover"
-      ]
+      ["Depth Reach", "0.15m – 300m Acoustic Echo Sounder"],
+      ["Cruising Speed", "6 m/s (12 knots) Dual Jet Propulsion"],
+      ["Mission Endurance", "6 Hours Onboard Li-Ion Battery"],
+      ["Telemetry Link", "Up to 5 km RF + 4G LTE Auto-Failover"],
+      ["Hull Material", "Carbon Fiber & Kevlar Composite"],
+      ["Payload Bay", "15 kg Modular Sensor Capacity"]
     ],
-    "updatedAt": "2026-09-29T12:00:00.000Z"
+    "advantages": [
+      {
+        "title": "Propulsi Dual Jet Anti-Sampah",
+        "desc": "Sistem jet air internal tanpa baling-baling terbuka, aman dari lilitan lumut dan tanaman air.",
+        "icon": "anchor"
+      },
+      {
+        "title": "Auto-Return Fail Safe",
+        "desc": "Otomatis kembali ke titik awal saat baterai lemah atau sinyal telemetri terputus.",
+        "icon": "shield"
+      },
+      {
+        "title": "Sensor Modular Echo-Sounder",
+        "desc": "Mendukung integrasi sensor akustik single-beam, multibeam, hingga sensor kualitas air.",
+        "icon": "layers"
+      },
+      {
+        "title": "Navigasi Otonom Waypoint",
+        "desc": "Misi survei otomatis mengikuti rute grid yang telah diprogram dengan presisi sentimeter.",
+        "icon": "navigation"
+      }
+    ],
+    "updatedAt": "2026-10-02T03:30:00.000Z"
   }
 ]

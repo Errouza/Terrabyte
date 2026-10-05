@@ -139,10 +139,10 @@
       <!-- ─── FOOTER (EXACT HI-FI DESIGN) ───────────────────────────── -->
       <footer class="bg-[#020911] border-t border-white/10 text-white mt-auto relative z-10">
         <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+          <div class="flex flex-col md:flex-row justify-between items-start gap-10">
 
-            <!-- Brand Column (2 Cols on lg) -->
-            <div class="lg:col-span-2 space-y-4">
+            <!-- Brand Column -->
+            <div class="space-y-4 max-w-sm">
               <NuxtLink to="/" class="flex items-center gap-3.5 group inline-flex">
                 <img src="/images/logoOnlyPutih.png" alt="Terrabyte Logo" class="h-[34px] w-auto object-contain" />
                 <div class="leading-none">
@@ -150,72 +150,83 @@
                   <div class="font-ui text-[8px] tracking-[0.24em] uppercase text-[#64748b] notranslate mt-0.5" translate="no">GEOSYSTEM INDONESIA</div>
                 </div>
               </NuxtLink>
-              <p class="font-body font-light text-xs sm:text-[13px] leading-relaxed text-[#8da2b5] max-w-sm">
+              <p class="font-body font-light text-xs sm:text-[13px] leading-relaxed text-[#8da2b5]">
                 {{ t('footer.tagline') }}
               </p>
             </div>
 
-            <!-- Column 1: PAGES -->
-            <div class="space-y-3.5">
-              <p class="font-mono text-[11px] tracking-[0.2em] uppercase text-[#64748b] font-semibold">{{ t('footer.pages') }}</p>
-              <ul class="space-y-2.5">
-                <li>
-                  <NuxtLink to="/company" class="font-ui text-xs text-[#94a3b8] hover:text-[#18b8ea] transition-colors">
-                    {{ t('nav.company') }}
-                  </NuxtLink>
-                </li>
-                <li>
-                  <NuxtLink to="/articles" class="font-ui text-xs text-[#94a3b8] hover:text-[#18b8ea] transition-colors">
-                    {{ t('nav.news') }}
-                  </NuxtLink>
-                </li>
-                <li>
-                  <NuxtLink to="/contact" class="font-ui text-xs text-[#94a3b8] hover:text-[#18b8ea] transition-colors">
-                    {{ t('nav.contact') }}
-                  </NuxtLink>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Column 2: OFFERING -->
-            <div class="space-y-3.5">
-              <p class="font-mono text-[11px] tracking-[0.2em] uppercase text-[#64748b] font-semibold">{{ t('footer.offering') }}</p>
-              <ul class="space-y-2.5">
-                <li>
-                  <NuxtLink to="/products" class="font-ui text-xs text-[#94a3b8] hover:text-[#18b8ea] transition-colors">
-                    {{ t('nav.products') }}
-                  </NuxtLink>
-                </li>
-                <li>
-                  <NuxtLink to="/solutions" class="font-ui text-xs text-[#94a3b8] hover:text-[#18b8ea] transition-colors">
-                    TerraPulse-AI
-                  </NuxtLink>
-                </li>
-                <li>
-                  <NuxtLink to="/solutions#terrawatch" class="font-ui text-xs text-[#94a3b8] hover:text-[#18b8ea] transition-colors">
-                    TerraWatch
-                  </NuxtLink>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Column 3: CONTACT -->
-            <div class="space-y-3.5">
-              <p class="font-mono text-[11px] tracking-[0.2em] uppercase text-[#64748b] font-semibold">{{ t('footer.contact') }}</p>
-              <div class="space-y-2 text-xs text-[#94a3b8]">
+            <!-- Column: ADDRESS (Separate Div) -->
+            <div class="space-y-3.5 text-left max-w-xs">
+              <p class="font-mono text-[11px] tracking-[0.2em] uppercase text-[#64748b] font-semibold">{{ t('footer.addressLabel') || 'ADDRESS' }}</p>
+              <div class="flex items-start gap-2.5 text-xs text-[#94a3b8]">
+                <svg class="w-4 h-4 text-[#18b8ea] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
                 <p class="leading-relaxed">
                   {{ t('footer.address') }}
                 </p>
-                <p>
+              </div>
+            </div>
+
+            <!-- Column: CONTACT (Phone, Email, Social Logos) -->
+            <div class="space-y-3.5 text-left max-w-xs">
+              <p class="font-mono text-[11px] tracking-[0.2em] uppercase text-[#64748b] font-semibold">{{ t('footer.contact') }}</p>
+              <div class="space-y-3 text-xs text-[#94a3b8]">
+                <!-- Phone -->
+                <div class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-[#18b8ea] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
                   <a href="tel:08139840986" class="hover:text-[#18b8ea] transition-colors font-mono">
                     0813 9840 986
                   </a>
-                </p>
-                <p>
-                  <a href="mailto:info.TGI@terrabytegeosystem.com" class="hover:text-[#18b8ea] transition-colors font-mono">
-                    info.TGI@terrabytegeosystem.com
+                </div>
+
+                <!-- Email -->
+                <div class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-[#18b8ea] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                  <a href="mailto:info.tgi@terrabytegeosystem.com" class="hover:text-[#18b8ea] transition-colors font-mono">
+                    info.tgi@terrabytegeosystem.com
                   </a>
-                </p>
+                </div>
+
+                <!-- Social Icons (Logo Only) -->
+                <div class="flex items-center gap-2.5 pt-1.5">
+                  <!-- Instagram -->
+                  <a
+                    href="https://www.instagram.com/terrabyte.geosystem/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-8 h-8 rounded-xl bg-white/5 hover:bg-[#18b8ea]/20 border border-white/10 hover:border-[#18b8ea] text-[#94a3b8] hover:text-[#18b8ea] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm"
+                    aria-label="Instagram"
+                    title="Instagram"
+                  >
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
+                  </a>
+
+                  <!-- LinkedIn -->
+                  <a
+                    href="https://www.linkedin.com/company/terrabyte-geosystem-indonesia/home/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-8 h-8 rounded-xl bg-white/5 hover:bg-[#18b8ea]/20 border border-white/10 hover:border-[#18b8ea] text-[#94a3b8] hover:text-[#18b8ea] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm"
+                    aria-label="LinkedIn"
+                    title="LinkedIn"
+                  >
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.66 1.66 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.66 1.66 1.66 0 0 0 1.66-1.66 1.66 1.66 0 0 0-1.66-1.66z"/>
+                    </svg>
+                  </a>
+                </div>
+
               </div>
             </div>
 
@@ -277,6 +288,11 @@ const progress = computed(() => {
 })
 
 const { t } = useLanguage()
+
+// ─── SITE SETTINGS & SOCIAL LINKS ─────────────────────────────────
+const { data: settingsData } = await useAsyncData('site-settings', () => $fetch('/api/settings').catch(() => ({})))
+const instagramUrl = computed(() => (settingsData.value as any)?.instagram || 'https://instagram.com/terrabyte.geosystem')
+const linkedinUrl = computed(() => (settingsData.value as any)?.linkedin || 'https://www.linkedin.com/company/terrabyte-geosystem-indonesia')
 
 const navLinks = computed(() => [
   { to: '/', label: t('nav.home') },

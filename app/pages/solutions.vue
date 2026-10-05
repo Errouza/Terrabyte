@@ -219,7 +219,7 @@
           <div class="lg:col-span-6">
             <div class="rounded-3xl overflow-hidden geo-card shadow-2xl relative aspect-[16/10] group">
               <img
-                src="/images/about-cleanroom.jpg"
+                src="/images/actionWork.jpeg"
                 alt="TerraWatch Operations Control Room"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />

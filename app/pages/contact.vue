@@ -174,7 +174,7 @@
               <div>
                 <span class="block font-mono text-[10px] uppercase tracking-[0.2em] text-[#64748b] font-semibold mb-1">EMAIL</span>
                 <a href="mailto:info.TGI@terrabytegeosystem.com" class="font-mono text-sm sm:text-base font-semibold text-white hover:text-[#18b8ea] transition-colors block break-all">
-                  info.TGI@terrabytegeosystem.com
+                  info.tgi@terrabytegeosystem.com
                 </a>
               </div>
             </div>
@@ -190,7 +190,7 @@
               <div>
                 <span class="block font-mono text-[10px] uppercase tracking-[0.2em] text-[#64748b] font-semibold mb-1">OFFICE</span>
                 <p class="font-body text-sm text-white leading-relaxed">
-                  Jl. Raya Semplak No.52, Semplak, Bogor, Indonesia
+                  Jl. Raya Semplak No.52, RT.03/RW.01, Semplak, Kec. Bogor Bar, RT.06/RW.01, Kota, Bogor16114, Kota Bogor, Jawa Barat 16114
                 </p>
               </div>
             </div>

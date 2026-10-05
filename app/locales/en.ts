@@ -12,8 +12,9 @@ export default {
     tagline: 'Geospatial technology, monitoring and AI analytics. Turning earth data into smarter decisions.',
     pages: 'PAGES',
     offering: 'OFFERING',
+    addressLabel: 'ADDRESS',
     contact: 'CONTACT',
-    address: 'Jl. Raya Semplak No.52, Semplak, Bogor, Indonesia',
+    address: 'Jl. Raya Semplak No.52, RT.03/RW.01, Semplak, Kec. Bogor Bar, RT.06/RW.01, Kota, Bogor16114, Kota Bogor, Jawa Barat 16114',
     rights: '2026 Terrabyte Geosystem Indonesia. All rights reserved.',
     motto: 'WHERE EARTH MEETS INTELLIGENCE'
   },
@@ -45,7 +46,7 @@ export default {
     partnershipTitle: 'Partnership',
     partnershipDesc: 'Working closely with clients and partners for the long term.',
     partnerBadge: 'OUR PARTNER',
-    partnerTitle: 'Authorized partner of PT Lextera Survey Indonesia',
+    partnerTitle: 'Authorized Partner of PT Lextera Survey Indonesia',
     partnerDesc: 'We supply Lextera’s survey and monitoring instruments and pair them with our own analytics, so clients get hardware and intelligence from one team.',
     bannerTitle: 'Let’s build something together.',
     bannerDesc: 'Partner with us on your next monitoring or survey project.',
@@ -80,6 +81,7 @@ export default {
     section2Tag: '02 — PRODUCTS',
     section2Title: 'Instruments built for precision.',
     allProducts: 'All products',
+    details: 'Details',
     radarTag: 'SLOPE MONITORING RADAR',
     radarTitle: 'MS-SAR5000',
     radarDesc: 'Real-time slope displacement monitoring with early warning of potential failures.',
@@ -114,7 +116,15 @@ export default {
     marineCategory: 'Hydrographic',
     specsTitle: 'Key Specifications',
     inquireBtn: 'Inquire Specification',
-    noProducts: 'No products available under this category.'
+    noProducts: 'No products available under this category.',
+    details: 'Details',
+    specifications: 'SPECIFICATIONS',
+    keyAdvantages: 'KEY ADVANTAGES',
+    backToProducts: 'Back to Catalog',
+    requestQuote: 'Request a Quote',
+    downloadBrochure: 'Download Brochure',
+    whatsappInquiry: 'WhatsApp Inquiry',
+    relatedProducts: 'Other Instruments'
   },
   solutions: {
     tag: 'SOLUTIONS · TERRAPULSE-AI',
@@ -162,5 +172,21 @@ export default {
     officeLocation: 'Office Location',
     operatingHours: 'Operating Hours',
     hoursDetail: 'Monday — Friday: 08:30 – 17:30 WIB'
+  },
+  management: {
+    tag: '04 — OUR MANAGEMENT',
+    companyTag: '03 — OUR MANAGEMENT',
+    title: 'Our Management',
+    subtitle: 'Guided by dedicated practitioners and professionals in geospatial technology, precision survey, and artificial intelligence.',
+    viewAll: 'Learn More About Company',
+    member1Name: 'M. Radhisya Rifqy Wibawa',
+    member1Role: 'Chief Executive Officer (CEO)',
+    member1Dept: 'Executive Leadership',
+    member2Name: 'Abdhika Delyque Soetardja',
+    member2Role: 'Chief Operating Officer (COO)',
+    member2Dept: 'Field Operations',
+    member3Name: 'Hartini',
+    member3Role: 'Human Resources Director (HRD)',
+    member3Dept: 'Human Resources & Talent'
   }
 }

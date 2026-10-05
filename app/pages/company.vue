@@ -33,7 +33,7 @@
           <div class="lg:col-span-5">
             <div class="rounded-3xl overflow-hidden geo-card shadow-2xl relative aspect-[4/3] group">
               <img
-                src="/images/hero-surveyor.jpg"
+                src="/images/timLapangan.jpeg"
                 alt="Terrabyte Geosystem team on site"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -175,8 +175,84 @@
       </div>
     </section>
 
+    <!-- ─── SECTION 03: OUR MANAGEMENT (PAGE 2 HI-FI) ────────────────── -->
+    <section class="py-20 lg:py-24 border-t border-white/5 relative bg-[#020b14] overflow-hidden">
+      <!-- Glow ambient background -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#18b8ea]/6 rounded-full blur-[140px] pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+        <!-- Section Header -->
+        <div class="max-w-3xl mb-14 space-y-3">
+          <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold">
+            {{ t('management.companyTag') }}
+          </p>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-[44px] text-white">
+            {{ t('management.title') }}
+          </h2>
+          <p class="font-body text-[#94a3b8] text-sm sm:text-base leading-relaxed font-light">
+            {{ t('management.subtitle') }}
+          </p>
+        </div>
+
+        <!-- 3 Management Members Grid -->
+        <div class="grid sm:grid-cols-3 gap-6 lg:gap-8">
+          <div
+            v-for="(member, idx) in managementList"
+            :key="idx"
+            class="rounded-3xl geo-card border border-white/10 p-5 sm:p-6 flex flex-col justify-between group hover:border-[#18b8ea]/60 transition-all duration-300 hover:shadow-[0_15px_35px_rgba(24,184,234,0.1)] hover:-translate-y-1"
+          >
+            <!-- Member Visual / Portrait Frame -->
+            <div class="w-full aspect-[4/5] rounded-2xl bg-[#030d17] border border-white/10 overflow-hidden relative mb-5 flex flex-col items-center justify-center group-hover:border-[#18b8ea]/40 transition-colors">
+              <img
+                v-if="member.img"
+                :src="member.img"
+                :alt="member.name"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                :class="member.imgPosition || 'object-center'"
+              />
+              <div v-if="member.img" class="absolute inset-0 bg-gradient-to-t from-[#030d17]/50 via-transparent to-transparent pointer-events-none"></div>
+              <div v-else class="flex flex-col items-center justify-center p-6 text-center space-y-3">
+                <div class="w-20 h-20 rounded-full bg-[#18b8ea]/10 border border-[#18b8ea]/25 text-[#18b8ea] flex items-center justify-center shadow-[0_0_20px_rgba(24,184,234,0.15)] group-hover:scale-110 transition-transform">
+                  <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                  </svg>
+                </div>
+                <div class="space-y-1">
+                  <span class="font-mono text-[10px] tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-[#94a3b8] block">
+                    Official Portrait
+                  </span>
+                  <span class="font-ui text-[11px] text-[#64748b] block">
+                    {{ member.dept }}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Top Index Pill -->
+              <span class="absolute top-3 right-3 font-mono text-[9px] tracking-wider uppercase font-semibold px-2 py-0.5 rounded-full bg-[#030d17]/85 backdrop-blur-md border border-white/10 text-[#18b8ea]">
+                0{{ idx + 1 }}
+              </span>
+            </div>
+
+            <!-- Member Info: Name and Title (No bio needed) -->
+            <div class="space-y-1">
+              <span class="block font-mono text-[10px] uppercase tracking-[0.18em] text-[#18b8ea] font-semibold truncate">
+                {{ member.role }}
+              </span>
+              <h3 class="font-display font-bold text-lg sm:text-xl text-white group-hover:text-[#18b8ea] transition-colors">
+                {{ member.name }}
+              </h3>
+              <p class="font-ui text-xs text-[#94a3b8] font-light">
+                {{ member.dept }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- ─── SECTION: OUR PARTNER (PAGE 2 HI-FI) ───────────────────────── -->
-    <section class="py-16 bg-[#020b14] border-t border-white/5">
+    <section class="py-16 bg-[#030d17] border-t border-white/5">
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
         <div class="p-8 sm:p-10 rounded-3xl geo-card flex flex-col md:flex-row items-center gap-8">
           <!-- Lextera Logo / Brand Emblem Badge -->
@@ -204,7 +280,7 @@
     </section>
 
     <!-- ─── PRE-FOOTER BANNER (PAGE 2 HI-FI) ───────────────────────────── -->
-    <section class="py-16 bg-[#030d17]">
+    <section class="py-16 bg-[#020b14] border-t border-white/5">
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
         <div class="p-8 sm:p-12 rounded-3xl geo-banner flex flex-col md:flex-row items-center justify-between gap-6">
           <div class="space-y-2 text-center md:text-left">
@@ -229,9 +305,34 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useLanguage } from '~/composables/useLanguage'
 
 const { t } = useLanguage()
+
+const managementList = computed(() => [
+  {
+    name: t('management.member1Name'),
+    role: t('management.member1Role'),
+    dept: t('management.member1Dept'),
+    img: '/images/Rifqi.jpg',
+    imgPosition: 'object-center'
+  },
+  {
+    name: t('management.member2Name'),
+    role: t('management.member2Role'),
+    dept: t('management.member2Dept'),
+    img: '/images/Lyque.jpg',
+    imgPosition: 'object-top'
+  },
+  {
+    name: t('management.member3Name'),
+    role: t('management.member3Role'),
+    dept: t('management.member3Dept'),
+    img: '/images/Tin.jpg',
+    imgPosition: 'object-center'
+  }
+])
 
 useHead({
   title: 'Company — Built in the field. Driven by data | Terrabyte',

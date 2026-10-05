@@ -35,7 +35,10 @@
 
             <!-- Left: Product Photo & Featured Badge (Fitted edge-to-edge to border) -->
             <div class="lg:col-span-5 relative">
-              <div class="w-full aspect-[825/903] rounded-2xl bg-[#020b14] border border-white/10 overflow-hidden relative group/feat shadow-2xl">
+              <NuxtLink
+                :to="`/products/${featuredProduct.id || featuredProduct.code}`"
+                class="block w-full aspect-[825/903] rounded-2xl bg-[#020b14] border border-white/10 overflow-hidden relative group/feat shadow-2xl"
+              >
                 <img
                   :src="featuredProduct.img || '/images/uploads/1790323048828-sar5000.png'"
                   :alt="featuredProduct.name"
@@ -44,7 +47,7 @@
                 <span class="absolute top-4 left-4 z-20 font-mono text-[10px] tracking-widest uppercase font-bold px-3 py-1 rounded-full bg-[#18b8ea] text-[#030d17] shadow-[0_0_15px_rgba(24,184,234,0.4)]">
                   FEATURED
                 </span>
-              </div>
+              </NuxtLink>
             </div>
 
             <!-- Right: Product Details & CTAs -->
@@ -54,7 +57,12 @@
                   {{ featuredProduct.tag || (featuredProduct.category?.toUpperCase() || 'SLOPE STABILITY MONITORING RADAR') }}
                 </span>
                 <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mb-4">
-                  {{ featuredProduct.name }}
+                  <NuxtLink
+                    :to="`/products/${featuredProduct.id || featuredProduct.code}`"
+                    class="hover:text-[#18b8ea] transition-colors"
+                  >
+                    {{ featuredProduct.name }}
+                  </NuxtLink>
                 </h2>
                 <p class="font-body text-sm sm:text-base text-[#94a3b8] leading-relaxed font-light">
                   {{ featuredProduct.summary }}
@@ -79,16 +87,16 @@
               <!-- Action Buttons -->
               <div class="flex flex-wrap items-center gap-4 pt-4">
                 <NuxtLink
-                  :to="`/contact?product=${encodeURIComponent(featuredProduct.name)}`"
+                  :to="`/products/${featuredProduct.id || featuredProduct.code}`"
                   class="btn-geo-primary"
                 >
-                  {{ locale === 'id' ? 'Minta Penawaran' : 'Request a quote' }}
+                  {{ locale === 'id' ? 'Lihat Spesifikasi Detail' : 'View Full Specifications' }} &rarr;
                 </NuxtLink>
                 <NuxtLink
-                  :to="`/contact?type=brochure&product=${encodeURIComponent(featuredProduct.name)}`"
+                  :to="`/contact?product=${encodeURIComponent(featuredProduct.name)}`"
                   class="btn-geo-outline"
                 >
-                  {{ locale === 'id' ? 'Unduh Brosur' : 'Download brochure' }}
+                  {{ locale === 'id' ? 'Minta Penawaran' : 'Request a quote' }}
                 </NuxtLink>
               </div>
             </div>
@@ -122,7 +130,10 @@
           >
             <!-- Card Top: Framed Square Image (fits frame cleanly, no blur) -->
             <div>
-              <div class="w-full aspect-square rounded-2xl bg-[#030d17] border border-white/10 overflow-hidden relative mb-5 flex items-center justify-center group-hover:border-[#18b8ea]/40 transition-colors">
+              <NuxtLink
+                :to="`/products/${item.id || item.code}`"
+                class="block w-full aspect-square rounded-2xl bg-[#030d17] border border-white/10 overflow-hidden relative mb-5 group-hover:border-[#18b8ea]/40 transition-colors"
+              >
                 <img
                   :src="item.img || '/images/hero-bg.jpg'"
                   :alt="item.name"
@@ -134,7 +145,7 @@
                 >
                   {{ item.status }}
                 </span>
-              </div>
+              </NuxtLink>
 
               <!-- Product Info: Centered matching user reference -->
               <div class="text-center px-1">
@@ -142,7 +153,9 @@
                   {{ item.tag || (item.category?.toUpperCase() || 'SURVEY INSTRUMENT') }}
                 </span>
                 <h3 class="font-display font-bold text-base sm:text-lg text-white mb-2 leading-snug group-hover:text-[#18b8ea] transition-colors line-clamp-2">
-                  {{ item.name }}
+                  <NuxtLink :to="`/products/${item.id || item.code}`">
+                    {{ item.name }}
+                  </NuxtLink>
                 </h3>
                 <p class="font-body text-xs sm:text-sm text-[#94a3b8] leading-relaxed font-light line-clamp-3">
                   {{ item.summary }}
@@ -156,11 +169,11 @@
                 {{ item.code || 'TERRABYTE' }}
               </span>
               <NuxtLink
-                :to="`/contact?product=${encodeURIComponent(item.name)}`"
-                class="inline-flex items-center gap-1.5 font-ui font-bold text-[#18b8ea] hover:text-white transition-colors"
+                :to="`/products/${item.id || item.code}`"
+                class="inline-flex items-center gap-1.5 font-ui font-bold text-[#18b8ea] hover:text-[#38cbf8] transition-colors group/btn"
               >
-                <span>Details</span>
-                <span class="text-sm">&rarr;</span>
+                <span>{{ t('products.details') }}</span>
+                <span class="text-sm transition-transform group-hover/btn:translate-x-1">&rarr;</span>
               </NuxtLink>
             </div>
           </div>
@@ -273,9 +286,18 @@ const { t, locale } = useLanguage()
 const { data: productsData } = await useAsyncData('products-catalog', () => $fetch('/api/products').catch(() => []))
 
 const allProducts = computed(() => {
-  return Array.isArray(productsData.value) && productsData.value.length > 0
-    ? productsData.value
-    : []
+  if (!Array.isArray(productsData.value) || productsData.value.length === 0) return []
+  // Deduplicate products by code/name to prevent duplicate entries
+  const seen = new Set<string>()
+  const unique: any[] = []
+  for (const p of productsData.value) {
+    const key = String(p.code || p.name || p.id || '').toUpperCase()
+    if (!seen.has(key)) {
+      seen.add(key)
+      unique.push(p)
+    }
+  }
+  return unique
 })
 
 const featuredProduct = computed(() => {
@@ -305,4 +327,3 @@ useHead({
 
 <style scoped>
 </style>
-

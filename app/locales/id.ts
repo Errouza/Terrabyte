@@ -12,8 +12,9 @@ export default {
     tagline: 'Teknologi geospasial, pemantauan presisi, dan analitik AI. Mengubah data bumi menjadi keputusan yang lebih cerdas.',
     pages: 'HALAMAN',
     offering: 'LAYANAN & PRODUK',
+    addressLabel: 'ALAMAT',
     contact: 'KONTAK',
-    address: 'Jl. Raya Semplak No.52, Semplak, Bogor, Indonesia',
+    address: 'Jl. Raya Semplak No.52, RT.03/RW.01, Semplak, Kec. Bogor Bar, RT.06/RW.01, Kota, Bogor16114, Kota Bogor, Jawa Barat 16114',
     rights: '2026 Terrabyte Geosystem Indonesia. Seluruh hak cipta dilindungi.',
     motto: 'WHERE EARTH MEETS INTELLIGENCE'
   },
@@ -80,6 +81,7 @@ export default {
     section2Tag: '02 — PRODUK',
     section2Title: 'Instrumen berstandar presisi tinggi.',
     allProducts: 'Semua produk',
+    details: 'Detail',
     radarTag: 'RADAR PEMANTAUAN LERENG',
     radarTitle: 'MS-SAR5000',
     radarDesc: 'Pemantauan deformasi lereng tambang secara real-time dengan deteksi dini potensi longsor hingga radius 5 km.',
@@ -114,7 +116,15 @@ export default {
     marineCategory: 'Hidrografi',
     specsTitle: 'Spesifikasi Utama',
     inquireBtn: 'Minta Penawaran & Spesifikasi',
-    noProducts: 'Belum ada produk untuk kategori ini.'
+    noProducts: 'Belum ada produk untuk kategori ini.',
+    details: 'Detail',
+    specifications: 'SPESIFIKASI',
+    keyAdvantages: 'KEUNGGULAN UTAMA',
+    backToProducts: 'Kembali ke Katalog',
+    requestQuote: 'Minta Penawaran',
+    downloadBrochure: 'Unduh Brosur',
+    whatsappInquiry: 'Konsultasi WhatsApp',
+    relatedProducts: 'Produk Terkait Lainnya'
   },
   solutions: {
     tag: 'SOLUSI · TERRAPULSE-AI',
@@ -162,5 +172,21 @@ export default {
     officeLocation: 'Lokasi Kantor',
     operatingHours: 'Jam Operasional',
     hoursDetail: 'Senin — Jumat: 08:30 – 17:30 WIB'
+  },
+  management: {
+    tag: '04 — MANAJEMEN KAMI',
+    companyTag: '03 — MANAJEMEN KAMI',
+    title: 'Our Management',
+    subtitle: 'Didukung oleh jajaran profesional berdedikasi tinggi di bidang teknologi geospasial, survei pemetaan, dan analitik kecerdasan buatan.',
+    viewAll: 'Pelajari Profil Perusahaan',
+    member1Name: 'Rifqi Radhisya',
+    member1Role: 'Chief Executive Officer (CEO)',
+    member1Dept: 'Direksi Eksekutif',
+    member2Name: 'Abdhika Delyque Soetardja',
+    member2Role: 'Chief Operating Officer (COO)',
+    member2Dept: 'Operasional Lapangan',
+    member3Name: 'Hartini',
+    member3Role: 'Human Resources Director (HRD)',
+    member3Dept: 'Sumber Daya Manusia'
   }
 }
