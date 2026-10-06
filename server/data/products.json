@@ -1,55 +1,12 @@
 [
   {
-    "id": "prod-t20-gnss",
-    "code": "COMNAV-T20-GNSS",
-    "tag": "GNSS Receiver // High Precision",
-    "category": "gnss",
-    "name": "ComNav T20 Multi-Constellation GNSS Receiver",
-    "summary": "Receiver GNSS cerdas generasi baru dengan teknologi tracking satelit generasi mutakhir, radio UHF internal multi-protokol, dan IMU generasi ke-3 untuk efisiensi survei topografi dan geodetik lapangan.",
-    "img": "https://xbadzroazjblacumvnpq.supabase.co/storage/v1/object/public/uploads/1790699839502-t20.png",
-    "status": "In Active Production",
-    "specs": [
-      ["Weight", "670g"],
-      ["RTK Accuracy", "8mm+1ppm H / 15mm+1ppm V"],
-      ["Tilt Compensation", "Up to 60° (2.5cm accuracy)"],
-      ["Battery", "10,000mAh, up to 20 hours"],
-      ["RTK Initialization", "<10 seconds"],
-      ["IP Rating", "IP67"],
-      ["Channel", "1590 Tracking Channels"],
-      ["Konektivitas", "Internal UHF 2W, Bluetooth, WiFi, 4G LTE & NFC"]
-    ],
-    "advantages": [
-      {
-        "title": "10,000mAh Battery",
-        "desc": "Up to 20 hours of continuous work, 5 hours of fast charging via USB-PD.",
-        "icon": "battery"
-      },
-      {
-        "title": "1590 Tracking Channels",
-        "desc": "Full constellation tracking (GPS, BDS, GLONASS, Galileo, QZSS) for a rock-solid fix.",
-        "icon": "satellite"
-      },
-      {
-        "title": "3rd Generation IMU",
-        "desc": "60° tilt compensation with auto-calibration and immunity to magnetic disturbance.",
-        "icon": "compass"
-      },
-      {
-        "title": "NFC Fast Connection",
-        "desc": "Automatic pairing with data collector or Android smartphone with just a touch.",
-        "icon": "wifi"
-      }
-    ],
-    "updatedAt": "2026-10-02T03:30:00.000Z"
-  },
-  {
     "id": "prod-radar-sar5000",
     "code": "RADAR-MS-SAR5000",
-    "tag": "Hardware Radar // Principal ComNav (via Lextera)",
+    "tag": "HARDWARE RADAR · SLOPE MONITORING",
     "category": "radar",
-    "name": "ComNav MS-SAR5000 Ground-Based Slope Stability Radar",
-    "summary": "Radar berpresisi tinggi tipe Ground-Based Synthetic Aperture Radar (GB-SAR) dari principal ComNav yang dihadirkan melalui Lextera untuk monitoring stabilitas lereng tambang dan deformasi dinding batuan secara kontinu hingga radius 5 km.",
-    "img": "https://xbadzroazjblacumvnpq.supabase.co/storage/v1/object/public/uploads/sar5000.png",
+    "name": "ComNav MS-SAR5000 Ground-Based Slope Radar",
+    "summary": "Radar berpresisi tinggi tipe Ground-Based Synthetic Aperture Radar (GB-SAR) untuk pemantauan stabilitas lereng.",
+    "img": "/images/uploads/1790323048828-sar5000.png",
     "status": "In Field Deployment",
     "specs": [
       ["Tipe Radar", "Ground-Based Synthetic Aperture Radar (GB-SAR)"],
@@ -83,16 +40,16 @@
         "icon": "cloud"
       }
     ],
-    "updatedAt": "2026-10-02T03:30:00.000Z"
+    "updatedAt": "2026-10-06T08:50:00.000Z"
   },
   {
     "id": "prod-laser-rtk-n2",
-    "code": "COMNAV-N2-PALM",
-    "tag": "Laser RTK // Principal ComNav (via Lextera)",
+    "code": "GNSS-N2-PALM",
+    "tag": "LASER RTK · GNSS RECEIVER",
     "category": "laser-rtk",
     "name": "ComNav N2 Palm GNSS / Laser RTK Receiver",
-    "summary": "Receiver GNSS saku ultra-ringan dengan modul laser EDM terintegrasi untuk pengukuran titik tersembunyi/berbahaya tanpa jangkauan jalon pole, dilengkapi kamera AR visual stakeout dan kompensasi tilt IMU hingga 60°.",
-    "img": "https://xbadzroazjblacumvnpq.supabase.co/storage/v1/object/public/uploads/n2.png",
+    "summary": "Receiver GNSS saku ultra-ringan dengan modul laser EDM terintegrasi untuk pengukuran titik yang sulit dijangkau.",
+    "img": "/images/uploads/1790317569779-n2.png",
     "status": "Available in Stock",
     "specs": [
       ["Kanal Pelacakan", "1.408 Kanal Multi-Konstelasi (GPS, BDS, GLO, GAL)"],
@@ -125,47 +82,77 @@
         "icon": "compass"
       }
     ],
-    "updatedAt": "2026-10-02T03:30:00.000Z"
+    "updatedAt": "2026-10-06T08:50:00.000Z"
   },
   {
-    "id": "prod-usv-sv600",
-    "code": "SV600-USV",
-    "tag": "UNMANNED SURFACE VESSEL // Hydrographic Mapping",
-    "category": "bathymetry",
-    "name": "SV600 USV Autonomous Survey Vessel",
-    "summary": "Kapal survei tanpa awak (USV) untuk pemetaan batimetri dan hidrografi perairan pelabuhan, sungai, dan danau tambang, dilengkapi single-beam/multibeam echosounder dengan auto-return fail-safe.",
-    "img": "/images/solutions-marine.jpg",
-    "status": "Available / Ready Stock",
+    "id": "prod-t20-gnss",
+    "code": "GNSS-T20",
+    "tag": "GNSS RECEIVER · HIGH PRECISION",
+    "category": "gnss",
+    "name": "ComNav T20 Multi-Constellation GNSS Receiver",
+    "summary": "Receiver GNSS cerdas generasi baru dengan teknologi tracking satelit mutakhir untuk survei presisi tinggi.",
+    "img": "/images/uploads/1790699839502-t20.png",
+    "status": "In Active Production",
     "specs": [
-      ["Depth Reach", "0.15m – 300m Acoustic Echo Sounder"],
-      ["Cruising Speed", "6 m/s (12 knots) Dual Jet Propulsion"],
-      ["Mission Endurance", "6 Hours Onboard Li-Ion Battery"],
-      ["Telemetry Link", "Up to 5 km RF + 4G LTE Auto-Failover"],
-      ["Hull Material", "Carbon Fiber & Kevlar Composite"],
-      ["Payload Bay", "15 kg Modular Sensor Capacity"]
+      ["Kanal Pelacakan", "1.590 Tracking Channels (GPS, BDS, GLO, GAL, QZSS)"],
+      ["Akurasi RTK", "8mm+1ppm H / 15mm+1ppm V"],
+      ["Kompensasi Tilt", "IMU Gen-3 hingga 60° (akurasi 2.5cm)"],
+      ["Kapasitas Baterai", "10.000 mAh (Hingga 20 jam kerja kontinu)"],
+      ["Inisialisasi RTK", "< 10 detik"],
+      ["Proteksi & Radio", "IP67, Internal UHF 2W, Bluetooth, WiFi, 4G & NFC"]
     ],
     "advantages": [
       {
-        "title": "Propulsi Dual Jet Anti-Sampah",
-        "desc": "Sistem jet air internal tanpa baling-baling terbuka, aman dari lilitan lumut dan tanaman air.",
-        "icon": "anchor"
+        "title": "10,000mAh Battery",
+        "desc": "Up to 20 hours of continuous work, 5 hours of fast charging via USB-PD.",
+        "icon": "battery"
       },
       {
-        "title": "Auto-Return Fail Safe",
-        "desc": "Otomatis kembali ke titik awal saat baterai lemah atau sinyal telemetri terputus.",
-        "icon": "shield"
+        "title": "1590 Tracking Channels",
+        "desc": "Full constellation tracking (GPS, BDS, GLONASS, Galileo, QZSS) for a rock-solid fix.",
+        "icon": "satellite"
       },
       {
-        "title": "Sensor Modular Echo-Sounder",
-        "desc": "Mendukung integrasi sensor akustik single-beam, multibeam, hingga sensor kualitas air.",
-        "icon": "layers"
+        "title": "3rd Generation IMU",
+        "desc": "60° tilt compensation with auto-calibration and immunity to magnetic disturbance.",
+        "icon": "compass"
       },
       {
-        "title": "Navigasi Otonom Waypoint",
-        "desc": "Misi survei otomatis mengikuti rute grid yang telah diprogram dengan presisi sentimeter.",
-        "icon": "navigation"
+        "title": "NFC Fast Connection",
+        "desc": "Automatic pairing with data collector or Android smartphone with just a touch.",
+        "icon": "wifi"
       }
     ],
-    "updatedAt": "2026-10-02T03:30:00.000Z"
+    "updatedAt": "2026-10-06T08:50:00.000Z"
+  },
+  {
+    "id": "prod-mars-laser-rtk",
+    "code": "MARS-LASER-RTK",
+    "tag": "LASER RTK · INNOVATION",
+    "category": "laser-rtk",
+    "name": "Mars Laser RTK Multi-Constellation Receiver",
+    "summary": "Receiver GNSS laser cerdas dengan layar sentuh OLED, sensor laser EDM milimeter, dan kamera AR untuk survei medan curam tanpa kompromi.",
+    "img": "https://xbadzroazjblacumvnpq.supabase.co/storage/v1/object/public/uploads/1790911595248-1790911594769-marspro.png",
+    "status": "Available in Stock",
+    "specs": [
+      ["Kanal Pelacakan", "1.408 Kanal All-Constellation"],
+      ["Laser EDM", "Jarak ukur hingga 50m dengan akurasi milimeter"],
+      ["Layar Display", "OLED Color Touchscreen interaktif"],
+      ["IMU Tilt", "Kompensasi 60° Bebas Kalibrasi"],
+      ["Proteksi", "IP68 All-Weather Magnesium Alloy"]
+    ],
+    "advantages": [
+      {
+        "title": "Laser EDM Jarak Jauh",
+        "desc": "Menembak titik sulit di lereng terjal tanpa membahayakan surveyor di lapangan.",
+        "icon": "laser"
+      },
+      {
+        "title": "Layar OLED Interaktif",
+        "desc": "Monitoring status satelit, baterai, dan mode kerja langsung pada bodi receiver.",
+        "icon": "eye"
+      }
+    ],
+    "updatedAt": "2026-10-06T08:50:00.000Z"
   }
 ]

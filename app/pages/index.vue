@@ -73,6 +73,206 @@
       </div>
     </section>
 
+    <!-- ─── RUNNING TICKER / CLIENT & PARTNER MARQUEE STRIP ─────────── -->
+    <section class="py-7 bg-[#010810]/95 border-y border-white/5 relative z-10 overflow-hidden backdrop-blur-md select-none">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 mb-4 flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+          </span>
+          <p class="font-mono text-xs uppercase tracking-[0.22em] text-[#18b8ea] font-semibold">
+            {{ t('home.trustTag') }}
+          </p>
+        </div>
+        <p class="hidden sm:inline-flex items-center gap-2 font-mono text-[11px] text-[#64748b] tracking-wider uppercase">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#18b8ea]/60"></span>
+          LIVE PARTNERS & CLIENTS TICKER
+        </p>
+      </div>
+
+      <!-- Marquee Ribbon with Edge Fade Masks -->
+      <div class="relative w-full overflow-hidden marquee-mask group cursor-pointer py-1">
+        <div class="animate-marquee py-2">
+          
+          <!-- TRACK 1 -->
+          <div class="flex items-center gap-5 sm:gap-6 pr-5 sm:pr-6 flex-shrink-0">
+            <!-- Card 1: BSS (Active Client) -->
+            <div class="p-3.5 sm:p-4 rounded-2xl bg-[#030d17]/85 border border-white/10 hover:border-emerald-500/50 transition-all duration-300 flex items-center gap-4 flex-shrink-0 min-w-[340px] sm:min-w-[380px] shadow-lg">
+              <div class="w-24 h-14 rounded-xl bg-white p-2 flex items-center justify-center flex-shrink-0 shadow-sm border border-white/20">
+                <img
+                  src="/images/BSS.png"
+                  alt="PT Bina Sarana Sukses"
+                  class="h-9 w-auto max-w-full object-contain"
+                />
+              </div>
+              <div class="min-w-0 flex-1">
+                <span class="inline-flex items-center text-[10px] font-mono uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20 mb-1">
+                  {{ t('home.trustClientBadge') }}
+                </span>
+                <h4 class="font-display font-semibold text-sm text-white truncate">
+                  {{ t('home.trustClientTitle') }}
+                </h4>
+                <p class="font-body text-xs text-[#94a3b8] truncate">
+                  {{ t('home.trustClientSub') }}
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 2: Lextera (Tech Partner) -->
+            <div class="p-3.5 sm:p-4 rounded-2xl bg-[#030d17]/85 border border-white/10 hover:border-[#18b8ea]/50 transition-all duration-300 flex items-center gap-4 flex-shrink-0 min-w-[340px] sm:min-w-[380px] shadow-lg">
+              <div class="w-24 h-14 rounded-xl bg-white p-2 flex items-center justify-center flex-shrink-0 shadow-sm border border-white/20">
+                <img
+                  src="/images/logoLextera.png"
+                  alt="PT Lextera Survey Indonesia"
+                  class="h-9 w-auto max-w-full object-contain"
+                />
+              </div>
+              <div class="min-w-0 flex-1">
+                <span class="inline-flex items-center text-[10px] font-mono uppercase tracking-wider text-[#18b8ea] bg-[#18b8ea]/10 px-2 py-0.5 rounded-full border border-[#18b8ea]/20 mb-1">
+                  {{ t('home.trustPartnerBadge') }}
+                </span>
+                <h4 class="font-display font-semibold text-sm text-white truncate">
+                  {{ t('home.trustPartnerTitle') }}
+                </h4>
+                <p class="font-body text-xs text-[#94a3b8] truncate">
+                  {{ t('home.trustPartnerSub') }}
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 3: BSS Mining Operations Project -->
+            <div class="p-3.5 sm:p-4 rounded-2xl bg-[#030d17]/85 border border-white/10 hover:border-emerald-500/50 transition-all duration-300 flex items-center gap-4 flex-shrink-0 min-w-[340px] sm:min-w-[380px] shadow-lg">
+              <div class="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0 text-emerald-400">
+                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <div class="min-w-0 flex-1">
+                <span class="inline-flex items-center text-[10px] font-mono uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20 mb-1">
+                  OPERASIONAL AKTIF
+                </span>
+                <h4 class="font-display font-semibold text-sm text-white truncate">
+                  Monitoring Stabilitas Lereng Pit
+                </h4>
+                <p class="font-body text-xs text-[#94a3b8] truncate">
+                  Mitigasi Risiko Deformasi Tambang BSS
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 4: Precision Instrumentation -->
+            <div class="p-3.5 sm:p-4 rounded-2xl bg-[#030d17]/85 border border-white/10 hover:border-[#18b8ea]/50 transition-all duration-300 flex items-center gap-4 flex-shrink-0 min-w-[340px] sm:min-w-[380px] shadow-lg">
+              <div class="w-14 h-14 rounded-xl bg-[#18b8ea]/10 border border-[#18b8ea]/20 flex items-center justify-center flex-shrink-0 text-[#18b8ea]">
+                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div class="min-w-0 flex-1">
+                <span class="inline-flex items-center text-[10px] font-mono uppercase tracking-wider text-[#18b8ea] bg-[#18b8ea]/10 px-2 py-0.5 rounded-full border border-[#18b8ea]/20 mb-1">
+                  HARDWARE & AI INTEL
+                </span>
+                <h4 class="font-display font-semibold text-sm text-white truncate">
+                  Radar MS-SAR + TerraPulse-AI
+                </h4>
+                <p class="font-body text-xs text-[#94a3b8] truncate">
+                  Sinergi Eksklusif Lextera & Terrabyte
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- TRACK 2 (Seamless Infinite Duplicate) -->
+          <div class="flex items-center gap-5 sm:gap-6 pr-5 sm:pr-6 flex-shrink-0" aria-hidden="true">
+            <!-- Card 1 Duplicate -->
+            <div class="p-3.5 sm:p-4 rounded-2xl bg-[#030d17]/85 border border-white/10 hover:border-emerald-500/50 transition-all duration-300 flex items-center gap-4 flex-shrink-0 min-w-[340px] sm:min-w-[380px] shadow-lg">
+              <div class="w-24 h-14 rounded-xl bg-white p-2 flex items-center justify-center flex-shrink-0 shadow-sm border border-white/20">
+                <img
+                  src="/images/BSS.png"
+                  alt="PT Bina Sarana Sukses"
+                  class="h-9 w-auto max-w-full object-contain"
+                />
+              </div>
+              <div class="min-w-0 flex-1">
+                <span class="inline-flex items-center text-[10px] font-mono uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20 mb-1">
+                  {{ t('home.trustClientBadge') }}
+                </span>
+                <h4 class="font-display font-semibold text-sm text-white truncate">
+                  {{ t('home.trustClientTitle') }}
+                </h4>
+                <p class="font-body text-xs text-[#94a3b8] truncate">
+                  {{ t('home.trustClientSub') }}
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 2 Duplicate -->
+            <div class="p-3.5 sm:p-4 rounded-2xl bg-[#030d17]/85 border border-white/10 hover:border-[#18b8ea]/50 transition-all duration-300 flex items-center gap-4 flex-shrink-0 min-w-[340px] sm:min-w-[380px] shadow-lg">
+              <div class="w-24 h-14 rounded-xl bg-white p-2 flex items-center justify-center flex-shrink-0 shadow-sm border border-white/20">
+                <img
+                  src="/images/logoLextera.png"
+                  alt="PT Lextera Survey Indonesia"
+                  class="h-9 w-auto max-w-full object-contain"
+                />
+              </div>
+              <div class="min-w-0 flex-1">
+                <span class="inline-flex items-center text-[10px] font-mono uppercase tracking-wider text-[#18b8ea] bg-[#18b8ea]/10 px-2 py-0.5 rounded-full border border-[#18b8ea]/20 mb-1">
+                  {{ t('home.trustPartnerBadge') }}
+                </span>
+                <h4 class="font-display font-semibold text-sm text-white truncate">
+                  {{ t('home.trustPartnerTitle') }}
+                </h4>
+                <p class="font-body text-xs text-[#94a3b8] truncate">
+                  {{ t('home.trustPartnerSub') }}
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 3 Duplicate -->
+            <div class="p-3.5 sm:p-4 rounded-2xl bg-[#030d17]/85 border border-white/10 hover:border-emerald-500/50 transition-all duration-300 flex items-center gap-4 flex-shrink-0 min-w-[340px] sm:min-w-[380px] shadow-lg">
+              <div class="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0 text-emerald-400">
+                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <div class="min-w-0 flex-1">
+                <span class="inline-flex items-center text-[10px] font-mono uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20 mb-1">
+                  OPERASIONAL AKTIF
+                </span>
+                <h4 class="font-display font-semibold text-sm text-white truncate">
+                  Monitoring Stabilitas Lereng Pit
+                </h4>
+                <p class="font-body text-xs text-[#94a3b8] truncate">
+                  Mitigasi Risiko Deformasi Tambang BSS
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 4 Duplicate -->
+            <div class="p-3.5 sm:p-4 rounded-2xl bg-[#030d17]/85 border border-white/10 hover:border-[#18b8ea]/50 transition-all duration-300 flex items-center gap-4 flex-shrink-0 min-w-[340px] sm:min-w-[380px] shadow-lg">
+              <div class="w-14 h-14 rounded-xl bg-[#18b8ea]/10 border border-[#18b8ea]/20 flex items-center justify-center flex-shrink-0 text-[#18b8ea]">
+                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div class="min-w-0 flex-1">
+                <span class="inline-flex items-center text-[10px] font-mono uppercase tracking-wider text-[#18b8ea] bg-[#18b8ea]/10 px-2 py-0.5 rounded-full border border-[#18b8ea]/20 mb-1">
+                  HARDWARE & AI INTEL
+                </span>
+                <h4 class="font-display font-semibold text-sm text-white truncate">
+                  Radar MS-SAR + TerraPulse-AI
+                </h4>
+                <p class="font-body text-xs text-[#94a3b8] truncate">
+                  Sinergi Eksklusif Lextera & Terrabyte
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- ─── SECTION 01: WHAT WE DO (PAGE 1 HI-FI) ─────────────────────── -->
     <section class="py-20 lg:py-28 border-t border-white/5 bg-[#020b14] relative">
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
@@ -157,71 +357,253 @@
     </section>
 
     <!-- ─── SECTION 02: PRODUCTS (PAGE 1 HI-FI) ────────────────────────── -->
-    <section class="py-20 lg:py-28 border-t border-white/5 relative bg-[#030d17]">
-      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <!-- ─── SECTION 02: PRODUCTS (SLIDING CAROUSEL + 3D FLIP CARDS) ────── -->
+    <section class="py-20 lg:py-28 border-t border-white/5 relative bg-[#030d17] overflow-hidden">
+      
+      <!-- Ambient Backlight -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[450px] bg-[#18b8ea]/6 rounded-full blur-[170px] pointer-events-none"></div>
 
-        <!-- Header Row -->
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+
+        <!-- Header Row with Slider Navigation Buttons -->
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
           <div>
-            <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-2">{{ t('home.section2Tag') }}</p>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="w-2 h-2 rounded-full bg-[#18b8ea]"></span>
+              <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold">{{ t('home.section2Tag') }}</p>
+            </div>
             <h2 class="font-display font-bold text-3xl sm:text-4xl text-white">
               {{ t('home.section2Title') }}
             </h2>
           </div>
+
+          <!-- Carousel Controls & All Products Link -->
+          <div class="flex items-center gap-4">
+            <!-- Prev & Next Arrow Buttons -->
+            <div class="flex items-center gap-2">
+              <button
+                type="button"
+                @click="slideProducts('prev')"
+                class="w-10 h-10 rounded-full border border-white/10 bg-[#020b14]/80 hover:border-[#18b8ea] hover:bg-[#18b8ea]/10 text-white hover:text-[#18b8ea] flex items-center justify-center transition-all duration-200 shadow-md active:scale-95"
+                title="Produk Sebelumnya"
+              >
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                @click="slideProducts('next')"
+                class="w-10 h-10 rounded-full border border-white/10 bg-[#020b14]/80 hover:border-[#18b8ea] hover:bg-[#18b8ea]/10 text-white hover:text-[#18b8ea] flex items-center justify-center transition-all duration-200 shadow-md active:scale-95"
+                title="Produk Berikutnya"
+              >
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+
+            <NuxtLink
+              to="/products"
+              class="hidden sm:inline-flex items-center gap-1.5 text-xs sm:text-sm font-ui font-bold text-[#18b8ea] hover:text-[#38cbf8] transition-colors tracking-wide ml-2"
+            >
+              <span>{{ t('home.allProducts') }}</span>
+              <span>&rarr;</span>
+            </NuxtLink>
+          </div>
+        </div>
+
+        <!-- Sliding Track Container -->
+        <div
+          ref="productSliderRef"
+          @scroll="handleSliderScroll"
+          class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-6 pt-2 -mx-6 px-6 lg:-mx-10 lg:px-10"
+          style="scrollbar-width: none; -ms-overflow-style: none;"
+        >
+          <!-- 3D Flipping Card Item -->
+          <div
+            v-for="item in homeProducts"
+            :key="item.id || item.code"
+            class="product-flip-card h-[590px] w-[86vw] sm:w-[360px] lg:w-[380px] flex-shrink-0 snap-start select-none"
+            style="perspective: 1200px;"
+          >
+            <div
+              class="relative w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
+              :class="{ '[transform:rotateY(180deg)]': isFlipped(item.id || item.code) }"
+              style="transform-style: preserve-3d;"
+            >
+              
+              <!-- ─── FRONT FACE (EXACT MATCH TO USER REFERENCE) ────────── -->
+              <div
+                class="absolute inset-0 rounded-3xl geo-card p-6 sm:p-7 flex flex-col justify-between overflow-hidden shadow-2xl border border-white/10 hover:border-[#18b8ea]/50 transition-colors group"
+                style="backface-visibility: hidden; -webkit-backface-visibility: hidden;"
+              >
+                <div>
+                  <!-- Top Isolated Product Box (NO badges, NO watermarks!) -->
+                  <div class="h-60 rounded-2xl bg-[#020b14] border border-white/5 relative flex items-center justify-center p-6 overflow-hidden mb-5">
+                    <!-- Subtle Radial Spotlight Glow -->
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(24,184,234,0.12)_0%,rgba(2,11,20,0.95)_75%)] pointer-events-none"></div>
+
+                    <!-- Clean isolated product hardware image -->
+                    <img
+                      :src="item.img || '/images/hero-bg.jpg'"
+                      :alt="item.name"
+                      class="max-h-[88%] max-w-[88%] object-contain drop-shadow-[0_15px_35px_rgba(0,0,0,0.8)] transition-transform duration-500 group-hover:scale-105"
+                    />
+
+                    <!-- Quick Flip Hint Icon (Top Right) -->
+                    <button
+                      type="button"
+                      @click.stop="toggleFlip(item.id || item.code)"
+                      class="absolute top-3.5 right-3.5 w-7 h-7 rounded-full bg-black/40 hover:bg-[#18b8ea] text-[#94a3b8] hover:text-[#030d17] border border-white/10 flex items-center justify-center text-xs transition-all shadow-md group/flip"
+                      title="Balik kartu untuk lihat spesifikasi"
+                    >
+                      <span class="group-hover/flip:rotate-180 transition-transform duration-300">↻</span>
+                    </button>
+                  </div>
+
+                  <!-- Category Tag -->
+                  <span class="block font-mono text-[11px] uppercase tracking-[0.18em] text-[#18b8ea] font-semibold mb-2 truncate">
+                    {{ item.tag || 'HARDWARE · SLOPE MONITORING' }}
+                  </span>
+
+                  <!-- Product Name -->
+                  <h3 class="font-display font-bold text-lg sm:text-xl text-white mb-2.5 leading-snug line-clamp-2 group-hover:text-[#18b8ea] transition-colors">
+                    <NuxtLink :to="`/products/${item.id || item.code}`">
+                      {{ item.name }}
+                    </NuxtLink>
+                  </h3>
+
+                  <!-- Short Description -->
+                  <p class="font-body text-xs sm:text-sm text-[#94a3b8] leading-relaxed font-light line-clamp-3">
+                    {{ item.summary }}
+                  </p>
+                </div>
+
+                <!-- Card Footer Bar -->
+                <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+                  <span class="font-mono text-xs text-[#64748b] uppercase tracking-wider truncate max-w-[130px]">
+                    {{ item.code || 'TERRABYTE' }}
+                  </span>
+
+                  <div class="flex items-center gap-2.5">
+                    <!-- 3D Flip Action -->
+                    <button
+                      type="button"
+                      @click="toggleFlip(item.id || item.code)"
+                      class="px-2.5 py-1 rounded-full bg-white/5 hover:bg-[#18b8ea]/15 text-[#94a3b8] hover:text-[#18b8ea] text-[11px] font-mono border border-white/10 hover:border-[#18b8ea]/30 transition-all flex items-center gap-1"
+                      title="Lihat Spesifikasi di Belakang Kartu"
+                    >
+                      <span>Spek</span>
+                      <span class="text-xs">↻</span>
+                    </button>
+
+                    <!-- Direct Details Link to Dedicated Product Page -->
+                    <NuxtLink
+                      :to="`/products/${item.id || item.code}`"
+                      class="inline-flex items-center gap-1 font-ui font-bold text-xs text-[#18b8ea] hover:text-[#38cbf8] transition-colors group/link"
+                    >
+                      <span>{{ t('home.details') }}</span>
+                      <span class="text-sm transition-transform group-hover/link:translate-x-1">&rarr;</span>
+                    </NuxtLink>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ─── BACK FACE (FLIPPED FACE: TECHNICAL SPECIFICATIONS) ─ -->
+              <div
+                class="absolute inset-0 rounded-3xl bg-gradient-to-b from-[#051f38] via-[#041628] to-[#020b14] p-6 sm:p-7 flex flex-col justify-between overflow-hidden shadow-2xl border border-[#18b8ea]/40"
+                style="backface-visibility: hidden; -webkit-backface-visibility: hidden; transform: rotateY(180deg);"
+              >
+                <div>
+                  <!-- Back Face Header -->
+                  <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-3.5">
+                    <span class="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-widest uppercase text-[#18b8ea] font-bold bg-[#18b8ea]/10 px-2.5 py-1 rounded-full border border-[#18b8ea]/20">
+                      <span class="w-1.5 h-1.5 rounded-full bg-[#18b8ea] animate-pulse"></span>
+                      SPESIFIKASI TEKNIS
+                    </span>
+                    <button
+                      type="button"
+                      @click="toggleFlip(item.id || item.code)"
+                      class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-xs transition-colors"
+                      title="Kembali ke Foto Depan"
+                    >
+                      ✕
+                    </button>
+                  </div>
+
+                  <h4 class="font-display font-bold text-base text-white truncate mb-1">
+                    {{ item.name }}
+                  </h4>
+                  <p class="font-mono text-[10px] text-[#64748b] uppercase mb-3">
+                    MODEL: {{ item.code }}
+                  </p>
+
+                  <!-- Technical Specs Rows -->
+                  <div class="space-y-2 max-h-[310px] overflow-y-auto pr-1">
+                    <div
+                      v-for="(spec, sIdx) in (item.specs || []).slice(0, 6)"
+                      :key="sIdx"
+                      class="p-2.5 rounded-xl bg-[#020b14]/80 border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs"
+                    >
+                      <span class="text-[#94a3b8] font-mono text-[11px] flex-shrink-0">{{ spec[0] }}</span>
+                      <span class="text-white font-medium text-right text-[11px] sm:max-w-[200px] truncate" :title="spec[1]">{{ spec[1] }}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Back Face Footer Action Buttons -->
+                <div class="pt-4 border-t border-white/10 flex items-center justify-between gap-3">
+                  <button
+                    type="button"
+                    @click="toggleFlip(item.id || item.code)"
+                    class="px-3.5 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-mono transition-all flex items-center gap-1.5"
+                  >
+                    <span>↺</span>
+                    <span>Foto</span>
+                  </button>
+
+                  <NuxtLink
+                    :to="`/products/${item.id || item.code}`"
+                    class="btn-geo-primary !py-2 !px-4 !text-xs !font-bold flex items-center gap-1.5 flex-1 justify-center shadow-lg"
+                  >
+                    <span>Halaman Lengkap</span>
+                    <span>&rarr;</span>
+                  </NuxtLink>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Slider Pagination Dots Indicator -->
+        <div class="flex items-center justify-center gap-2 mt-8">
+          <button
+            v-for="(_, dIdx) in homeProducts"
+            :key="dIdx"
+            type="button"
+            @click="(() => {
+              if (productSliderRef) {
+                const card = productSliderRef.querySelector('.product-flip-card') as HTMLElement
+                const scrollStep = card ? card.offsetWidth + 24 : 380
+                productSliderRef.scrollTo({ left: dIdx * scrollStep, behavior: 'smooth' })
+              }
+            })()"
+            class="h-1.5 rounded-full transition-all duration-300"
+            :class="activeSlideIndex === dIdx ? 'w-8 bg-[#18b8ea]' : 'w-2 bg-white/20 hover:bg-white/40'"
+            :title="`Slide ${dIdx + 1}`"
+          ></button>
+        </div>
+
+        <!-- Mobile All Products CTA -->
+        <div class="mt-8 text-center sm:hidden">
           <NuxtLink
             to="/products"
-            class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-ui font-bold text-[#18b8ea] hover:text-[#38cbf8] transition-colors tracking-wide"
+            class="btn-geo-outline !py-2.5 !px-6 text-xs inline-flex items-center gap-2"
           >
             <span>{{ t('home.allProducts') }}</span>
             <span>&rarr;</span>
-          </NuxtLink>
-        </div>
-
-        <!-- Dynamic Product Cards Grid -->
-        <div class="grid md:grid-cols-3 gap-6">
-          <NuxtLink
-            v-for="item in homeProducts"
-            :key="item.id || item.code"
-            :to="`/products/${item.id || item.code}`"
-            class="group rounded-3xl geo-card overflow-hidden transition-all duration-300 flex flex-col hover:border-[#18b8ea]/60 hover:shadow-[0_12px_35px_rgba(24,184,234,0.12)] hover:-translate-y-1"
-          >
-            <div class="h-60 bg-[#020b14] flex items-center justify-center p-6 relative overflow-hidden border-b border-white/5">
-              <img
-                :src="item.img || '/images/hero-bg.jpg'"
-                :alt="item.name"
-                class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
-              />
-              <span v-if="item.status" class="absolute top-4 right-4 font-mono text-[9px] uppercase px-2.5 py-0.5 rounded-full bg-black/60 text-[#18b8ea] border border-white/10">
-                {{ item.status }}
-              </span>
-              <span v-if="item.category" class="absolute top-4 left-4 font-mono text-[9px] uppercase px-2.5 py-0.5 rounded-full bg-black/60 text-[#94a3b8] border border-white/10">
-                {{ item.category }}
-              </span>
-            </div>
-            <div class="p-7 flex-1 flex flex-col justify-between">
-              <div>
-                <span class="block font-mono text-[10px] uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-1.5 truncate">
-                  {{ item.tag || (item.category?.toUpperCase() || 'HARDWARE') }}
-                </span>
-                <h3 class="font-display font-bold text-lg text-white mb-2 group-hover:text-[#18b8ea] transition-colors line-clamp-2">
-                  {{ item.name }}
-                </h3>
-                <p class="font-body text-xs text-[#94a3b8] leading-relaxed font-light line-clamp-3">
-                  {{ item.summary }}
-                </p>
-              </div>
-
-              <!-- Card Bottom Details Action -->
-              <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-                <span class="font-mono text-[10px] text-white/40 uppercase tracking-wider truncate max-w-[140px]">
-                  {{ item.code || 'TERRABYTE' }}
-                </span>
-                <span class="inline-flex items-center gap-1.5 font-ui font-bold text-xs text-[#18b8ea] group-hover:text-[#38cbf8] transition-colors">
-                  <span>{{ t('home.details') }}</span>
-                  <span class="text-sm transition-transform group-hover:translate-x-1">&rarr;</span>
-                </span>
-              </div>
-            </div>
           </NuxtLink>
         </div>
 
@@ -441,24 +823,65 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useLanguage } from '~/composables/useLanguage'
 
 const { t } = useLanguage()
 
 const { data: productsData } = await useAsyncData('home-products', () => $fetch('/api/products').catch(() => []))
 
+// ─── 3D CARD FLIP STATE & TOGGLE ──────────────────────────────────────────
+const flippedCards = ref<Record<string, boolean>>({})
+
+const toggleFlip = (id: string) => {
+  if (!id) return
+  flippedCards.value[id] = !flippedCards.value[id]
+}
+
+const isFlipped = (id: string) => {
+  return !!flippedCards.value[id]
+}
+
+// ─── SLIDING CAROUSEL CONTROLS & ACTIVE INDEX ─────────────────────────────
+const productSliderRef = ref<HTMLElement | null>(null)
+const activeSlideIndex = ref(0)
+
+const slideProducts = (direction: 'prev' | 'next') => {
+  if (!productSliderRef.value) return
+  const container = productSliderRef.value
+  const card = container.querySelector('.product-flip-card') as HTMLElement
+  const scrollStep = card ? card.offsetWidth + 24 : 380
+
+  container.scrollBy({
+    left: direction === 'prev' ? -scrollStep : scrollStep,
+    behavior: 'smooth'
+  })
+}
+
+const handleSliderScroll = () => {
+  if (!productSliderRef.value) return
+  const container = productSliderRef.value
+  const card = container.querySelector('.product-flip-card') as HTMLElement
+  const scrollStep = card ? card.offsetWidth + 24 : 380
+  const index = Math.round(container.scrollLeft / scrollStep)
+  activeSlideIndex.value = Math.max(0, Math.min(index, homeProducts.value.length - 1))
+}
+
 const homeProducts = computed(() => {
   if (!Array.isArray(productsData.value) || productsData.value.length === 0) return []
-  const list = [...productsData.value]
+  const list = productsData.value.filter((p: any) => {
+    const s = `${p.id || ''} ${p.code || ''} ${p.name || ''} ${p.img || ''}`.toLowerCase()
+    return !s.includes('sv600') && !s.includes('solutions-marine')
+  })
 
-  // Prioritize flagship instruments (Radar MS-SAR5000, ComNav T20, ComNav N2 Palm)
-  list.sort((a, b) => {
+  // Priority: 1. Radar MS-SAR5000, 2. N2 Palm, 3. T20 GNSS, 4. Mars Laser RTK
+  list.sort((a: any, b: any) => {
     const score = (item: any) => {
-      const txt = `${item.name || ''} ${item.code || ''} ${item.category || ''}`.toLowerCase()
+      const txt = `${item.name || ''} ${item.code || ''} ${item.id || ''}`.toLowerCase()
       if (txt.includes('sar5000') || txt.includes('radar')) return 10
-      if (txt.includes('t20')) return 9
-      if (txt.includes('n2')) return 8
+      if (txt.includes('n2') || txt.includes('palm')) return 9
+      if (txt.includes('t20')) return 8
+      if (txt.includes('mars')) return 7
       return 1
     }
     return score(b) - score(a)
@@ -473,7 +896,7 @@ const homeProducts = computed(() => {
       unique.push(p)
     }
   }
-  return unique.slice(0, 3)
+  return unique
 })
 
 const managementList = computed(() => [

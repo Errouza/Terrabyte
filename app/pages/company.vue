@@ -251,31 +251,72 @@
       </div>
     </section>
 
-    <!-- ─── SECTION: OUR PARTNER (PAGE 2 HI-FI) ───────────────────────── -->
-    <section class="py-16 bg-[#030d17] border-t border-white/5">
+    <!-- ─── SECTION: OUR PARTNER & CLIENT (PAGE 2 HI-FI) ─────────────── -->
+    <section class="py-20 bg-[#030d17] border-t border-white/5 relative">
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
-        <div class="p-8 sm:p-10 rounded-3xl geo-card flex flex-col md:flex-row items-center gap-8">
-          <!-- Lextera Logo / Brand Emblem Badge -->
-          <div class="w-28 sm:w-32 h-28 sm:h-32 rounded-2xl bg-white p-3 flex items-center justify-center flex-shrink-0 shadow-[0_8px_25px_rgba(0,0,0,0.4)] border border-white/20">
-            <img
-              src="/images/logoLextera.png"
-              alt="PT Lextera Survey Indonesia Logo"
-              class="w-full h-full object-contain"
-            />
-          </div>
-          <!-- Partner Text (Clean Semantics, Natural Bilingual Copy) -->
-          <div class="space-y-2 text-center md:text-left">
-            <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold">
-              {{ t('company.partnerBadge') }}
-            </p>
-            <h3 class="font-display font-bold text-xl sm:text-2xl text-white">
-              {{ t('company.partnerTitle') }}
-            </h3>
-            <p class="font-body text-xs sm:text-sm text-[#94a3b8] leading-relaxed font-light max-w-2xl">
-              {{ t('company.partnerDesc') }}
-            </p>
-          </div>
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
+          <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold">
+            {{ t('company.partnerBadge') }}
+          </p>
+          <h2 class="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-white">
+            {{ t('company.partnerTitle') }}
+          </h2>
+          <p class="font-body text-sm text-[#94a3b8] leading-relaxed font-light">
+            {{ t('company.partnerDesc') }}
+          </p>
         </div>
+
+        <!-- 2-Column Cards Grid: BSS (Client) & Lextera (Tech Partner) -->
+        <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+          
+          <!-- BSS Card (Active Operational Client) -->
+          <div class="p-8 sm:p-10 rounded-3xl geo-card flex flex-col sm:flex-row items-center sm:items-start gap-6 relative overflow-hidden group hover:border-emerald-500/40 transition-all duration-300">
+            <div class="w-28 sm:w-32 h-28 sm:h-32 rounded-2xl bg-white p-3.5 flex items-center justify-center flex-shrink-0 shadow-[0_8px_25px_rgba(0,0,0,0.4)] border border-white/20 group-hover:scale-105 transition-transform duration-300">
+              <img
+                src="/images/BSS.png"
+                alt="PT Bina Sarana Sukses Logo"
+                class="w-full h-full object-contain"
+              />
+            </div>
+            <div class="space-y-3 text-center sm:text-left flex-1">
+              <span class="inline-flex items-center text-[10px] font-mono uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
+                {{ t('company.bssBadge') }}
+              </span>
+              <h3 class="font-display font-bold text-xl text-white">
+                {{ t('company.bssTitle') }}
+              </h3>
+              <p class="font-body text-xs sm:text-sm text-[#94a3b8] leading-relaxed font-light">
+                {{ t('company.bssDesc') }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Lextera Card (Authorized Tech Partner) -->
+          <div class="p-8 sm:p-10 rounded-3xl geo-card flex flex-col sm:flex-row items-center sm:items-start gap-6 relative overflow-hidden group hover:border-[#18b8ea]/40 transition-all duration-300">
+            <div class="w-28 sm:w-32 h-28 sm:h-32 rounded-2xl bg-white p-3 flex items-center justify-center flex-shrink-0 shadow-[0_8px_25px_rgba(0,0,0,0.4)] border border-white/20 group-hover:scale-105 transition-transform duration-300">
+              <img
+                src="/images/logoLextera.png"
+                alt="PT Lextera Survey Indonesia Logo"
+                class="w-full h-full object-contain"
+              />
+            </div>
+            <div class="space-y-3 text-center sm:text-left flex-1">
+              <span class="inline-flex items-center text-[10px] font-mono uppercase tracking-wider text-[#18b8ea] bg-[#18b8ea]/10 px-2.5 py-1 rounded-full border border-[#18b8ea]/20">
+                {{ t('company.lexteraBadge') }}
+              </span>
+              <h3 class="font-display font-bold text-xl text-white">
+                {{ t('company.lexteraTitle') }}
+              </h3>
+              <p class="font-body text-xs sm:text-sm text-[#94a3b8] leading-relaxed font-light">
+                {{ t('company.lexteraDesc') }}
+              </p>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </section>
 

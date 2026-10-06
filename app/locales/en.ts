@@ -29,7 +29,7 @@ export default {
     storyP1: 'Terrabyte Geosystem Indonesia grew out of real field work. Working alongside PT Lextera Survey Indonesia on radar slope monitoring projects, we saw that the hardest part isn’t gathering data, it’s turning it into clear, timely decisions.',
     storyP2: 'So we built TerraPulse-AI, an analytics platform for monitoring data, and TerraWatch, a monitoring center that keeps continuous watch over site conditions. Together with proven instruments, they form one integrated solution.',
     visionTag: 'VISION',
-    visionText: 'To be Indonesia’s trusted partner in geospatial intelligence, helping industries work safer and smarter with the earth.',
+    visionText: 'To lead Indonesia in turning earth data into intelligence, where every movement is measured, understood and acted on.',
     missionTag: 'MISSION',
     mission1: 'Deliver reliable survey and monitoring technology with strong local support.',
     mission2: 'Turn field data into decisions through analytics and AI.',
@@ -45,9 +45,15 @@ export default {
     innovationDesc: 'Using AI and new technology to solve real field problems.',
     partnershipTitle: 'Partnership',
     partnershipDesc: 'Working closely with clients and partners for the long term.',
-    partnerBadge: 'OUR PARTNER',
-    partnerTitle: 'Authorized Partner of PT Lextera Survey Indonesia',
-    partnerDesc: 'We supply Lextera’s survey and monitoring instruments and pair them with our own analytics, so clients get hardware and intelligence from one team.',
+    partnerBadge: 'PARTNERS & CLIENTS',
+    partnerTitle: 'Trusted by Leading Industry Players',
+    partnerDesc: 'Terrabyte collaborates with premier technology partners and major mining contractors to deliver uncompromising geotechnical monitoring reliability.',
+    bssBadge: 'OPERATIONAL MINING CLIENT',
+    bssTitle: 'PT Bina Sarana Sukses (BSS)',
+    bssDesc: 'Leading Indonesian mining contractor that relies on Terrabyte’s slope stability monitoring technology and geotechnical intelligence for critical field operations.',
+    lexteraBadge: 'AUTHORIZED TECHNOLOGY PARTNER',
+    lexteraTitle: 'PT Lextera Survey Indonesia',
+    lexteraDesc: 'Premier distributor of international survey and geotechnical radar instruments, seamlessly integrated with our TerraPulse-AI analytics platform.',
     bannerTitle: 'Let’s build something together.',
     bannerDesc: 'Partner with us on your next monitoring or survey project.',
     bannerCta: 'Contact us'
@@ -59,6 +65,14 @@ export default {
     heroDesc: 'Terrabyte Geosystem Indonesia combines precision survey and monitoring technology with AI analytics, turning earth data into clear, timely decisions.',
     exploreSolutions: 'Explore Solutions',
     viewProducts: 'View Products',
+    trustTag: 'PROVEN IN MISSION-CRITICAL ENVIRONMENTS',
+    trustDesc: 'Terrabyte technology and instruments are deployed alongside leading mining contractors and geospatial technology partners.',
+    trustClientBadge: 'OPERATIONAL CLIENT',
+    trustClientTitle: 'PT Bina Sarana Sukses (BSS)',
+    trustClientSub: 'Leading Mining Contractor',
+    trustPartnerBadge: 'TECHNOLOGY PARTNER',
+    trustPartnerTitle: 'PT Lextera Survey Indonesia',
+    trustPartnerSub: 'Survey & Radar Instruments Partner',
     telemetryTag: 'TERRAPULSE-AI',
     telemetryStatus: 'LIVE',
     telemetryTitle: 'Slope displacement trend',
@@ -202,11 +216,13 @@ export default {
     member1Name: 'M. Radhisya Rifqy Wibawa',
     member1Role: 'President Director',
     member1Dept: 'Executive Leadership',
+
     member2Name: 'Abdhika Delyque Soetardja',
     member2Role: 'Operational Director',
-    member2Dept: 'Operational',
+    member2Dept: 'Operations',
+
     member3Name: 'Hartini',
     member3Role: 'President Commissioner',
-    member3Dept: 'Commissioner'
+    member3Dept: 'Board of Commissioners'
   }
 }

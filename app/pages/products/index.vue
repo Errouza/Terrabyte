@@ -37,12 +37,13 @@
             <div class="lg:col-span-5 relative">
               <NuxtLink
                 :to="`/products/${featuredProduct.id || featuredProduct.code}`"
-                class="block w-full aspect-[825/903] rounded-2xl bg-[#020b14] border border-white/10 overflow-hidden relative group/feat shadow-2xl"
+                class="block w-full aspect-[825/903] rounded-2xl bg-[#020b14] border border-white/10 overflow-hidden relative group/feat shadow-2xl p-6 flex items-center justify-center"
               >
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(24,184,234,0.12)_0%,rgba(2,11,20,0.95)_75%)] pointer-events-none"></div>
                 <img
                   :src="featuredProduct.img || '/images/uploads/1790323048828-sar5000.png'"
                   :alt="featuredProduct.name"
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover/feat:scale-105"
+                  class="max-h-[90%] max-w-[90%] object-contain drop-shadow-[0_15px_35px_rgba(0,0,0,0.8)] transition-transform duration-500 group-hover/feat:scale-105"
                 />
                 <span class="absolute top-4 left-4 z-20 font-mono text-[10px] tracking-widest uppercase font-bold px-3 py-1 rounded-full bg-[#18b8ea] text-[#030d17] shadow-[0_0_15px_rgba(24,184,234,0.4)]">
                   FEATURED
@@ -132,19 +133,14 @@
             <div>
               <NuxtLink
                 :to="`/products/${item.id || item.code}`"
-                class="block w-full aspect-square rounded-2xl bg-[#030d17] border border-white/10 overflow-hidden relative mb-5 group-hover:border-[#18b8ea]/40 transition-colors"
+                class="block w-full aspect-square rounded-2xl bg-[#020b14] border border-white/10 overflow-hidden relative mb-5 group-hover:border-[#18b8ea]/40 transition-colors p-4 flex items-center justify-center"
               >
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(24,184,234,0.1)_0%,rgba(2,11,20,0.95)_75%)] pointer-events-none"></div>
                 <img
                   :src="item.img || '/images/hero-bg.jpg'"
                   :alt="item.name"
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  class="max-h-[90%] max-w-[90%] object-contain drop-shadow-[0_10px_25px_rgba(0,0,0,0.8)] transition-transform duration-500 group-hover:scale-105"
                 />
-                <span
-                  v-if="item.status"
-                  class="absolute top-2.5 right-2.5 font-mono text-[9px] tracking-wider uppercase font-semibold px-2 py-0.5 rounded-full bg-[#030d17]/85 backdrop-blur-md border border-white/10 text-[#18b8ea]"
-                >
-                  {{ item.status }}
-                </span>
               </NuxtLink>
 
               <!-- Product Info: Centered matching user reference -->
