@@ -122,55 +122,164 @@
           </p>
         </div>
 
-        <!-- Product Cards Grid: Equal proportions, square photo frames, clear typography -->
+        <!-- Product Cards Grid with 3D Flipping Cards (Matches Home Page) -->
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-7">
+          <!-- 3D Flipping Card Item -->
           <div
             v-for="item in allProducts"
             :key="item.id || item.code"
-            class="rounded-3xl geo-card border border-white/10 p-4 sm:p-5 flex flex-col justify-between group hover:border-[#18b8ea]/60 transition-all duration-300 hover:shadow-[0_12px_35px_rgba(24,184,234,0.12)] hover:-translate-y-1"
+            class="product-flip-card h-[540px] sm:h-[560px] select-none"
+            style="perspective: 1200px;"
           >
-            <!-- Card Top: Framed Square Image (fits frame cleanly, no blur) -->
-            <div>
-              <NuxtLink
-                :to="`/products/${item.id || item.code}`"
-                class="block w-full aspect-square rounded-2xl bg-[#020b14] border border-white/10 overflow-hidden relative mb-5 group-hover:border-[#18b8ea]/40 transition-colors p-4 flex items-center justify-center"
+            <div
+              class="relative w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
+              :class="{ '[transform:rotateY(180deg)]': isFlipped(item.id || item.code) }"
+              style="transform-style: preserve-3d;"
+            >
+              
+              <!-- ─── FRONT FACE (MATCHES USER REFERENCE & HOME PAGE) ────────── -->
+              <div
+                class="absolute inset-0 rounded-3xl geo-card p-5 sm:p-6 flex flex-col justify-between overflow-hidden shadow-2xl border border-white/10 hover:border-[#18b8ea]/50 transition-colors group"
+                style="backface-visibility: hidden; -webkit-backface-visibility: hidden;"
               >
-                <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(24,184,234,0.1)_0%,rgba(2,11,20,0.95)_75%)] pointer-events-none"></div>
-                <img
-                  :src="item.img || '/images/hero-bg.jpg'"
-                  :alt="item.name"
-                  class="max-h-[90%] max-w-[90%] object-contain drop-shadow-[0_10px_25px_rgba(0,0,0,0.8)] transition-transform duration-500 group-hover:scale-105"
-                />
-              </NuxtLink>
+                <div>
+                  <!-- Top Isolated Product Box -->
+                  <div class="h-48 sm:h-52 rounded-2xl bg-[#020b14] border border-white/5 relative flex items-center justify-center p-4 overflow-hidden mb-4">
+                    <!-- Subtle Radial Spotlight Glow -->
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(24,184,234,0.12)_0%,rgba(2,11,20,0.95)_75%)] pointer-events-none"></div>
 
-              <!-- Product Info: Centered matching user reference -->
-              <div class="text-center px-1">
-                <span class="block font-mono text-[10px] uppercase tracking-[0.15em] text-[#18b8ea] font-semibold mb-1.5 truncate">
-                  {{ item.tag || (item.category?.toUpperCase() || 'SURVEY INSTRUMENT') }}
-                </span>
-                <h3 class="font-display font-bold text-base sm:text-lg text-white mb-2 leading-snug group-hover:text-[#18b8ea] transition-colors line-clamp-2">
-                  <NuxtLink :to="`/products/${item.id || item.code}`">
-                    {{ item.name }}
-                  </NuxtLink>
-                </h3>
-                <p class="font-body text-xs sm:text-sm text-[#94a3b8] leading-relaxed font-light line-clamp-3">
-                  {{ item.summary }}
-                </p>
+                    <!-- Clean isolated product hardware image -->
+                    <img
+                      :src="item.img || '/images/hero-bg.jpg'"
+                      :alt="item.name"
+                      class="max-h-[88%] max-w-[88%] object-contain drop-shadow-[0_15px_35px_rgba(0,0,0,0.8)] transition-transform duration-500 group-hover:scale-105"
+                    />
+
+                    <!-- Quick Flip Hint Icon (Top Right) -->
+                    <button
+                      type="button"
+                      @click.stop="toggleFlip(item.id || item.code)"
+                      class="absolute top-3 right-3 w-7 h-7 rounded-full bg-black/40 hover:bg-[#18b8ea] text-[#94a3b8] hover:text-[#030d17] border border-white/10 flex items-center justify-center text-xs transition-all shadow-md group/flip"
+                      title="Balik kartu untuk lihat spesifikasi"
+                    >
+                      <span class="group-hover/flip:rotate-180 transition-transform duration-300">↻</span>
+                    </button>
+                  </div>
+
+                  <!-- Category Tag -->
+                  <span class="block font-mono text-[10px] uppercase tracking-[0.16em] text-[#18b8ea] font-semibold mb-1.5 truncate">
+                    {{ item.tag || (item.category?.toUpperCase() || 'SURVEY INSTRUMENT') }}
+                  </span>
+
+                  <!-- Product Name -->
+                  <h3 class="font-display font-bold text-base sm:text-lg text-white mb-2 leading-snug line-clamp-2 group-hover:text-[#18b8ea] transition-colors">
+                    <NuxtLink :to="`/products/${item.id || item.code}`">
+                      {{ item.name }}
+                    </NuxtLink>
+                  </h3>
+
+                  <!-- Short Description -->
+                  <p class="font-body text-xs text-[#94a3b8] leading-relaxed font-light line-clamp-3">
+                    {{ item.summary }}
+                  </p>
+                </div>
+
+                <!-- Card Footer Bar -->
+                <div class="pt-3 border-t border-white/5 flex items-center justify-between">
+                  <span class="font-mono text-[10px] text-[#64748b] uppercase tracking-wider truncate max-w-[110px]">
+                    {{ item.code || 'TERRABYTE' }}
+                  </span>
+
+                  <div class="flex items-center gap-2">
+                    <!-- 3D Flip Action -->
+                    <button
+                      type="button"
+                      @click="toggleFlip(item.id || item.code)"
+                      class="px-2.5 py-1 rounded-full bg-white/5 hover:bg-[#18b8ea]/15 text-[#94a3b8] hover:text-[#18b8ea] text-[11px] font-mono border border-white/10 hover:border-[#18b8ea]/30 transition-all flex items-center gap-1"
+                      title="Lihat Spesifikasi di Belakang Kartu"
+                    >
+                      <span>Spek</span>
+                      <span class="text-xs">↻</span>
+                    </button>
+
+                    <!-- Direct Details Link to Dedicated Product Page -->
+                    <NuxtLink
+                      :to="`/products/${item.id || item.code}`"
+                      class="inline-flex items-center gap-1 font-ui font-bold text-xs text-[#18b8ea] hover:text-[#38cbf8] transition-colors group/link"
+                    >
+                      <span>{{ t('products.details') }}</span>
+                      <span class="text-sm transition-transform group-hover/link:translate-x-1">&rarr;</span>
+                    </NuxtLink>
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <!-- Card Bottom Action Link -->
-            <div class="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-xs">
-              <span class="font-mono text-[10px] text-white/40 uppercase tracking-wider truncate max-w-[130px]">
-                {{ item.code || 'TERRABYTE' }}
-              </span>
-              <NuxtLink
-                :to="`/products/${item.id || item.code}`"
-                class="inline-flex items-center gap-1.5 font-ui font-bold text-[#18b8ea] hover:text-[#38cbf8] transition-colors group/btn"
+              <!-- ─── BACK FACE (FLIPPED FACE: TECHNICAL SPECIFICATIONS) ─ -->
+              <div
+                class="absolute inset-0 rounded-3xl bg-gradient-to-b from-[#051f38] via-[#041628] to-[#020b14] p-5 sm:p-6 flex flex-col justify-between overflow-hidden shadow-2xl border border-[#18b8ea]/40"
+                style="backface-visibility: hidden; -webkit-backface-visibility: hidden; transform: rotateY(180deg);"
               >
-                <span>{{ t('products.details') }}</span>
-                <span class="text-sm transition-transform group-hover/btn:translate-x-1">&rarr;</span>
-              </NuxtLink>
+                <div>
+                  <!-- Back Face Header -->
+                  <div class="flex items-center justify-between pb-2.5 border-b border-white/10 mb-3">
+                    <span class="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-widest uppercase text-[#18b8ea] font-bold bg-[#18b8ea]/10 px-2.5 py-1 rounded-full border border-[#18b8ea]/20">
+                      <span class="w-1.5 h-1.5 rounded-full bg-[#18b8ea] animate-pulse"></span>
+                      {{ locale === 'id' ? 'SPESIFIKASI TEKNIS' : 'TECHNICAL SPECS' }}
+                    </span>
+                    <button
+                      type="button"
+                      @click="toggleFlip(item.id || item.code)"
+                      class="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-xs transition-colors"
+                      title="Kembali ke Foto Depan"
+                    >
+                      ✕
+                    </button>
+                  </div>
+
+                  <h4 class="font-display font-bold text-sm sm:text-base text-white truncate mb-1">
+                    {{ item.name }}
+                  </h4>
+                  <p class="font-mono text-[10px] text-[#64748b] uppercase mb-2.5">
+                    MODEL: {{ item.code }}
+                  </p>
+
+                  <!-- Technical Specs Rows -->
+                  <div class="space-y-1.5 max-h-[270px] sm:max-h-[290px] overflow-y-auto pr-1">
+                    <div
+                      v-for="(spec, sIdx) in (item.specs || []).slice(0, 6)"
+                      :key="sIdx"
+                      class="p-2 rounded-xl bg-[#020b14]/80 border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs"
+                    >
+                      <span class="text-[#94a3b8] font-mono text-[10px] sm:text-[11px] flex-shrink-0">{{ spec[0] }}</span>
+                      <span class="text-white font-medium text-right text-[10px] sm:text-[11px] sm:max-w-[170px] truncate" :title="spec[1]">{{ spec[1] }}</span>
+                    </div>
+                    <div v-if="!item.specs || item.specs.length === 0" class="p-3 text-center text-xs text-[#64748b]">
+                      {{ locale === 'id' ? 'Spesifikasi tersedia di halaman detail.' : 'Specifications available on detail page.' }}
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Back Face Footer Action Buttons -->
+                <div class="pt-3 border-t border-white/10 flex items-center justify-between gap-2.5">
+                  <button
+                    type="button"
+                    @click="toggleFlip(item.id || item.code)"
+                    class="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-mono transition-all flex items-center gap-1"
+                  >
+                    <span>↺</span>
+                    <span>Foto</span>
+                  </button>
+
+                  <NuxtLink
+                    :to="`/products/${item.id || item.code}`"
+                    class="btn-geo-primary !py-1.5 !px-3.5 !text-xs !font-bold flex items-center gap-1 flex-1 justify-center shadow-lg"
+                  >
+                    <span>{{ locale === 'id' ? 'Halaman Lengkap' : 'Full Page' }}</span>
+                    <span>&rarr;</span>
+                  </NuxtLink>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
@@ -274,19 +383,37 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useLanguage } from '~/composables/useLanguage'
 
 const { t, locale } = useLanguage()
 
 const { data: productsData } = await useAsyncData('products-catalog', () => $fetch('/api/products').catch(() => []))
 
+// ─── 3D CARD FLIP STATE & TOGGLE ──────────────────────────────────────────
+const flippedCards = ref<Record<string, boolean>>({})
+
+const toggleFlip = (id: string) => {
+  if (!id) return
+  flippedCards.value[id] = !flippedCards.value[id]
+}
+
+const isFlipped = (id: string) => {
+  return !!flippedCards.value[id]
+}
+
 const allProducts = computed(() => {
   if (!Array.isArray(productsData.value) || productsData.value.length === 0) return []
+  // Filter out any unauthorized or dummy products (e.g. sv600 bicycle)
+  const list = productsData.value.filter((p: any) => {
+    const s = `${p.id || ''} ${p.code || ''} ${p.name || ''} ${p.img || ''}`.toLowerCase()
+    return !s.includes('sv600') && !s.includes('solutions-marine')
+  })
+
   // Deduplicate products by code/name to prevent duplicate entries
   const seen = new Set<string>()
   const unique: any[] = []
-  for (const p of productsData.value) {
+  for (const p of list) {
     const key = String(p.code || p.name || p.id || '').toUpperCase()
     if (!seen.has(key)) {
       seen.add(key)

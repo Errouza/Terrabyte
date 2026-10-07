@@ -73,127 +73,37 @@
       </div>
     </section>
 
-    <!-- ─── RUNNING TICKER / CLIENT & PARTNER MARQUEE STRIP ─────────── -->
-    <section class="py-7 bg-[#010810]/95 border-y border-white/5 relative z-10 overflow-hidden backdrop-blur-md select-none">
-      <div class="max-w-7xl mx-auto px-6 lg:px-10 mb-4 flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <span class="relative flex h-2.5 w-2.5">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-          </span>
-          <p class="font-mono text-xs uppercase tracking-[0.22em] text-[#18b8ea] font-semibold">
-            {{ t('home.trustTag') }}
-          </p>
-        </div>
-        <p class="hidden sm:inline-flex items-center gap-2 font-mono text-[11px] text-[#64748b] tracking-wider uppercase">
-          <span class="w-1.5 h-1.5 rounded-full bg-[#18b8ea]/60"></span>
-          LIVE PARTNERS & CLIENTS TICKER
-        </p>
-      </div>
-
-      <!-- Marquee Ribbon with Edge Fade Masks -->
-      <div class="relative w-full overflow-hidden marquee-mask group cursor-pointer py-1">
-        <div class="animate-marquee py-2">
+    <!-- ─── TRUST & PARTNERS STRIP (CLIENT: BSS & TECH PARTNER: LEXTERA) ── -->
+    <section class="py-8 lg:py-10 bg-[#010810]/95 border-y border-white/5 relative z-10 backdrop-blur-md">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-8">
           
-          <!-- TRACK 1 -->
-          <div class="flex items-center gap-5 sm:gap-6 pr-5 sm:pr-6 flex-shrink-0">
-            <!-- Card 1: BSS (Active Client) -->
-            <div class="p-3.5 sm:p-4 rounded-2xl bg-[#030d17]/85 border border-white/10 hover:border-emerald-500/50 transition-all duration-300 flex items-center gap-4 flex-shrink-0 min-w-[340px] sm:min-w-[380px] shadow-lg">
-              <div class="w-24 h-14 rounded-xl bg-white p-2 flex items-center justify-center flex-shrink-0 shadow-sm border border-white/20">
-                <img
-                  src="/images/BSS.png"
-                  alt="PT Bina Sarana Sukses"
-                  class="h-9 w-auto max-w-full object-contain"
-                />
-              </div>
-              <div class="min-w-0 flex-1">
-                <span class="inline-flex items-center text-[10px] font-mono uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20 mb-1">
-                  {{ t('home.trustClientBadge') }}
-                </span>
-                <h4 class="font-display font-semibold text-sm text-white truncate">
-                  {{ t('home.trustClientTitle') }}
-                </h4>
-                <p class="font-body text-xs text-[#94a3b8] truncate">
-                  {{ t('home.trustClientSub') }}
-                </p>
-              </div>
+          <!-- Trust Intro -->
+          <div class="max-w-md space-y-1.5">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#18b8ea] animate-pulse"></span>
+              <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold">
+                {{ t('home.trustTag') }}
+              </p>
             </div>
-
-            <!-- Card 2: Lextera (Tech Partner) -->
-            <div class="p-3.5 sm:p-4 rounded-2xl bg-[#030d17]/85 border border-white/10 hover:border-[#18b8ea]/50 transition-all duration-300 flex items-center gap-4 flex-shrink-0 min-w-[340px] sm:min-w-[380px] shadow-lg">
-              <div class="w-24 h-14 rounded-xl bg-white p-2 flex items-center justify-center flex-shrink-0 shadow-sm border border-white/20">
-                <img
-                  src="/images/logoLextera.png"
-                  alt="PT Lextera Survey Indonesia"
-                  class="h-9 w-auto max-w-full object-contain"
-                />
-              </div>
-              <div class="min-w-0 flex-1">
-                <span class="inline-flex items-center text-[10px] font-mono uppercase tracking-wider text-[#18b8ea] bg-[#18b8ea]/10 px-2 py-0.5 rounded-full border border-[#18b8ea]/20 mb-1">
-                  {{ t('home.trustPartnerBadge') }}
-                </span>
-                <h4 class="font-display font-semibold text-sm text-white truncate">
-                  {{ t('home.trustPartnerTitle') }}
-                </h4>
-                <p class="font-body text-xs text-[#94a3b8] truncate">
-                  {{ t('home.trustPartnerSub') }}
-                </p>
-              </div>
-            </div>
-
-            <!-- Card 3: BSS Mining Operations Project -->
-            <div class="p-3.5 sm:p-4 rounded-2xl bg-[#030d17]/85 border border-white/10 hover:border-emerald-500/50 transition-all duration-300 flex items-center gap-4 flex-shrink-0 min-w-[340px] sm:min-w-[380px] shadow-lg">
-              <div class="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0 text-emerald-400">
-                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-              </div>
-              <div class="min-w-0 flex-1">
-                <span class="inline-flex items-center text-[10px] font-mono uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20 mb-1">
-                  OPERASIONAL AKTIF
-                </span>
-                <h4 class="font-display font-semibold text-sm text-white truncate">
-                  Monitoring Stabilitas Lereng Pit
-                </h4>
-                <p class="font-body text-xs text-[#94a3b8] truncate">
-                  Mitigasi Risiko Deformasi Tambang BSS
-                </p>
-              </div>
-            </div>
-
-            <!-- Card 4: Precision Instrumentation -->
-            <div class="p-3.5 sm:p-4 rounded-2xl bg-[#030d17]/85 border border-white/10 hover:border-[#18b8ea]/50 transition-all duration-300 flex items-center gap-4 flex-shrink-0 min-w-[340px] sm:min-w-[380px] shadow-lg">
-              <div class="w-14 h-14 rounded-xl bg-[#18b8ea]/10 border border-[#18b8ea]/20 flex items-center justify-center flex-shrink-0 text-[#18b8ea]">
-                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <div class="min-w-0 flex-1">
-                <span class="inline-flex items-center text-[10px] font-mono uppercase tracking-wider text-[#18b8ea] bg-[#18b8ea]/10 px-2 py-0.5 rounded-full border border-[#18b8ea]/20 mb-1">
-                  HARDWARE & AI INTEL
-                </span>
-                <h4 class="font-display font-semibold text-sm text-white truncate">
-                  Radar MS-SAR + TerraPulse-AI
-                </h4>
-                <p class="font-body text-xs text-[#94a3b8] truncate">
-                  Sinergi Eksklusif Lextera & Terrabyte
-                </p>
-              </div>
-            </div>
+            <p class="font-body text-xs sm:text-sm text-[#94a3b8] leading-relaxed font-light">
+              {{ t('home.trustDesc') }}
+            </p>
           </div>
 
-          <!-- TRACK 2 (Seamless Infinite Duplicate) -->
-          <div class="flex items-center gap-5 sm:gap-6 pr-5 sm:pr-6 flex-shrink-0" aria-hidden="true">
-            <!-- Card 1 Duplicate -->
-            <div class="p-3.5 sm:p-4 rounded-2xl bg-[#030d17]/85 border border-white/10 hover:border-emerald-500/50 transition-all duration-300 flex items-center gap-4 flex-shrink-0 min-w-[340px] sm:min-w-[380px] shadow-lg">
-              <div class="w-24 h-14 rounded-xl bg-white p-2 flex items-center justify-center flex-shrink-0 shadow-sm border border-white/20">
+          <!-- Entity Badges Grid: Clean, static, no running content -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6 flex-1 max-w-2xl">
+            
+            <!-- BSS Card (Active Operational Client) -->
+            <div class="p-4 rounded-2xl bg-[#030d17]/80 border border-white/10 hover:border-emerald-500/40 transition-all duration-300 flex items-center gap-4 group">
+              <div class="w-24 h-14 rounded-xl bg-white p-2 flex items-center justify-center flex-shrink-0 shadow-sm border border-white/20 group-hover:scale-105 transition-transform">
                 <img
                   src="/images/BSS.png"
                   alt="PT Bina Sarana Sukses"
                   class="h-9 w-auto max-w-full object-contain"
                 />
               </div>
-              <div class="min-w-0 flex-1">
+              <div class="min-w-0">
                 <span class="inline-flex items-center text-[10px] font-mono uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20 mb-1">
                   {{ t('home.trustClientBadge') }}
                 </span>
@@ -206,16 +116,16 @@
               </div>
             </div>
 
-            <!-- Card 2 Duplicate -->
-            <div class="p-3.5 sm:p-4 rounded-2xl bg-[#030d17]/85 border border-white/10 hover:border-[#18b8ea]/50 transition-all duration-300 flex items-center gap-4 flex-shrink-0 min-w-[340px] sm:min-w-[380px] shadow-lg">
-              <div class="w-24 h-14 rounded-xl bg-white p-2 flex items-center justify-center flex-shrink-0 shadow-sm border border-white/20">
+            <!-- Lextera Card (Authorized Tech Partner) -->
+            <div class="p-4 rounded-2xl bg-[#030d17]/80 border border-white/10 hover:border-[#18b8ea]/40 transition-all duration-300 flex items-center gap-4 group">
+              <div class="w-24 h-14 rounded-xl bg-white p-2 flex items-center justify-center flex-shrink-0 shadow-sm border border-white/20 group-hover:scale-105 transition-transform">
                 <img
                   src="/images/logoLextera.png"
                   alt="PT Lextera Survey Indonesia"
                   class="h-9 w-auto max-w-full object-contain"
                 />
               </div>
-              <div class="min-w-0 flex-1">
+              <div class="min-w-0">
                 <span class="inline-flex items-center text-[10px] font-mono uppercase tracking-wider text-[#18b8ea] bg-[#18b8ea]/10 px-2 py-0.5 rounded-full border border-[#18b8ea]/20 mb-1">
                   {{ t('home.trustPartnerBadge') }}
                 </span>
@@ -228,45 +138,6 @@
               </div>
             </div>
 
-            <!-- Card 3 Duplicate -->
-            <div class="p-3.5 sm:p-4 rounded-2xl bg-[#030d17]/85 border border-white/10 hover:border-emerald-500/50 transition-all duration-300 flex items-center gap-4 flex-shrink-0 min-w-[340px] sm:min-w-[380px] shadow-lg">
-              <div class="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0 text-emerald-400">
-                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-              </div>
-              <div class="min-w-0 flex-1">
-                <span class="inline-flex items-center text-[10px] font-mono uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20 mb-1">
-                  OPERASIONAL AKTIF
-                </span>
-                <h4 class="font-display font-semibold text-sm text-white truncate">
-                  Monitoring Stabilitas Lereng Pit
-                </h4>
-                <p class="font-body text-xs text-[#94a3b8] truncate">
-                  Mitigasi Risiko Deformasi Tambang BSS
-                </p>
-              </div>
-            </div>
-
-            <!-- Card 4 Duplicate -->
-            <div class="p-3.5 sm:p-4 rounded-2xl bg-[#030d17]/85 border border-white/10 hover:border-[#18b8ea]/50 transition-all duration-300 flex items-center gap-4 flex-shrink-0 min-w-[340px] sm:min-w-[380px] shadow-lg">
-              <div class="w-14 h-14 rounded-xl bg-[#18b8ea]/10 border border-[#18b8ea]/20 flex items-center justify-center flex-shrink-0 text-[#18b8ea]">
-                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <div class="min-w-0 flex-1">
-                <span class="inline-flex items-center text-[10px] font-mono uppercase tracking-wider text-[#18b8ea] bg-[#18b8ea]/10 px-2 py-0.5 rounded-full border border-[#18b8ea]/20 mb-1">
-                  HARDWARE & AI INTEL
-                </span>
-                <h4 class="font-display font-semibold text-sm text-white truncate">
-                  Radar MS-SAR + TerraPulse-AI
-                </h4>
-                <p class="font-body text-xs text-[#94a3b8] truncate">
-                  Sinergi Eksklusif Lextera & Terrabyte
-                </p>
-              </div>
-            </div>
           </div>
 
         </div>
@@ -779,17 +650,14 @@
               </span>
             </div>
 
-            <!-- Member Info: Name and Title (No bio needed) -->
-            <div class="space-y-1">
-              <span class="block font-mono text-[10px] uppercase tracking-[0.18em] text-[#18b8ea] font-semibold truncate">
+            <!-- Member Info: Role and Name (Dept removed, tuned to 1 single line) -->
+            <div class="space-y-1.5 pt-1">
+              <span class="block font-mono text-[11px] sm:text-xs uppercase tracking-[0.14em] text-[#18b8ea] font-bold truncate">
                 {{ member.role }}
               </span>
-              <h3 class="font-display font-bold text-lg sm:text-xl text-white group-hover:text-[#18b8ea] transition-colors">
+              <h3 class="font-display font-bold text-base sm:text-[17px] xl:text-lg text-white group-hover:text-[#18b8ea] transition-colors tracking-tight whitespace-nowrap truncate">
                 {{ member.name }}
               </h3>
-              <p class="font-ui text-xs text-[#94a3b8] font-light">
-                {{ member.dept }}
-              </p>
             </div>
           </div>
         </div>

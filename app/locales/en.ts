@@ -215,14 +215,11 @@ export default {
     viewAll: 'Learn More About Company',
     member1Name: 'M. Radhisya Rifqy Wibawa',
     member1Role: 'President Director',
-    member1Dept: 'Executive Leadership',
 
     member2Name: 'Abdhika Delyque Soetardja',
     member2Role: 'Operational Director',
-    member2Dept: 'Operations',
 
     member3Name: 'Hartini',
-    member3Role: 'President Commissioner',
-    member3Dept: 'Board of Commissioners'
+    member3Role: 'Commissioner',
   }
 }

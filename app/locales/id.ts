@@ -215,14 +215,11 @@ export default {
     viewAll: 'Pelajari Profil Perusahaan',
     member1Name: 'M. Radhisya Rifqy Wibawa',
     member1Role: 'Presiden Direktur',
-    member1Dept: 'Direksi',
 
     member2Name: 'Abdhika Delyque Soetardja',
     member2Role: 'Direktur Operasional',
-    member2Dept: 'Operasional',
 
     member3Name: 'Hartini',
-    member3Role: 'Komisaris Utama',
-    member3Dept: 'Dewan Komisaris'
+    member3Role: 'Komisaris',
   }
 }

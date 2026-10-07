@@ -233,17 +233,14 @@
               </span>
             </div>
 
-            <!-- Member Info: Name and Title (No bio needed) -->
-            <div class="space-y-1">
-              <span class="block font-mono text-[10px] uppercase tracking-[0.18em] text-[#18b8ea] font-semibold truncate">
+            <!-- Member Info: Role and Name (Dept removed, tuned to 1 single line) -->
+            <div class="space-y-1.5 pt-1">
+              <span class="block font-mono text-[11px] sm:text-xs uppercase tracking-[0.14em] text-[#18b8ea] font-bold truncate">
                 {{ member.role }}
               </span>
-              <h3 class="font-display font-bold text-lg sm:text-xl text-white group-hover:text-[#18b8ea] transition-colors">
+              <h3 class="font-display font-bold text-base sm:text-[17px] xl:text-lg text-white group-hover:text-[#18b8ea] transition-colors tracking-tight whitespace-nowrap truncate">
                 {{ member.name }}
               </h3>
-              <p class="font-ui text-xs text-[#94a3b8] font-light">
-                {{ member.dept }}
-              </p>
             </div>
           </div>
         </div>
