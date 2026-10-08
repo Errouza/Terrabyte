@@ -55,25 +55,25 @@
             <div class="lg:col-span-7 space-y-6">
               <div>
                 <span class="block font-mono text-xs uppercase tracking-[0.2em] text-[#18b8ea] font-semibold mb-2">
-                  {{ featuredProduct.tag || (featuredProduct.category?.toUpperCase() || 'SLOPE STABILITY MONITORING RADAR') }}
+                  {{ loc(featuredProduct, 'tag') || (featuredProduct.category?.toUpperCase() || 'SLOPE STABILITY MONITORING RADAR') }}
                 </span>
                 <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mb-4">
                   <NuxtLink
                     :to="`/products/${featuredProduct.id || featuredProduct.code}`"
                     class="hover:text-[#18b8ea] transition-colors"
                   >
-                    {{ featuredProduct.name }}
+                    {{ loc(featuredProduct, 'name') }}
                   </NuxtLink>
                 </h2>
                 <p class="font-body text-sm sm:text-base text-[#94a3b8] leading-relaxed font-light">
-                  {{ featuredProduct.summary }}
+                  {{ loc(featuredProduct, 'summary') }}
                 </p>
               </div>
 
               <!-- Bullet Points / Key Specs -->
-              <ul v-if="featuredProduct.specs && featuredProduct.specs.length > 0" class="space-y-3 pt-1">
+              <ul v-if="locSpecs(featuredProduct).length > 0" class="space-y-3 pt-1">
                 <li
-                  v-for="(spec, sIdx) in featuredProduct.specs.slice(0, 4)"
+                  v-for="(spec, sIdx) in locSpecs(featuredProduct).slice(0, 4)"
                   :key="sIdx"
                   class="flex items-start gap-3 text-sm text-white font-medium"
                 >
@@ -168,19 +168,19 @@
 
                   <!-- Category Tag -->
                   <span class="block font-mono text-[10px] uppercase tracking-[0.16em] text-[#18b8ea] font-semibold mb-1.5 truncate">
-                    {{ item.tag || (item.category?.toUpperCase() || 'SURVEY INSTRUMENT') }}
+                    {{ loc(item, 'tag') || (item.category?.toUpperCase() || 'SURVEY INSTRUMENT') }}
                   </span>
 
                   <!-- Product Name -->
                   <h3 class="font-display font-bold text-base sm:text-lg text-white mb-2 leading-snug line-clamp-2 group-hover:text-[#18b8ea] transition-colors">
                     <NuxtLink :to="`/products/${item.id || item.code}`">
-                      {{ item.name }}
+                      {{ loc(item, 'name') }}
                     </NuxtLink>
                   </h3>
 
                   <!-- Short Description -->
                   <p class="font-body text-xs text-[#94a3b8] leading-relaxed font-light line-clamp-3">
-                    {{ item.summary }}
+                    {{ loc(item, 'summary') }}
                   </p>
                 </div>
 
@@ -196,9 +196,9 @@
                       type="button"
                       @click="toggleFlip(item.id || item.code)"
                       class="px-2.5 py-1 rounded-full bg-white/5 hover:bg-[#18b8ea]/15 text-[#94a3b8] hover:text-[#18b8ea] text-[11px] font-mono border border-white/10 hover:border-[#18b8ea]/30 transition-all flex items-center gap-1"
-                      title="Lihat Spesifikasi di Belakang Kartu"
+                      :title="locale === 'id' ? 'Lihat Spesifikasi di Belakang Kartu' : 'View Specifications on Back of Card'"
                     >
-                      <span>Spek</span>
+                      <span>{{ locale === 'id' ? 'Spek' : 'Specs' }}</span>
                       <span class="text-xs">↻</span>
                     </button>
 
@@ -230,14 +230,14 @@
                       type="button"
                       @click="toggleFlip(item.id || item.code)"
                       class="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-xs transition-colors"
-                      title="Kembali ke Foto Depan"
+                      :title="locale === 'id' ? 'Kembali ke Foto Depan' : 'Back to Front Photo'"
                     >
                       ✕
                     </button>
                   </div>
 
                   <h4 class="font-display font-bold text-sm sm:text-base text-white truncate mb-1">
-                    {{ item.name }}
+                    {{ loc(item, 'name') }}
                   </h4>
                   <p class="font-mono text-[10px] text-[#64748b] uppercase mb-2.5">
                     MODEL: {{ item.code }}
@@ -246,14 +246,14 @@
                   <!-- Technical Specs Rows -->
                   <div class="space-y-1.5 max-h-[270px] sm:max-h-[290px] overflow-y-auto pr-1">
                     <div
-                      v-for="(spec, sIdx) in (item.specs || []).slice(0, 6)"
+                      v-for="(spec, sIdx) in locSpecs(item).slice(0, 6)"
                       :key="sIdx"
                       class="p-2 rounded-xl bg-[#020b14]/80 border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs"
                     >
                       <span class="text-[#94a3b8] font-mono text-[10px] sm:text-[11px] flex-shrink-0">{{ spec[0] }}</span>
                       <span class="text-white font-medium text-right text-[10px] sm:text-[11px] sm:max-w-[170px] truncate" :title="spec[1]">{{ spec[1] }}</span>
                     </div>
-                    <div v-if="!item.specs || item.specs.length === 0" class="p-3 text-center text-xs text-[#64748b]">
+                    <div v-if="locSpecs(item).length === 0" class="p-3 text-center text-xs text-[#64748b]">
                       {{ locale === 'id' ? 'Spesifikasi tersedia di halaman detail.' : 'Specifications available on detail page.' }}
                     </div>
                   </div>
@@ -267,7 +267,7 @@
                     class="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-mono transition-all flex items-center gap-1"
                   >
                     <span>↺</span>
-                    <span>Foto</span>
+                    <span>{{ locale === 'id' ? 'Foto' : 'Photo' }}</span>
                   </button>
 
                   <NuxtLink
@@ -386,7 +386,7 @@
 import { computed, ref } from 'vue'
 import { useLanguage } from '~/composables/useLanguage'
 
-const { t, locale } = useLanguage()
+const { t, locale, loc, locSpecs } = useLanguage()
 
 const { data: productsData } = await useAsyncData('products-catalog', () => $fetch('/api/products').catch(() => []))
 

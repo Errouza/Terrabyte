@@ -54,6 +54,9 @@ export default {
     lexteraBadge: 'MITRA RESMI TEKNOLOGI',
     lexteraTitle: 'PT Lextera Survey Indonesia',
     lexteraDesc: 'Penyedia instrumen survei dan radar geoteknik berstandar internasional yang terintegrasi langsung dengan platform analitik kecerdasan buatan TerraPulse-AI.',
+    /*ppaBadge: 'MINING OPERARTOR',
+    ppaTitle: 'PT Putra Perkasa Abadi',
+    ppaDesc: 'Apa ini bjir??', */
     bannerTitle: 'Mari berkolaborasi bersama kami.',
     bannerDesc: 'Diskusikan kebutuhan pemantauan lereng dan instrumen survei geospasial Anda bersama tim ahli kami.',
     bannerCta: 'Hubungi Kami'

@@ -337,9 +337,14 @@
                   <span class="font-mono text-xs font-bold text-[#18b8ea] px-2.5 py-1 rounded bg-[#18b8ea]/10 border border-[#18b8ea]/30">
                     {{ prod.code }}
                   </span>
-                  <span class="font-ui text-[10px] text-[#6c889f] px-2.5 py-0.5 rounded-full border border-white/10">
-                    {{ prod.tag }}
-                  </span>
+                  <div class="flex items-center gap-1.5">
+                    <span v-if="prod.nameEn" class="font-mono text-[9px] text-[#18b8ea] px-1.5 py-0.5 rounded bg-[#18b8ea]/10 border border-[#18b8ea]/30">
+                      ID+EN
+                    </span>
+                    <span class="font-ui text-[10px] text-[#6c889f] px-2.5 py-0.5 rounded-full border border-white/10">
+                      {{ prod.tag }}
+                    </span>
+                  </div>
                 </div>
 
                 <!-- Image -->
@@ -423,6 +428,9 @@
                   <div class="flex items-center gap-2 mb-1.5">
                     <span class="px-2 py-0.5 rounded text-[10px] font-mono uppercase bg-[#18b8ea]/20 text-[#18b8ea]">
                       {{ art.category }}
+                    </span>
+                    <span v-if="art.titleEn" class="px-1.5 py-0.5 rounded text-[9px] font-mono text-[#18b8ea] bg-[#18b8ea]/10 border border-[#18b8ea]/30">
+                      ID+EN
                     </span>
                     <span class="text-xs text-[#6c889f] font-mono">• {{ art.publishedAt }}</span>
                     <span class="text-xs text-[#6c889f] font-mono">• {{ art.readTime }} min read</span>
@@ -712,6 +720,45 @@
           <button @click="showProductModal = false" class="text-white/60 hover:text-white text-lg">✕</button>
         </div>
 
+        <!-- Language Switcher Tabs & Auto-Translate Action Bar -->
+        <div class="flex flex-wrap items-center justify-between gap-3 p-2.5 rounded-2xl bg-[#001428] border border-white/10 mb-5">
+          <!-- Language Tabs -->
+          <div class="flex items-center gap-1.5 p-1 rounded-xl bg-black/40 border border-white/5">
+            <button
+              type="button"
+              @click="productModalTab = 'id'"
+              class="px-3 py-1.5 rounded-lg text-xs font-mono transition-all flex items-center gap-1.5 cursor-pointer"
+              :class="productModalTab === 'id' ? 'bg-[#18b8ea] text-[#030d17] font-bold shadow-md' : 'text-[#94a3b8] hover:text-white'"
+            >
+              <span>🇮🇩</span>
+              <span>Bahasa Indonesia</span>
+            </button>
+            <button
+              type="button"
+              @click="productModalTab = 'en'"
+              class="px-3 py-1.5 rounded-lg text-xs font-mono transition-all flex items-center gap-1.5 cursor-pointer"
+              :class="productModalTab === 'en' ? 'bg-[#18b8ea] text-[#030d17] font-bold shadow-md' : 'text-[#94a3b8] hover:text-white'"
+            >
+              <span>🇬🇧</span>
+              <span>English</span>
+              <span v-if="editingProduct.nameEn || editingProduct.summaryEn" class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            </button>
+          </div>
+
+          <!-- Auto Translate Action Button -->
+          <button
+            type="button"
+            @click="autoTranslateProduct"
+            :disabled="isTranslatingProduct"
+            class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-[#18b8ea]/20 to-blue-500/20 hover:from-[#18b8ea]/30 hover:to-blue-500/30 border border-[#18b8ea]/40 text-[#18b8ea] text-xs font-mono font-bold flex items-center gap-1.5 transition-all cursor-pointer disabled:opacity-50"
+            title="Terjemahkan otomatis isian Indonesia ke English"
+          >
+            <span v-if="isTranslatingProduct" class="inline-block w-3.5 h-3.5 border-2 border-[#18b8ea] border-t-transparent rounded-full animate-spin"></span>
+            <span v-else>⚡</span>
+            <span>{{ isTranslatingProduct ? 'Menerjemahkan...' : 'Auto-Translate to English' }}</span>
+          </button>
+        </div>
+
         <form @submit.prevent="saveProduct" class="space-y-4">
           <div class="grid sm:grid-cols-2 gap-4">
             <div>
@@ -725,36 +772,66 @@
               />
             </div>
             <div>
-              <label class="block font-mono text-xs text-[#6c889f] mb-1">Kategori / Tag</label>
+              <label class="block font-mono text-xs text-[#6c889f] mb-1">
+                {{ productModalTab === 'id' ? 'Kategori / Tag (ID)' : 'Category / Tag (EN)' }}
+              </label>
               <input
+                v-if="productModalTab === 'id'"
                 v-model="editingProduct.tag"
                 type="text"
                 placeholder="misal: GNSS Receiver"
                 class="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/15 text-xs text-white"
                 required
               />
+              <input
+                v-else
+                v-model="editingProduct.tagEn"
+                type="text"
+                placeholder="e.g.: GNSS Receiver"
+                class="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/15 text-xs text-white"
+              />
             </div>
           </div>
 
           <div>
-            <label class="block font-mono text-xs text-[#6c889f] mb-1">Nama Lengkap Produk</label>
+            <label class="block font-mono text-xs text-[#6c889f] mb-1">
+              {{ productModalTab === 'id' ? 'Nama Lengkap Produk (ID)' : 'Full Product Name (EN)' }}
+            </label>
             <input
+              v-if="productModalTab === 'id'"
               v-model="editingProduct.name"
               type="text"
               placeholder="misal: NX-700 Sovereign Hexa-Band GNSS"
               class="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/15 text-xs text-white font-bold"
               required
             />
+            <input
+              v-else
+              v-model="editingProduct.nameEn"
+              type="text"
+              placeholder="e.g.: NX-700 Sovereign Hexa-Band GNSS"
+              class="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/15 text-xs text-white font-bold"
+            />
           </div>
 
           <div>
-            <label class="block font-mono text-xs text-[#6c889f] mb-1">Deskripsi Singkat / Summary</label>
+            <label class="block font-mono text-xs text-[#6c889f] mb-1">
+              {{ productModalTab === 'id' ? 'Deskripsi Singkat / Summary (ID)' : 'Short Summary / Overview (EN)' }}
+            </label>
             <textarea
+              v-if="productModalTab === 'id'"
               v-model="editingProduct.summary"
               rows="3"
               placeholder="Penjelasan keunggulan hardware..."
               class="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/15 text-xs text-white leading-relaxed"
               required
+            ></textarea>
+            <textarea
+              v-else
+              v-model="editingProduct.summaryEn"
+              rows="3"
+              placeholder="Hardware overview in English..."
+              class="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/15 text-xs text-white leading-relaxed"
             ></textarea>
           </div>
 
@@ -822,19 +899,23 @@
             </div>
           </div>
 
-          <!-- Dynamic Specs Editor -->
+          <!-- Dynamic Specs Editor (ID / EN) -->
           <div class="border-t border-white/10 pt-4">
             <div class="flex items-center justify-between mb-2">
-              <span class="font-mono text-xs text-[#18b8ea] font-semibold">Tabel Spesifikasi Teknis</span>
+              <span class="font-mono text-xs text-[#18b8ea] font-semibold">
+                {{ productModalTab === 'id' ? 'Tabel Spesifikasi Teknis (🇮🇩 Bahasa Indonesia)' : 'Technical Specifications Table (🇬🇧 English)' }}
+              </span>
               <button
                 type="button"
-                @click="addSpecRow"
-                class="text-[11px] font-mono text-[#18b8ea] hover:underline"
+                @click="productModalTab === 'id' ? addSpecRow() : addSpecEnRow()"
+                class="text-[11px] font-mono text-[#18b8ea] hover:underline cursor-pointer"
               >
                 + Tambah Baris
               </button>
             </div>
-            <div class="space-y-2 max-h-48 overflow-y-auto pr-1">
+
+            <!-- Specs ID -->
+            <div v-if="productModalTab === 'id'" class="space-y-2 max-h-48 overflow-y-auto pr-1">
               <div
                 v-for="(spec, idx) in editingProduct.specs"
                 :key="idx"
@@ -855,10 +936,42 @@
                 <button
                   type="button"
                   @click="removeSpecRow(idx)"
-                  class="text-rose-400 hover:text-rose-300 text-xs px-2"
+                  class="text-rose-400 hover:text-rose-300 text-xs px-2 cursor-pointer"
                 >
                   ✕
                 </button>
+              </div>
+            </div>
+
+            <!-- Specs EN -->
+            <div v-else class="space-y-2 max-h-48 overflow-y-auto pr-1">
+              <div
+                v-for="(spec, idx) in (editingProduct.specsEn || [])"
+                :key="idx"
+                class="flex gap-2 items-center"
+              >
+                <input
+                  v-model="spec[0]"
+                  type="text"
+                  placeholder="Label (e.g.: Channels)"
+                  class="flex-1 px-2.5 py-1.5 rounded bg-black/40 border border-white/10 text-xs text-white"
+                />
+                <input
+                  v-model="spec[1]"
+                  type="text"
+                  placeholder="Value (e.g.: 1,408 Channels)"
+                  class="flex-1 px-2.5 py-1.5 rounded bg-black/40 border border-white/10 text-xs text-[#18b8ea]"
+                />
+                <button
+                  type="button"
+                  @click="removeSpecEnRow(idx)"
+                  class="text-rose-400 hover:text-rose-300 text-xs px-2 cursor-pointer"
+                >
+                  ✕
+                </button>
+              </div>
+              <div v-if="(!editingProduct.specsEn || editingProduct.specsEn.length === 0)" class="text-xs text-[#6c889f] italic p-2 text-center">
+                Belum ada spesifikasi bahasa Inggris. Klik "⚡ Auto-Translate to English" di atas untuk menerjemahkan otomatis.
               </div>
             </div>
           </div>
@@ -895,22 +1008,74 @@
           <button @click="showArticleModal = false" class="text-white/60 hover:text-white text-lg">✕</button>
         </div>
 
+        <!-- Language Switcher Tabs & Auto-Translate Action Bar -->
+        <div class="flex flex-wrap items-center justify-between gap-3 p-2.5 rounded-2xl bg-[#001428] border border-white/10 mb-5">
+          <!-- Language Tabs -->
+          <div class="flex items-center gap-1.5 p-1 rounded-xl bg-black/40 border border-white/5">
+            <button
+              type="button"
+              @click="articleModalTab = 'id'"
+              class="px-3 py-1.5 rounded-lg text-xs font-mono transition-all flex items-center gap-1.5 cursor-pointer"
+              :class="articleModalTab === 'id' ? 'bg-[#18b8ea] text-[#030d17] font-bold shadow-md' : 'text-[#94a3b8] hover:text-white'"
+            >
+              <span>🇮🇩</span>
+              <span>Bahasa Indonesia</span>
+            </button>
+            <button
+              type="button"
+              @click="articleModalTab = 'en'"
+              class="px-3 py-1.5 rounded-lg text-xs font-mono transition-all flex items-center gap-1.5 cursor-pointer"
+              :class="articleModalTab === 'en' ? 'bg-[#18b8ea] text-[#030d17] font-bold shadow-md' : 'text-[#94a3b8] hover:text-white'"
+            >
+              <span>🇬🇧</span>
+              <span>English</span>
+              <span v-if="editingArticle.titleEn || editingArticle.contentEn" class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            </button>
+          </div>
+
+          <!-- Auto Translate Action Button -->
+          <button
+            type="button"
+            @click="autoTranslateArticle"
+            :disabled="isTranslatingArticle"
+            class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-[#18b8ea]/20 to-blue-500/20 hover:from-[#18b8ea]/30 hover:to-blue-500/30 border border-[#18b8ea]/40 text-[#18b8ea] text-xs font-mono font-bold flex items-center gap-1.5 transition-all cursor-pointer disabled:opacity-50"
+            title="Terjemahkan otomatis dari Bahasa Indonesia ke English"
+          >
+            <span v-if="isTranslatingArticle" class="inline-block w-3.5 h-3.5 border-2 border-[#18b8ea] border-t-transparent rounded-full animate-spin"></span>
+            <span v-else>⚡</span>
+            <span>{{ isTranslatingArticle ? 'Menerjemahkan...' : 'Auto-Translate to English' }}</span>
+          </button>
+        </div>
+
         <form @submit.prevent="saveArticle" class="space-y-4">
           <div>
-            <label class="block font-mono text-xs text-[#6c889f] mb-1">Judul Artikel</label>
+            <label class="block font-mono text-xs text-[#6c889f] mb-1">
+              {{ articleModalTab === 'id' ? 'Judul Artikel (ID)' : 'Article Title (EN)' }}
+            </label>
             <input
+              v-if="articleModalTab === 'id'"
               v-model="editingArticle.title"
               type="text"
               placeholder="Judul rilis atau laporan teknis..."
               class="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/15 text-xs text-white font-bold"
               required
             />
+            <input
+              v-else
+              v-model="editingArticle.titleEn"
+              type="text"
+              placeholder="Article title in English..."
+              class="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/15 text-xs text-white font-bold"
+            />
           </div>
 
           <div class="grid sm:grid-cols-2 gap-4">
             <div>
-              <label class="block font-mono text-xs text-[#6c889f] mb-1">Kategori Riset</label>
+              <label class="block font-mono text-xs text-[#6c889f] mb-1">
+                {{ articleModalTab === 'id' ? 'Kategori Riset (ID)' : 'Research Category (EN)' }}
+              </label>
               <select
+                v-if="articleModalTab === 'id'"
                 v-model="editingArticle.category"
                 class="w-full px-3 py-2 rounded-lg bg-[#001428] border border-white/15 text-xs text-white"
               >
@@ -919,6 +1084,13 @@
                 <option value="[Sensor Fusion]">Sensor Fusion</option>
                 <option value="[Studi Kasus]">Studi Kasus</option>
               </select>
+              <input
+                v-else
+                v-model="editingArticle.categoryEn"
+                type="text"
+                placeholder="e.g.: [GNSS Research] or [Radar Technology]"
+                class="w-full px-3 py-2 rounded-lg bg-[#001428] border border-white/15 text-xs text-white"
+              />
             </div>
             <div>
               <label class="block font-mono text-xs text-[#6c889f] mb-1">Estimasi Baca (Menit)</label>
@@ -932,22 +1104,42 @@
           </div>
 
           <div>
-            <label class="block font-mono text-xs text-[#6c889f] mb-1">Ringkasan Singkat (Excerpt)</label>
+            <label class="block font-mono text-xs text-[#6c889f] mb-1">
+              {{ articleModalTab === 'id' ? 'Ringkasan Singkat / Excerpt (ID)' : 'Short Summary / Excerpt (EN)' }}
+            </label>
             <textarea
+              v-if="articleModalTab === 'id'"
               v-model="editingArticle.excerpt"
               rows="2"
               placeholder="Rangkuman 2 kalimat untuk kartu depan..."
               class="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/15 text-xs text-white"
               required
             ></textarea>
+            <textarea
+              v-else
+              v-model="editingArticle.excerptEn"
+              rows="2"
+              placeholder="Short summary in English..."
+              class="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/15 text-xs text-white"
+            ></textarea>
           </div>
 
           <div>
-            <label class="block font-mono text-xs text-[#6c889f] mb-1">Isi Lengkap Artikel (Markdown / Teks)</label>
+            <label class="block font-mono text-xs text-[#6c889f] mb-1">
+              {{ articleModalTab === 'id' ? 'Isi Lengkap Artikel (ID - Markdown / Teks)' : 'Full Article Content (EN - Markdown / Text)' }}
+            </label>
             <textarea
+              v-if="articleModalTab === 'id'"
               v-model="editingArticle.content"
               rows="6"
               placeholder="Tuliskan isi laporan teknis lengkap..."
+              class="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/15 text-xs text-white font-mono leading-relaxed"
+            ></textarea>
+            <textarea
+              v-else
+              v-model="editingArticle.contentEn"
+              rows="6"
+              placeholder="Write complete technical content in English..."
               class="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/15 text-xs text-white font-mono leading-relaxed"
             ></textarea>
           </div>
@@ -1266,23 +1458,36 @@ async function uploadArticleImage(e: Event) {
   }
 }
 
-// ─── PRODUCTS ACTIONS ───
+// ─── PRODUCTS ACTIONS & BILINGUAL TAB STATE ───
 const showProductModal = ref(false)
-const editingProduct = ref<any>({ specs: [] })
+const productModalTab = ref<'id' | 'en'>('id')
+const isTranslatingProduct = ref(false)
+const editingProduct = ref<any>({ specs: [], specsEn: [] })
 
 function openProductModal(prod?: any) {
+  productModalTab.value = 'id'
   if (prod) {
     editingProduct.value = JSON.parse(JSON.stringify(prod))
     if (!editingProduct.value.specs) editingProduct.value.specs = []
+    if (!editingProduct.value.specsEn) {
+      editingProduct.value.specsEn = JSON.parse(JSON.stringify(editingProduct.value.specs))
+    }
   } else {
     editingProduct.value = {
       code: '',
       tag: 'GNSS Receiver',
+      tagEn: 'GNSS Receiver',
       name: '',
+      nameEn: '',
       summary: '',
+      summaryEn: '',
       img: '/images/products-nx700.jpg',
       status: 'In Active Production',
       specs: [
+        ['Saluran', '1.408 Multi-Band'],
+        ['Akurasi RTK', 'Sub-Sentimeter']
+      ],
+      specsEn: [
         ['Channels', '1,408 Multi-Band'],
         ['RTK Accuracy', 'Sub-Centimeter']
       ]
@@ -1292,15 +1497,86 @@ function openProductModal(prod?: any) {
 }
 
 function addSpecRow() {
+  if (!Array.isArray(editingProduct.value.specs)) editingProduct.value.specs = []
   editingProduct.value.specs.push(['', ''])
 }
 
 function removeSpecRow(idx: number) {
-  editingProduct.value.specs.splice(idx, 1)
+  if (Array.isArray(editingProduct.value.specs)) {
+    editingProduct.value.specs.splice(idx, 1)
+  }
+}
+
+function addSpecEnRow() {
+  if (!Array.isArray(editingProduct.value.specsEn)) editingProduct.value.specsEn = []
+  editingProduct.value.specsEn.push(['', ''])
+}
+
+function removeSpecEnRow(idx: number) {
+  if (Array.isArray(editingProduct.value.specsEn)) {
+    editingProduct.value.specsEn.splice(idx, 1)
+  }
+}
+
+async function autoTranslateProduct() {
+  if (!editingProduct.value.name && !editingProduct.value.summary && !editingProduct.value.tag) {
+    alert('Mohon isi nama atau ringkasan produk dalam Bahasa Indonesia terlebih dahulu.')
+    return
+  }
+  isTranslatingProduct.value = true
+  try {
+    const fieldsToTranslate: Record<string, string> = {
+      name: editingProduct.value.name || '',
+      tag: editingProduct.value.tag || '',
+      summary: editingProduct.value.summary || ''
+    }
+
+    const currentSpecs = editingProduct.value.specs || []
+    currentSpecs.forEach((s: any, i: number) => {
+      if (s[0]) fieldsToTranslate[`spec_label_${i}`] = s[0]
+    })
+
+    const res = await $fetch<{ success: boolean; results: Record<string, string> }>('/api/admin/translate', {
+      method: 'POST',
+      body: {
+        fields: fieldsToTranslate,
+        from: 'id',
+        to: 'en'
+      }
+    })
+
+    if (res?.success && res.results) {
+      if (res.results.name) editingProduct.value.nameEn = res.results.name
+      if (res.results.tag) editingProduct.value.tagEn = res.results.tag
+      if (res.results.summary) editingProduct.value.summaryEn = res.results.summary
+
+      // Build specsEn
+      const newSpecsEn: Array<[string, string]> = []
+      for (let i = 0; i < currentSpecs.length; i++) {
+        const transLabel = res.results[`spec_label_${i}`] || currentSpecs[i][0]
+        newSpecsEn.push([transLabel, currentSpecs[i][1]])
+      }
+      editingProduct.value.specsEn = newSpecsEn
+
+      // Switch to EN tab so user can review
+      productModalTab.value = 'en'
+    }
+  } catch (err) {
+    alert('Gagal menerjemahkan secara otomatis. Silakan periksa koneksi internet.')
+  } finally {
+    isTranslatingProduct.value = false
+  }
 }
 
 async function saveProduct() {
   try {
+    if (!editingProduct.value.nameEn) editingProduct.value.nameEn = editingProduct.value.name
+    if (!editingProduct.value.tagEn) editingProduct.value.tagEn = editingProduct.value.tag
+    if (!editingProduct.value.summaryEn) editingProduct.value.summaryEn = editingProduct.value.summary
+    if (!editingProduct.value.specsEn || editingProduct.value.specsEn.length === 0) {
+      editingProduct.value.specsEn = editingProduct.value.specs
+    }
+
     const res = await $fetch<{ success: boolean, products: any[] }>('/api/admin/products', {
       method: 'POST',
       body: editingProduct.value
@@ -1325,22 +1601,29 @@ async function deleteProduct(id: string) {
   }
 }
 
-// ─── ARTICLES ACTIONS ───
+// ─── ARTICLES ACTIONS & BILINGUAL TAB STATE ───
 const showArticleModal = ref(false)
+const articleModalTab = ref<'id' | 'en'>('id')
+const isTranslatingArticle = ref(false)
 const editingArticle = ref<any>({})
 const editingArticleAuthorName = ref('')
 
 function openArticleModal(art?: any) {
+  articleModalTab.value = 'id'
   if (art) {
     editingArticle.value = JSON.parse(JSON.stringify(art))
     editingArticleAuthorName.value = art.author?.name || ''
   } else {
     editingArticle.value = {
       title: '',
+      titleEn: '',
       category: '[Riset GNSS]',
+      categoryEn: '[GNSS Research]',
       readTime: '5',
       excerpt: '',
+      excerptEn: '',
       content: '',
+      contentEn: '',
       mainImage: '/images/hero-surveyor.jpg'
     }
     editingArticleAuthorName.value = 'Tim R&D Terrabyte'
@@ -1348,8 +1631,52 @@ function openArticleModal(art?: any) {
   showArticleModal.value = true
 }
 
+async function autoTranslateArticle() {
+  if (!editingArticle.value.title && !editingArticle.value.excerpt && !editingArticle.value.content) {
+    alert('Mohon isi judul atau ringkasan artikel dalam Bahasa Indonesia terlebih dahulu.')
+    return
+  }
+  isTranslatingArticle.value = true
+  try {
+    const fieldsToTranslate: Record<string, string> = {
+      title: editingArticle.value.title || '',
+      category: editingArticle.value.category || '',
+      excerpt: editingArticle.value.excerpt || '',
+      content: editingArticle.value.content || ''
+    }
+
+    const res = await $fetch<{ success: boolean; results: Record<string, string> }>('/api/admin/translate', {
+      method: 'POST',
+      body: {
+        fields: fieldsToTranslate,
+        from: 'id',
+        to: 'en'
+      }
+    })
+
+    if (res?.success && res.results) {
+      if (res.results.title) editingArticle.value.titleEn = res.results.title
+      if (res.results.category) editingArticle.value.categoryEn = res.results.category
+      if (res.results.excerpt) editingArticle.value.excerptEn = res.results.excerpt
+      if (res.results.content) editingArticle.value.contentEn = res.results.content
+
+      // Switch to EN tab so user can review
+      articleModalTab.value = 'en'
+    }
+  } catch (err) {
+    alert('Gagal menerjemahkan artikel secara otomatis. Silakan periksa koneksi internet.')
+  } finally {
+    isTranslatingArticle.value = false
+  }
+}
+
 async function saveArticle() {
   try {
+    if (!editingArticle.value.titleEn) editingArticle.value.titleEn = editingArticle.value.title
+    if (!editingArticle.value.categoryEn) editingArticle.value.categoryEn = editingArticle.value.category
+    if (!editingArticle.value.excerptEn) editingArticle.value.excerptEn = editingArticle.value.excerpt
+    if (!editingArticle.value.contentEn) editingArticle.value.contentEn = editingArticle.value.content
+
     editingArticle.value.author = {
       name: editingArticleAuthorName.value,
       role: 'Divisi R&D Terrabyte'

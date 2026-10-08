@@ -26,34 +26,34 @@
       <!-- Back Link -->
       <NuxtLink
         to="/articles"
-        class="inline-flex items-center gap-2 text-sm text-[#9db4c8] hover:text-cyan-400 transition-colors mb-8"
+        class="inline-flex items-center gap-2 text-sm text-[#9db4c8] hover:text-[#18b8ea] transition-colors mb-8"
       >
-        ← Back to Intel Briefings
+        {{ locale === 'id' ? '← Kembali ke Daftar Berita' : '← Back to News & Articles' }}
       </NuxtLink>
 
       <!-- Category & Meta -->
       <div class="flex flex-wrap items-center gap-3 mb-6">
-        <span class="px-3.5 py-1 rounded-full text-xs font-semibold bg-cyan-500/10 border border-cyan-500/30 text-cyan-400">
-          {{ article.category }}
+        <span class="px-3.5 py-1 rounded-full text-xs font-semibold bg-[#18b8ea]/10 border border-[#18b8ea]/30 text-[#18b8ea]">
+          {{ loc(article, 'category') }}
         </span>
         <span class="text-xs text-[#9db4c8]">{{ article.publishedAt }}</span>
         <span class="text-xs text-[#9db4c8]">•</span>
-        <span class="text-xs text-[#9db4c8]">{{ article.readTime }} min read</span>
+        <span class="text-xs text-[#9db4c8]">{{ article.readTime }} {{ locale === 'id' ? 'menit baca' : 'min read' }}</span>
       </div>
 
       <!-- Title -->
       <h1 class="text-3xl md:text-5xl font-bold font-display text-white mb-6 leading-tight">
-        {{ article.title }}
+        {{ loc(article, 'title') }}
       </h1>
 
       <!-- Author Bar -->
       <div class="flex items-center gap-3 py-4 border-y border-white/10 mb-10">
-        <div class="w-10 h-10 rounded-full bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center font-bold text-cyan-400">
+        <div class="w-10 h-10 rounded-full bg-[#18b8ea]/20 border border-[#18b8ea]/40 flex items-center justify-center font-bold text-[#18b8ea]">
           {{ article.author?.name ? article.author.name.charAt(0).toUpperCase() : 'T' }}
         </div>
         <div>
           <p class="text-sm font-semibold text-white">{{ article.author?.name || 'Terrabyte Team' }}</p>
-          <p class="text-xs text-[#9db4c8]">{{ article.author?.role || 'Defense Systems' }}</p>
+          <p class="text-xs text-[#9db4c8]">{{ locale === 'id' ? 'Divisi Riset & Rekayasa Geospasial' : 'Geospatial R&D Division' }}</p>
         </div>
       </div>
 
@@ -61,15 +61,15 @@
       <div class="rounded-2xl overflow-hidden border border-white/10 mb-12 shadow-2xl">
         <img
           :src="article.mainImage"
-          :alt="article.title"
+          :alt="loc(article, 'title')"
           class="w-full h-auto max-h-[500px] object-cover"
         />
       </div>
 
       <!-- Excerpt Box -->
-      <div class="p-6 rounded-2xl bg-[#0b385e]/40 border-l-4 border-cyan-400 border border-white/5 mb-10">
+      <div class="p-6 rounded-2xl bg-[#0b385e]/40 border-l-4 border-[#18b8ea] border border-white/5 mb-10">
         <p class="text-lg text-cyan-100 font-medium italic">
-          "{{ article.excerpt }}"
+          "{{ loc(article, 'excerpt') }}"
         </p>
       </div>
 
@@ -95,25 +95,30 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { useLanguage } from '~/composables/useLanguage'
 
+const { t, locale, loc } = useLanguage()
 const route = useRoute()
 const slug = computed(() => route.params.slug as string)
 
-const { getArticleBySlug } = useSanityContent()
 const { data: article, pending } = await useAsyncData(
-  () => 'article-detail-' + slug.value,
+  'article-detail-' + slug.value,
   async () => {
     try {
       const res = await $fetch('/api/articles/' + slug.value)
       if (res) return res
     } catch {}
     return getArticleBySlug(slug.value).catch(() => null)
+  },
+  {
+    watch: [slug]
   }
 )
 
 const formattedContent = computed(() => {
-  if (!article.value?.content) return ''
-  return article.value.content
+  const raw = loc(article.value, 'content')
+  if (!raw) return ''
+  return raw
     .replace(/^### (.*$)/gim, '<h3 class="text-xl font-bold font-display text-white mt-8 mb-3">$1</h3>')
     .replace(/^## (.*$)/gim, '<h2 class="text-2xl font-bold font-display text-white mt-10 mb-4">$1</h2>')
     .replace(/^\* (.*$)/gim, '<li class="ml-4 list-disc text-[#9db4c8]">$1</li>')
@@ -122,6 +127,6 @@ const formattedContent = computed(() => {
 })
 
 useHead({
-  title: computed(() => article.value ? `${article.value.title} — Terrabyte` : 'Article — Terrabyte')
+  title: computed(() => article.value ? `${loc(article.value, 'title')} — Terrabyte` : 'Article — Terrabyte')
 })
 </script>

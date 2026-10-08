@@ -28,14 +28,14 @@
         <div class="flex flex-wrap items-center gap-2.5 pt-8">
           <button
             v-for="cat in filterCategories"
-            :key="cat"
-            @click="activeCategory = cat"
+            :key="cat.id"
+            @click="activeCategoryId = cat.id"
             class="px-5 py-2 rounded-full font-ui text-xs font-bold tracking-wide uppercase transition-all duration-300 cursor-pointer"
-            :class="activeCategory === cat
+            :class="activeCategoryId === cat.id
               ? 'bg-[#18b8ea] text-[#030d17] shadow-[0_0_20px_rgba(24,184,234,0.4)]'
               : 'bg-[#071d2e] text-[#94a3b8] hover:text-white border border-white/10 hover:border-white/20'"
           >
-            {{ cat }}
+            {{ cat.label }}
           </button>
         </div>
       </div>
@@ -52,7 +52,7 @@
             <div class="lg:col-span-6 relative aspect-[16/10] overflow-hidden bg-[#020b14]">
               <img
                 :src="featuredArticle.mainImage || '/images/hero-bg.jpg'"
-                :alt="featuredArticle.title"
+                :alt="loc(featuredArticle, 'title')"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-[#030d17] via-transparent to-transparent lg:hidden"></div>
@@ -62,7 +62,7 @@
             <div class="lg:col-span-6 p-8 lg:p-12 space-y-4">
               <div class="flex items-center gap-3">
                 <span class="font-mono text-[11px] uppercase tracking-wider px-3 py-0.5 rounded-full bg-[#18b8ea]/15 text-[#18b8ea] font-semibold border border-[#18b8ea]/30">
-                  {{ featuredArticle.category || 'COMPANY NEWS' }}
+                  {{ loc(featuredArticle, 'category') || 'COMPANY NEWS' }}
                 </span>
                 <span class="font-mono text-xs text-[#64748b]">
                   {{ featuredArticle.publishedAt }}
@@ -71,12 +71,12 @@
 
               <h2 class="font-display font-bold text-2xl sm:text-3xl text-white group-hover:text-[#18b8ea] transition-colors leading-tight">
                 <NuxtLink :to="`/articles/${featuredArticle.slug}`">
-                  {{ featuredArticle.title }}
+                  {{ loc(featuredArticle, 'title') }}
                 </NuxtLink>
               </h2>
 
               <p class="font-body text-sm sm:text-base text-[#94a3b8] leading-relaxed font-light">
-                {{ featuredArticle.excerpt }}
+                {{ loc(featuredArticle, 'excerpt') }}
               </p>
 
               <div class="pt-2">
@@ -84,7 +84,7 @@
                   :to="`/articles/${featuredArticle.slug}`"
                   class="inline-flex items-center gap-2 font-ui font-bold text-xs tracking-wider uppercase text-[#18b8ea] hover:text-[#38cbf8]"
                 >
-                  <span>Read article</span>
+                  <span>{{ locale === 'id' ? 'Baca artikel' : 'Read article' }}</span>
                   <span>&rarr;</span>
                 </NuxtLink>
               </div>
@@ -103,7 +103,7 @@
             <div class="h-52 bg-[#020b14] relative overflow-hidden">
               <img
                 :src="art.mainImage || '/images/hero-surveyor.jpg'"
-                :alt="art.title"
+                :alt="loc(art, 'title')"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-90"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-[#030d17]/60 via-transparent to-transparent"></div>
@@ -113,17 +113,17 @@
             <div class="p-7 flex-1 flex flex-col justify-between space-y-4">
               <div class="space-y-2.5">
                 <div class="flex items-center gap-2.5 text-[11px] font-mono">
-                  <span class="text-[#18b8ea] uppercase font-semibold">{{ art.category }}</span>
+                  <span class="text-[#18b8ea] uppercase font-semibold">{{ loc(art, 'category') }}</span>
                   <span class="text-[#64748b]">&middot;</span>
                   <span class="text-[#64748b]">{{ art.publishedAt }}</span>
                 </div>
                 <h3 class="font-display font-bold text-lg text-white group-hover:text-[#18b8ea] transition-colors leading-snug">
                   <NuxtLink :to="`/articles/${art.slug}`">
-                    {{ art.title }}
+                    {{ loc(art, 'title') }}
                   </NuxtLink>
                 </h3>
                 <p class="font-body text-xs text-[#94a3b8] leading-relaxed font-light line-clamp-3">
-                  {{ art.excerpt }}
+                  {{ loc(art, 'excerpt') }}
                 </p>
               </div>
 
@@ -132,7 +132,7 @@
                   :to="`/articles/${art.slug}`"
                   class="inline-flex items-center gap-1.5 text-xs font-ui font-bold text-[#18b8ea] hover:text-[#38cbf8] uppercase tracking-wider"
                 >
-                  <span>Read article</span>
+                  <span>{{ locale === 'id' ? 'Baca artikel' : 'Read article' }}</span>
                   <span>&rarr;</span>
                 </NuxtLink>
               </div>
@@ -145,7 +145,7 @@
           <button
             class="btn-geo-outline"
           >
-            Load more
+            {{ locale === 'id' ? 'Muat Lebih Banyak' : 'Load more' }}
           </button>
         </div>
 
@@ -159,22 +159,32 @@
 import { ref, computed } from 'vue'
 import { useLanguage } from '~/composables/useLanguage'
 
-const { t, locale } = useLanguage()
+const { t, locale, loc } = useLanguage()
 
 const { data: articlesData } = await useAsyncData('articles-hifi', () => $fetch('/api/articles').catch(() => []))
 
-const filterCategories = ['All', 'Company News', 'Articles', 'Projects', 'Events']
-const activeCategory = ref('All')
+const activeCategoryId = ref('All')
+
+const filterCategories = computed(() => [
+  { id: 'All', label: locale.value === 'id' ? 'Semua' : 'All' },
+  { id: 'Company News', label: locale.value === 'id' ? 'Berita Perusahaan' : 'Company News' },
+  { id: 'Articles', label: locale.value === 'id' ? 'Artikel' : 'Articles' },
+  { id: 'Projects', label: locale.value === 'id' ? 'Proyek' : 'Projects' },
+  { id: 'Events', label: locale.value === 'id' ? 'Event' : 'Events' }
+])
 
 const allArticles = computed(() => {
   return Array.isArray(articlesData.value) ? articlesData.value : []
 })
 
 const filteredArticles = computed(() => {
-  if (activeCategory.value === 'All') return allArticles.value
-  return allArticles.value.filter(a =>
-    a.category?.toLowerCase() === activeCategory.value.toLowerCase()
-  )
+  if (activeCategoryId.value === 'All') return allArticles.value
+  const target = activeCategoryId.value.toLowerCase()
+  return allArticles.value.filter(a => {
+    const rawCat = (a.category || '').toLowerCase()
+    const rawCatEn = (a.categoryEn || '').toLowerCase()
+    return rawCat.includes(target) || rawCatEn.includes(target)
+  })
 })
 
 const featuredArticle = computed(() => {
@@ -186,11 +196,15 @@ const remainingArticles = computed(() => {
 })
 
 useHead({
-  title: 'News & Articles — Insights from the ground up | Terrabyte',
+  title: computed(() => locale.value === 'id'
+    ? 'Berita & Artikel — Kilas Operasional & Teknologi | Terrabyte'
+    : 'News & Articles — Insights from the ground up | Terrabyte'),
   meta: [
     {
       name: 'description',
-      content: 'Company news, project stories and practical knowledge on monitoring and geospatial technology.'
+      content: computed(() => locale.value === 'id'
+        ? 'Kilas berita operasional, studi kasus lapangan, dan wawasan teknologi geospasial terkini.'
+        : 'Company news, project stories and practical knowledge on monitoring and geospatial technology.')
     }
   ]
 })

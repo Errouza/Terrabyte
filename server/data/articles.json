@@ -1,11 +1,55 @@
 [
   {
+    "id": "art-radar-slope",
+    "slug": "how-radar-slope-monitoring-gives-early-warning",
+    "title": "Bagaimana pemantauan lereng dengan radar memberikan peringatan dini",
+    "titleEn": "How radar slope monitoring gives early warning",
+    "excerpt": "Panduan dalam bahasa yang mudah dipahami tentang cara kerja radar lereng dalam mendeteksi pergerakan.",
+    "excerptEn": "A plain-language guide to how slope radar detects movement.",
+    "content": "## Memahami Radar Berbasis Darat dalam Stabilitas Lereng\n\nKegagalan lereng di tambang terbuka atau galian infrastruktur besar jarang terjadi tanpa peringatan. Deformasi mikro hampir selalu mendahului runtuhnya dinding besar. Radar Apertur Sintetis Berbasis Darat (GB-SAR) seperti MS-SAR5000 mendeteksi pergeseran fase yang halus ini.\n\n### Cara Kerjanya\n\n1. **Pemindaian Berkelanjutan**: Radar memindai permukaan lubang tambang atau lereng secara 360 derajat atau melintasi sektor-sektor yang telah ditentukan, sambil memancarkan sinyal gelombang mikro.\n2. **Perbandingan Fase**: Dengan membandingkan fase pantulan sinyal antara sapuan berturut-turut, radar ini mengukur perpindahan dengan presisi hingga di bawah satu milimeter.\n3. **Pembuatan Peringatan Dini**: Ketika kecepatan deformasi meningkat melampaui ambang batas keselamatan yang telah ditentukan, peringatan akan terpicu di TerraPulse-AI dan dikirimkan kepada petugas keselamatan di lokasi.",
+    "contentEn": "## Understanding Ground-Based Radar in Slope Stability\n\nSlope failures in open-pit mines or major infrastructure cuttings rarely happen without warning. Micro-deformations almost always precede major wall collapses. Ground-Based Synthetic Aperture Radar (GB-SAR) such as the MS-SAR5000 detects these subtle phase shifts.\n\n### How It Works\n\n1. **Continuous Scanning**: The radar sweeps the pit face or slope 360 degrees or across defined sectors, emitting microwave signals.\n2. **Phase Comparison**: By comparing the reflected phase of signals between consecutive sweeps, the radar measures displacement down to sub-millimeter precision.\n3. **Early Alert Generation**: When deformation velocity accelerates beyond predefined safety thresholds, alerts are triggered in TerraPulse-AI and dispatched to site safety officers.",
+    "category": "[Teknologi Radar]",
+    "categoryEn": "Radar Technology",
+    "publishedAt": "22 Sep 2026",
+    "readTime": "5",
+    "mainImage": "https://xbadzroazjblacumvnpq.supabase.co/storage/v1/object/public/uploads/1791445011681-1791445011394-sar_inaction.jpeg",
+    "author": {
+      "name": "Radar Engineering Team",
+      "role": "Divisi R&D Terrabyte"
+    },
+    "updatedAt": "2026-10-08T07:38:45.092Z"
+  },
+  {
+    "id": "art-what-is-terrapulse",
+    "slug": "what-is-terrapulse-ai",
+    "title": "Apa itu TerraPulse-AI?",
+    "titleEn": "What is TerraPulse-AI?",
+    "excerpt": "Bagaimana platform kami mengubah data pemantauan menjadi keputusan cepat.",
+    "excerptEn": "How our platform turns monitoring data into decisions.",
+    "content": "## Mengubah Data Kebumian Menjadi Keputusan Tepat Waktu\n\nPengumpulan volume data sensor yang masif hanyalah langkah awal. TerraPulse-AI adalah platform data end-to-end yang dirancang khusus untuk pemantauan geoteknik, struktural, dan lingkungan.\n\n### Kemampuan Inti\n\n- **Fusi Multi-Sensor**: Menyatukan radar lereng, penentuan posisi GNSS RTK, piezometer, dan stasiun cuaca ke dalam satu tampilan 3D interaktif.\n- **Analisis Tren Deformasi**: Lebih dari sekadar ambang batas statis. Model machine learning menganalisis tren laju deformasi untuk membedakan pemuaian termal dari pergerakan struktural nyata.\n- **Respons Cepat**: Latensi di bawah 5 milidetik dari penyerapan sensor hingga visualisasi dasbor, didukung langsung oleh operator TerraWatch 24/7.",
+    "contentEn": "## Turning Earth Data into Actionable Decisions\n\nCollecting massive volumes of sensor telemetry is only the first step. TerraPulse-AI is an end-to-end data platform engineered specifically for geotechnical, structural, and environmental monitoring.\n\n### Core Capabilities\n\n- **Multi-Sensor Fusion**: Unify slope radar, GNSS RTK positioning, piezometers, and weather stations into a single 3D interactive view.\n- **Trend Analysis**: Move beyond static thresholds. Machine learning models analyze deformation velocity trends to differentiate between thermal dilation and true structural movement.\n- **Fast Response**: Latency of under 5 milliseconds from sensor ingestion to dashboard visualization, backed by TerraWatch operators.",
+    "category": "Artikel",
+    "categoryEn": "Articles",
+    "publishedAt": "15 Sep 2026",
+    "readTime": "6",
+    "mainImage": "https://xbadzroazjblacumvnpq.supabase.co/storage/v1/object/public/uploads/1790705116304-1790705115966-fixxing-ai.png",
+    "author": {
+      "name": "Geotech Software Team",
+      "role": "Divisi R&D Terrabyte"
+    },
+    "updatedAt": "2026-09-29T18:05:21.465+00:00"
+  },
+  {
     "id": "art-intro",
     "slug": "introducing-terrabyte-geosystem-indonesia",
-    "title": "Introducing Terrabyte Geosystem Indonesia",
-    "excerpt": "Why we started, what we’re building with TerraPulse-AI and TerraWatch, and where we’re headed next.",
-    "content": "## Built in the Field. Driven by Data.\n\nTerrabyte Geosystem Indonesia grew out of real field work. Working alongside PT Lextera Survey Indonesia on radar slope monitoring projects across Indonesian mining and infrastructure sectors, we saw that the hardest part isn’t gathering data, it’s turning it into clear, timely decisions.\n\n### Why We Started\n\nTraditional geospatial monitoring often left field engineers overwhelmed by disparate data streams—unprocessed radar point clouds, isolated GNSS feeds, and delayed reporting. We founded Terrabyte Geosystem Indonesia to bridge this critical gap.\n\n### What We're Building\n\n- **TerraPulse-AI**: Our analytics platform that ingests raw telemetry from sensors, runs anomaly detection models, and turns complex sensor streams into actionable trend alerts.\n- **TerraWatch Center**: A 24/7 dedicated monitoring center staffed by certified engineers who keep continuous watch over site conditions, verify alerts, and escalate critical anomalies.\n- **Lextera Partnership**: Direct integration with premier survey instruments, including the ComNav MS-SAR5000 slope radar, high-precision GNSS receivers, and SV600 USVs.\n\n### Where We're Headed\n\nWe are committed to building Indonesia's foremost geospatial intelligence ecosystem, helping industrial teams make safety decisions long before hazards develop.",
-    "category": "Company News",
+    "title": "Mengenal Terrabyte Geosystem Indonesia",
+    "titleEn": "Introducing Terrabyte Geosystem Indonesia",
+    "excerpt": "Kisah awal berdirinya kami, inovasi TerraPulse-AI dan TerraWatch, serta langkah kami ke depan.",
+    "excerptEn": "Why we started, what we’re building with TerraPulse-AI and TerraWatch, and where we’re headed next.",
+    "content": "## Lahir dari Lapangan. Digerakkan oleh Data.\n\nTerrabyte Geosystem Indonesia lahir dari pengalaman nyata di lapangan. Bekerja bersama PT Lextera Survey Indonesia dalam proyek pemantauan radar stabilitas lereng di sektor pertambangan dan infrastruktur Indonesia, kami melihat bahwa tantangan terbesar bukanlah sekadar mengambil data, melainkan mengubahnya menjadi keputusan yang cepat dan tepat.\n\n### Mengapa Kami Memulai\n\nPemantauan geospasial tradisional sering kali membuat para insinyur lapangan kewalahan oleh aliran data yang terpisah—cloud titik radar mentah, umpan GNSS terisolasi, dan pelaporan yang tertunda. Kami mendirikan Terrabyte Geosystem Indonesia untuk menjembatani kesenjangan kritis ini.\n\n### Yang Kami Bangun\n\n- **TerraPulse-AI**: Platform analitik kami yang mengolah telemetri mentah dari sensor, menjalankan model deteksi anomali, dan mengubah aliran data yang rumit menjadi peringatan tren yang siap ditindaklanjuti.\n- **Pusat TerraWatch**: Pusat pemantauan 24/7 yang dikelola oleh engineer bersertifikasi untuk mengawasi kondisi lokasi secara kontinu, memverifikasi peringatan, dan mengeskalasi anomali kritis.\n- **Kemitraan Lextera**: Integrasi langsung dengan instrumen survei unggulan, termasuk radar lereng ComNav MS-SAR5000, receiver GNSS presisi tinggi, dan USV SV600.\n\n### Ke Mana Arah Kami Selanjutnya\n\nKami berkomitmen untuk membangun ekosistem intelijen geospasial terdepan di Indonesia, membantu tim industri mengambil keputusan keselamatan jauh sebelum bahaya terjadi.",
+    "contentEn": "## Built in the Field. Driven by Data.\n\nTerrabyte Geosystem Indonesia grew out of real field work. Working alongside PT Lextera Survey Indonesia on radar slope monitoring projects across Indonesian mining and infrastructure sectors, we saw that the hardest part isn’t gathering data, it’s turning it into clear, timely decisions.\n\n### Why We Started\n\nTraditional geospatial monitoring often left field engineers overwhelmed by disparate data streams—unprocessed radar point clouds, isolated GNSS feeds, and delayed reporting. We founded Terrabyte Geosystem Indonesia to bridge this critical gap.\n\n### What We're Building\n\n- **TerraPulse-AI**: Our analytics platform that ingests raw telemetry from sensors, runs anomaly detection models, and turns complex sensor streams into actionable trend alerts.\n- **TerraWatch Center**: A 24/7 dedicated monitoring center staffed by certified engineers who keep continuous watch over site conditions, verify alerts, and escalate critical anomalies.\n- **Lextera Partnership**: Direct integration with premier survey instruments, including the ComNav MS-SAR5000 slope radar, high-precision GNSS receivers, and SV600 USVs.\n\n### Where We're Headed\n\nWe are committed to building Indonesia's foremost geospatial intelligence ecosystem, helping industrial teams make safety decisions long before hazards develop.",
+    "category": "Berita Perusahaan",
+    "categoryEn": "Company News",
     "publishedAt": "28 Sep 2026",
     "readTime": "4",
     "mainImage": "/images/hero-bg.jpg",
@@ -13,70 +57,6 @@
       "name": "Terrabyte Communications",
       "role": "Corporate Secretariat"
     },
-    "updatedAt": "2026-09-29T14:55:00.000Z"
-  },
-  {
-    "id": "art-radar-slope",
-    "slug": "how-radar-slope-monitoring-gives-early-warning",
-    "title": "How radar slope monitoring gives early warning",
-    "excerpt": "A plain-language guide to how slope radar detects movement.",
-    "content": "## Understanding Ground-Based Radar in Slope Stability\n\nSlope failures in open-pit mines or major infrastructure cuttings rarely happen without warning. Micro-deformations almost always precede major wall collapses. Ground-Based Synthetic Aperture Radar (GB-SAR) such as the MS-SAR5000 detects these subtle phase shifts.\n\n### How It Works\n\n1. **Continuous Scanning**: The radar sweeps the pit face or slope 360 degrees or across defined sectors, emitting microwave signals.\n2. **Phase Comparison**: By comparing the reflected phase of signals between consecutive sweeps, the radar measures displacement down to sub-millimeter precision.\n3. **Early Alert Generation**: When deformation velocity accelerates beyond predefined safety thresholds, alerts are triggered in TerraPulse-AI and dispatched to site safety officers.",
-    "category": "Articles",
-    "publishedAt": "22 Sep 2026",
-    "readTime": "5",
-    "mainImage": "/images/uploads/1790323048828-sar5000.png",
-    "author": {
-      "name": "Radar Engineering Team",
-      "role": "Lead Geotechnical Specialist"
-    },
-    "updatedAt": "2026-09-29T14:55:00.000Z"
-  },
-  {
-    "id": "art-what-is-terrapulse",
-    "slug": "what-is-terrapulse-ai",
-    "title": "Apakah TerraPulse AI itu sama dengan TerraDrone?",
-    "excerpt": "How our platform turns monitoring data into decisions.",
-    "content": "## Turning Earth Data into Actionable Decisions\n\nCollecting massive volumes of sensor telemetry is only the first step. TerraPulse-AI is an end-to-end data platform engineered specifically for geotechnical, structural, and environmental monitoring.\n\n### Core Capabilities\n\n- **Multi-Sensor Fusion**: Unify slope radar, GNSS RTK positioning, piezometers, and weather stations into a single 3D interactive view.\n- **Trend Analysis**: Move beyond static thresholds. Machine learning models analyze deformation velocity trends to differentiate between thermal dilation and true structural movement.\n- **Fast Response**: Latency of under 5 milliseconds from sensor ingestion to dashboard visualization, backed by TerraWatch operators.",
-    "category": "Articles",
-    "publishedAt": "15 Sep 2026",
-    "readTime": "4",
-    "mainImage": "/images/solutions-autonomous.jpg",
-    "author": {
-      "name": "TerraPulse Software Lab",
-      "role": "Divisi R&D Terrabyte"
-    },
-    "updatedAt": "2026-09-29T16:31:28.006Z"
-  },
-  {
-    "id": "art-project-lextera",
-    "slug": "slope-monitoring-deployment-at-mining-site",
-    "title": "Slope Monitoring Deployment at Mining Site",
-    "excerpt": "Short summary of a project with Lextera or a client.",
-    "content": "## Field Deployment Case Study\n\nIn collaboration with PT Lextera Survey Indonesia, Terrabyte deployed the ComNav MS-SAR5000 slope stability radar paired with real-time TerraPulse-AI analytics at a high-elevation open pit mine in Indonesia.\n\n### Project Highlights\n\n- Continuous 24/7 scanning of highwall slopes reaching up to 450 meters elevation.\n- Integration with onsite wireless telemetry backhaul and connection to the remote TerraWatch monitoring center.\n- Successful early detection of a localized bench slip, providing 7 hours advance warning to clear heavy haul equipment safely.",
-    "category": "Projects",
-    "publishedAt": "08 Sep 2026",
-    "readTime": "5",
-    "mainImage": "/images/hero-surveyor.jpg",
-    "author": {
-      "name": "Field Operations Unit",
-      "role": "Senior Survey Specialist"
-    },
-    "updatedAt": "2026-09-29T14:55:00.000Z"
-  },
-  {
-    "id": "art-terrawatch-opening",
-    "slug": "pembukaan-terrawatch-opening",
-    "title": "Resmi Beroperasi: Grand Opening Terrawatch Command Center PT Terrabyte Geosystems Indonesia",
-    "excerpt": "PT Terrabyte Geosystems Indonesia secara resmi meresmikan Terrawatch, pusat pemantauan geospasial dan keselamatan radar beroperasi 24/7 yang mengintegrasikan analitik TerraPulse dengan telemetri ComNav MS-SAR5000 di seluruh Indonesia.",
-    "content": "## Peresmian Terrawatch Command Center\n\nPT Terrabyte Geosystems Indonesia (TGI) dengan bangga mengumumkan peresmian fasilitas komando dan pengawasan operasional terbaru: **Terrawatch**...",
-    "category": "Company News",
-    "publishedAt": "01 Sep 2026",
-    "readTime": "5",
-    "mainImage": "/images/about-cleanroom.jpg",
-    "author": {
-      "name": "Sekretariat Korporat TGI",
-      "role": "Divisi Komunikasi Strategis"
-    },
-    "updatedAt": "2026-09-29T14:55:00.000Z"
+    "updatedAt": "2026-09-29T17:56:49.63814+00:00"
   }
 ]

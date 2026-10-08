@@ -44,7 +44,7 @@
             <span>/</span>
             <NuxtLink to="/products" class="hover:text-white transition-colors">Products</NuxtLink>
             <span>/</span>
-            <span class="text-[#18b8ea] truncate max-w-[240px]">{{ product.name }}</span>
+            <span class="text-[#18b8ea] truncate max-w-[240px]">{{ loc(product, 'name') }}</span>
           </div>
         </div>
       </div>
@@ -57,12 +57,12 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10 text-center space-y-3">
           <!-- Tag / Category -->
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#18b8ea]/10 border border-[#18b8ea]/25 text-[#18b8ea] text-[11px] font-mono tracking-widest uppercase">
-            <span>{{ product.tag || (product.category?.toUpperCase() || 'PRECISION HARDWARE') }}</span>
+            <span>{{ loc(product, 'tag') || (product.category?.toUpperCase() || 'PRECISION HARDWARE') }}</span>
           </div>
 
           <!-- Product Title -->
           <h1 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight uppercase max-w-4xl mx-auto drop-shadow-sm">
-            {{ product.name }}
+            {{ loc(product, 'name') }}
           </h1>
 
           <!-- SPECIFICATIONS Subtitle -->
@@ -132,10 +132,10 @@
                   <span class="text-xs text-[#94a3b8] font-mono">Original Manufactured Unit</span>
                 </div>
                 <h2 class="font-display font-bold text-2xl sm:text-3xl text-white">
-                  {{ product.name }}
+                  {{ loc(product, 'name') }}
                 </h2>
                 <p class="font-body text-sm sm:text-base text-[#94a3b8] leading-relaxed font-light">
-                  {{ product.summary }}
+                  {{ loc(product, 'summary') }}
                 </p>
               </div>
 
@@ -419,7 +419,7 @@ import { useRoute } from 'vue-router'
 import { useLanguage } from '~/composables/useLanguage'
 
 const route = useRoute()
-const { t, locale } = useLanguage()
+const { t, locale, loc, locSpecs, locAdvantages } = useLanguage()
 
 const productId = computed(() => String(route.params.id || ''))
 
@@ -462,7 +462,7 @@ const product = computed(() => {
 const formattedSpecs = computed(() => {
   if (!product.value) return []
 
-  const rawSpecs = product.value.specs
+  const rawSpecs = locSpecs(product.value)
   if (Array.isArray(rawSpecs) && rawSpecs.length > 0) {
     return rawSpecs.map((s: any) => {
       if (Array.isArray(s)) {
@@ -477,9 +477,9 @@ const formattedSpecs = computed(() => {
 
   // Fallback defaults if specs array is empty
   return [
-    { label: 'Status Manufaktur', value: product.value.status || 'Active' },
-    { label: 'Kategori Alat', value: product.value.category?.toUpperCase() || 'Survey Instrument' },
-    { label: 'Dukungan Lokal', value: 'Dukungan Resmi PT Lextera Survey Indonesia' }
+    { label: locale.value === 'en' ? 'Manufacturing Status' : 'Status Manufaktur', value: product.value.status || 'Active' },
+    { label: locale.value === 'en' ? 'Instrument Category' : 'Kategori Alat', value: product.value.category?.toUpperCase() || 'Survey Instrument' },
+    { label: locale.value === 'en' ? 'Authorized Support' : 'Dukungan Lokal', value: 'PT Lextera Survey Indonesia' }
   ]
 })
 
@@ -580,7 +580,7 @@ const productAdvantages = computed(() => {
 
   // If product has explicit advantages in data
   if (Array.isArray(product.value.advantages) && product.value.advantages.length > 0) {
-    return product.value.advantages
+    return locAdvantages(product.value)
   }
 
   // Check fallback knowledge base by code
@@ -637,11 +637,11 @@ const relatedProducts = computed(() => {
 })
 
 useHead({
-  title: computed(() => product.value ? `${product.value.name} — Specifications | Terrabyte` : 'Product Details — Terrabyte'),
+  title: computed(() => product.value ? `${loc(product.value, 'name')} — Specifications | Terrabyte` : 'Product Details — Terrabyte'),
   meta: [
     {
       name: 'description',
-      content: computed(() => product.value?.summary || 'Precision surveying and geotechnical monitoring hardware.')
+      content: computed(() => loc(product.value, 'summary') || 'Precision surveying and geotechnical monitoring hardware.')
     }
   ]
 })

@@ -335,19 +335,19 @@
 
                   <!-- Category Tag -->
                   <span class="block font-mono text-[11px] uppercase tracking-[0.18em] text-[#18b8ea] font-semibold mb-2 truncate">
-                    {{ item.tag || 'HARDWARE · SLOPE MONITORING' }}
+                    {{ loc(item, 'tag') || 'HARDWARE · SLOPE MONITORING' }}
                   </span>
 
                   <!-- Product Name -->
                   <h3 class="font-display font-bold text-lg sm:text-xl text-white mb-2.5 leading-snug line-clamp-2 group-hover:text-[#18b8ea] transition-colors">
                     <NuxtLink :to="`/products/${item.id || item.code}`">
-                      {{ item.name }}
+                      {{ loc(item, 'name') }}
                     </NuxtLink>
                   </h3>
 
                   <!-- Short Description -->
                   <p class="font-body text-xs sm:text-sm text-[#94a3b8] leading-relaxed font-light line-clamp-3">
-                    {{ item.summary }}
+                    {{ loc(item, 'summary') }}
                   </p>
                 </div>
 
@@ -363,9 +363,9 @@
                       type="button"
                       @click="toggleFlip(item.id || item.code)"
                       class="px-2.5 py-1 rounded-full bg-white/5 hover:bg-[#18b8ea]/15 text-[#94a3b8] hover:text-[#18b8ea] text-[11px] font-mono border border-white/10 hover:border-[#18b8ea]/30 transition-all flex items-center gap-1"
-                      title="Lihat Spesifikasi di Belakang Kartu"
+                      :title="locale === 'en' ? 'View Specifications on Back of Card' : 'Lihat Spesifikasi di Belakang Kartu'"
                     >
-                      <span>Spek</span>
+                      <span>{{ locale === 'en' ? 'Specs' : 'Spek' }}</span>
                       <span class="text-xs">↻</span>
                     </button>
 
@@ -391,20 +391,20 @@
                   <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-3.5">
                     <span class="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-widest uppercase text-[#18b8ea] font-bold bg-[#18b8ea]/10 px-2.5 py-1 rounded-full border border-[#18b8ea]/20">
                       <span class="w-1.5 h-1.5 rounded-full bg-[#18b8ea] animate-pulse"></span>
-                      SPESIFIKASI TEKNIS
+                      {{ locale === 'en' ? 'TECHNICAL SPECIFICATIONS' : 'SPESIFIKASI TEKNIS' }}
                     </span>
                     <button
                       type="button"
                       @click="toggleFlip(item.id || item.code)"
                       class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-xs transition-colors"
-                      title="Kembali ke Foto Depan"
+                      :title="locale === 'en' ? 'Back to Front Photo' : 'Kembali ke Foto Depan'"
                     >
                       ✕
                     </button>
                   </div>
 
                   <h4 class="font-display font-bold text-base text-white truncate mb-1">
-                    {{ item.name }}
+                    {{ loc(item, 'name') }}
                   </h4>
                   <p class="font-mono text-[10px] text-[#64748b] uppercase mb-3">
                     MODEL: {{ item.code }}
@@ -413,7 +413,7 @@
                   <!-- Technical Specs Rows -->
                   <div class="space-y-2 max-h-[310px] overflow-y-auto pr-1">
                     <div
-                      v-for="(spec, sIdx) in (item.specs || []).slice(0, 6)"
+                      v-for="(spec, sIdx) in locSpecs(item).slice(0, 6)"
                       :key="sIdx"
                       class="p-2.5 rounded-xl bg-[#020b14]/80 border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs"
                     >
@@ -431,14 +431,14 @@
                     class="px-3.5 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-mono transition-all flex items-center gap-1.5"
                   >
                     <span>↺</span>
-                    <span>Foto</span>
+                    <span>{{ locale === 'en' ? 'Photo' : 'Foto' }}</span>
                   </button>
 
                   <NuxtLink
                     :to="`/products/${item.id || item.code}`"
                     class="btn-geo-primary !py-2 !px-4 !text-xs !font-bold flex items-center gap-1.5 flex-1 justify-center shadow-lg"
                   >
-                    <span>Halaman Lengkap</span>
+                    <span>{{ locale === 'en' ? 'Full Page' : 'Halaman Lengkap' }}</span>
                     <span>&rarr;</span>
                   </NuxtLink>
                 </div>
@@ -694,7 +694,7 @@
 import { computed, ref } from 'vue'
 import { useLanguage } from '~/composables/useLanguage'
 
-const { t } = useLanguage()
+const { t, locale, loc, locSpecs } = useLanguage()
 
 const { data: productsData } = await useAsyncData('home-products', () => $fetch('/api/products').catch(() => []))
 

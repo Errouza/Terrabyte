@@ -96,19 +96,26 @@ export async function getArticlesFromSupabase(): Promise<any[] | null> {
       return null
     }
 
-    return data.map(item => ({
-      id: item.id,
-      slug: item.slug,
-      title: item.title,
-      excerpt: item.excerpt,
-      content: item.content,
-      category: item.category,
-      publishedAt: item.published_at,
-      readTime: item.read_time,
-      mainImage: item.main_image,
-      author: item.author,
-      updatedAt: item.updated_at
-    }))
+    return data.map(item => {
+      const i18n = (item.author && typeof item.author === 'object') ? item.author.i18n : null
+      return {
+        id: item.id,
+        slug: item.slug,
+        title: item.title,
+        titleEn: i18n?.titleEn || item.title_en || item.titleEn || undefined,
+        excerpt: item.excerpt,
+        excerptEn: i18n?.excerptEn || item.excerpt_en || item.excerptEn || undefined,
+        content: item.content,
+        contentEn: i18n?.contentEn || item.content_en || item.contentEn || undefined,
+        category: item.category,
+        categoryEn: i18n?.categoryEn || item.category_en || item.categoryEn || undefined,
+        publishedAt: item.published_at,
+        readTime: item.read_time,
+        mainImage: item.main_image,
+        author: item.author,
+        updatedAt: item.updated_at
+      }
+    })
   } catch (err: any) {
     console.warn('[Supabase] Exception fetching articles:', err?.message)
     return null
@@ -120,19 +127,29 @@ export async function saveArticlesToSupabase(articles: any[]): Promise<boolean> 
   if (!supabase) return false
 
   try {
-    const rows = articles.map(a => ({
-      id: a.id,
-      slug: a.slug,
-      title: a.title,
-      excerpt: a.excerpt || null,
-      content: a.content || null,
-      category: a.category || 'Articles',
-      published_at: a.publishedAt || a.published_at || null,
-      read_time: a.readTime || a.read_time || '4',
-      main_image: a.mainImage || a.main_image || null,
-      author: a.author || { name: 'Terrabyte Team', role: 'Specialist' },
-      updated_at: new Date().toISOString()
-    }))
+    const rows = articles.map(a => {
+      const authorObj = typeof a.author === 'object' && a.author !== null ? { ...a.author } : { name: 'Terrabyte Team', role: 'Specialist' }
+      authorObj.i18n = {
+        titleEn: a.titleEn || a.title_en || null,
+        categoryEn: a.categoryEn || a.category_en || null,
+        excerptEn: a.excerptEn || a.excerpt_en || null,
+        contentEn: a.contentEn || a.content_en || null
+      }
+
+      return {
+        id: a.id,
+        slug: a.slug,
+        title: a.title,
+        excerpt: a.excerpt || null,
+        content: a.content || null,
+        category: a.category || 'Articles',
+        published_at: a.publishedAt || a.published_at || null,
+        read_time: a.readTime || a.read_time || '4',
+        main_image: a.mainImage || a.main_image || null,
+        author: authorObj,
+        updated_at: new Date().toISOString()
+      }
+    })
 
     const { error } = await supabase
       .from('articles')
