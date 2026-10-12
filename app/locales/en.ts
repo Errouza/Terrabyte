@@ -54,6 +54,9 @@ export default {
     lexteraBadge: 'AUTHORIZED TECHNOLOGY PARTNER',
     lexteraTitle: 'PT Lextera Survey Indonesia',
     lexteraDesc: 'Premier distributor of international survey and geotechnical radar instruments, seamlessly integrated with our TerraPulse-AI analytics platform.',
+    /*ppaBadge: 'MINING OPERATOR',
+    ppaTitle: 'PT Putra Perkasa Abadi',
+    ppaDesc: 'What shpuld i do?', */
     bannerTitle: 'Let’s build something together.',
     bannerDesc: 'Partner with us on your next monitoring or survey project.',
     bannerCta: 'Contact us'
