@@ -173,7 +173,7 @@
               </div>
               <div>
                 <span class="block font-mono text-[10px] uppercase tracking-[0.2em] text-[#64748b] font-semibold mb-1">EMAIL</span>
-                <a href="mailto:info.TGI@terrabytegeosystem.com" class="font-mono text-sm sm:text-base font-semibold text-white hover:text-[#18b8ea] transition-colors block break-all">
+                <a href="mailto:info.tgi@terrabytegeosystem.com" class="font-mono text-sm sm:text-base font-semibold text-white hover:text-[#18b8ea] transition-colors block break-all">
                   info.tgi@terrabytegeosystem.com
                 </a>
               </div>

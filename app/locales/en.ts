@@ -73,7 +73,7 @@ export default {
     trustClientBadge: 'OPERATIONAL CLIENT',
     trustClientTitle: 'PT Bina Sarana Sukses (BSS)',
     trustClientSub: 'Leading Mining Contractor',
-    trustPartnerBadge: 'TECHNOLOGY PARTNER',
+    trustPartnerBadge: 'STRATEGIC PARTNER',
     trustPartnerTitle: 'PT Lextera Survey Indonesia',
     trustPartnerSub: 'Survey & Radar Instruments Partner',
     telemetryTag: 'TERRAPULSE-AI',
