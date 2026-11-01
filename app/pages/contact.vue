@@ -38,21 +38,39 @@
                 {{ t('contact.formTitle') }}
               </h2>
 
-              <!-- Success Alert -->
-              <div v-if="submitted" class="p-6 rounded-2xl bg-[#18b8ea]/10 border border-[#18b8ea]/40 text-center space-y-3 mb-6">
-                <div class="w-12 h-12 rounded-full bg-[#18b8ea]/20 text-[#18b8ea] mx-auto flex items-center justify-center font-bold text-lg shadow-[0_0_15px_rgba(24,184,234,0.3)]">
+              <!-- Success Alert with WhatsApp Action -->
+              <div v-if="submitted" class="p-8 rounded-3xl bg-[#031d28]/85 border border-[#25D366]/40 text-center space-y-4 mb-6 shadow-[0_0_30px_rgba(37,211,102,0.15)]">
+                <div class="w-14 h-14 rounded-full bg-[#25D366]/20 text-[#25D366] mx-auto flex items-center justify-center font-bold text-2xl shadow-[0_0_20px_rgba(37,211,102,0.3)]">
                   &check;
                 </div>
-                <h3 class="font-display font-bold text-lg text-white">{{ t('contact.successTitle') }}</h3>
-                <p class="text-xs text-[#94a3b8]">
-                  {{ t('contact.successDesc') }}
-                </p>
-                <button
-                  @click="submitted = false"
-                  class="font-ui text-xs font-semibold text-[#18b8ea] underline cursor-pointer mt-2"
-                >
-                  {{ t('contact.sendAnother') }}
-                </button>
+                <div class="space-y-1.5">
+                  <h3 class="font-display font-bold text-xl text-white">{{ t('contact.successTitle') }}</h3>
+                  <p class="text-xs sm:text-sm text-[#94a3b8] max-w-md mx-auto leading-relaxed">
+                    {{ t('contact.successDesc') }}
+                  </p>
+                </div>
+
+                <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                  <a
+                    v-if="lastWaUrl"
+                    :href="lastWaUrl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white font-ui font-bold text-xs uppercase tracking-wider transition-all shadow-[0_0_25px_rgba(37,211,102,0.4)] hover:scale-105"
+                  >
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                    </svg>
+                    <span>{{ t('contact.openWaBtn') }}</span>
+                  </a>
+
+                  <button
+                    @click="resetForm"
+                    class="font-ui text-xs font-semibold text-[#18b8ea] hover:underline px-4 py-3 cursor-pointer"
+                  >
+                    {{ t('contact.sendAnother') }}
+                  </button>
+                </div>
               </div>
 
               <!-- Form -->
@@ -217,13 +235,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
 import { useLanguage } from '~/composables/useLanguage'
 
-const { t } = useLanguage()
+const { t, locale } = useLanguage()
+const route = useRoute()
 
 const loading = ref(false)
 const submitted = ref(false)
+const lastWaUrl = ref('')
 
 const form = reactive({
   name: '',
@@ -234,23 +255,81 @@ const form = reactive({
   message: ''
 })
 
+onMounted(() => {
+  if (route.query.product) {
+    const prodName = String(route.query.product)
+    form.interestedIn = 'Products (radar, GNSS, USV)'
+    if (!form.message) {
+      form.message = locale.value === 'en'
+        ? `Hello Terrabyte Team, I would like to consult and request a quotation for ${prodName}.`
+        : `Halo Tim Terrabyte, saya tertarik untuk meminta spesifikasi teknis dan penawaran harga untuk ${prodName}.`
+    }
+  }
+})
+
+const resetForm = () => {
+  submitted.value = false
+  form.name = ''
+  form.company = ''
+  form.email = ''
+  form.phone = ''
+  form.message = ''
+  lastWaUrl.value = ''
+}
+
 const handleSubmit = async () => {
   loading.value = true
+
+  const isEn = locale.value === 'en'
+  const waMessage = isEn
+    ? `*NEW INQUIRY VIA WEBSITE — TERRABYTE GEOSYSTEM INDONESIA*\n` +
+      `────────────────────────────────\n` +
+      `👤 *Name:* ${form.name}\n` +
+      `🏢 *Company:* ${form.company || '-'}\n` +
+      `📧 *Email:* ${form.email}\n` +
+      `📱 *Phone / WA:* ${form.phone || '-'}\n` +
+      `🎯 *Interested In:* ${form.interestedIn}\n` +
+      `────────────────────────────────\n` +
+      `📝 *Message:*\n${form.message}\n` +
+      `────────────────────────────────\n` +
+      `_Sent from terrabytegeosystem.com/contact_`
+    : `*INQUIRY BARU WEBSITE — TERRABYTE GEOSYSTEM INDONESIA*\n` +
+      `────────────────────────────────\n` +
+      `👤 *Nama:* ${form.name}\n` +
+      `🏢 *Perusahaan:* ${form.company || '-'}\n` +
+      `📧 *Email:* ${form.email}\n` +
+      `📱 *No. HP / WA:* ${form.phone || '-'}\n` +
+      `🎯 *Kategori Minat:* ${form.interestedIn}\n` +
+      `────────────────────────────────\n` +
+      `📝 *Pesan:*\n${form.message}\n` +
+      `────────────────────────────────\n` +
+      `_Dikirim melalui terrabytegeosystem.com/contact_`
+
+  const waUrl = `https://wa.me/628139840986?text=${encodeURIComponent(waMessage)}`
+  lastWaUrl.value = waUrl
+
   try {
     await $fetch('/api/contact', {
       method: 'POST',
       body: {
-        fullName: form.name,
-        companyName: form.company,
+        name: form.name,
+        company: form.company,
         email: form.email,
         phone: form.phone,
-        inquiryCategory: form.interestedIn,
+        interestedIn: form.interestedIn,
         message: form.message
       }
     })
     submitted.value = true
+
+    if (typeof window !== 'undefined') {
+      window.open(waUrl, '_blank')
+    }
   } catch (err) {
     submitted.value = true
+    if (typeof window !== 'undefined') {
+      window.open(waUrl, '_blank')
+    }
   } finally {
     loading.value = false
   }

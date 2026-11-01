@@ -236,7 +236,7 @@
 
       <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
 
-        <!-- Header Row with Slider Navigation Buttons -->
+        <!-- Header Row: Title & All Products Link -->
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
           <div>
             <div class="flex items-center gap-2 mb-2">
@@ -248,49 +248,50 @@
             </h2>
           </div>
 
-          <!-- Carousel Controls & All Products Link -->
-          <div class="flex items-center gap-4">
-            <!-- Prev & Next Arrow Buttons -->
-            <div class="flex items-center gap-2">
-              <button
-                type="button"
-                @click="slideProducts('prev')"
-                class="w-10 h-10 rounded-full border border-white/10 bg-[#020b14]/80 hover:border-[#18b8ea] hover:bg-[#18b8ea]/10 text-white hover:text-[#18b8ea] flex items-center justify-center transition-all duration-200 shadow-md active:scale-95"
-                title="Produk Sebelumnya"
-              >
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              <button
-                type="button"
-                @click="slideProducts('next')"
-                class="w-10 h-10 rounded-full border border-white/10 bg-[#020b14]/80 hover:border-[#18b8ea] hover:bg-[#18b8ea]/10 text-white hover:text-[#18b8ea] flex items-center justify-center transition-all duration-200 shadow-md active:scale-95"
-                title="Produk Berikutnya"
-              >
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-
-            <NuxtLink
-              to="/products"
-              class="hidden sm:inline-flex items-center gap-1.5 text-xs sm:text-sm font-ui font-bold text-[#18b8ea] hover:text-[#38cbf8] transition-colors tracking-wide ml-2"
-            >
-              <span>{{ t('home.allProducts') }}</span>
-              <span>&rarr;</span>
-            </NuxtLink>
-          </div>
+          <NuxtLink
+            to="/products"
+            class="hidden sm:inline-flex items-center gap-1.5 text-xs sm:text-sm font-ui font-bold text-[#18b8ea] hover:text-[#38cbf8] transition-colors tracking-wide"
+          >
+            <span>{{ t('home.allProducts') }}</span>
+            <span>&rarr;</span>
+          </NuxtLink>
         </div>
 
-        <!-- Sliding Track Container -->
-        <div
-          ref="productSliderRef"
-          @scroll="handleSliderScroll"
-          class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-6 pt-2 -mx-6 px-6 lg:-mx-10 lg:px-10"
-          style="scrollbar-width: none; -ms-overflow-style: none;"
-        >
+        <!-- Carousel Track with Left/Right Nav Buttons on Cards Area -->
+        <div class="relative group/slider">
+          <!-- Floating Left (Prev) Arrow Button -->
+          <button
+            type="button"
+            @click="slideProducts('prev')"
+            class="absolute left-2 sm:-left-5 lg:-left-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#020b14]/90 border border-white/20 hover:border-[#18b8ea] hover:bg-[#18b8ea] text-[#18b8ea] hover:text-[#020b14] backdrop-blur-xl flex items-center justify-center transition-all duration-300 shadow-[0_8px_30px_rgba(0,0,0,0.85),0_0_20px_rgba(24,184,234,0.3)] hover:scale-110 active:scale-95 cursor-pointer"
+            aria-label="Produk Sebelumnya"
+            title="Produk Sebelumnya"
+          >
+            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          <!-- Floating Right (Next) Arrow Button -->
+          <button
+            type="button"
+            @click="slideProducts('next')"
+            class="absolute right-2 sm:-right-5 lg:-right-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#020b14]/90 border border-white/20 hover:border-[#18b8ea] hover:bg-[#18b8ea] text-[#18b8ea] hover:text-[#020b14] backdrop-blur-xl flex items-center justify-center transition-all duration-300 shadow-[0_8px_30px_rgba(0,0,0,0.85),0_0_20px_rgba(24,184,234,0.3)] hover:scale-110 active:scale-95 cursor-pointer"
+            aria-label="Produk Berikutnya"
+            title="Produk Berikutnya"
+          >
+            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          <!-- Sliding Track Container -->
+          <div
+            ref="productSliderRef"
+            @scroll="handleSliderScroll"
+            class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-6 pt-2 -mx-6 px-6 lg:-mx-10 lg:px-10"
+            style="scrollbar-width: none; -ms-overflow-style: none;"
+          >
           <!-- 3D Flipping Card Item -->
           <div
             v-for="item in homeProducts"
@@ -447,8 +448,9 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Slider Pagination Dots Indicator -->
+      <!-- Slider Pagination Dots Indicator -->
         <div class="flex items-center justify-center gap-2 mt-8">
           <button
             v-for="(_, dIdx) in homeProducts"
@@ -720,10 +722,26 @@ const slideProducts = (direction: 'prev' | 'next') => {
   const card = container.querySelector('.product-flip-card') as HTMLElement
   const scrollStep = card ? card.offsetWidth + 24 : 380
 
-  container.scrollBy({
-    left: direction === 'prev' ? -scrollStep : scrollStep,
-    behavior: 'smooth'
-  })
+  if (direction === 'prev') {
+    if (container.scrollLeft <= 15) {
+      container.scrollTo({ left: container.scrollWidth, behavior: 'smooth' })
+      return
+    }
+    container.scrollBy({
+      left: -scrollStep,
+      behavior: 'smooth'
+    })
+  } else {
+    const maxScroll = container.scrollWidth - container.clientWidth - 15
+    if (container.scrollLeft >= maxScroll) {
+      container.scrollTo({ left: 0, behavior: 'smooth' })
+      return
+    }
+    container.scrollBy({
+      left: scrollStep,
+      behavior: 'smooth'
+    })
+  }
 }
 
 const handleSliderScroll = () => {

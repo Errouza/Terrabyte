@@ -1,5 +1,18 @@
 [
   {
+    "id": "inq-1793571049043",
+    "bssTicketId": "BSS-TGI-731259",
+    "name": "Test Customer",
+    "email": "customer@geospasial.co.id",
+    "organization": "PT Geospasial Maju",
+    "domain": "Products (radar, GNSS, USV)",
+    "phone": "081298765432",
+    "message": "Mohon info harga ComNav MS-SAR5000\n\n[Kontak: 081298765432 | Kategori: Products (radar, GNSS, USV)]",
+    "source": "Web Contact Form",
+    "status": "new",
+    "createdAt": "2026-11-01T22:10:49.043Z"
+  },
+  {
     "id": "inq-welcome",
     "name": "Bpk. Hendra Gunawan",
     "email": "hendra.gunawan@maritim.go.id",

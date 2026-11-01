@@ -255,6 +255,9 @@
       </footer>
     </div>
 
+    <!-- Floating Global WhatsApp Overlay with Context-Aware Template -->
+    <WhatsAppOverlay />
+
   </div>
 </template>
 
