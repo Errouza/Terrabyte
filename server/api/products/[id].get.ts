@@ -27,7 +27,18 @@ export default defineEventHandler(async (event) => {
       if (p) {
         const key = getGroup(p)
         const existing = map.get(key) || {}
-        map.set(key, { ...existing, ...p })
+        map.set(key, {
+          ...p,
+          ...existing,
+          nameEn: existing.nameEn || p.nameEn,
+          summaryEn: existing.summaryEn || p.summaryEn,
+          tagEn: existing.tagEn || p.tagEn,
+          specsEn: (existing.specsEn && existing.specsEn.length > 0) ? existing.specsEn : p.specsEn,
+          advantages: (existing.advantages && existing.advantages.length > 0) ? existing.advantages : p.advantages,
+          specs: (existing.specs && existing.specs.length > 0) ? existing.specs : p.specs,
+          img: existing.img || p.img,
+          status: existing.status || p.status
+        })
       }
     }
   }

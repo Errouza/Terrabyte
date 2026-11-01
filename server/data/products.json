@@ -1,82 +1,15 @@
 [
   {
-    "id": "prod-laser-rtk-n2",
-    "code": "COMNAV-N2-PALM",
-    "tag": "Laser RTK // Principal ComNav",
-    "category": "laser-rtk",
-    "name": "ComNav N2 Palm GNSS",
-    "summary": "Receiver GNSS saku ultra-ringan dengan modul laser EDM terintegrasi untuk pengukuran titik tersembunyi/berbahaya tanpa jangkauan jalon pole, dilengkapi kamera AR visual stakeout dan kompensasi tilt IMU hingga 60°.",
-    "img": "https://xbadzroazjblacumvnpq.supabase.co/storage/v1/object/public/uploads/1791518330296-1791518329974-n2.svg",
-    "status": "Available in Stock",
-    "specs": [
-      [
-        "Kanal Pelacakan",
-        "1.408 Kanal Multi-Konstelasi (GPS, BDS, GLO, GAL)"
-      ],
-      [
-        "Modul Laser EDM",
-        "Pengukuran Jarak Laser Presisi Sub-Sentimeter Tanpa Pole"
-      ],
-      [
-        "Kompensasi Kemiringan",
-        "IMU Bebas Kalibrasi hingga Kemiringan 60°"
-      ],
-      [
-        "Visual AR Stakeout",
-        "Kamera Visual HD untuk Panduan Stakeout Real-Time"
-      ],
-      [
-        "Bobot & Portabilitas",
-        "Hanya 170g — Ukuran Saku Ultra-Ringan"
-      ],
-      [
-        "Proteksi Lapangan",
-        "IP68 Alloy Tahan Air & Jatuh 2 Meter"
-      ]
-    ],
-    "created_at": "2026-09-29T17:56:49.63814+00:00",
-    "updated_at": "2026-10-09T04:06:26.084+00:00",
-    "updatedAt": "2026-10-09T04:06:26.084+00:00"
-  },
-  {
-    "id": "prod-1790911738626",
-    "code": "Mars Pro Laser RTK",
-    "tag": "GNSS Receiver / Surveying & Mapping Instrument",
-    "category": null,
-    "name": "Mars Pro Laser RTK",
-    "summary": "Receiver GNSS inovatif yang memadukan teknologi GNSS, modul laser, dan sensor IMU untuk mempermudah pengukuran di medan sulit tanpa jangkauan range pole konvensional. Dirancang untuk kebutuhan land survey, konstruksi, GIS, dan machine guidance dengan presisi tinggi.",
-    "img": "https://xbadzroazjblacumvnpq.supabase.co/storage/v1/object/public/uploads/1791518079198-1791518079096-mars_pro.svg",
-    "status": "In Active Production",
-    "specs": [
-      [
-        "Channels",
-        "1,590 Channels"
-      ],
-      [
-        "RTK Accuracy",
-        "Sub-Centimeter"
-      ],
-      [
-        "IMU",
-        "Kalibrasi Hingga 60°"
-      ],
-      [
-        "Battery Durabilty",
-        "Battery 3400mAh bersetifikat IP67"
-      ]
-    ],
-    "created_at": "2026-10-02T03:28:58.767183+00:00",
-    "updated_at": "2026-10-09T03:57:06.952+00:00",
-    "updatedAt": "2026-10-09T03:57:06.952+00:00"
-  },
-  {
     "id": "prod-radar-sar5000",
     "code": "RADAR-MS-SAR5000",
     "tag": "HARDWARE RADAR · SLOPE MONITORING",
+    "tagEn": "HARDWARE RADAR · SLOPE MONITORING",
     "category": "radar",
     "name": "ComNav MS-SAR5000 Ground-Based Slope Radar",
+    "nameEn": "ComNav MS-SAR5000 Ground-Based Slope Radar",
     "summary": "Radar berpresisi tinggi tipe Ground-Based Synthetic Aperture Radar (GB-SAR) untuk pemantauan stabilitas lereng.",
-    "img": "https://xbadzroazjblacumvnpq.supabase.co/storage/v1/object/public/uploads/1791517902259-1791517901871-sar5000_tripod.svg",
+    "summaryEn": "High-precision Ground-Based Synthetic Aperture Radar (GB-SAR) engineered for continuous real-time slope stability monitoring.",
+    "img": "https://xbadzroazjblacumvnpq.supabase.co/storage/v1/object/public/uploads/1793550067696-1793550067526-sar5000.png",
     "status": "In Field Deployment",
     "specs": [
       [
@@ -112,18 +45,183 @@
         "Didukung langsung oleh platform TerraPulse-AI"
       ]
     ],
+    "specsEn": [
+      [
+        "Radar Type",
+        "Ground-Based Synthetic Aperture Radar (GB-SAR)"
+      ],
+      [
+        "Measurement Accuracy",
+        "Sub-millimeter (Displacement detection up to 0.1 mm)"
+      ],
+      [
+        "Monitoring Range",
+        "Radius up to 5,000 meters (5 km continuous coverage)"
+      ],
+      [
+        "Scan Cycle",
+        "< 2 minutes per full scan cycle"
+      ],
+      [
+        "Environmental Rating",
+        "IP67 All-Weather (Rain, Dense Fog, Mining Dust)"
+      ],
+      [
+        "Spatial Resolution",
+        "Range 0.5m x Azimuth 4.3 mrad"
+      ],
+      [
+        "Power Source",
+        "Hybrid Solar Panel + Continuous Industrial Battery"
+      ],
+      [
+        "Device Integration",
+        "Native direct integration with TerraPulse-AI platform"
+      ]
+    ],
+    "advantages": [
+      {
+        "title": "0.1 mm Sub-Milimeter Detection",
+        "titleEn": "0.1 mm Sub-Millimeter Detection",
+        "desc": "Deteksi dini pergeseran mikroskopis lereng tambang sebelum retakan memicu longsoran fatal.",
+        "descEn": "Early detection of microscopic slope creep before tension cracks trigger catastrophic failures.",
+        "icon": "target"
+      },
+      {
+        "title": "5.000m Continuous Range",
+        "titleEn": "5,000m Continuous Range",
+        "desc": "Cakupan area dinding batuan terbuka hingga 5 km dalam satu unit tanpa reflektor fisik.",
+        "descEn": "Covers open rock pit faces up to 5 km in a single unit without physical prisms or targets.",
+        "icon": "radar"
+      },
+      {
+        "title": "< 2 Menit Rapid Scan Cycle",
+        "titleEn": "< 2 Min Rapid Scan Cycle",
+        "desc": "Interferometri radar cepat memberikan pembaruan data deformasi mendekati real-time.",
+        "descEn": "High-speed radar interferometry provides deformation updates in near real-time.",
+        "icon": "zap"
+      },
+      {
+        "title": "Integrasi Langsung TerraPulse-AI",
+        "titleEn": "Direct TerraPulse-AI Integration",
+        "desc": "Sinkronisasi otomatis dengan monitoring center TerraWatch 24/7 dan sistem sirine peringatan dini.",
+        "descEn": "Automatic synchronization with 24/7 TerraWatch monitoring center and site siren systems.",
+        "icon": "cloud"
+      }
+    ],
     "created_at": "2026-09-29T17:56:49.63814+00:00",
-    "updated_at": "2026-10-09T03:52:04.896+00:00",
-    "updatedAt": "2026-10-09T03:52:04.896+00:00"
+    "updated_at": "2026-11-01T16:21:10.812+00:00",
+    "updatedAt": "2026-11-01T16:21:10.812+00:00"
+  },
+  {
+    "id": "prod-laser-rtk-n2",
+    "code": "COMNAV-N2-PALM",
+    "tag": "Laser RTK // Principal ComNav",
+    "tagEn": "Laser RTK // Principal ComNav",
+    "category": "laser-rtk",
+    "name": "ComNav N2 Palm GNSS",
+    "nameEn": "ComNav N2 Palm GNSS / Laser RTK Receiver",
+    "summary": "Receiver GNSS saku ultra-ringan dengan modul laser EDM terintegrasi untuk pengukuran titik tersembunyi/berbahaya tanpa jangkauan jalon pole, dilengkapi kamera AR visual stakeout dan kompensasi tilt IMU hingga 60°.",
+    "summaryEn": "Ultra-lightweight pocket GNSS receiver with integrated laser EDM for surveying hard-to-reach and hazardous points without pole placement, featuring HD AR visual stakeout camera and calibration-free IMU tilt compensation up to 60°.",
+    "img": "https://xbadzroazjblacumvnpq.supabase.co/storage/v1/object/public/uploads/1793550121443-1793550121387-n2_nbg.png",
+    "status": "Available in Stock",
+    "specs": [
+      [
+        "Kanal Pelacakan",
+        "1.408 Kanal Multi-Konstelasi (GPS, BDS, GLO, GAL)"
+      ],
+      [
+        "Modul Laser EDM",
+        "Pengukuran Jarak Laser Presisi Sub-Sentimeter Tanpa Pole"
+      ],
+      [
+        "Kompensasi Kemiringan",
+        "IMU Bebas Kalibrasi hingga Kemiringan 60°"
+      ],
+      [
+        "Visual AR Stakeout",
+        "Kamera Visual HD untuk Panduan Stakeout Real-Time"
+      ],
+      [
+        "Bobot & Portabilitas",
+        "Hanya 170g — Ukuran Saku Ultra-Ringan"
+      ],
+      [
+        "Proteksi Lapangan",
+        "IP68 Alloy Tahan Air & Jatuh 2 Meter"
+      ]
+    ],
+    "specsEn": [
+      [
+        "Tracking Channels",
+        "1,408 Multi-Constellation Channels (GPS, BDS, GLO, GAL)"
+      ],
+      [
+        "Laser EDM Module",
+        "Sub-Centimeter Precision Laser Distance Measurement Without Pole"
+      ],
+      [
+        "Tilt Compensation",
+        "Calibration-Free IMU up to 60° Tilt Angle"
+      ],
+      [
+        "Visual AR Stakeout",
+        "HD Visual Camera for Real-Time On-Screen Stakeout Guidance"
+      ],
+      [
+        "Weight & Portability",
+        "Only 170g — Ultra-Lightweight Pocket Form Factor"
+      ],
+      [
+        "Field Protection",
+        "IP68 Rugged Alloy, 2-Meter Drop Proof"
+      ]
+    ],
+    "advantages": [
+      {
+        "title": "Modul Laser EDM Terintegrasi",
+        "titleEn": "Integrated Laser EDM Module",
+        "desc": "Ukur titik tersembunyi, tebing curam, atau area bahaya tanpa harus menempatkan jalon pole.",
+        "descEn": "Measure concealed points, steep cuttings, or hazardous zones without range pole placement.",
+        "icon": "laser"
+      },
+      {
+        "title": "Augmented Reality (AR) Stakeout",
+        "titleEn": "Augmented Reality (AR) Stakeout",
+        "desc": "Kamera HD menampilkan panduan navigasi stakeout langsung di layar secara visual.",
+        "descEn": "HD camera displays live on-screen visual navigation arrows for effortless stakeout.",
+        "icon": "eye"
+      },
+      {
+        "title": "Ukuran Saku Ultra Ringan 170g",
+        "titleEn": "170g Pocket-Sized Form Factor",
+        "desc": "Desain ultra ringkas seukuran genggaman tangan, nyaman digunakan sepanjang hari.",
+        "descEn": "Ultra-compact palm-sized design ensures all-day fatigue-free field operation.",
+        "icon": "feather"
+      },
+      {
+        "title": "IMU 60° Bebas Kalibrasi",
+        "titleEn": "Calibration-Free 60° Tilt IMU",
+        "desc": "Pengukuran tetap presisi walau pole miring tanpa interferensi medan magnetik.",
+        "descEn": "Maintains accurate coordinates even at extreme pole tilt without magnetic disturbance.",
+        "icon": "compass"
+      }
+    ],
+    "created_at": "2026-09-29T17:56:49.63814+00:00",
+    "updated_at": "2026-11-01T16:22:03.092+00:00",
+    "updatedAt": "2026-11-01T16:22:03.092+00:00"
   },
   {
     "id": "prod-t20-gnss",
     "code": "COMNAV-T20-GNSS",
     "tag": "GNSS Receiver // High Precision",
+    "tagEn": "GNSS Receiver // High Precision",
     "category": "gnss",
     "name": "ComNav T20 Multi-Constellation GNSS Receiver",
+    "nameEn": "ComNav T20 Multi-Constellation GNSS Receiver",
     "summary": "Receiver GNSS cerdas generasi baru dengan teknologi tracking satelit generasi mutakhir, radio UHF internal multi-protokol, dan IMU generasi ke-3 untuk efisiensi survei topografi dan geodetik lapangan.",
-    "img": "https://xbadzroazjblacumvnpq.supabase.co/storage/v1/object/public/uploads/1791518833117-1791518832941-t20.svg",
+    "summaryEn": "Next-generation smart GNSS receiver featuring state-of-the-art satellite tracking technology, internal multi-protocol UHF radio, and 3rd-generation IMU for superior topographic and geodetic surveying efficiency.",
+    "img": "https://xbadzroazjblacumvnpq.supabase.co/storage/v1/object/public/uploads/1793550106364-1793550106270-t20_nbg.png",
     "status": "In Active Production",
     "specs": [
       [
@@ -147,9 +245,6 @@
         "Baterai ganda hot-swappable tahan kerja hingga 16 jam"
       ]
     ],
-    "created_at": "2026-09-29T17:56:49.63814+00:00",
-    "updated_at": "2026-09-29T17:57:22.93243+00:00",
-    "updatedAt": "2026-10-09T04:08:17.912Z",
     "specsEn": [
       [
         "Channels",
@@ -161,19 +256,309 @@
       ],
       [
         "Tilt Survey",
-        "60° IMU—calibration-free and unaffected by magnetic fields"
+        "60° IMU calibration-free and immune to magnetic disturbance"
       ],
       [
-        "Konektivitas",
-        "Internal 2W UHF, Bluetooth, Wi-Fi, and 4G LTE Modem"
+        "Connectivity",
+        "Internal 2W UHF, Bluetooth, Wi-Fi & 4G LTE Modem"
       ],
       [
-        "Daya Tahan",
-        "Dual hot-swappable batteries provide up to 16 hours of runtime"
+        "Endurance",
+        "Dual hot-swappable batteries with up to 16 hours of continuous operation"
       ]
     ],
-    "tagEn": "GNSS Receiver // High Precision",
-    "nameEn": "ComNav T20 Multi-Constellation GNSS Receiver",
-    "summaryEn": "A new-generation smart GNSS receiver featuring state-of-the-art satellite tracking technology, an internal multi-protocol UHF radio, and a third-generation IMU for efficient topographic and geodetic field surveys."
+    "advantages": [
+      {
+        "title": "Baterai Hot-Swap Tahan Lama",
+        "titleEn": "Hot-Swappable Battery Endurance",
+        "desc": "Pengoperasian tanpa henti hingga 16+ jam dengan sistem baterai ganda cerdas.",
+        "descEn": "Non-stop field operation up to 16+ hours with intelligent dual hot-swap battery system.",
+        "icon": "battery"
+      },
+      {
+        "title": "1.408 Kanal Pelacakan Lengkap",
+        "titleEn": "1,408 Tracking Channels",
+        "desc": "Melacak seluruh konstelasi satelit (GPS, BDS, GLONASS, Galileo, QZSS) secara simultan.",
+        "descEn": "Simultaneously tracks all constellations (GPS, BDS, GLONASS, Galileo, QZSS) for rock-solid RTK fixes.",
+        "icon": "satellite"
+      },
+      {
+        "title": "IMU Generasi ke-3",
+        "titleEn": "3rd-Gen IMU Tilt Compensation",
+        "desc": "Kompensasi kemiringan hingga 60° bebas kalibrasi dengan akurasi 2.5 cm.",
+        "descEn": "60° tilt compensation with instant calibration-free readiness and 2.5 cm accuracy.",
+        "icon": "compass"
+      },
+      {
+        "title": "UHF Internal 2W Multi-Protokol",
+        "titleEn": "Multi-Protocol 2W Internal UHF",
+        "desc": "Jarak jangkauan radio base-rover hingga 15 km dengan kompatibilitas protokol luas.",
+        "descEn": "Base-to-rover radio link up to 15 km with wide industry protocol interoperability.",
+        "icon": "wifi"
+      }
+    ],
+    "created_at": "2026-09-29T17:56:49.63814+00:00",
+    "updated_at": "2026-11-01T16:21:47.696+00:00",
+    "updatedAt": "2026-11-01T16:21:47.696+00:00"
+  },
+  {
+    "id": "prod-1790911738626",
+    "code": "Mars Pro Laser RTK",
+    "tag": "GNSS Receiver / Surveying & Mapping Instrument",
+    "tagEn": "GNSS Receiver / Surveying & Mapping Instrument",
+    "category": "laser-rtk",
+    "name": "ComNav Mars Pro Laser RTK",
+    "nameEn": "ComNav Mars Pro Laser RTK",
+    "summary": "Receiver GNSS inovatif yang memadukan teknologi GNSS, modul laser, dan sensor IMU untuk mempermudah pengukuran di medan sulit tanpa jangkauan range pole konvensional. Dirancang untuk kebutuhan land survey, konstruksi, GIS, dan machine guidance dengan presisi tinggi.",
+    "summaryEn": "An innovative GNSS receiver integrating GNSS positioning, laser EDM, and IMU sensors to simplify measurements in challenging terrain without conventional range poles. Engineered for high-precision land surveying, construction, GIS, and machine guidance.",
+    "img": "https://xbadzroazjblacumvnpq.supabase.co/storage/v1/object/public/uploads/1793550167202-1793550167146-mars_pro.png",
+    "status": "In Active Production",
+    "specs": [
+      [
+        "Channels",
+        "1,590 Channels"
+      ],
+      [
+        "RTK Accuracy",
+        "Sub-Centimeter"
+      ],
+      [
+        "IMU",
+        "Kalibrasi Hingga 60°"
+      ],
+      [
+        "Battery Durabilty",
+        "Battery 3400mAh bersetifikat IP67"
+      ]
+    ],
+    "specsEn": [
+      [
+        "Channels",
+        "1,590 Tracking Channels"
+      ],
+      [
+        "RTK Accuracy",
+        "Sub-Centimeter Precision (Horizontal & Vertical)"
+      ],
+      [
+        "Tilt IMU",
+        "Calibration-Free Compensation up to 60°"
+      ],
+      [
+        "Battery & Rating",
+        "3,400 mAh Battery with IP67 Rugged Ingress Protection"
+      ]
+    ],
+    "advantages": [
+      {
+        "title": "Laser EDM Milimeter",
+        "titleEn": "Millimeter Laser EDM",
+        "desc": "Tembak titik di lereng terjal atau tebing tanpa membahayakan surveyor di lapangan.",
+        "descEn": "Measure points on steep slopes or unsafe zones without risking surveyor safety.",
+        "icon": "laser"
+      },
+      {
+        "title": "Layar OLED Interaktif",
+        "titleEn": "Interactive OLED Display",
+        "desc": "Pantau status satelit, baterai, dan mode kerja langsung di bodi instrumen.",
+        "descEn": "Monitor satellite tracking, battery level, and modes directly on the instrument body.",
+        "icon": "eye"
+      },
+      {
+        "title": "1.590 Kanal Multi-Satelit",
+        "titleEn": "1,590 Multi-Constellation Channels",
+        "desc": "Pelacakan konstelasi penuh untuk fix yang sangat cepat dan konsisten.",
+        "descEn": "Comprehensive constellation tracking delivering ultra-fast and consistent RTK locks.",
+        "icon": "satellite"
+      },
+      {
+        "title": "Bodi Paduan Magnesium Ringan",
+        "titleEn": "Rugged Magnesium Alloy",
+        "desc": "Standar industri IP67 yang tahan banting dan cuaca ekstrem lapangan.",
+        "descEn": "IP67 certified all-weather durability engineered for tough fieldwork conditions.",
+        "icon": "shield"
+      }
+    ],
+    "created_at": "2026-10-02T03:28:58.767183+00:00",
+    "updated_at": "2026-11-01T16:34:11.453+00:00",
+    "updatedAt": "2026-11-01T16:34:11.453+00:00"
+  },
+  {
+    "id": "prod-1793550808133",
+    "code": "Jupiter Laser RTK",
+    "tag": "GNSS Receiver",
+    "tagEn": "GNSS Receiver / Surveying & Mapping Instrument",
+    "category": "laser-rtk",
+    "name": "ComNav Jupiter Laser RTK",
+    "nameEn": "ComNav Jupiter Laser RTK",
+    "summary": "Jupiter Laser RTK adalah receiver GNSS kelas atas yang mengintegrasikan teknologi GNSS mutakhir, sensor IMU, laser, dan kamera ganda. Dilengkapi platform K8 terbaru dengan 1668 kanal untuk melacak semua konstelasi satelit, fitur visual stake-out, serta kompensasi kemiringan IMU hingga 60°/120°. Solusi ideal untuk pengukuran di area berbahaya, sulit dijangkau, atau bersinyal lemah dengan daya tahan baterai hingga 16+ jam.",
+    "summaryEn": "The Jupiter Laser RTK is a flagship GNSS receiver combining cutting-edge GNSS technology, IMU sensors, laser EDM, and dual cameras. Powered by the latest K8 platform with 1,668 channels for tracking all satellite constellations, visual AR stakeout, and calibration-free IMU tilt compensation up to 60°/120°. An ideal solution for surveying in hazardous, obstructed, or weak-signal environments with 16+ hours of continuous battery life.",
+    "img": "https://xbadzroazjblacumvnpq.supabase.co/storage/v1/object/public/uploads/1793550413635-1793550413527-jupiter.png",
+    "status": "In Active Production",
+    "specs": [
+      [
+        "Jumlah Saluran / Kanal",
+        "1.668 Channels"
+      ],
+      [
+        "Pelacakan Sinyal Satelit",
+        "GPS, BDS (BDS-2, BDS-3), GLONASS, Galileo, QZSS, IRNSS, SBAS"
+      ],
+      [
+        "Kompensasi Kemiringan (IMU)",
+        "Hingga 60° akurasi 2.5 cm (Bebas Kalibrasi)"
+      ],
+      [
+        "Jangkauan Laser",
+        "50 meter"
+      ],
+      [
+        "Ketahanan Air & Debu",
+        "IP67 Ketahanan Debu dan Air"
+      ],
+      [
+        "Jarak Radio UHF Internal",
+        "3 – 15 km"
+      ]
+    ],
+    "specsEn": [
+      [
+        "Tracking Channels",
+        "1,668 Tracking Channels"
+      ],
+      [
+        "Satellite Constellations",
+        "GPS, BDS (BDS-2, BDS-3), GLONASS, Galileo, QZSS, IRNSS, SBAS"
+      ],
+      [
+        "Tilt Compensation (IMU)",
+        "Up to 60° tilt with 2.5 cm accuracy (Calibration-free)"
+      ],
+      [
+        "Laser EDM Range",
+        "50 meters millimeter-accuracy laser"
+      ],
+      [
+        "Ingress Protection",
+        "IP67 Water & Dust Resistance"
+      ],
+      [
+        "Internal UHF Radio Range",
+        "3 – 15 km typical range"
+      ]
+    ],
+    "advantages": [
+      {
+        "title": "Visual AR Stakeout Kamera Ganda",
+        "titleEn": "Dual Camera Visual AR Stakeout",
+        "desc": "Navigasi stakeout visual imersif langsung membimbing surveyor ke titik sasaran presisi.",
+        "descEn": "Immersive visual guidance directly leads surveyors to target points with sub-centimeter accuracy.",
+        "icon": "eye"
+      },
+      {
+        "title": "1.668 Kanal K8 GNSS Engine",
+        "titleEn": "1,668-Channel K8 GNSS Engine",
+        "desc": "Kapasitas komputasi satelit terdepan di industri untuk stabilitas sinyal tak tertandingi.",
+        "descEn": "Industry-leading multi-satellite tracking engine for unmatched signal stability in dense cover.",
+        "icon": "satellite"
+      },
+      {
+        "title": "Laser Jarak Jauh 50 Meter",
+        "titleEn": "50-Meter Long Range Laser",
+        "desc": "Pengukuran titik tanpa sentuh dan tanpa pole di area tebing berbahaya dan terhalang.",
+        "descEn": "Contactless and poleless measurement in high-risk cliff faces and obstructed corners.",
+        "icon": "laser"
+      },
+      {
+        "title": "Daya Tahan Kerja 16+ Jam",
+        "titleEn": "16+ Hours Continuous Runtime",
+        "desc": "Baterai berkapasitas tinggi mendukung operasional survei seharian penuh tanpa jeda.",
+        "descEn": "High-capacity power system enables full-day intensive surveying without interruptions.",
+        "icon": "battery"
+      }
+    ],
+    "created_at": "2026-11-01T16:33:27.839222+00:00",
+    "updated_at": "2026-11-01T16:34:46.123+00:00",
+    "updatedAt": "2026-11-01T16:34:46.123+00:00"
+  },
+  {
+    "id": "prod-1793551246456",
+    "code": "LS600 LiDAR",
+    "tag": "3D Laser Scanner",
+    "tagEn": "3D Laser Scanner",
+    "category": "lidar",
+    "name": "ComNav LS600 Handheld 3D Laser Scanner",
+    "nameEn": "ComNav LS600 Handheld 3D Laser Scanner",
+    "summary": "LS600 adalah pemindai laser 3D (laser scanner) portabel yang mengintegrasikan teknologi SLAM mutakhir, modul RTK internal untuk akurasi sentimeter, serta kamera ganda untuk menghasilkan point cloud berwarna dengan detail tinggi. Menggunakan perpaduan multi-sensor (LiDAR, IMU, GNSS, dan kamera), perangkat ini menjamin performa stabil baik di dalam ruangan (indoor) maupun luar ruangan (outdoor). Desainnya ringkas dan ringan, sangat cocok untuk survei pemetaan, GIS, pertambangan, dan kehutanan.",
+    "summaryEn": "The LS600 is a versatile handheld 3D laser scanner that integrates advanced SLAM, a built-in RTK module for ±1 cm accuracy, and dual cameras for generating rich color point clouds. With seamless multi-sensor fusion combining LiDAR, IMU, camera, and GNSS, it delivers superior, reliable performance across indoor and outdoor environments in a lightweight, rugged design. Ideal for surveying & mapping, GIS, mining, and forestry applications.",
+    "img": "https://xbadzroazjblacumvnpq.supabase.co/storage/v1/object/public/uploads/1793550997132-1793550997039-ls600.png",
+    "status": "In Active Production",
+    "specs": [
+      [
+        "Akurasi Pemindaian",
+        "Akurasi hingga ±1 cm (Sentimeter)"
+      ],
+      [
+        "Teknologi Utama",
+        "Fusi Multi-Sensor (LiDAR, Real-Time SLAM, RTK, IMU, Kamera Ganda)"
+      ],
+      [
+        "Mode Pemindaian",
+        "Handheld (Genggam), Extension Pole, Backpack"
+      ],
+      [
+        "Sistem Koordinat",
+        "Fleksibel (Mendukung GNSS RTK & Titik Kontrol GCP)"
+      ]
+    ],
+    "specsEn": [
+      [
+        "Scanning Accuracy",
+        "Up to ±1 cm"
+      ],
+      [
+        "Core Technology",
+        "Multi-Sensor Fusion (LiDAR, Real-Time SLAM, RTK, IMU, Dual Cameras)"
+      ],
+      [
+        "Scanning Modes",
+        "Handheld, Extension Pole, Backpack Kit"
+      ],
+      [
+        "Coordinate Systems",
+        "Flexible (RTK Coordinates & One-Tap Control Point Optimization)"
+      ]
+    ],
+    "advantages": [
+      {
+        "title": "Real-Time SLAM & GNSS RTK",
+        "titleEn": "Real-Time SLAM & GNSS RTK",
+        "desc": "Kombinasi SLAM dan modul RTK internal menghasilkan point cloud absolut bergeoreferensi langsung di lokasi.",
+        "descEn": "Integrates real-time SLAM with an internal RTK module for directly georeferenced absolute point clouds.",
+        "icon": "target"
+      },
+      {
+        "title": "Kamera Ganda Point Cloud Berwarna",
+        "titleEn": "Dual Cameras for True Color Clouds",
+        "desc": "Kamera fotogrametri ganda menangkap warna realistis untuk visualisasi 3D yang hidup.",
+        "descEn": "Dual high-resolution cameras capture lifelike true-color textures for vivid 3D deliverables.",
+        "icon": "eye"
+      },
+      {
+        "title": "Desain Ringkas & Multi-Mode",
+        "titleEn": "Lightweight Multi-Mode Deployment",
+        "desc": "Bisa digunakan mode genggam (handheld), dipasang pada tiang ekstensi, atau ransel survei (backpack).",
+        "descEn": "Easily deployed as a handheld unit, on an extension pole, or in a mobile backpack kit.",
+        "icon": "feather"
+      },
+      {
+        "title": "Performa Indoor & Outdoor",
+        "titleEn": "Indoor & Outdoor Versatility",
+        "desc": "Stabil beroperasi di dalam terowongan, bangunan, maupun hutan lebat tanpa ketergantungan satelit.",
+        "descEn": "Seamlessly operates in tunnels, building interiors, and dense forest canopies without satellite dependency.",
+        "icon": "compass"
+      }
+    ],
+    "updatedAt": "2026-11-01T16:40:46.456Z"
   }
 ]

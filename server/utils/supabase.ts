@@ -36,10 +36,38 @@ export async function getProductsFromSupabase(): Promise<any[] | null> {
       return null
     }
 
-    return data.map(item => ({
-      ...item,
-      updatedAt: item.updated_at || item.updatedAt
-    }))
+    return data.map(item => {
+      let nameEn = item.name_en || item.nameEn
+      let summaryEn = item.summary_en || item.summaryEn
+      let tagEn = item.tag_en || item.tagEn
+      let specsEn = item.specs_en || item.specsEn
+      let advantages = item.advantages
+
+      let cleanSpecs = item.specs
+      if (Array.isArray(item.specs)) {
+        const metaItem = item.specs.find((s: any) => !Array.isArray(s) && typeof s === 'object' && s !== null && (s._i18n || s.i18n))
+        if (metaItem) {
+          const meta = metaItem._i18n || metaItem.i18n
+          if (!nameEn && meta.nameEn) nameEn = meta.nameEn
+          if (!summaryEn && meta.summaryEn) summaryEn = meta.summaryEn
+          if (!tagEn && meta.tagEn) tagEn = meta.tagEn
+          if (!specsEn && meta.specsEn) specsEn = meta.specsEn
+          if (!advantages && meta.advantages) advantages = meta.advantages
+        }
+        cleanSpecs = item.specs.filter((s: any) => Array.isArray(s))
+      }
+
+      return {
+        ...item,
+        nameEn,
+        summaryEn,
+        tagEn,
+        specs: cleanSpecs,
+        specsEn,
+        advantages,
+        updatedAt: item.updated_at || item.updatedAt
+      }
+    })
   } catch (err: any) {
     console.warn('[Supabase] Exception fetching products:', err?.message)
     return null
@@ -51,18 +79,34 @@ export async function saveProductsToSupabase(products: any[]): Promise<boolean> 
   if (!supabase) return false
 
   try {
-    const rows = products.map(p => ({
-      id: p.id,
-      code: p.code || null,
-      tag: p.tag || null,
-      category: p.category || null,
-      name: p.name,
-      summary: p.summary || null,
-      img: p.img || null,
-      status: p.status || 'In Field Deployment',
-      specs: p.specs || [],
-      updated_at: new Date().toISOString()
-    }))
+    const rows = products.map(p => {
+      const cleanSpecs = Array.isArray(p.specs) ? p.specs.filter((s: any) => Array.isArray(s)) : []
+      const specsWithI18n = [
+        ...cleanSpecs,
+        {
+          _i18n: {
+            nameEn: p.nameEn || p.name_en || null,
+            summaryEn: p.summaryEn || p.summary_en || null,
+            tagEn: p.tagEn || p.tag_en || null,
+            specsEn: p.specsEn || p.specs_en || null,
+            advantages: p.advantages || null
+          }
+        }
+      ]
+
+      return {
+        id: p.id,
+        code: p.code || null,
+        tag: p.tag || null,
+        category: p.category || null,
+        name: p.name,
+        summary: p.summary || null,
+        img: p.img || null,
+        status: p.status || 'In Field Deployment',
+        specs: specsWithI18n,
+        updated_at: new Date().toISOString()
+      }
+    })
 
     const { error } = await supabase
       .from('products')
