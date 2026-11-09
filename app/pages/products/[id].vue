@@ -462,6 +462,116 @@ const formattedSpecs = computed(() => {
 
 // Knowledge base of rich advantages matching user reference and real instruments
 const fallbackAdvantages: Record<string, Array<{ title: string; desc: string; icon: string }>> = {
+  'SINOGNSS-A300': [
+    {
+      title: 'Akurasi Tingkat Milimeter',
+      desc: 'Platform K8 menghasilkan kepresisian posisi milimeter untuk deteksi dini pergeseran struktural.',
+      icon: 'target'
+    },
+    {
+      title: '965 Kanal Multi-Konstelasi',
+      desc: 'Pelacakan komprehensif sinyal GPS, BeiDou, GLONASS, Galileo, QZSS, IRNSS, dan L-Band.',
+      icon: 'satellite'
+    },
+    {
+      title: 'Proteksi Ekstrem IP68 & Anti-Petir',
+      desc: 'Tahan cuaca ekstrem, getaran tinggi, dan proteksi lonjakan petir untuk instalasi lapangan terbuka.',
+      icon: 'shield'
+    },
+    {
+      title: 'Operasional Kontinu 24/7',
+      desc: 'Dirancang untuk pemantauan nonstop jangka panjang dengan MTBF > 50.000 jam.',
+      icon: 'zap'
+    }
+  ],
+  'SINOGNSS-M300-PRO': [
+    {
+      title: '1.590 Kanal QUANTUM™ Engine',
+      desc: 'Pelacakan multi-konstelasi penuh untuk stabilitas data stasiun referensi CORS berkelanjutan.',
+      icon: 'satellite'
+    },
+    {
+      title: 'Ntrip Caster, Server & Client',
+      desc: 'Mendukung transmisi koreksi diferensial standar industri ke beragam rover di lapangan.',
+      icon: 'cloud'
+    },
+    {
+      title: 'Dual Backup LAN & 4G Auto-Switch',
+      desc: 'Transmisi data tanpa henti dengan peralihan otomatis antar jaringan kabel dan seluler.',
+      icon: 'wifi'
+    },
+    {
+      title: 'Catu Daya UPS Cadangan',
+      desc: 'Menjaga stasiun referensi tetap aktif bekerja tanpa mati mendadak saat pasokan listrik padam.',
+      icon: 'battery'
+    }
+  ],
+  'SINOGNSS-M900': [
+    {
+      title: 'Dual-Antenna Positioning & Heading',
+      desc: 'Menghitung koordinat posisi dan sudut arah hadap (heading) sekaligus dengan presisi sub-derajat.',
+      icon: 'compass'
+    },
+    {
+      title: '1.226 Kanal QUANTUM™ Multi-Satelit',
+      desc: 'Dukungan penuh semua konstelasi dan L-band untuk performa stabil di darat dan perairan.',
+      icon: 'satellite'
+    },
+    {
+      title: 'Bodi Tangguh Standar IP68',
+      desc: 'Tahan rendaman air, getaran mesin berat, serta lingkungan berdebu tebal tanpa kendala.',
+      icon: 'shield'
+    },
+    {
+      title: 'Konektivitas Lengkap & Layar OLED',
+      desc: 'Layar OLED memudahkan pemantauan status langsung di unit, didukung 4G/WiFi/UHF/BT.',
+      icon: 'eye'
+    }
+  ],
+  'COMNAV-CDL5': [
+    {
+      title: 'Daya Fleksibel 2W Hingga 30W',
+      desc: '6 opsi daya output memungkinkan surveyor menyesuaikan konsumsi energi dan jarak jangkau.',
+      icon: 'zap'
+    },
+    {
+      title: 'Mode 3-in-1 TX, RX & Repeater',
+      desc: 'Berfungsi fleksibel sebagai pemancar base, penerima rover, atau stasiun pengulang (repeater).',
+      icon: 'wifi'
+    },
+    {
+      title: 'Pilihan Frekuensi Luas 410–470 MHz',
+      desc: 'Penggantian frekuensi langsung di lapangan memudahkan adaptasi terhadap regulasi dan interferensi.',
+      icon: 'target'
+    },
+    {
+      title: 'Perlindungan Lapangan Tangguh IP67',
+      desc: 'Ketahanan debu dan air bersertifikat IP67 serta proteksi daya anti-terbalik yang andal.',
+      icon: 'shield'
+    }
+  ],
+  'COMNAV-CDL7': [
+    {
+      title: 'Daya Transmisi Tinggi Hingga 35W',
+      desc: 'Jangkauan sinyal koreksi RTK lebih jauh melintasi bukit, hutan, dan area perkotaan.',
+      icon: 'zap'
+    },
+    {
+      title: 'Bodi Logam Penuh (Fully Metal)',
+      desc: 'Konstruksi logam kokoh menjamin disipasi panas optimal dan perlindungan benturan keras.',
+      icon: 'shield'
+    },
+    {
+      title: '5 Pilihan Air Baud Rate',
+      desc: 'Fleksibilitas mengatur kecepatan transfer data sesuai kondisi interferensi sinyal radio setempat.',
+      icon: 'wifi'
+    },
+    {
+      title: 'Sertifikasi Lapangan IP67',
+      desc: 'Tahan debu tambang dan guyuran hujan deras dengan keandalan operasional jangka panjang.',
+      icon: 'target'
+    }
+  ],
   'COMNAV-T20-GNSS': [
     {
       title: '10,000mAh Battery',
@@ -526,6 +636,50 @@ const fallbackAdvantages: Record<string, Array<{ title: string; desc: string; ic
       title: 'IMU 60° Bebas Kalibrasi',
       desc: 'Pengukuran tetap presisi walau pole miring tanpa interferensi medan magnetik.',
       icon: 'compass'
+    }
+  ],
+  'COMNAV-SV600': [
+    {
+      title: 'Desain Dual Moon Pool Serbaguna',
+      desc: 'Fleksibel memasang echo-sounder single-beam, multi-beam, ADCP, atau sensor kualitas air.',
+      icon: 'anchor'
+    },
+    {
+      title: 'Radar Otomatis Penghindar Rintangan',
+      desc: 'Radar gelombang milimeter mendeteksi dan menghindari rintangan perairan secara otonom.',
+      icon: 'radar'
+    },
+    {
+      title: 'Posisi Presisi Kontinu GNSS + IMU',
+      desc: 'Lintasan survei tetap akurat bahkan di bawah jembatan atau kanopi dengan bantuan IMU.',
+      icon: 'compass'
+    },
+    {
+      title: 'Pengawasan Video 360° Real-Time',
+      desc: 'Kamera 360° mentransmisikan video langsung ke remote control cerdas operator.',
+      icon: 'eye'
+    }
+  ],
+  'SINOGNSS-AT600': [
+    {
+      title: 'Stabilitas Phase Center Sub-Milimeter',
+      desc: 'Memberikan akurasi absolut tingkat sub-milimeter untuk stasiun referensi CORS nasional.',
+      icon: 'target'
+    },
+    {
+      title: 'Peredaman Multipath Unggul',
+      desc: 'Struktur choke ring 3D secara drastis mengeliminasi gangguan pantulan sinyal dari tanah dan air.',
+      icon: 'shield'
+    },
+    {
+      title: 'Cakupan Penuh Semua Pita GNSS & L-Band',
+      desc: 'Melacak frekuensi lengkap GPS, BDS, GLONASS, Galileo, QZSS, Navic, SBAS, dan L-band.',
+      icon: 'satellite'
+    },
+    {
+      title: 'Kubah Radome Tahan Cuaca Ekstrem',
+      desc: 'Bahan anti-UV dan tahan cuaca ekstrem melindungi elemen antena untuk pemantauan jangka panjang.',
+      icon: 'zap'
     }
   ],
   'SV600-USV': [

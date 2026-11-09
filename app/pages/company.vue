@@ -353,21 +353,21 @@ const managementList = computed(() => [
     name: t('management.member1Name'),
     role: t('management.member1Role'),
     dept: t('management.member1Dept'),
-    img: '/images/Radhis.jpg',
+    img: '/images/editRifqy.jpg',
     imgPosition: 'object-bottom'
   },
   {
     name: t('management.member2Name'),
     role: t('management.member2Role'),
     dept: t('management.member2Dept'),
-    img: '/images/Lyquee.jpg',
+    img: '/images/editLyque.jpg',
     imgPosition: 'object-bottom'
   },
   {
     name: t('management.member3Name'),
     role: t('management.member3Role'),
     dept: t('management.member3Dept'),
-    img: '/images/Hartini.jpg',
+    img: '/images/editHartini.jpg',
     imgPosition: 'object-bottom'
   }
 ])

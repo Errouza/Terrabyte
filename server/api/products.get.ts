@@ -10,6 +10,13 @@ export default defineEventHandler(async () => {
     if (s.includes('n2') || s.includes('palm')) return 'n2'
     if (s.includes('t20')) return 't20'
     if (s.includes('mars')) return 'mars'
+    if (s.includes('a300')) return 'a300'
+    if (s.includes('m300')) return 'm300'
+    if (s.includes('m900')) return 'm900'
+    if (s.includes('cdl7') || s.includes('cdl 7')) return 'cdl7'
+    if (s.includes('cdl5') || s.includes('cdl 5')) return 'cdl5'
+    if (s.includes('sv600') || s.includes('sv 600')) return 'sv600'
+    if (s.includes('at600') || s.includes('at 600')) return 'at600'
     return s.replace(/[^a-z0-9]/g, '')
   }
 
@@ -45,10 +52,10 @@ export default defineEventHandler(async () => {
     }
   }
 
-  // Filter out any SV600 or placeholder images
+  // Filter out any obsolete placeholder assets
   const list = Array.from(map.values()).filter(p => {
     const s = `${p.id || ''} ${p.code || ''} ${p.name || ''} ${p.img || ''}`.toLowerCase()
-    return !s.includes('sv600') && !s.includes('solutions-marine')
+    return !s.includes('solutions-marine')
   })
 
   // Exact sorting order matching reference:

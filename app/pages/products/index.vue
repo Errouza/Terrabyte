@@ -404,10 +404,10 @@ const isFlipped = (id: string) => {
 
 const allProducts = computed(() => {
   if (!Array.isArray(productsData.value) || productsData.value.length === 0) return []
-  // Filter out any unauthorized or dummy products (e.g. sv600 bicycle)
+  // Filter out any obsolete placeholder assets
   const list = productsData.value.filter((p: any) => {
     const s = `${p.id || ''} ${p.code || ''} ${p.name || ''} ${p.img || ''}`.toLowerCase()
-    return !s.includes('sv600') && !s.includes('solutions-marine')
+    return !s.includes('solutions-marine')
   })
 
   // Deduplicate products by code/name to prevent duplicate entries

@@ -757,7 +757,7 @@ const homeProducts = computed(() => {
   if (!Array.isArray(productsData.value) || productsData.value.length === 0) return []
   const list = productsData.value.filter((p: any) => {
     const s = `${p.id || ''} ${p.code || ''} ${p.name || ''} ${p.img || ''}`.toLowerCase()
-    return !s.includes('sv600') && !s.includes('solutions-marine')
+    return !s.includes('solutions-marine')
   })
 
   // Priority: 1. Radar MS-SAR5000, 2. N2 Palm, 3. T20 GNSS, 4. Mars Laser RTK
@@ -790,21 +790,21 @@ const managementList = computed(() => [
     name: t('management.member1Name'),
     role: t('management.member1Role'),
     dept: t('management.member1Dept'),
-    img: '/images/Radhis.jpg',
+    img: '/images/editRifqy.jpg',
     imgPosition: 'object-bottom'
   },
   {
     name: t('management.member2Name'),
     role: t('management.member2Role'),
     dept: t('management.member2Dept'),
-    img: '/images/Lyquee.jpg',
+    img: '/images/editLyque.jpg',
     imgPosition: 'object-bottom'
   },
   {
     name: t('management.member3Name'),
     role: t('management.member3Role'),
     dept: t('management.member3Dept'),
-    img: '/images/Hartini.jpg',
+    img: '/images/editHartini.jpg',
     imgPosition: 'object-bottom'
   }
 ])
